@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>team-os — Betterworks PM Operating System</title>
+<style>
+  :root {
+    --fg: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #0b5cad;
+    --bg: #ffffff;
+    --code-bg: #f5f5f7;
+    --border: #e3e3e7;
+    --warn: #c75300;
+    --ok: #157f3d;
+    --tier1: #fef3e3;
+    --tier2: #e9f3fb;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--fg); }
+  body {
+    font: 15px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px 80px;
+  }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 4px; }
+  h2 { font-size: 20px; margin: 36px 0 10px; padding-bottom: 5px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 16px; margin: 22px 0 8px; }
+  p, ul, ol { margin: 8px 0 12px; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  code { background: var(--code-bg); padding: 1px 5px; border-radius: 4px; font: 13px/1.4 "SF Mono", Menlo, Consolas, monospace; }
+  pre { background: var(--code-bg); padding: 12px 14px; border-radius: 6px; overflow-x: auto; border: 1px solid var(--border); }
+  pre code { background: transparent; padding: 0; font-size: 12.5px; }
+  table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 14px; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--code-bg); font-weight: 600; }
+  .meta { color: var(--muted); font-size: 13px; margin: 4px 0 22px; }
+  .meta strong { color: var(--fg); }
+  .pill {
+    display: inline-block;
+    padding: 2px 9px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .pill-version { background: #eef2fb; color: var(--accent); }
+  .pill-live { background: #e8f3ec; color: var(--ok); }
+  .pill-tier1 { background: var(--tier1); color: #884a00; }
+  .pill-tier2 { background: var(--tier2); color: #0b5cad; }
+  .callout-iter {
+    background: #f7f4ff;
+    border-left: 3px solid #6a4cb5;
+    padding: 14px 16px;
+    border-radius: 0 6px 6px 0;
+    margin: 18px 0;
+  }
+  .callout-iter strong { color: #4a2f87; }
+  .iteration {
+    border-left: 3px solid var(--border);
+    padding: 6px 0 6px 16px;
+    margin: 18px 0;
+  }
+  .iteration h3 { margin-top: 0; }
+  .iteration .iter-meta { color: var(--muted); font-size: 13px; margin: 0 0 8px; }
+  .footnote { color: var(--muted); font-size: 13px; margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); }
+  a { color: var(--accent); }
+  .toc { font-size: 14px; background: var(--code-bg); padding: 14px 18px 14px 38px; border-radius: 6px; border: 1px solid var(--border); }
+  .toc ul { margin: 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>team-os</h1>
+<p class="meta">
+  <strong>Betterworks PM Operating System</strong> &nbsp;·&nbsp;
+  <span class="pill pill-version">v0.1</span> &nbsp;·&nbsp;
+  <span class="pill pill-live">Live</span> &nbsp;·&nbsp;
+  <strong>Last updated:</strong> 2026-05-14
+</p>
+
+<p>
+  Personal-but-shareable operating system for Lalit's PM work at Betterworks. The repo is the shared context every Claude Code session reads from. This document is the entry point — start here if you've just opened the repo, are joining the team, or are evaluating where to put new content.
+</p>
+
+<div class="callout-iter">
+  <strong>This is a living document.</strong> Every meaningful change to the OS structure adds an entry to the <a href="#iteration-log">Iteration log</a> at the bottom. Treat the table of contents above as "current state" and the iteration log as "how we got here."
+</div>
+
+<div class="toc">
+  <strong>Contents</strong>
+  <ul>
+    <li><a href="#quickstart">Quickstart</a></li>
+    <li><a href="#layout">Folder layout</a></li>
+    <li><a href="#architecture">Architecture — the five principles</a></li>
+    <li><a href="#tiers">Tier-1 (always loaded) vs Tier-2 (on-demand)</a></li>
+    <li><a href="#skills">Active skills &amp; commands</a></li>
+    <li><a href="#hooks">Active hooks</a></li>
+    <li><a href="#routines">Active routines</a></li>
+    <li><a href="#daily">A day in the OS</a></li>
+    <li><a href="#contributing">Adding new structure</a></li>
+    <li><a href="#iteration-log">Iteration log</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</div>
+
+<h2 id="quickstart">Quickstart</h2>
+<ol>
+  <li>Read root <code>CLAUDE.md</code> (≤80 lines) — universal house rules + dedicated tool routing.</li>
+  <li>Read <code>.claude/context-design.md</code> once — the architecture this OS is built on.</li>
+  <li><code>cd</code> into the area you're working in (e.g. <code>product/meeting-transcripts/</code>). Each area has its own scoped <code>CLAUDE.md</code>.</li>
+  <li>Start with <code>/my-actions</code> to surface open items.</li>
+  <li>For drafting a PRD, run <code>/write-prd &lt;slug&gt;</code>. For sensing release state, run <code>/sense-backlog &lt;release&gt;</code>.</li>
+</ol>
+
+<h2 id="layout">Folder layout</h2>
+<table>
+  <thead><tr><th>Path</th><th>Purpose</th><th>Tier</th></tr></thead>
+  <tbody>
+    <tr><td><code>CLAUDE.md</code></td><td>Root routing — identity, session workflow, dedicated tools, house rules</td><td><span class="pill pill-tier1">Tier-1</span></td></tr>
+    <tr><td><code>.claude/context-design.md</code></td><td>This OS's architecture — principles, sizing rules, hooks &amp; routines catalogue</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>.claude/skills/</code></td><td>Workflow playbooks (PRD, sense-backlog, audit-context, etc.) — load on invocation</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>.claude/commands/</code></td><td>Slash commands — <code>/my-actions</code>, <code>/meeting-debrief</code>, <code>/write-prd</code>, etc.</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>.claude/hooks/</code></td><td>Event-driven scripts that filter or guard context</td><td>—</td></tr>
+    <tr><td><code>product/</code></td><td>Per-area specs, roadmap ledgers, signals</td><td>Mixed</td></tr>
+    <tr><td><code>knowledge/</code></td><td>Learning loop — rules, hypotheses, observations per domain</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>decisions/</code></td><td>Decision journal — ADRs for PM decisions</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>ops/</code></td><td>Sprint cadence, meeting notes, daily briefs, team rituals</td><td>Mixed</td></tr>
+    <tr><td><code>analytics/</code></td><td>Metric definitions, audit reports, playbooks</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>team/</code></td><td>Roster, Slack channels, who-does-what</td><td>Mixed</td></tr>
+  </tbody>
+</table>
+
+<h2 id="architecture">Architecture — the five principles</h2>
+<p>Full version in <code>.claude/context-design.md</code>. Summary:</p>
+<ol>
+  <li><strong>Two-tier knowledge.</strong> Tier-1 is always loaded; Tier-2 is on-demand. Decide which tier <em>before</em> writing.</li>
+  <li><strong>Orthogonal scoping.</strong> A fact lives in exactly one place. No duplication between root and sub-<code>CLAUDE.md</code>, or between repo and auto-memory.</li>
+  <li><strong>Workflows live in skills, not <code>CLAUDE.md</code>.</strong> Skills load on invocation; a 100-line "how to" in <code>CLAUDE.md</code> taxes every session.</li>
+  <li><strong>Subagent for heavy reads.</strong> Any operation reading &gt;5 files or &gt;2000 lines goes to a subagent. Verbose output stays in the subagent's context; only the summary returns.</li>
+  <li><strong>Append-only signals; never promote into Tier-1.</strong> Findings go to <code>signals/&lt;feature&gt;.md</code>. Resist promoting them into <code>CLAUDE.md</code> — that inflates Tier-1.</li>
+</ol>
+
+<h2 id="tiers">Tier-1 vs Tier-2</h2>
+<table>
+  <thead><tr><th></th><th>Tier-1 (always loaded)</th><th>Tier-2 (on-demand)</th></tr></thead>
+  <tbody>
+    <tr><td><strong>What</strong></td><td>Root <code>CLAUDE.md</code>, scoped sub-<code>CLAUDE.md</code>, auto-memory</td><td>Skills, <code>knowledge/</code>, <code>signals/</code>, <code>decisions/</code>, this README</td></tr>
+    <tr><td><strong>Cost</strong></td><td>Every Claude turn, every session</td><td>Only when invoked or grep'd</td></tr>
+    <tr><td><strong>Sizing rule</strong></td><td>Root ≤80 lines · Sub ≤40 lines · Memory entry ≤30 lines</td><td>Unbounded by design</td></tr>
+    <tr><td><strong>What goes here</strong></td><td>Identity, universal house rules, workflow triggers, dedicated tool routing</td><td>Workflow detail, playbooks, dated findings, decisions, learning</td></tr>
+  </tbody>
+</table>
+
+<h2 id="skills">Active skills &amp; commands</h2>
+<table>
+  <thead><tr><th>Name</th><th>Trigger</th><th>Purpose</th></tr></thead>
+  <tbody>
+    <tr><td><code>prd-agentic</code></td><td>via <code>/write-prd</code></td><td>Draft Markdown PRDs with stable IDs, EARS acceptance criteria, agent-card.json</td></tr>
+    <tr><td><code>sense-backlog</code></td><td><code>/sense-backlog &lt;release&gt;</code></td><td>Refresh release working ledger from Aha + Jira + Confluence + Slack signal</td></tr>
+    <tr><td><code>sync-prd</code></td><td><code>/sync-prd &lt;slug&gt;</code></td><td>Reconcile md ↔ html ↔ INDEX ↔ agent-card after claude.ai chat iteration</td></tr>
+    <tr><td><code>meeting-to-tasks</code></td><td>auto on transcripts</td><td>Extract structured tasks, knowledge, decisions, people from a meeting transcript</td></tr>
+    <tr><td><code>tldr-pdf</code></td><td>on demand</td><td>200-word TL;DR from a PDF without loading full text into parent context</td></tr>
+    <tr><td><code>audit-context</code></td><td><code>/audit-context</code> + monthly</td><td>Check <code>CLAUDE.md</code> / memory / signal drift against the sizing rules</td></tr>
+    <tr><td><code>/my-actions</code></td><td>start of session</td><td>Surface open items before doing anything else</td></tr>
+    <tr><td><code>/meeting-debrief</code></td><td>after meetings</td><td>Capture decisions, tasks, signals from a meeting</td></tr>
+    <tr><td><code>/standup</code></td><td>daily standup</td><td>Synthesize yesterday/today/blockers</td></tr>
+    <tr><td><code>/daily-meeting-extract</code></td><td>cron 20:00 IST</td><td>Backup extraction in case live debriefs were missed</td></tr>
+  </tbody>
+</table>
+
+<h2 id="hooks">Active hooks</h2>
+<p>Wired in <code>.claude/settings.json</code> · scripts in <code>.claude/hooks/</code></p>
+<table>
+  <thead><tr><th>Hook</th><th>Event</th><th>Effect</th></tr></thead>
+  <tbody>
+    <tr><td><code>log-claudemd-change.sh</code></td><td>PostToolUse Edit/Write/MultiEdit</td><td>Appends every CLAUDE.md edit to <code>ops/claudemd-changelog.md</code></td></tr>
+    <tr><td><code>warn-claudemd-size.sh</code></td><td>PostToolUse Edit/Write/MultiEdit</td><td>Warns when any CLAUDE.md crosses soft limit (root 80, sub 40)</td></tr>
+    <tr><td><code>warn-large-reads.sh</code></td><td>PreToolUse Read</td><td>Warns on reads &gt;2000 lines; suggests subagent</td></tr>
+    <tr><td><code>index-signals.sh</code></td><td>PostToolUse Edit/Write/MultiEdit on <code>signals/**/*.md</code></td><td>Regenerates <code>signals/INDEX.md</code> automatically</td></tr>
+  </tbody>
+</table>
+
+<h2 id="routines">Active routines</h2>
+<p>Scheduled remote agents — run in their own context, write artifacts to disk, never tax foreground sessions.</p>
+<table>
+  <thead><tr><th>Routine</th><th>Cadence</th><th>Output</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td><strong>daily-meeting-extract</strong></td><td>weekdays 20:00 IST (system cron)</td><td>Per-meeting extracts</td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>morning-brief</strong></td><td>weekdays 08:00 IST</td><td><code>ops/daily/&lt;date&gt;.md</code></td><td>Pending registration via <code>/schedule</code></td></tr>
+    <tr><td><strong>day-end-sweep</strong></td><td>weekdays 19:00 IST</td><td>Appends to <code>signals/&lt;feature&gt;.md</code></td><td>Pending registration</td></tr>
+    <tr><td><strong>monthly-audit-context</strong></td><td>1st of month 09:00 IST</td><td><code>analytics/context-audit/&lt;date&gt;.md</code></td><td>Pending registration</td></tr>
+    <tr><td><strong>quarterly-archive</strong> (optional)</td><td>1st of Jan/Apr/Jul/Oct</td><td>Moves stale signals to <code>_archive/</code></td><td>Pending registration</td></tr>
+  </tbody>
+</table>
+<p>Registration prompts: <code>ops/routines-playbook.md</code> (one-time setup file, self-deletes after applying).</p>
+
+<h2 id="daily">A day in the OS</h2>
+<ol>
+  <li><strong>Morning:</strong> The <em>morning-brief</em> routine has already written <code>ops/daily/&lt;today&gt;.md</code> with overnight Jira/Slack/calendar state. Open and skim — no need to ask Claude "what changed?"</li>
+  <li><strong>Work session start:</strong> <code>cd</code> into the area folder (e.g. <code>product/meeting-transcripts/</code>) so only that scope's <code>CLAUDE.md</code> loads. Run <code>/my-actions</code>.</li>
+  <li><strong>After a meeting:</strong> <code>/meeting-debrief &lt;meeting-name&gt;</code> — decisions go to <code>decisions/</code>, signals to <code>signals/&lt;feature&gt;.md</code>, tasks captured.</li>
+  <li><strong>Drafting:</strong> PRDs via <code>/write-prd</code>; refinement prep via <code>/sense-backlog &lt;release&gt;</code>. Heavy reads → subagent (the <code>warn-large-reads.sh</code> hook will remind you if you slip).</li>
+  <li><strong>End of day:</strong> The <em>day-end-sweep</em> routine collects mentions you missed and appends to relevant signal files. Quarterly the <em>archive</em> routine prunes resolved signals.</li>
+  <li><strong>Once a month:</strong> The <em>monthly-audit-context</em> routine writes a drift report. Glance at <code>analytics/context-audit/&lt;date&gt;.md</code> to see if any file has grown past its soft limit.</li>
+</ol>
+
+<h2 id="contributing">Adding new structure</h2>
+<table>
+  <thead><tr><th>When you want to add…</th><th>Do this</th></tr></thead>
+  <tbody>
+    <tr><td>A new product area</td><td><code>mkdir product/&lt;slug&gt;/</code>, create <code>CLAUDE.md</code> ≤40 lines mirroring <code>meeting-transcripts/CLAUDE.md</code>, add one-line pointer in root <code>CLAUDE.md</code> § My current focus</td></tr>
+    <tr><td>A new workflow / playbook</td><td>Create <code>.claude/skills/&lt;name&gt;/SKILL.md</code> with YAML frontmatter; add one-liner under root <code>CLAUDE.md</code> § Dedicated Tools</td></tr>
+    <tr><td>A new finding</td><td>Append to existing <code>signals/&lt;feature&gt;.md</code>. Never create a new always-loaded file for a single finding.</td></tr>
+    <tr><td>A new hook</td><td>Script under <code>.claude/hooks/</code>, wire in <code>.claude/settings.json</code>, document in this README's hooks table and in <code>.claude/context-design.md</code></td></tr>
+    <tr><td>A new routine</td><td>Register via <code>/schedule</code>; document in this README's routines table</td></tr>
+    <tr><td>A new always-true fact about Lalit</td><td>Auto-memory (<code>user_lalit_pm.md</code> or <code>process_rules.md</code>). Not <code>CLAUDE.md</code>.</td></tr>
+    <tr><td>A meaningful change to the OS itself</td><td>Add an entry to the <a href="#iteration-log">Iteration log</a> below.</td></tr>
+  </tbody>
+</table>
+
+<h2 id="iteration-log">Iteration log</h2>
+<p>Newest first. Each entry: date, version bump, one-sentence summary, then bullets of what changed and where to find detail.</p>
+
+<div class="iteration" id="v0-1">
+  <h3>v0.1 — 2026-05-13 · Establish context-design ethos</h3>
+  <p class="iter-meta">Initial structural refactor. Token efficiency moves from daily-discipline to OS-property.</p>
+  <ul>
+    <li>Added <code>.claude/context-design.md</code> as the architecture source of truth: 3 time-scales, 5 principles, sizing rules, hooks &amp; routines catalogue.</li>
+    <li>Added <code>audit-context</code> skill — Sonnet subagent, drift checker. Triggerable as <code>/audit-context</code>; scheduled monthly.</li>
+    <li>Added three hooks: <code>warn-claudemd-size.sh</code>, <code>warn-large-reads.sh</code>, <code>index-signals.sh</code>. Wired alongside the pre-existing <code>log-claudemd-change.sh</code>.</li>
+    <li>Trimmed root <code>CLAUDE.md</code> 107 → 77 lines. Migrated knowledge-loop, decision-journal, and routing-table-maintenance detail into <code>.claude/context-design.md</code>.</li>
+    <li>Consolidated auto-memory at <code>~/.claude/projects/-Users-lalitkumarmaharana/memory/</code>: 6 files / 7.8 KB → 3 files / 5.5 KB (29% reduction).</li>
+    <li>Added <code>ops/routines-playbook.md</code> for the manual steps tooling could not perform (<code>/mcp</code>, <code>/schedule</code>, global settings env block).</li>
+    <li>Quantified impact: root <code>CLAUDE.md</code> always-load −28%, memory always-load −29%, MCP startup −35% after manual disables, thinking-token ceiling 8000/turn.</li>
+  </ul>
+  <p class="iter-meta">Branches: <code>claude-context/ethos-foundation</code> (foundation), <code>claude-context/trim-claude-md</code> (trim + playbook).</p>
+</div>
+
+<!-- ADD NEW ITERATION ENTRIES ABOVE THIS LINE, NEWEST FIRST.
+     Each entry follows the v0.1 template: version, date, one-line summary, bullets, branches. -->
+
+<h2 id="references">References</h2>
+<ul>
+  <li><code>CLAUDE.md</code> — root routing for every session</li>
+  <li><code>.claude/context-design.md</code> — full architecture document</li>
+  <li><code>ops/routines-playbook.md</code> — current manual steps (delete after applying)</li>
+  <li><code>ops/claudemd-changelog.md</code> — auto-log of every CLAUDE.md edit (maintained by hook)</li>
+  <li><code>analytics/context-audit/</code> — monthly drift reports (oldest first)</li>
+  <li><code>decisions/</code> — ADRs for PM decisions</li>
+  <li><code>knowledge/</code> — learning loop: rules / hypotheses / observations per domain</li>
+</ul>
+
+<p class="footnote">
+  This README is the entry point. It is updated with every meaningful iteration to the OS — see the iteration log above. For the live Claude routing surface, see <code>CLAUDE.md</code>. For the architecture rationale, see <code>.claude/context-design.md</code>.
+</p>
+
+</body>
+</html>
