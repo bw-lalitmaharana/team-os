@@ -92,3 +92,46 @@ Run `/audit-context` (skill at `.claude/skills/audit-context/`) any time. Spawns
 - Report findings to `analytics/context-audit/<YYYY-MM-DD>.md`
 
 Scheduled to run monthly (1st of month). Drift accumulates silently; the audit makes it visible.
+
+## Knowledge loop
+
+Captures durable patterns. Lives entirely in Tier-2 (`/knowledge/`).
+
+Before any new task, check `/knowledge/<domain>/`:
+- `rules.md` — apply by default
+- `hypotheses.md` — test if today's work generates evidence
+- `knowledge.md` — raw observations for context
+
+After the task, extract anything new:
+- Facts → `knowledge.md`
+- Untested patterns → `hypotheses.md`
+- Confirmed patterns (3+ times) → `rules.md`
+- Demote a rule back to hypothesis if new data contradicts it
+
+Keep `/knowledge/INDEX.md` current — it's the routing table for the loop.
+
+## Decision journal
+
+Captures decisions with reasoning. Lives in Tier-2 (`/decisions/`).
+
+Before any choice that affects more than today's task:
+1. Grep `/decisions/` for prior decisions in this area. If found, follow it unless new info invalidates the reasoning.
+2. If none exists, log a new `/decisions/YYYY-MM-DD-<topic>.md` with:
+   - Decision
+   - Context
+   - Alternatives considered
+   - Reasoning
+   - Trade-offs accepted
+   - Supersedes (if revisiting a prior decision)
+
+## Routing table maintenance
+
+When a new skill is added under `.claude/skills/<name>/` or a new slash command under `.claude/commands/<name>.md`:
+
+1. Add a one-liner under root `CLAUDE.md` § Dedicated Tools pointing to its `SKILL.md` and when to use it.
+2. If it changes a recurring workflow (session start/end, pre-meeting, pre-release), add a bullet under § Session workflow.
+3. If it produces artifacts in a specific subfolder, update that subfolder's `CLAUDE.md` too.
+
+Future sessions discover skills automatically, but they discover *when to reach for them* through `CLAUDE.md`. Out-of-date routing is silent — keep it current.
+
+Every edit to any `CLAUDE.md` (via Claude Code Edit/Write/MultiEdit) is auto-logged to `ops/claudemd-changelog.md` by `.claude/hooks/log-claudemd-change.sh`. Don't hand-edit the changelog; rely on `git log` for edits outside Claude Code.

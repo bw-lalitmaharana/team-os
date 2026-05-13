@@ -47,17 +47,12 @@ I iterate PRDs in **claude.ai chat** (using `prd-agentic` / `pmd-template` skill
 - Subagent and tool defaults below — follow them
 
 ## Subagents
-
-Spawn subagents to isolate context, parallelize independent work, or offload bulk mechanical tasks. Don't spawn when the parent needs the reasoning, when synthesis requires holding things together, or when spawn overhead dominates.
-
-Pick the cheapest model that can do the subtask well:
-- Haiku: bulk mechanical work, no judgment
+Spawn to isolate context, parallelize independent work, or offload bulk mechanical tasks. Don't spawn when the parent needs the reasoning or when spawn overhead dominates.
+- Haiku: bulk mechanical work
 - Sonnet: scoped research, file exploration, in-scope synthesis
-- Opus: subtasks needing real planning or tradeoffs
+- Opus: real planning or tradeoffs
 
-If a subagent realizes it needs a higher tier than itself, return to the parent.
-
-Parent owns final output and cross-spawn synthesis. User instructions override.
+Parent owns final output; subagent returns to parent if it realizes it needs a higher tier than itself. **Default rule (principle 4 in `.claude/context-design.md`):** any read >5 files or >2000 lines goes to a subagent.
 
 ## Preferred Tools
 
@@ -76,32 +71,7 @@ Use `pdftotext`, not the `Read` tool. Read loads PDFs as images, which is expens
 - **`prd-agentic` skill** (`.claude/skills/prd-agentic/`) wraps `pmd-template` to produce Markdown PRDs with stable IDs, EARS acceptance criteria, Constraints block, Definition of Done, and a sibling `agent-card.json` (A2A static v1).
 - **`sense-backlog` skill** (`.claude/skills/sense-backlog/`) refreshes a release working ledger by pulling Aha + Jira + Confluence + Slack signal into `product/roadmap/<release>/signals/<feature>.md` (append-only), then regenerates `backlog-rank.md` and `jira-diff.md`. Strictly read-only against Jira/Aha — refinement-call policy in effect. Step 0 also surfaces cross-area items where Lalit is collaborator/watcher/mentioned outside the release.
 - **`sync-prd` skill** (`.claude/skills/sync-prd/`) reconciles a PRD folder after a claude.ai chat iteration: checks md ↔ html ↔ `INDEX.md` ↔ `agent-card.json` ↔ §14 consistency, applies auto-fixes (patch version bump, html re-render, agent-card refresh, decision fan-out). Local-only — never pushes to Confluence/Jira/Aha. Trigger: `/sync-prd <slug>` after pasting PRD edits back, or when daily digest's `📝 PRD DRIFT` flags it.
+- **`audit-context` skill** (`.claude/skills/audit-context/`) checks CLAUDE.md / memory / signal drift against `.claude/context-design.md` sizing rules. Writes findings to `analytics/context-audit/<YYYY-MM-DD>.md`. Trigger: `/audit-context` manually or wait for the monthly scheduled run.
 
-## Maintaining this routing table
-
-When a new skill is added under `.claude/skills/<name>/` or a new slash command under `.claude/commands/<name>.md`:
-1. Add a one-liner under `## Dedicated Tools` above pointing to its `SKILL.md` and saying when to use it.
-2. If it changes a recurring workflow (session start/end, pre-meeting, pre-release, etc.), add a bullet under `## Session workflow`.
-3. If it produces artifacts in a specific subfolder, update that subfolder's `CLAUDE.md` too.
-
-Future sessions discover skills automatically, but they discover *when to reach for them* through this file. Out-of-date routing is silent — keep it current.
-
-Every edit to any `CLAUDE.md` in this tree (via Claude Code Edit/Write/MultiEdit) is auto-logged to `ops/claudemd-changelog.md` by the `.claude/hooks/log-claudemd-change.sh` PostToolUse hook — that's the traceability trail for routing changes. Don't hand-edit the changelog; rely on `git log` for edits made outside Claude Code.
-
-## Knowledge loop
-Before any new task, check `/knowledge/<domain>/` for:
-- `rules.md` — apply by default
-- `hypotheses.md` — test if today's work generates evidence
-- `knowledge.md` — raw observations for context
-
-After the task, extract anything new:
-- Facts → `knowledge.md`
-- Untested patterns → `hypotheses.md`
-- Confirmed patterns (3+ times) → `rules.md`
-- Demote a rule back to hypothesis if new data contradicts it
-- Keep `/knowledge/INDEX.md` up to date as the routing table
-
-## Decision journal
-Before making any choice that affects more than today's task:
-1. Grep `/decisions/` for prior decisions in this area. If found, follow it unless new info invalidates the reasoning.
-2. If none exists, log a new `/decisions/YYYY-MM-DD-<topic>.md` with: Decision, Context, Alternatives considered, Reasoning, Trade-offs accepted, Supersedes.
+## See `.claude/context-design.md`
+Architecture (3 time-scales, 5 principles, sizing rules, hooks & routines), knowledge loop, decision journal, and routing-table maintenance details all live there. CLAUDE.md edits auto-log to `ops/claudemd-changelog.md` via `.claude/hooks/log-claudemd-change.sh`.
