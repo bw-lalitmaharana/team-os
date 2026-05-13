@@ -1,0 +1,25 @@
+{
+  "model": "claude-opus",
+  "defaultMode": "plan",
+  "permissions": {
+    "allow": ["read", "ls", "glob", "grep", "webSearch"],
+    "ask": ["write", "bash"]
+  },
+  "env": {
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "80"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/log-claudemd-change.sh"
+          }
+        ]
+      }
+    ]
+  }
+}
