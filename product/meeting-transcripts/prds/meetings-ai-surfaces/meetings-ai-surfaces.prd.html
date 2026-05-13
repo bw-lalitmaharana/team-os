@@ -1,0 +1,373 @@
+<!--
+  CONFLUENCE IMPORT INSTRUCTIONS:
+  1. Open this file in a browser (double-click it).
+  2. Select All (Cmd+A / Ctrl+A) and Copy (Cmd+C / Ctrl+C).
+  3. In Confluence, create or edit a page, paste into the editor.
+
+  Source of truth: meetings-ai-surfaces.prd.md (v0.3.0).
+  Sibling to: PRD-AI-PROCESSING-PIPELINE (platform).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Meetings Module &mdash; AI Surfaces PRD</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 980px; margin: 40px auto; padding: 0 24px; color: #172B4D; line-height: 1.5; }
+  h1 { font-size: 26px; border-bottom: 3px solid #0052CC; padding-bottom: 10px; }
+  h2 { font-size: 18px; margin-top: 36px; color: #0052CC; border-bottom: 1px solid #DFE1E6; padding-bottom: 6px; }
+  h3 { font-size: 14px; font-weight: 600; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.05em; color: #5E6C84; }
+  h4 { font-size: 13px; font-weight: 600; margin-top: 16px; color: #172B4D; }
+  .phase-banner { background: #DEEBFF; border-left: 4px solid #0052CC; padding: 10px 16px; border-radius: 3px; margin: 24px 0 8px; font-weight: 600; color: #0052CC; }
+  .sibling-banner { background: #E3FCEF; border-left: 4px solid #00875A; padding: 10px 16px; border-radius: 3px; margin: 24px 0 16px; font-size: 13px; color: #006644; }
+  .status-pill { display: inline-block; padding: 2px 10px; border-radius: 12px; background: #DFE1E6; color: #172B4D; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #DFE1E6; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #F4F5F7; font-weight: 600; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  pre { background: #F4F5F7; border: 1px solid #DFE1E6; border-radius: 3px; padding: 12px; font-size: 12px; overflow-x: auto; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  code { background: #F4F5F7; padding: 1px 4px; border-radius: 2px; font-size: 12px; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  .must-row { background: #E3FCEF; }
+  .mustnot-row { background: #FFEBE6; }
+  .should-row { background: #DEEBFF; }
+  blockquote { border-left: 3px solid #DFE1E6; margin: 12px 0; padding: 4px 16px; color: #5E6C84; font-style: italic; }
+  .pac-check { font-family: "SF Mono", Menlo, Consolas, monospace; color: #5E6C84; }
+  .callout { background: #F4F5F7; border-left: 4px solid #5E6C84; padding: 10px 16px; margin: 12px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>Meetings Module &mdash; AI Surfaces (Phase 1)</h1>
+
+<div class="sibling-banner"><strong>Sibling PRD.</strong> Parent: <code>PRD-AI-PROCESSING-PIPELINE</code> (platform). This PRD consumes platform contracts CAP-001..CAP-009, CAP-011. Connect-source dependency: <code>PRD-CONNECT-LAYER</code>.</div>
+
+<h3>Owners (single source of truth; body refers to roles)</h3>
+<table>
+  <tr><th>Role</th><th>Name</th></tr>
+  <tr><td>PM Owner</td><td>Lalit Maharana</td></tr>
+  <tr><td>Meetings PM</td><td>Varnika Garg</td></tr>
+  <tr><td>Design Lead</td><td>Gauri Thakur</td></tr>
+  <tr><td>Exec Sponsor</td><td>Nellie LeMonier</td></tr>
+  <tr><td>AI Platform Lead</td><td>Jason Zhang</td></tr>
+  <tr><td>Eng Lead (Meetings)</td><td>[TBD &mdash; Meetings pod assignment]</td></tr>
+</table>
+
+<table>
+  <tr><th>Release</th><th>Code Ready</th><th>Rainforest Milestone</th><th>Status</th></tr>
+  <tr><td>Summer 2026</td><td>2026-08-15</td><td>2026-05-31 (target; may move)</td><td><span class="status-pill">Draft v0.3.0</span></td></tr>
+</table>
+
+<div class="phase-banner">Phase 1: Why It Matters</div>
+
+<h2>1. Overview</h2>
+<p>The Meetings module is the primary surface for AI-driven 1:1 intelligence. Today the module shows a list of past + current + upcoming meetings with calendar + Zoom integration; each meeting has a dedicated detail page with manually-filled agenda, action items, and notes, plus goal-progress mini-cards.</p>
+<p>This PRD adds <strong>AI-driven surfaces on top of the existing pages</strong> &mdash; without changing the navigation model the user already knows. The list page gains an AI signal feed and a digest rollup; the detail page gains auto-filled agenda items, an auto-filled action item flow with carry-forward reconciliation, a recap of the last 1:1, and a "Before" summary across prior 1:1s with pointed action suggestions. Every AI output is pending until the user confirms, every claim is traceable via the platform's Why-this panel (CAP-009), and incomplete action items thread across recurring meetings as the same task object.</p>
+
+<h2>1a. Surfaces (current vs. MVP)</h2>
+<pre>LIST PAGE                                  DETAIL PAGE (per meeting)
+---------                                  -------------------------
+[exists] Past + current + upcoming        [exists] Agenda (manual)
+[exists] Calendar + Zoom integration      [exists] Action items (manual)
+[exists] Drill-down to detail page        [exists] Notes
+                                          [exists] Goal-progress mini-cards
+                                                       (MEET-CAP-205)
++ Connect-source banner                   + Auto-filled agenda chips
+  (MEET-CAP-103)                            (MEET-CAP-201 - pending state)
++ Signal feed: top 3-5, evidence-backed   + Cross-session "Before" summary
+  (MEET-CAP-102)                            + pointed action suggestions
++ Rollup digest of confirmed outputs        (MEET-CAP-202)
+  (MEET-CAP-101)                          + Last-meeting recap + action-item
+                                            thread (MEET-CAP-203)
+                                          + Action item reconciliation:
+                                            carry-forwards + AI append,
+                                            with add/complete/dismiss
+                                            (MEET-CAP-204)</pre>
+<p><strong>No existing surface is removed or rearranged.</strong> All AI is additive.</p>
+
+<h2>1b. UX Framing (inherited from parent &sect;1b)</h2>
+
+<h3>Before / During / After</h3>
+<table>
+  <tr><th>Moment</th><th>Surface</th><th>Capability</th></tr>
+  <tr><td><strong>Before</strong> the next 1:1</td><td>Detail page "Before this 1:1" summary</td><td>MEET-CAP-202</td></tr>
+  <tr><td><strong>During</strong></td><td>(Future &mdash; not in MVP)</td><td>&mdash;</td></tr>
+  <tr><td><strong>After</strong></td><td>Auto-filled agenda + action items + last-meeting recap on next visit</td><td>MEET-CAP-201, 203, 204</td></tr>
+</table>
+
+<h3>Review &rarr; Refine &rarr; Apply</h3>
+<p>Every AI surface supports the three canonical verbs (parent D-005). Plus dismiss as first-class. No AI suggestion lands on a record without explicit confirmation.</p>
+
+<h3>Patterns adopted (research-validated)</h3>
+<ol>
+  <li><strong>Per-meeting AI is primary; list digest is a rollup of confirmed outputs</strong> (Granola/Notion model). List digest does not run separate generation &mdash; it aggregates what users have already confirmed on detail pages.</li>
+  <li><strong>Action items thread across recurring meetings as the same task object</strong> (Fellow pattern). Carry-forwards pre-populate first; AI suggestions append underneath as pending chips.</li>
+  <li><strong>Inline pending chips with accept / edit / dismiss</strong> &mdash; no modal, no separate review queue.</li>
+  <li><strong>Confidence labels</strong> on low-trust items ("Needs review"). Why-this panel one click away.</li>
+  <li><strong>Dismissal is a learning signal</strong> &mdash; reduces future frequency of that class; "show more" expands without random refill.</li>
+</ol>
+
+<h3>Anti-patterns explicitly rejected</h3>
+<ul>
+  <li><strong>Separate "AI review" inbox/queue</strong> &mdash; items rot, users don't visit (early Otter mistake).</li>
+  <li><strong>Hard auto-commit of action items</strong> &mdash; owner + due date stay pending until confirmed (MeetGeek trust-collapse mistake).</li>
+  <li><strong>Modal review flow</strong> &mdash; interrupts meeting-prep mental model.</li>
+</ul>
+
+<h2>2. Problem &amp; Rationale</h2>
+<p>Today the Meetings module is a faithful capture surface but a low-leverage one. Managers fill in agenda items, action items, and notes manually. Nothing carries forward automatically. The connection to the rest of the performance system (goals, feedback, skills) happens only if the manager remembers to log it elsewhere.</p>
+<p>The AI pipeline is now producing structured signals from every processed transcript. Without a thoughtful surface, those signals either go nowhere (and the pipeline is wasted) or land as a noisy queue (and the user disengages). The Meetings module is the natural home for the per-meeting AI experience &mdash; and is also the right place for the multi-meeting digest, since "multi-meeting" is a meetings-module concern, not a separate module.</p>
+
+<h2>3. Benefits &amp; Value</h2>
+
+<h3>Managers</h3>
+<ul>
+  <li>Zero-effort agenda + action-item capture for the next 1:1; one-click confirm or dismiss.</li>
+  <li>"Before" summary surfaces what was discussed before the meeting starts &mdash; no prep required.</li>
+  <li>Open action items carry forward automatically; no risk of forgetting follow-ups.</li>
+</ul>
+
+<h3>Employees</h3>
+<ul>
+  <li>Trust through traceability: every AI claim links to the moment in the meeting that produced it.</li>
+  <li>Action items they agreed to don't vanish &mdash; the same task threads from meeting to meeting until done.</li>
+</ul>
+
+<h3>Admins / HR</h3>
+<ul>
+  <li>More consistent signal capture across the org without forcing managers to do extra work.</li>
+  <li>Connect rate on the meeting source becomes a leading indicator of feature adoption.</li>
+</ul>
+
+<h2>4. GTM Messaging</h2>
+<p>Inherits parent PRD &sect;4 GTM. Module-specific framing:</p>
+<blockquote>The Meetings page you already use, now with the conversation memory you wish you had. Last week's commitments carry forward automatically. The agenda fills itself from the transcript, pending your confirmation. And every suggestion links to the exact moment it came from.</blockquote>
+
+<h2>6. Key Metrics</h2>
+<div class="callout"><strong>Surface-scope metrics:</strong> does this change how managers actually run their 1:1s? These prove the feature works as a <em>product</em>, not just as a model. All <code>[proposed, awaiting analytics verification]</code> until <code>analytics/metrics-definitions.md</code> lands. Platform-pipeline metrics (acceptance rate, latency) live in <code>PRD-AI-PROCESSING-PIPELINE</code> &sect;6.</div>
+
+<h3>Workflow impact</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr class="must-row"><td><strong>AI action-item completion lift</strong> &#9733; NORTH STAR</td><td>Completion rate of AI-extracted action items vs. manually-created baseline</td><td>1.4&ndash;1.8&times; lift (Fellow/Granola published)</td><td><code>action_item.completed</code> w/ <code>source: ai|manual</code></td></tr>
+  <tr><td>Carry-forward rate</td><td>% open action items auto-surfaced in next recurring meeting that get touched (completed/updated/dismissed)</td><td>55&ndash;65% (Fellow)</td><td><code>action_item.carry_forward.actioned</code></td></tr>
+  <tr><td>Per-meeting engagement depth</td><td>% meetings where user touches &ge;2 AI surfaces (summary + agenda + action item + signal)</td><td>40%+ for sticky usage</td><td>composite</td></tr>
+</table>
+
+<h3>Quality on the surface</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>Suggestion edit rate</td><td>% confirmed suggestions modified before confirm</td><td>20&ndash;35% healthy; &gt; 60% = bad defaults</td><td><code>ai.suggestion.edited</code></td></tr>
+  <tr><td>Signal-feed dismissal-with-reason rate</td><td>% dismissals tagged with reason ("not relevant", "wrong person", "duplicate")</td><td>&ge; 40% capture rate</td><td><code>signal.dismissed</code> w/ <code>reason_code</code></td></tr>
+  <tr><td>Summary open rate</td><td>% of generated summaries opened within 48h</td><td>50&ndash;70% (Tactiq published)</td><td><code>meeting.summary.opened</code></td></tr>
+</table>
+
+<h3>Timing</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>Time-to-first-confirm post-meeting</td><td>Median minutes from <code>meeting.ended</code> to first AI confirm on that meeting</td><td>&lt; 30 min = "in flow"; &gt; 24h = stale</td><td>timestamp delta</td></tr>
+</table>
+
+<h3>UX-specific (from &sect;10b mitigations)</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th></tr>
+  <tr><td>Carry-forward attribution correctness</td><td>% carry-forwards correctly threaded (no false positives)</td><td>&ge; 95% (per MPAC quality bar)</td></tr>
+  <tr><td>Why-this panel click-through rate</td><td>% suggestions where user opens Why-this</td><td>10&ndash;25% target</td></tr>
+  <tr><td>"Report bad evidence" rate</td><td>% suggestions flagged</td><td>&lt; 5% (&gt; 5% triggers model review)</td></tr>
+</table>
+
+<h3>Open metric gaps</h3>
+<table>
+  <tr><th>Gap</th><th>Owner</th><th>Trigger</th></tr>
+  <tr><td>Baseline for action-item completion in current Meetings module</td><td>Analytics owner + Meetings PM</td><td>Before launch &mdash; needed for lift comparison</td></tr>
+  <tr><td>Goal-mini-card AI engagement (Phase 2)</td><td>Meetings PM + Goals PM</td><td>When MEET-CAP-205 enhancement scoped</td></tr>
+</table>
+
+<h2>7. Capabilities</h2>
+
+<h3>List page</h3>
+<ul>
+  <li><strong>MEET-CAP-101 &mdash; List-level digest (rollup) &mdash; V2/STRETCH</strong> <em>(deferred per 2026-05-13 exec decision MD-006)</em> &mdash; Read-only rollup view of confirmed AI outputs across the user's recent meetings. Does not generate new content &mdash; aggregates confirmed signals from platform CAP-001/002.</li>
+  <li><strong>MEET-CAP-102 &mdash; Signal feed (top 3&ndash;5) &mdash; V2/STRETCH</strong> <em>(deferred per MD-006)</em> &mdash; Evidence-backed signal cards on the list page. Confidence labels deferred (exec sponsor 2026-05-13: "review &mdash; not needed"). Why-this panel is the trust mechanism.</li>
+  <li><strong>MEET-CAP-103 &mdash; Connect-source nudge</strong> &mdash; Persistent dismissable banner on list-page top when at least one source is connectable. Empty-state CTA on any meeting card without transcript data. Re-surfaces when a new untranscribed meeting appears. <strong>Never modal.</strong> Consumes PRD-CONNECT-LAYER.</li>
+</ul>
+
+<h3>Detail page (per meeting)</h3>
+<ul>
+  <li><strong>MEET-CAP-201 &mdash; Auto-filled agenda chips</strong> &mdash; Agenda items extracted from the transcript appear as pending chips. User clicks accept (state: <code>confirmed</code>), edit (state: <code>edited_confirmed</code>), or dismiss. Why-this panel inline per chip. Consumes platform CAP-002 (<code>signal_type = agenda_item</code>).</li>
+  <li><strong>MEET-CAP-202 &mdash; Cross-session "Before" summary</strong> &mdash; Pre-meeting summary that draws on prior 1:1 transcripts + both participants' open goals + recurring themes. Surfaces pointed action suggestions: "add to agenda", "update goal G-XXX", "log feedback", "log skill observation". Each suggestion is a pending action; one-click route via Reconciliation (platform CAP-005). Consumes platform CAP-004 + CAP-003.</li>
+  <li><strong>MEET-CAP-203 &mdash; Last-meeting recap + action + agenda item thread</strong> <em>(scope expanded 2026-05-13: agenda items also thread &mdash; MD-008)</em> &mdash; Compact recap of the most recent 1:1 with this partner. Shows last meeting's summary (platform CAP-001) + action items + carryover agenda items that came out of it with their current status. Open items thread forward into MEET-CAP-204.</li>
+  <li><strong>MEET-CAP-204 &mdash; Action item + agenda items reconciliation flow</strong> <em>(scope expanded 2026-05-13: agenda items also reconcile; carry-forward is DEFAULT, not configurable &mdash; MD-007 / MD-008)</em> &mdash; Aha: <code>MEET-48 + AI-201</code>. Two stacked sections on the detail page: (1) <strong>Carry-forward</strong>: open action items + carryover agenda items from prior meetings (threaded forward via same object id). User can mark complete or dismiss. (2) <strong>New (from transcript)</strong>: AI-suggested action items + agenda items as pending chips. User can accept, edit, or dismiss. On accept, the item joins the carry-forward stack for the next meeting. Owner + due date stay pending until explicit confirmation, even when text auto-fills. Consumes platform CAP-002 + CAP-005.</li>
+  <li><strong>MEET-CAP-205 &mdash; Goal-progress mini-cards (existing, kept)</strong> &mdash; Goal cards on the detail page remain as today. Phase 2 enhancement: surface AI-suggested goal updates with one-click route via platform CAP-007 validation passthrough.</li>
+</ul>
+
+<h2>7a. Story decomposition (MVP)</h2>
+<table>
+  <tr><th>#</th><th>Story</th><th>MEET-CAPs</th><th>Owner</th><th>Sequencing</th></tr>
+  <tr><td>M-01</td><td>Threaded action item object across recurring meetings (data model + API)</td><td>MEET-CAP-204 foundation</td><td>Meetings pod</td><td><strong>Week 1&ndash;2 (blocking)</strong></td></tr>
+  <tr><td><s>M-02</s> <strong>V2</strong></td><td>List page: signal feed panel &mdash; <strong>deferred to V2</strong> (MD-006)</td><td>MEET-CAP-102</td><td>Meetings pod + AI Platform</td><td>V2</td></tr>
+  <tr><td><s>M-03</s> <strong>V2</strong></td><td>List page: rollup digest &mdash; <strong>deferred to V2</strong> (MD-006)</td><td>MEET-CAP-101</td><td>Meetings pod</td><td>V2</td></tr>
+  <tr><td>M-04</td><td>List page: connect-source banner + empty-state</td><td>MEET-CAP-103</td><td>Meetings pod + Connections pod</td><td>Week 4&ndash;6</td></tr>
+  <tr><td>M-05</td><td>Detail page: auto-filled agenda chips</td><td>MEET-CAP-201</td><td>Meetings pod</td><td>Week 5&ndash;7</td></tr>
+  <tr><td>M-06</td><td>Detail page: action item reconciliation flow</td><td>MEET-CAP-204</td><td>Meetings pod + AI Platform</td><td>Week 5&ndash;7</td></tr>
+  <tr><td>M-07</td><td>Detail page: last-meeting recap</td><td>MEET-CAP-203</td><td>Meetings pod</td><td>Week 5&ndash;6</td></tr>
+  <tr><td>M-08</td><td>Detail page: cross-session "Before" summary with pointed actions</td><td>MEET-CAP-202</td><td>Meetings pod + AI Platform</td><td>Week 7&ndash;9</td></tr>
+</table>
+<p><strong>Critical path: M-01 &rarr; M-06 &rarr; M-07 &rarr; M-08.</strong> M-04 unblocks adoption; M-02/03 surface value back on the list page.</p>
+
+<h2>10. Assumptions, Dependencies &amp; Risks</h2>
+
+<h3>Assumptions</h3>
+<ul>
+  <li>Existing Meetings module page structure (list + detail) is stable; AI surfaces are additive, not a redesign.</li>
+  <li>Goal-progress mini-cards (MEET-CAP-205) remain as today; Phase 2 will enhance.</li>
+  <li>Calendar + Zoom existing integration remains the source of meeting metadata.</li>
+</ul>
+
+<h3>Dependencies</h3>
+<ul>
+  <li><strong>Platform PRD (PRD-AI-PROCESSING-PIPELINE)</strong> &mdash; all evidence + signal contracts.</li>
+  <li><strong>PRD-CONNECT-LAYER</strong> &mdash; MEET-CAP-103 banner consumes Connections state.</li>
+  <li><strong>Design specs</strong> &mdash; Design lead owns: chip layout, confidence-label visual language, Why-this panel placement, banner/empty-state copy.</li>
+  <li><strong>Action item object schema</strong> &mdash; extend existing <code>action_item</code> to support threading; owned by Meetings pod.</li>
+  <li><strong>Existing meeting-record model</strong> &mdash; reuse for <code>bw-meeting</code> source in evidence table.</li>
+</ul>
+
+<h3>Risks</h3>
+<table>
+  <tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+  <tr><td>Carry-forward visual treatment causes confusion (open vs. new mistaken)</td><td>Med</td><td>Explicit sub-heading "From prior meetings" + status badge; user testing in Rainforest</td></tr>
+  <tr><td>List-page digest stale (cached daily; users expect real-time)</td><td>Low</td><td>Manual refresh + last-refreshed timestamp</td></tr>
+  <tr><td>Signal feed competes with detail-page surface for attention</td><td>Med</td><td>Every signal card has "go to meeting" link; feed is a router, not a destination</td></tr>
+  <tr><td>Connect-banner banner-blindness</td><td>Med</td><td>Per-meeting empty-state CTAs re-surface at moments of value</td></tr>
+</table>
+
+<h3>10a. Constraints &amp; Invariants (Meetings-specific)</h3>
+
+<h4>MUST</h4>
+<table>
+  <tr class="must-row"><th>Constraint</th></tr>
+  <tr class="must-row"><td>THE LIST DIGEST (MEET-CAP-101) SHALL be a rollup of confirmed per-meeting outputs only. It SHALL NOT generate new content independently.</td></tr>
+  <tr class="must-row"><td>ACTION ITEMS SHALL thread across recurring meetings as a single object; the same <code>action_item.id</code> carries forward until <code>state = done</code> or <code>state = dismissed</code>. <strong>Carry-forward is DEFAULT, not user-configurable</strong> (MD-007).</td></tr>
+  <tr class="must-row"><td>AGENDA ITEMS SHALL also thread across recurring meetings &mdash; carry-over agenda topics surface on the next meeting's detail page with the same semantics as action items (MD-008).</td></tr>
+  <tr class="must-row"><td>AI-suggested action items (MEET-CAP-204) SHALL render as pending chips with owner + due date in pending state, even when text auto-fills.</td></tr>
+  <tr class="must-row"><td>EVERY AI SURFACE SHALL render the Why-this panel inline (platform CAP-009).</td></tr>
+  <tr class="must-row"><td>THE CONNECT-SOURCE NUDGE SHALL NOT be modal.</td></tr>
+</table>
+
+<h4>MUST NOT</h4>
+<table>
+  <tr class="mustnot-row"><th>Constraint</th></tr>
+  <tr class="mustnot-row"><td>THE MEETINGS MODULE SHALL NOT operate a separate "AI review" inbox or queue.</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT hard-commit AI action items to a meeting record without explicit user confirmation.</td></tr>
+  <tr class="mustnot-row"><td>THE SIGNAL FEED SHALL NOT refill dismissed slots with random new suggestions; dismissals are a learning signal.</td></tr>
+</table>
+
+<h4>SHOULD</h4>
+<table>
+  <tr class="should-row"><th>Constraint</th></tr>
+  <tr class="should-row"><td>The detail page SHOULD surface carry-forward action items above newly suggested ones for cognitive clarity.</td></tr>
+  <tr class="should-row"><td>The list page SHOULD default to recency grouping with a "group by 1:1 partner" filter available.</td></tr>
+  <tr class="should-row"><td>Confidence labels SHOULD appear only on items below a threshold (don't label every item &mdash; visual noise).</td></tr>
+</table>
+
+<h3>10b. Pre-mortem</h3>
+<blockquote>It's September 2026. The Meetings AI surfaces shipped but failed adoption. Three plausible failure modes:</blockquote>
+<ol>
+  <li><strong>Signal feed felt like a noisy ad surface.</strong> Top 3&ndash;5 cards updated unpredictably; users couldn't tell why a card appeared; dismissal didn't seem to reduce future noise. Trust collapsed in week one.</li>
+  <li><strong>Action item reconciliation visually conflated carry-forwards with AI suggestions.</strong> Managers couldn't tell what was "still open" vs. "new" and started ignoring the list.</li>
+  <li><strong>Connect-source banner was banner-blindness in week one.</strong> Users dismissed once and never reconnected. Adoption ceiling at ~30% connected.</li>
+</ol>
+<p><strong>Mitigations:</strong> (1) Visible confidence labels + Why-this on every card; instrument dismissal-reduces-frequency from launch. (2) Visual separation between carry-forward and new sections; user testing in Rainforest pre-launch. (3) Re-surface connect prompts on every untranscribed meeting card.</p>
+
+<h2>11. Out of Scope / Known Limitations</h2>
+
+<h3>Non-Goals (Phase 1)</h3>
+<ul>
+  <li><strong>Real-time "During" meeting AI</strong> &mdash; Phase 2 or later. MVP is Before + After only.</li>
+  <li><strong>Group / all-hands / panel meetings</strong> &mdash; 1:1s only.</li>
+  <li><strong>Notes-while-meeting AI</strong> &mdash; out of scope; only structured signal types in MVP.</li>
+  <li><strong>List-page rollup digest (MEET-CAP-101)</strong> &mdash; <strong>V2/stretch</strong> (was MVP in v0.2.0; demoted per MD-006).</li>
+  <li><strong>List-page signal feed (MEET-CAP-102)</strong> &mdash; <strong>V2/stretch</strong> (was MVP in v0.2.0; demoted per MD-006). Only MEET-CAP-103 (connect-source nudge) ships on the list page in MVP.</li>
+  <li><strong>Confidence labels on suggestions</strong> &mdash; deferred per exec sponsor 2026-05-13; Why-this panel is the trust mechanism.</li>
+  <li><strong>Configurable carry-forward of action items</strong> &mdash; carry-forward is DEFAULT behavior (MD-007).</li>
+</ul>
+
+<h3>Future Roadmap</h3>
+<ul>
+  <li>Real-time "During" AI (whisper prompts, live action-item suggestion)</li>
+  <li>Cross-1:1 theme detection at team level (manager dashboard view)</li>
+  <li>Multi-participant meeting types (panel, group)</li>
+  <li>Editable rollup digest</li>
+</ul>
+
+<h2>12. Documentation &amp; Resources</h2>
+<ul>
+  <li><strong>type: confluence</strong> &mdash; <strong>Parent PRD: <a href="https://betterworks.atlassian.net/wiki/spaces/PMD/pages/4247257097">Zoom &amp; Teams Transcripts Feature Documentation</a></strong> (strategic / GTM PRFAQ; includes conceptual UI image for Meetings module + Zoom/Teams integration)</li>
+  <li><strong>type: prd</strong> &mdash; PRD-AI-PROCESSING-PIPELINE (platform contracts)</li>
+  <li><strong>type: prd</strong> &mdash; PRD-CONNECT-LAYER (consumed by MEET-CAP-103)</li>
+  <li><strong>type: jira</strong> &mdash; ENG-79199 (Epic)</li>
+  <li><strong>type: aha</strong> &mdash; <code>MEET-48</code> Meetings module 1:1 card, manual input, action items</li>
+  <li><strong>type: aha</strong> &mdash; <code>AI-201</code> AI processing (consumed platform contract)</li>
+  <li><strong>type: zoom-transcript</strong> &mdash; 2026-05-08 MVP scope alignment (uuid F6113EF7-3757-491E-B45C-4B1E53D8D31F)</li>
+  <li><strong>type: zoom-transcript</strong> &mdash; 2026-05-12 Varnika / Lalit (uuid D236D5E5-A01C-4D20-91C3-935FF3588D90)</li>
+  <li><strong>type: slack</strong> &mdash; #temp-meeting-transcript-integration (Before/During/After framing)</li>
+  <li><strong>type: industry-research</strong> &mdash; Fellow, Granola, Notion AI Meetings, MeetGeek, Tactiq pattern study (2026-05-13)</li>
+  <li><strong>type: figma</strong> &mdash; [TBD &mdash; Design Lead]</li>
+</ul>
+
+<h2>13a. Product Acceptance Criteria</h2>
+<ul>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-01</strong> &mdash; All Must Have AC-IDs across MEET-CAP-101..205 pass automated or manual test</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-02</strong> &mdash; Action item object threads across at least 3 recurring meeting instances in eval set</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-03</strong> &mdash; Carry-forward vs. new AI suggestions are visually distinct; user testing confirms 90%+ can tell them apart</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-04</strong> &mdash; Why-this panel renders inline on every MEET-CAP that surfaces AI output, with working deep-links</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-05</strong> &mdash; Signal feed dismissal reduces same-class suggestion frequency for that user (instrumented)</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-06</strong> &mdash; Connect-source banner persistent + dismissable, not modal; per-meeting empty-state CTAs on every untranscribed card</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-07</strong> &mdash; List-level digest is read-only and never triggers independent AI generation</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-08</strong> &mdash; Owner + due date on AI-suggested action items remain pending until user confirms, even when text auto-fills</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-09</strong> &mdash; Rainforest smoke test of detail-page happy path passes by the Rainforest milestone (target <strong>2026-05-31</strong>; <em>may move pending exec scope-alignment</em> &mdash; see parent PRD &sect;10 Risks)</li>
+  <li><span class="pac-check">&#9744;</span> <strong>MPAC-10</strong> &mdash; Stakeholder sign-off (resolve via Owners; log in &sect;14): PM Owner, Meetings PM, Design Lead, AI Platform Lead</li>
+</ul>
+
+<h3>Quality bars</h3>
+<table>
+  <tr><th>Dimension</th><th>Bar</th></tr>
+  <tr><td>Detail-page time to interactive after meeting ends</td><td>&lt; 5 min p95 (consumes platform latency)</td></tr>
+  <tr><td>Signal feed render latency</td><td>&lt; 500ms p95</td></tr>
+  <tr><td>Why-this panel deep-link success rate</td><td>&ge; 99%</td></tr>
+  <tr><td>Carry-forward action item attribution correctness</td><td>&ge; 95% (no false threading)</td></tr>
+  <tr><td>Connect-banner conversion rate (first-time CTR)</td><td>&ge; 25% &mdash; instrumented from day one</td></tr>
+</table>
+
+<h2>14. Decisions Log</h2>
+<div class="callout">Append-only. Names appear here (initials) for accountability; body uses roles.</div>
+
+<table>
+  <tr><th>ID</th><th>Date</th><th>Decision</th><th>Decider (role / initials)</th><th>Rationale</th><th>Source</th></tr>
+  <tr><td>MD-001</td><td>2026-05-13</td><td>Split Meetings AI surfaces into sibling PRD (this doc)</td><td>PM Owner (LM)</td><td>Distinct persona, distinct pod, &ge;4 capabilities, independent DoD; parent PRD crossed 30KB; split rule satisfied 6/6</td><td>Parent PRD D-011</td></tr>
+  <tr><td>MD-002</td><td>2026-05-13</td><td>List digest is a rollup of confirmed outputs; does not run independent generation</td><td>PM Owner (LM)</td><td>Per Granola/Notion model: per-meeting AI primary, list derived</td><td>Industry research 2026-05-13</td></tr>
+  <tr><td>MD-003</td><td>2026-05-13</td><td>Action items thread across recurring meetings as same object (Fellow pattern)</td><td>PM Owner (LM)</td><td>Carry-forward semantics; avoids "diff new vs. open" complexity</td><td>Industry research 2026-05-13</td></tr>
+  <tr><td>MD-004</td><td>2026-05-13</td><td>Connect-source nudge is banner + empty-state, never modal</td><td>PM Owner (LM)</td><td>Banner-blindness mitigated by per-meeting empty-state CTAs at moments of value</td><td>Industry research 2026-05-13</td></tr>
+  <tr><td>MD-005</td><td>2026-05-13</td><td>Carry-forward and new AI-suggested action items are visually distinct on detail page</td><td>PM Owner (LM)</td><td>Cognitive clarity (pre-mortem failure mode #2)</td><td>This PRD &sect;10b</td></tr>
+  <tr><td>MD-006</td><td>2026-05-13 (PM)</td><td><strong>List-page features demoted to V2</strong>: MEET-CAP-101 (rollup digest) + MEET-CAP-102 (signal feed) &rarr; V2/stretch. Only MEET-CAP-103 (connect-source nudge) ships on list page in MVP. Detail page is MVP focus.</td><td>Exec Sponsor (NL)</td><td>"Focus MVP on changes to the details page for meetings, and move list page digest features to stretch/V2"</td><td>Zoom uuid 7D6A937E-6C54-4362-8AD2-8E16FF3E2A96 (Product Acceptance call)</td></tr>
+  <tr><td>MD-007</td><td>2026-05-13 (PM)</td><td><strong>Action item carry-forward is DEFAULT, not user-configurable</strong></td><td>Exec Sponsor (NL)</td><td>"More features require removing features"; matches user mental model that incomplete commitments persist</td><td>Product Acceptance call 2026-05-13 PM</td></tr>
+  <tr><td>MD-008</td><td>2026-05-13 (PM)</td><td><strong>Agenda items also thread across recurring meetings</strong> (not just action items) &mdash; MEET-CAP-203 + MEET-CAP-204 scope expanded</td><td>Exec Sponsor (NL) + PM Owner (LM)</td><td>Symmetric treatment with action items; carry-over agenda topics are a natural continuation</td><td>Product Acceptance call 2026-05-13 PM; Confluence Meetings page edit</td></tr>
+</table>
+
+<h3>Pending decisions</h3>
+<table>
+  <tr><th>ID</th><th>Question</th><th>Decision owner</th><th>Deadline</th></tr>
+  <tr><td>MOPEN-D1</td><td>List page default grouping: recency vs. by-partner vs. by-status</td><td>Meetings PM + Design Lead</td><td>Before M-03 starts</td></tr>
+  <tr><td>MOPEN-D2</td><td>Rollup digest cache TTL (daily vs. session vs. manual-only)</td><td>Meetings PM</td><td>Before M-03 starts</td></tr>
+  <tr><td>MOPEN-D3</td><td>Confidence-label threshold (which confidence levels render the label)</td><td>Design Lead + AI Platform Lead</td><td>Before M-02 ships</td></tr>
+  <tr><td>MOPEN-D4</td><td>Goal mini-card AI enhancement: Phase 1 or Phase 2</td><td>Meetings PM + Goals PM</td><td>TBD</td></tr>
+</table>
+
+<hr style="margin-top: 48px; border: none; border-top: 1px solid #DFE1E6;">
+<p style="font-size: 11px; color: #5E6C84; text-align: center; margin-top: 16px;">
+  Generated from <code>meetings-ai-surfaces.prd.md v0.1.0</code> &middot; Sibling to <code>PRD-AI-PROCESSING-PIPELINE</code>
+</p>
+
+</body>
+</html>

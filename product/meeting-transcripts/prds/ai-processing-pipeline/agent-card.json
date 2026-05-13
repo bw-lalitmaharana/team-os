@@ -1,0 +1,120 @@
+{
+  "name": "prd-ai-processing-pipeline",
+  "description": "Betterworks AI Processing Pipeline — Phase 1 PLATFORM PRD. Source of truth for the evidence-centric data model (§1a), platform capabilities CAP-001..CAP-011, locked Constraints (§10a), and platform-scope acceptance criteria. Consumer surfaces are owned by sibling PRDs.",
+  "url": "product/meeting-transcripts/prds/ai-processing-pipeline/ai-processing-pipeline.prd.md",
+  "version": "0.6.0",
+  "role": "platform",
+  "siblings": [
+    {
+      "id": "PRD-MEETINGS-AI-SURFACES",
+      "url": "product/meeting-transcripts/prds/meetings-ai-surfaces/meetings-ai-surfaces.prd.md",
+      "role": "consumer-surface"
+    },
+    {
+      "id": "PRD-CONNECT-LAYER",
+      "url": "product/meeting-transcripts/prds/connect-layer/connect-layer.prd.md",
+      "role": "consumer-surface"
+    }
+  ],
+  "stubs": [
+    "product/meeting-transcripts/prds/_stubs/goals-ai-surfaces.stub.md",
+    "product/meeting-transcripts/prds/_stubs/feedback-ai-surfaces.stub.md",
+    "product/meeting-transcripts/prds/_stubs/skills-ai-surfaces.stub.md"
+  ],
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "skills": [
+    {
+      "id": "get-capability",
+      "description": "Return a capability section by CAP-ID (CAP-001..CAP-011 — platform). CAP-012 moved to PRD-CONNECT-LAYER; CAP-013 moved to PRD-MEETINGS-AI-SURFACES.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "cap_id": { "type": "string", "pattern": "^CAP-[0-9]{3}$" } },
+        "required": ["cap_id"]
+      }
+    },
+    {
+      "id": "get-constraints",
+      "description": "Return §10a Constraints & Invariants, optionally filtered by MUST | MUST_NOT | SHOULD.",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "level": { "type": "string", "enum": ["MUST", "MUST_NOT", "SHOULD"] } }
+      }
+    },
+    {
+      "id": "get-risks",
+      "description": "Return §10 Risks with likelihood and mitigation."
+    },
+    {
+      "id": "get-non-goals",
+      "description": "Return §11 explicit non-goals."
+    },
+    {
+      "id": "get-evidence-schema",
+      "description": "Return the canonical `evidence` table schema from §1a — used by coding agents and downstream PRDs."
+    },
+    {
+      "id": "get-adapter-contract",
+      "description": "Return the Source Adapter Framework (CAP-011) contract — authenticate / fetch / permission_check / build_deep_link."
+    },
+    {
+      "id": "get-stories",
+      "description": "Return platform-scope §7a stories. Surface stories are owned by sibling PRDs (M-* in PRD-MEETINGS-AI-SURFACES, C-* in PRD-CONNECT-LAYER).",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "phase": { "type": "string", "enum": ["mvp", "future", "all"] } }
+      }
+    },
+    {
+      "id": "get-product-acceptance-criteria",
+      "description": "Return §13a platform-scope PACs. Surface-scope PACs live in sibling PRDs."
+    },
+    {
+      "id": "get-decisions-log",
+      "description": "Return §14 Decisions Log (D-001..D-011 to date)."
+    },
+    {
+      "id": "resolve-source-link",
+      "description": "Given an evidence_id and a viewer user_id, return the deep-link URL + permission status (clickable / disabled-no-access).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "evidence_id": { "type": "string" },
+          "viewer_user_id": { "type": "string" }
+        },
+        "required": ["evidence_id", "viewer_user_id"]
+      }
+    },
+    {
+      "id": "list-siblings",
+      "description": "Return the sibling PRDs and stub PRDs for surface areas."
+    }
+  ],
+  "sections": [
+    { "anchor": "#1-overview", "type": "section", "id": "S-1" },
+    { "anchor": "#1a-architecture-data-model", "type": "section", "id": "S-1A" },
+    { "anchor": "#1b-ux-framing", "type": "section", "id": "S-1B" },
+    { "anchor": "#1c-connect-layer-reference", "type": "section", "id": "S-1C-REF" },
+    { "anchor": "#cap-001-meeting-summary-generation", "type": "capability", "id": "CAP-001" },
+    { "anchor": "#cap-002-action-item-discussion-topic-extraction", "type": "capability", "id": "CAP-002" },
+    { "anchor": "#cap-003-performance-signal-extraction", "type": "capability", "id": "CAP-003" },
+    { "anchor": "#cap-004-pre-meeting-coaching-prompts", "type": "capability", "id": "CAP-004" },
+    { "anchor": "#cap-005-reconciliation-framework", "type": "capability", "id": "CAP-005" },
+    { "anchor": "#cap-006-module-native-surfacing", "type": "capability", "id": "CAP-006" },
+    { "anchor": "#cap-007-org-level-validation-passthrough-for-goal-suggestions", "type": "capability", "id": "CAP-007" },
+    { "anchor": "#cap-008-per-user-meeting-source-exclusion-filter", "type": "capability", "id": "CAP-008" },
+    { "anchor": "#cap-009-evidence-provenance-traceability", "type": "capability", "id": "CAP-009" },
+    { "anchor": "#cap-010-template-bound-feedback-pre-fill", "type": "capability", "id": "CAP-010" },
+    { "anchor": "#cap-011-source-adapter-framework", "type": "capability", "id": "CAP-011" },
+    { "anchor": "#cap-012-connect-layer-reference", "type": "capability-reference", "id": "CAP-012", "moved_to": "PRD-CONNECT-LAYER" },
+    { "anchor": "#cap-013-multi-meeting-digest-reference", "type": "capability-reference", "id": "CAP-013", "moved_to": "PRD-MEETINGS-AI-SURFACES" },
+    { "anchor": "#7a-story-decomposition-platform-scope-only", "type": "section", "id": "S-7A" },
+    { "anchor": "#10a-constraints-invariants", "type": "constraint", "id": "CONSTRAINTS-10A" },
+    { "anchor": "#10b-pre-mortem", "type": "section", "id": "S-10B" },
+    { "anchor": "#13a-product-acceptance-criteria-phase-1", "type": "acceptance-criteria", "id": "PAC" },
+    { "anchor": "#14-decisions-log", "type": "decisions-log", "id": "DECISIONS" }
+  ]
+}

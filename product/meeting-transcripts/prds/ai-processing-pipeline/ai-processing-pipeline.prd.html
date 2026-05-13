@@ -1,0 +1,762 @@
+<!--
+  CONFLUENCE IMPORT INSTRUCTIONS:
+  1. Open this file in a browser (double-click it).
+  2. Select All (Cmd+A / Ctrl+A) and Copy (Cmd+C / Ctrl+C).
+  3. In Confluence, create or edit a page, paste into the editor.
+  Headings, tables, bullets, and code blocks transfer cleanly.
+
+  Source of truth: ai-processing-pipeline.prd.md (v0.8.0).
+  Sibling PRDs: PRD-MEETINGS-AI-SURFACES, PRD-CONNECT-LAYER.
+  This HTML is a render artifact; edit the .md, then re-render.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AI Processing Pipeline for Meeting Transcripts &mdash; Phase 1 PRD</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 980px; margin: 40px auto; padding: 0 24px; color: #172B4D; line-height: 1.5; }
+  h1 { font-size: 26px; border-bottom: 3px solid #0052CC; padding-bottom: 10px; }
+  h2 { font-size: 18px; margin-top: 36px; color: #0052CC; border-bottom: 1px solid #DFE1E6; padding-bottom: 6px; }
+  h3 { font-size: 14px; font-weight: 600; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.05em; color: #5E6C84; }
+  h4 { font-size: 13px; font-weight: 600; margin-top: 16px; color: #172B4D; }
+  .phase-banner { background: #DEEBFF; border-left: 4px solid #0052CC; padding: 10px 16px; border-radius: 3px; margin: 24px 0 8px; font-weight: 600; color: #0052CC; }
+  .phase-banner.gated { background: #FFF7E6; border-left-color: #B07700; color: #B07700; }
+  .meta-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px 24px; margin: 12px 0 24px; }
+  .meta-item { font-size: 14px; }
+  .meta-label { font-weight: 600; color: #5E6C84; font-size: 12px; text-transform: uppercase; }
+  .status-pill { display: inline-block; padding: 2px 10px; border-radius: 12px; background: #DFE1E6; color: #172B4D; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #DFE1E6; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #F4F5F7; font-weight: 600; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  pre { background: #F4F5F7; border: 1px solid #DFE1E6; border-radius: 3px; padding: 12px; font-size: 12px; overflow-x: auto; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  code { background: #F4F5F7; padding: 1px 4px; border-radius: 2px; font-size: 12px; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  .moscow-must { color: #00875A; font-weight: 600; }
+  .moscow-should { color: #0052CC; }
+  .moscow-could { color: #5E6C84; }
+  .moscow-wont { color: #BF2600; }
+  .must-row { background: #E3FCEF; }
+  .mustnot-row { background: #FFEBE6; }
+  .should-row { background: #DEEBFF; }
+  blockquote { border-left: 3px solid #DFE1E6; margin: 12px 0; padding: 4px 16px; color: #5E6C84; font-style: italic; }
+  .pac-check { font-family: "SF Mono", Menlo, Consolas, monospace; color: #5E6C84; }
+  .callout { background: #F4F5F7; border-left: 4px solid #5E6C84; padding: 10px 16px; margin: 12px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>AI Processing Pipeline for Meeting Transcripts: Phase 1 (Platform)</h1>
+
+<h2 style="margin-top: 24px;">Index / Navigation</h2>
+<div class="callout">
+  <strong>Parent Confluence PRFAQ</strong>: <a href="https://betterworks.atlassian.net/wiki/spaces/PMD/pages/4247257097">Zoom &amp; Teams Transcripts Feature Documentation</a> (strategic / GTM)<br>
+  <strong>Sibling PRDs</strong>: <code>PRD-MEETINGS-AI-SURFACES</code> · <code>PRD-CONNECT-LAYER</code><br>
+  <strong>Trio index</strong>: <code>../INDEX.md</code> · <strong>Stubs</strong>: <code>../_stubs/</code>
+</div>
+<table>
+  <tr><th>Section</th><th>What's in it</th></tr>
+  <tr><td>&sect;1 Overview</td><td>One-paragraph framing of the platform layer</td></tr>
+  <tr><td>&sect;1a Architecture &amp; Data Model</td><td>System flow diagram, <code>evidence</code> schema, polymorphic-FK vs property-graph decision</td></tr>
+  <tr><td>&sect;1b UX Framing</td><td>Before/During/After, Review→Refine→Apply, Why-this panel, module-native surfacing</td></tr>
+  <tr><td>&sect;1c Connect Layer</td><td>Reference to <code>PRD-CONNECT-LAYER</code> + platform contract retained</td></tr>
+  <tr><td>&sect;2&ndash;&sect;5</td><td>Problem &amp; Rationale, Benefits, GTM, Competition</td></tr>
+  <tr><td>&sect;6 Key Metrics</td><td>Pipeline health, model quality, latency, North Star</td></tr>
+  <tr><td>&sect;6a Open Metric Gaps</td><td>Items needing analytics-owner resolution</td></tr>
+  <tr><td>&sect;7 Core Capabilities</td><td>CAP-001..CAP-011 (platform); CAP-012/013 references to sibling PRDs</td></tr>
+  <tr><td>&sect;7a Story Decomposition</td><td>Platform-scope stories (S-01..S-15)</td></tr>
+  <tr><td>&sect;10 Assumptions / Deps / Risks (incl. &sect;10a Constraints, &sect;10b Pre-mortem)</td><td>Locked invariants + risk register + failure modes</td></tr>
+  <tr><td>&sect;11 Out of Scope / Future Roadmap</td><td>Non-goals, MVP Stretch, future items</td></tr>
+  <tr><td>&sect;12 Documentation &amp; Resources</td><td>Parent Confluence, Aha! IDs, Jira, Slack, Zoom transcripts</td></tr>
+  <tr><td>&sect;13a Product Acceptance Criteria</td><td>PAC-01..PAC-20 + quality bars</td></tr>
+  <tr><td>&sect;13 Definition of Done</td><td>Phase 2 placeholder</td></tr>
+  <tr><td>&sect;14 Decisions Log</td><td>D-001..D-016 (append-only, named decider with initials)</td></tr>
+</table>
+
+<hr style="margin: 24px 0; border: none; border-top: 1px solid #DFE1E6;">
+
+<div style="background: #E3FCEF; border-left: 4px solid #00875A; padding: 10px 16px; border-radius: 3px; margin: 24px 0 16px; font-size: 13px; color: #006644;">
+  <strong>Platform PRD.</strong> Sibling PRDs split out in v0.6.0:
+  <code>PRD-MEETINGS-AI-SURFACES</code> (consumer surfaces &mdash; list page + detail page),
+  <code>PRD-CONNECT-LAYER</code> (cross-platform auth + consent).
+  This document defines the platform contracts the children consume.
+</div>
+
+<div class="meta-grid">
+  <div class="meta-item"><span class="meta-label">Release</span><br>Summer 2026</div>
+  <div class="meta-item"><span class="meta-label">Code Ready Date</span><br>2026-08-15</div>
+  <div class="meta-item"><span class="meta-label">Early Access</span><br>[TBD]</div>
+  <div class="meta-item"><span class="meta-label">PRD Version</span><br>0.8.0 (platform)</div>
+  <div class="meta-item"><span class="meta-label">Status</span><br><span class="status-pill">Draft</span></div>
+  <div class="meta-item"><span class="meta-label">Jira Epic</span><br>ENG-79199</div>
+</div>
+
+<h3>Owners (single source of truth; body refers to roles)</h3>
+<table>
+  <tr><th>Role</th><th>Name</th></tr>
+  <tr><td>PM Owner</td><td>Lalit Maharana</td></tr>
+  <tr><td>Eng Lead (Pipeline)</td><td>[TBD &mdash; pending AI Engineering leadership assignment]</td></tr>
+  <tr><td>AI Platform Lead</td><td>Jason Zhang</td></tr>
+  <tr><td>Design Lead</td><td>Gauri Thakur</td></tr>
+  <tr><td>Exec Sponsor</td><td>Nellie LeMonier</td></tr>
+  <tr><td>Cross-pod PM (Meetings + Goals)</td><td>Varnika Garg</td></tr>
+  <tr><td>Cross-pod PM (Integrations)</td><td>Rinku</td></tr>
+  <tr><td>Principal Eng (escalation)</td><td>Pankaj Lohmor</td></tr>
+  <tr><td>App Platform Lead</td><td>Jason Bilyeu</td></tr>
+</table>
+
+<div class="phase-banner">Phase 1: Why It Matters</div>
+
+<h2>1. Overview</h2>
+<p><strong>Release theme: "AI in the Flow of Work"</strong> (Summer 2026). <strong>Classification: Level A &mdash; Revenue Creator</strong> (parent Confluence; Aha! AI-201). <strong>MVP ingestion path: automated Zoom transcript retrieval</strong> (manual paste is a demo-only fallback, not the goal &mdash; per 2026-05-13 exec decision D-013).</p>
+<p>Betterworks is closing <strong>the gap between conversations and work</strong>. Today the highest-signal performance events &mdash; 1:1 conversations &mdash; happen outside the performance record. They live in private notes, follow-up emails, or memory. Three months later, at review time, the manager reconstructs from scratch.</p>
+<p>This PRD describes an <strong>evidence-centric AI layer</strong> that ingests signals from external sources (starting with Zoom transcripts), links them to the user's existing Betterworks objects &mdash; Goals, Meetings, Feedback, Skills &mdash; and surfaces module-native suggestions that the user can <strong>review, refine, and apply</strong> in one click. The destination is what makes this different from generic note-takers: every suggestion is bound to a Betterworks object, every claim is traceable to a clickable source, and every action is augmentative &mdash; the AI surfaces, the human decides.</p>
+<p>The architecture is multi-source from day one. Transcripts is the first source. Slack, Jira, HubSpot, and Salesforce follow on the same evidence framework. Intelligence compounds over time as evidence accumulates across the user's objects.</p>
+
+<h2>1a. Architecture &amp; Data Model</h2>
+
+<h3>Top-level flow</h3>
+<pre>SOURCES (extensible)
++------------+-----------+--------+---------+------------+--------+
+| Zoom/Teams | Slack     | Jira   | HubSpot | Salesforce | Manual |
+| transcripts| DMs+chans | issues | records | opps       | paste  |
++-----+------+-----+-----+---+----+----+----+------+-----+----+---+
+      v
++----------------------------------------+
+|  Source Adapter Framework (CAP-011)    |
+|  per adapter: auth, fetch, perm-check, |
+|  deep-link builder                     |
++--------------+-------------------------+
+               v
++----------------------------------------+
+|  Signal Extractor (AI Platform)        |
+|  LM Engine + LM Proxy (existing)       |
+|  -&gt; typed signals + confidence         |
++--------------+-------------------------+
+               v
++----------------------------------------+
+|  Evidence rows written (CAP-009)       |
+|  user_id, source, source_ref_url,      |
+|  observed_at, speaker_user_id,         |
+|  signal_type, confidence;              |
+|  object_type = NULL initially          |
++--------------+-------------------------+
+               v
++----------------------------------------+
+|  Reconciliation Framework (CAP-005)    |
+|  Per-type cascade:                     |
+|    1. Rule / entity match              |
+|    2. Embedding similarity (per-type)  |
+|    3. LLM judge on ambiguous band      |
+|  -&gt; populates object_type + object_id  |
+|     link_method recorded for audit     |
++--------------+-------------------------+
+               v
++-----------------+------------------+------------------+--------------+
+v                 v                  v                  v              v
+Goals page        Feedback page      Skills page        Meetings page  [Cross-module
+- goal-level      - pre-filled       - skill            - agenda items  digest -
+  suggestions       drafts bound       evidence          - topic summary now CAP-013
+- per-goal          to user's        - endorsement      - action items   in MVP]
+  evidence panel    allowed            suggestions       (MUST per
+- new goal          templates                            Meetings pod)
+  proposals       - one-click "log"  Every suggestion carries an
+                                     evidence panel - "Why this?" -
+                                     with clickable source links
+                                     (CAP-009)
+</pre>
+
+<h3>Evidence schema (canonical)</h3>
+<pre>evidence(
+  id              uuid pk,
+  user_id         fk users          -- traceability: every evidence belongs to a user
+  source_system   enum (zoom|teams|slack|jira|hubspot|salesforce|manual|bw-meeting),
+  source_ref_id   text              -- zoom meeting_uuid, slack ts, jira key, etc.
+  source_ref_url  text              -- clickable deep link (with ms-offset for media)
+  source_internal bool              -- true=link within Betterworks; false=external
+  observed_at     timestamptz       -- when it happened in the source system
+  ingested_at     timestamptz       -- when we processed it
+  speaker_user_id fk users nullable -- attribution; raw label kept when unresolved
+  excerpt_text    text              -- the quote / message / comment
+  excerpt_ts_start int              -- ms offset (media) or null
+  excerpt_ts_end   int
+  signal_type     enum (action_item|agenda_item|topic_summary|goal_progress|
+                       feedback_moment|skill_demo|coaching_theme),
+  payload         jsonb             -- structured signal-specific fields
+  confidence      numeric(3,2)      -- extractor confidence
+  source_trust    numeric(3,2)      -- per-tenant configurable
+  redacted        bool              -- CAP-008 exclusion: row exists, content hidden
+  object_type     enum (goal|meeting|feedback|skill|action_item) nullable,
+  object_id       text nullable     -- polymorphic FK (filled by reconciliation)
+  link_confidence numeric(3,2),
+  link_method     enum (rule|embedding|llm-judge|manual),
+  locked          bool default false -- CAP-012: set on source disconnect
+)</pre>
+<p><strong>Indexes:</strong> <code>(user_id, object_type, object_id, observed_at desc)</code> covering index for the &ldquo;Why this?&rdquo; panel; partial index per <code>object_type</code>.</p>
+
+<h3>Polymorphic FK vs. Property Graph &mdash; decision matrix</h3>
+<table>
+  <tr><th>Dimension</th><th>Polymorphic FK in Postgres (Gong's pattern)</th><th>Property Graph (Neo4j / Glean's Work Graph)</th></tr>
+  <tr><td>Operational complexity</td><td>Single DB; team already runs Postgres/Aurora</td><td>New infra; specialised ops knowledge</td></tr>
+  <tr><td>Query: &ldquo;all evidence for object X&rdquo;</td><td>One indexed lookup, very fast</td><td>Traversal &mdash; fast but requires graph engine</td></tr>
+  <tr><td>Query: shortest path between two objects via shared evidence</td><td>Multi-join, awkward</td><td>Native &mdash; graph's superpower</td></tr>
+  <tr><td>Schema evolution</td><td>Add columns; jsonb absorbs variation</td><td>Add labels/properties freely</td></tr>
+  <tr><td>Permission model integration</td><td>Native &mdash; Postgres RLS + Betterworks ACL stays in one place</td><td>Separate auth layer to maintain</td></tr>
+  <tr><td>Scale at 5&ndash;10M evidence rows/year, 100k&ndash;1M users</td><td>Comfortable; standard pattern</td><td>Overkill</td></tr>
+  <tr><td>Cross-object reasoning</td><td>Possible via CTE + materialised views; not native</td><td>Native</td></tr>
+  <tr><td>Cost</td><td>$0 incremental</td><td>New license + team</td></tr>
+  <tr><td>Industry analogue at our scale</td><td>Gong, Salesforce</td><td>Glean, Microsoft Graph</td></tr>
+</table>
+<p><strong class="moscow-must">Decision (v0.3.0): Polymorphic FK in Postgres.</strong> Mirror to a graph view (Neo4j or PG recursive CTEs) only if/when cross-object reasoning becomes a product feature. This matches what Gong runs at multiples of our scale.</p>
+
+<h2>1b. UX Framing</h2>
+
+<h3>Three moments</h3>
+<p><em>Framing established 2026-04-30 (see Decisions Log &sect;14, D-002).</em></p>
+<table>
+  <tr><th>Moment</th><th>What the AI does</th><th>What the user does</th></tr>
+  <tr><td><strong>Before</strong> the 1:1</td><td>Surface coaching prompts, recurring themes, open goals on both sides</td><td>Review prep; mark relevant items</td></tr>
+  <tr><td><strong>During</strong> the 1:1</td><td>(Future) inline assist</td><td>&mdash;</td></tr>
+  <tr><td><strong>After</strong> the 1:1</td><td>Process transcript &rarr; emit signals &rarr; attach evidence to objects &rarr; surface module-native suggestions</td><td><strong>Review &rarr; Refine &rarr; Apply</strong></td></tr>
+</table>
+
+<h3>Canonical user verbs</h3>
+<p><em>Design requirement, established 2026-05-12 (Decisions Log &sect;14, D-005).</em></p>
+<ul>
+  <li><strong>Review</strong> &mdash; read it with its evidence</li>
+  <li><strong>Refine</strong> &mdash; edit before applying (state: <code>edited_confirmed</code>)</li>
+  <li><strong>Apply</strong> &mdash; confirm (state: <code>confirmed</code>), data flows to the Betterworks record</li>
+</ul>
+<p>Dismissing is also a first-class action (state: <code>dismissed</code>).</p>
+
+<h3>&ldquo;Why this?&rdquo; panel &mdash; non-negotiable</h3>
+<p>Every AI suggestion renders inline with an evidence list. Each evidence row shows:</p>
+<ul>
+  <li>Source icon (Zoom/Teams/Slack/Jira/etc.) + clickable deep link</li>
+  <li>Speaker avatar + name (or raw label if unresolved)</li>
+  <li>Timestamp</li>
+  <li>Excerpt quote</li>
+  <li>&ldquo;Report bad evidence&rdquo; affordance</li>
+</ul>
+<p>The link click resolves through a permission check (see &sect;10a). Inline by default; hover-collapsed if needed for density. <strong>Design team action</strong>: Design lead to specify the exact layout, density rules, and the report-bad-evidence flow as part of the next design pass.</p>
+
+<h3>Module-native surfacing (not a global queue)</h3>
+<ul>
+  <li><strong>Goals page</strong> &mdash; goal-level suggestions ranked at the top; per-goal evidence panel; new-goal proposals</li>
+  <li><strong>Feedback page</strong> &mdash; pre-filled drafts bound to the user's allowed templates (CAP-010); one-click log</li>
+  <li><strong>Skills page</strong> &mdash; skill demonstration evidence; endorsement suggestions</li>
+  <li><strong>Meetings page</strong> &mdash; agenda items + topic summary + action items (MUST per Meetings pod)</li>
+</ul>
+<p>The cross-module digest is now <strong>CAP-013</strong> inside the Meetings module (in MVP scope).</p>
+
+<h2>1c. Connect Layer &rarr; <code>PRD-CONNECT-LAYER</code></h2>
+<div class="callout">The cross-platform auth + consent layer has moved to its own sibling PRD: <strong><code>PRD-CONNECT-LAYER</code></strong>. It owns touchpoints, consent model, OAuth flow, revoke matrix, retention policy, and the CONN-CAP capability decomposition.<br><br><strong>Platform contract this PRD retains:</strong> evidence rows are written only after the user has an active connection (<code>state = connected</code>); disconnect propagates to evidence (<code>locked = true</code>); hard-delete cascades after the 30-day grace.</div>
+
+<h2>2. Problem &amp; Rationale</h2>
+
+<h3>Legacy Limitations</h3>
+<ul>
+  <li>1:1 conversations are the highest-signal performance event and the lowest-instrumented &mdash; content lives in private docs, Slack threads, or memory.</li>
+  <li>Manual capture is inconsistent; signal is lost between conversation and performance record.</li>
+  <li>Existing transcription tools (Otter, Fireflies, Zoom AI Companion) summarise but do not route content into a performance system.</li>
+  <li>Cross-platform signal is fragmented: a goal-progress moment in Slack, a skill demo in a Jira comment, an action item in a 1:1 &mdash; no single thread connects them to the employee's record.</li>
+</ul>
+
+<h3>Customer Pain Points</h3>
+<ul>
+  <li>Managers re-discover the same coaching themes meeting after meeting because nothing carries forward.</li>
+  <li>Employees leave 1:1s without a clear record of agreed actions; follow-through is unverifiable.</li>
+  <li>HR teams can't see talent signals (skill demos, development needs, feedback moments) surfacing in real time.</li>
+  <li>Performance reviews are reconstructions, not records.</li>
+</ul>
+
+<h3>Why Betterworks</h3>
+<p>Betterworks already owns the destination systems &mdash; goals, anytime feedback, talent profile, skills &mdash; that meeting content should flow into. We can close the loop between conversation and performance record without asking the customer to bolt on another point tool. Every output is bound to a Betterworks object, traceable to source, and confirmed by the user before it lands on the record.</p>
+
+<h2>3. Benefits &amp; Value</h2>
+
+<h3>Employees</h3>
+<ul>
+  <li>Action items captured automatically; less follow-up friction with their manager.</li>
+  <li>Skills and growth themes surfaced as evidence on their talent profile.</li>
+  <li>Positive feedback moments preserved instead of disappearing into a Slack thread.</li>
+  <li><strong>Connect once</strong> to their meeting platform; the rest is automatic.</li>
+  <li><strong>Trust through traceability</strong> &mdash; every AI suggestion shows exactly which moment in which meeting produced it.</li>
+</ul>
+
+<h3>Managers</h3>
+<ul>
+  <li>Pre-meeting coaching prompts that draw on past 1:1s, open goals, recurring themes &mdash; zero prep effort.</li>
+  <li>Suggestions queued for one-click confirmation after the meeting; no separate note-taking workflow.</li>
+  <li>Coaching themes tracked across sessions &mdash; patterns surface that a manager wouldn't otherwise notice.</li>
+</ul>
+
+<h3>Admins / HR / Leaders</h3>
+<ul>
+  <li>Performance signals flow into goals, feedback, and skills workflows without users having to remember to log them.</li>
+  <li>Skills taxonomy and talent profiles populate organically.</li>
+  <li>Lower cost to operate the program &mdash; fewer trainings on &ldquo;remember to log feedback.&rdquo;</li>
+</ul>
+
+<h3>CHRO / CEO / CFO</h3>
+<ul>
+  <li>Performance enablement becomes a continuous signal stream rather than an annual artifact.</li>
+</ul>
+
+<h2>4. GTM Messaging</h2>
+
+<h3>Core Value Proposition</h3>
+<blockquote>Turn <strong>every conversation, message, and ticket</strong> into <strong>structured performance signal</strong> &mdash; so <strong>managers and HR</strong> can <strong>act on real-time evidence instead of reconstructing it quarterly</strong>.</blockquote>
+
+<h3>Key Messages</h3>
+<ol>
+  <li><strong>The story isn't about AI. It's about the gap between conversations and work.</strong> Managers already have the 1:1s; the conversations are happening. The problem is that nothing from those conversations makes it into the performance record. <em>What you discussed last Tuesday becomes what you're working on this week, and the evidence for what you recognize and assess at end of quarter.</em> (Adopted as team GTM position 2026-05-12 &mdash; Decisions Log D-006.)</li>
+  <li><strong>Connect once. Intelligence compounds over time.</strong> Every meeting, every Slack thread, every Jira comment adds evidence to the right object on the user's record. The system gets sharper the longer it runs.</li>
+  <li><strong>AI augments managers; it doesn't act on their behalf.</strong> Nothing reaches the performance record without explicit user confirmation. The AI surfaces; the human decides.</li>
+  <li><strong>Every claim is traceable.</strong> Click any suggestion's &ldquo;Why this?&rdquo; to jump to the exact moment in the source meeting, Slack message, or Jira ticket. Trust is built on transparent provenance &mdash; not magic.</li>
+</ol>
+
+<h3>Differentiation</h3>
+<p>Others (Otter, Fireflies, Zoom AI Companion, Lattice's free-form AI) do <strong>summarisation</strong> &rarr; We do <strong>multi-source evidence linked to the performance record with mandatory human confirmation and clickable provenance</strong> &rarr; Why it matters: <strong>the signal arrives in the system that drives reviews, raises, and growth &mdash; and the user can verify every claim</strong>.</p>
+
+<h2>5. Existing Alternatives &amp; Competition</h2>
+<table>
+  <tr><th>Alternative</th><th>Who / What</th><th>Limitation</th></tr>
+  <tr><td>Manual note-taking</td><td>Google Doc / Notion / Betterworks agenda</td><td>Inconsistent, no routing, no provenance</td></tr>
+  <tr><td>Generic AI note-takers</td><td>Otter, Fireflies, Granola, Zoom AI Companion</td><td>Produces summary; no performance-system routing; no template-bound output</td></tr>
+  <tr><td>Free-form AI feedback</td><td>Lattice AI feedback assistant</td><td>Ignores org competency framework / templates (industry anti-pattern)</td></tr>
+  <tr><td>Native Zoom AI Companion</td><td>Zoom</td><td>Stops at summary; data stays in Zoom</td></tr>
+  <tr><td>Recall AI (bot ingestion)</td><td>Recall AI</td><td>Rejected 2026-04-28 by exec sponsor: &ldquo;6 people = 6 bots in a meeting &mdash; poor UX.&rdquo; Plus security + customer friction. (Decisions Log D-001.)</td></tr>
+  <tr><td>Sales-intelligence analogues</td><td>Gong, Clari</td><td>Evidence-to-object pattern is the right model &mdash; but they only do CRM. We do performance.</td></tr>
+  <tr><td>Survey-based feedback</td><td>Lattice, 15Five, Culture Amp</td><td>Captures sentiment; misses the actual conversation content</td></tr>
+</table>
+
+<h2>6. Key Metrics &amp; Revenue Drivers</h2>
+<div class="callout"><strong>Platform-scope metrics:</strong> pipeline health, model quality, trust. Surface-engagement metrics live in the consumer PRDs (<code>PRD-MEETINGS-AI-SURFACES</code> &sect;6, <code>PRD-CONNECT-LAYER</code> &sect;6). All metrics <code>[proposed, awaiting analytics verification]</code> until <code>analytics/metrics-definitions.md</code> is updated.</div>
+
+<h3>Adoption (platform usage)</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>Pipeline coverage rate</td><td>% of eligible inputs producing &ge;1 suggestion</td><td>80&ndash;95% (Gong ~92%)</td><td><code>ai.pipeline.completed</code> w/ <code>suggestion_count</code></td></tr>
+  <tr><td>Eligible inputs ingested / week</td><td>Volume metric &mdash; denominator for everything else</td><td>trend up</td><td><code>ai.pipeline.invoked</code></td></tr>
+</table>
+
+<h3>Quality (model output)</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr class="must-row"><td><strong>Suggestion acceptance rate</strong> &#9733; NORTH STAR</td><td>% confirmed (vs. dismissed/edited/ignored)</td><td>30&ndash;60% (Copilot 26&ndash;35%; Gong tuned 40&ndash;60%)</td><td><code>ai.suggestion.confirmed</code></td></tr>
+  <tr><td>Edit-distance on accept</td><td>Levenshtein/token-diff between suggested and confirmed text</td><td>&lt;15% = trust-grade; &gt;40% = users rewriting</td><td><code>ai.suggestion.confirmed.edit_distance_pct</code></td></tr>
+  <tr><td>Eval-set regression score</td><td>Offline precision/recall vs. golden set per release</td><td>No regression &gt;2pp release-over-release</td><td>offline run, dashboarded</td></tr>
+  <tr><td>Hallucination / trust-flag rate</td><td>% suggestions flagged by users + % blocked by LM Proxy guardrails</td><td>&lt;2%</td><td><code>ai.suggestion.flagged</code>, <code>ai.proxy.guardrail.blocked</code></td></tr>
+</table>
+
+<h3>Efficiency (latency)</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>Pipeline P95 latency</td><td>Input received &rarr; suggestion available</td><td>&lt; 5 min (per &sect;10a SHOULD); &lt; 20s for summary alone</td><td><code>ai.pipeline.stage.duration_ms</code></td></tr>
+  <tr><td>Time-to-confirm (TTC) median</td><td>Suggestion rendered &rarr; user action</td><td>&lt; 10s scannable; &gt; 45s = cognitive load</td><td><code>ai.suggestion.rendered</code> &rarr; <code>.actioned</code> delta</td></tr>
+</table>
+
+<h3>North Star (cross-PRD, watched daily for first 30 days post-launch)</h3>
+<ol>
+  <li><strong>End-to-end Connect &rarr; First AI Confirm conversion</strong> (lives in <code>PRD-CONNECT-LAYER</code> &sect;6) &mdash; proves whole pipeline works for real users.</li>
+  <li><strong>AI Action-Item Completion Lift</strong> (lives in <code>PRD-MEETINGS-AI-SURFACES</code> &sect;6) &mdash; proves feature changes work behaviour.</li>
+  <li><strong>Suggestion Acceptance Rate</strong> (this PRD, above) &mdash; daily proxy for model trust.</li>
+</ol>
+
+<h3>Revenue / ARR</h3>
+<ul>
+  <li>Performance Enablement tier retention <code>[unverified; needs sales-led modelling]</code></li>
+  <li>Deal influence in evaluation cycles <code>[unverified; needs sales-led modelling]</code></li>
+</ul>
+
+<h2>6a. Open Metric Gaps</h2>
+<table>
+  <tr><th>Gap</th><th>Owner</th><th>Trigger to resolve</th></tr>
+  <tr><td>Baseline for action-item completion in current Meetings module</td><td>Analytics owner + Meetings PM</td><td>Before launch &mdash; needed for "1.4&ndash;1.8&times; lift" comparison (<code>PRD-MEETINGS-AI-SURFACES</code> &sect;6)</td></tr>
+  <tr><td>Revenue/ARR attribution model</td><td>Sales + PM owner</td><td>Before exec readout post-launch</td></tr>
+  <tr><td>Eval-set golden corpus</td><td>AI Platform lead + PM owner</td><td>Before S-04 (signal extraction) ships &mdash; gates Quality.regression-score</td></tr>
+  <tr><td><code>analytics/metrics-definitions.md</code> entries</td><td>PM owner + Analytics</td><td>Before any metric ships in a dashboard</td></tr>
+</table>
+
+<h2>7. Core Capabilities</h2>
+<p>Each capability has a stable <code>CAP-XXX</code> ID. Acceptance criteria (Phase 2 &sect;9) reference these.</p>
+
+<h3>Module consumers (reference)</h3>
+<p>The platform exposes signal contracts. Each module surface consumes them via its own PRD:</p>
+<table>
+  <tr><th>Module</th><th>Surface PRD</th><th>Status</th></tr>
+  <tr><td>Meetings</td><td><strong><code>PRD-MEETINGS-AI-SURFACES</code></strong> (split out v0.6.0)</td><td>Drafted</td></tr>
+  <tr><td>Goals</td><td>[TBD &mdash; stub; promote when 3-of-6 split rule satisfied]</td><td>Stub</td></tr>
+  <tr><td>Feedback</td><td>[TBD &mdash; stub; promote when 3-of-6 split rule satisfied]</td><td>Stub</td></tr>
+  <tr><td>Skills</td><td>[TBD &mdash; stub; promote when 3-of-6 split rule satisfied]</td><td>Stub</td></tr>
+</table>
+<p>Module-specific UX (per-meeting agenda chips, action-item carry-forward threading, list-page digest, signal feed, etc.) is defined in the relevant surface PRD. This platform PRD owns only the contracts they consume.</p>
+
+<h3>UI / Front-End</h3>
+<p><em>Owned by Meetings pod + Connections pod &mdash; cross-PRD references.</em></p>
+
+<h3>Back-End (AI Platform &mdash; this PRD)</h3>
+<ul>
+  <li><strong>CAP-001 &mdash; Meeting Summary Generation</strong> &mdash; Accept <strong>raw transcript</strong> &rarr; return structured <code>topic_summary</code> + agenda-item evidence. <strong>Betterworks-owned LLM generation; does not rely on Zoom AI Companion's native summary</strong> (different intent, different user base, different downstream routing). Degrades gracefully for sparse content. Aha: <code>AI-201</code>.</li>
+  <li><strong>CAP-002 &mdash; Action Item &amp; Discussion Topic Extraction</strong> &mdash; Emit <code>action_item</code> and <code>agenda_item</code> evidence with owner attribution where speaker-map permits. <strong>MUST per Meetings pod requirement.</strong> Aha: <code>AI-201 + MEET-48</code>.</li>
+  <li><strong>CAP-003 &mdash; Performance Signal Extraction</strong> &mdash; Emit signals across five types: <code>skill_demo</code>, <code>goal_progress</code>, <code>feedback_moment</code> (positive + constructive), <code>coaching_theme</code>. Each routes to a downstream Betterworks object via Reconciliation (CAP-005). Aha: <code>AI-201</code>.</li>
+  <li><strong>CAP-004 &mdash; Pre-Meeting Coaching Prompts</strong> &mdash; Generate &ldquo;Before&rdquo;-moment talking points for the next 1:1, drawing on prior evidence and both participants' open goals. Multi-session retrieval over the evidence table. Architecturally distinct &mdash; uses AWS MWAA preprocess. Aha: <code>AI-201</code>.</li>
+  <li><strong>CAP-005 &mdash; Reconciliation Framework</strong> <em>(personalisation layer, expanded from dedup)</em> &mdash; Links new evidence to the user's existing objects (Goal, Meeting, Feedback, Skill). Per-type cascade: rules/entity-match &rarr; embedding similarity (per-type thresholds 0.88&ndash;0.92) &rarr; LLM-as-judge on the ambiguous band. Outputs <code>object_type</code>, <code>object_id</code>, <code>link_method</code>, <code>link_confidence</code>. <strong>Multi-source ready</strong> &mdash; transcripts is one input; same framework handles Slack/Jira/CRM signals later.</li>
+  <li><strong>CAP-006 &mdash; Module-Native Surfacing</strong> <em>(replaces global Suggestions Queue)</em> &mdash; Per-module ranking and rendering. No global queue. Ranking: <code>0.4&middot;confidence + 0.25&middot;type_prior + 0.2&middot;exp(-age_days/half_life) + 0.15&middot;user_type_accept_rate</code>; half-life 3&ndash;7 days per type. Auto-expire after 14 days (state: <code>stale</code>).</li>
+  <li><strong>CAP-007 &mdash; Org-Level Validation Passthrough for Goal Suggestions</strong> &mdash; Accepted goal suggestions pass through the org's Goals admin validation (scope, type, mandatory attributes) before publish. AI does not bypass governance.</li>
+  <li><strong>CAP-008 &mdash; Per-User Meeting &amp; Source Exclusion Filter</strong> &mdash; User can mark specific meetings (or future: Slack channels, Jira projects) as excluded from ingestion. Existing evidence rows from excluded sources are marked <code>redacted=true</code>, retained for audit but hidden in UI.</li>
+  <li><strong>CAP-009 &mdash; Evidence Provenance &amp; Traceability</strong> &mdash; Every evidence row carries <code>source_system</code>, <code>source_ref_url</code> (clickable deep link with media timestamp where applicable), <code>speaker_user_id</code> (or raw label), <code>observed_at</code>, <code>excerpt_text</code>. Permission-checked at click time. &ldquo;Why this?&rdquo; panel renders inline on every suggestion. Includes &ldquo;Report bad evidence&rdquo; affordance.</li>
+  <li><strong>CAP-010 &mdash; Template-Bound Feedback Pre-fill</strong> &mdash; Slot-fills the user's allowed feedback templates from accumulated evidence. Schema: <code>feedback_draft(template_id, slot_values jsonb, evidence_ids[])</code>. LLM SHALL NOT emit feedback as free-form prose outside a template (anti-Lattice pattern). One-click &ldquo;log&rdquo; copies slot values into the real feedback record. <strong>Open issue (D-013 follow-up)</strong>: handling when user has no allowed feedback template &mdash; proposal is draft-state feedback object pending template assignment; <em>to be discussed with Feedback (Performance) pod</em>.</li>
+  <li><strong>CAP-011 &mdash; Source Adapter Framework</strong> &mdash; Pluggable adapter contract: <code>authenticate(user) &rarr; token</code>; <code>fetch(user, since) &rarr; raw_payload[]</code>; <code>permission_check(viewer, evidence) &rarr; bool</code>; <code>build_deep_link(evidence) &rarr; url</code>. <strong>MVP</strong>: automated Zoom transcript ingestion (via Cloud Recording API + webhook) is required (D-013). Manual paste path retained as a demo-only safety net. <strong>Ownership</strong>: Integrations pod owns Zoom adapter delivery; <strong>AI Platform Lead absorbs ownership</strong> if Integrations pod cannot deliver in the Summer window. <strong>Stretch</strong>: Teams adapter. Roadmap: Slack, Jira, HubSpot, Salesforce.</li>
+  <li><strong>CAP-012 &mdash; Connect Layer (reference)</strong> &mdash; <strong>Moved to <code>PRD-CONNECT-LAYER</code></strong> (v0.6.0). Platform contract: evidence rows are only written when the relevant connection state is <code>connected</code>; revoke propagates to <code>evidence.locked = true</code>. Full capability decomposition (CONN-CAP-001..006), revoke matrix, retention policy, OAuth scope list, and product acceptance criteria all live in the child PRD. See &sect;14 D-011.</li>
+  <li><strong>CAP-013 &mdash; Multi-Meeting Digest (reference)</strong> &mdash; <strong>Moved to <code>PRD-MEETINGS-AI-SURFACES</code></strong> (v0.6.0). The multi-meeting digest is a Meetings-module surface owned by the Meetings consumer PRD as MEET-CAP-101 (list-level digest), MEET-CAP-203 (last-meeting recap), and MEET-CAP-202 ("Before" cross-session summary). Platform contract: each consumes summaries from CAP-001 + signals from CAP-002/003/004. See &sect;14 D-011.</li>
+</ul>
+
+<div class="callout"><strong>Revoke matrix &amp; retention policy</strong> &rarr; canonical in <code>PRD-CONNECT-LAYER</code> &sect;1a.</div>
+
+<h3>Admin Configuration</h3>
+<p><em>Owned by Integrations + Platform &mdash; see ENG-79199 &ldquo;Out of Scope&rdquo; block.</em></p>
+
+<h2>7a. Story Decomposition (Platform-scope only)</h2>
+<div class="callout">Platform stories below cover the AI pipeline + Reconciliation Framework + Source Adapter contract. Consumer-surface stories live in child PRDs: <code>PRD-MEETINGS-AI-SURFACES</code> &sect;7a (M-01..M-08) and <code>PRD-CONNECT-LAYER</code> &sect;7a (C-01..C-07).</div>
+
+<h3>MVP &mdash; Summer 2026 (must ship)</h3>
+<table>
+  <tr><th>#</th><th>Story</th><th>Caps covered</th><th>Owner</th><th>Sequencing</th></tr>
+  <tr><td>S-01</td><td>Canonical evidence schema &mdash; Aurora table + write API + indexes</td><td>foundation for all</td><td>AI Platform</td><td><strong>Week 1&ndash;2 (blocking)</strong></td></tr>
+  <tr><td>S-02</td><td>Source adapter contract &mdash; interface only; spec committed</td><td>CAP-011</td><td>PM Owner + Integrations PM</td><td>Week 2 (blocking)</td></tr>
+  <tr><td>S-03</td><td>Manual transcript ingestion adapter</td><td>CAP-011</td><td>AI Platform</td><td>Week 3&ndash;4</td></tr>
+  <tr><td>S-04</td><td>AI signal extraction &mdash; single-pass (summary + action items + agenda + feedback/skill/goal/coaching signals)</td><td>CAP-001, CAP-002, CAP-003</td><td>AI Platform</td><td>Week 3&ndash;6</td></tr>
+  <tr><td>S-05</td><td>Reconciliation framework v1 &mdash; rule + embedding cascade</td><td>CAP-005</td><td>AI Platform</td><td>Week 4&ndash;6</td></tr>
+  <tr><td>S-06</td><td>Module-native surfacing &mdash; Meetings page (per-meeting summary, action items, agenda items)</td><td>CAP-006, CAP-001, CAP-002</td><td>Meetings pod</td><td>Week 5&ndash;7</td></tr>
+  <tr><td>S-07</td><td>Why-this panel + clickable deep-links &mdash; Zoom timestamp + Betterworks meeting record only</td><td>CAP-009</td><td>Meetings pod + AI Platform</td><td>Week 5&ndash;7</td></tr>
+  <tr><td>S-08</td><td>4-state model + pending writes + retention defaults</td><td>foundation</td><td>AI Platform</td><td>Week 4&ndash;5</td></tr>
+  <tr><td>S-09</td><td>Per-meeting exclusion filter (CAP-008 MVP scope) &mdash; Zoom meetings only</td><td>CAP-008</td><td>Integrations + Meetings</td><td>Week 6</td></tr>
+  <tr><td><s>S-10</s></td><td><s>Connect Layer foundation</s> &rarr; <strong>moved to <code>PRD-CONNECT-LAYER</code> (C-01..C-06)</strong></td><td>&mdash;</td><td>Connections pod</td><td>child PRD</td></tr>
+  <tr><td><s>S-11</s></td><td><s>Multi-meeting digest</s> &rarr; <strong>moved to <code>PRD-MEETINGS-AI-SURFACES</code> (M-03/M-07/M-08)</strong></td><td>&mdash;</td><td>Meetings pod</td><td>child PRD</td></tr>
+  <tr><td>S-12</td><td>Rainforest smoke + evaluation harness &mdash; 10&ndash;15 sample transcripts</td><td>DoD</td><td>PM Owner + AI Platform</td><td>Week 4 onward</td></tr>
+  <tr><td>S-13 (stretch)</td><td>LLM-judge tier of reconciliation cascade</td><td>CAP-005</td><td>AI Platform</td><td>Week 8&ndash;10</td></tr>
+  <tr><td>S-14 (stretch)</td><td>Template-bound feedback pre-fill &mdash; one template</td><td>CAP-010</td><td>AI Platform + Performance pod</td><td>Week 8&ndash;10</td></tr>
+  <tr><td>S-15 (stretch)</td><td>Goal suggestions on Goals page</td><td>CAP-006, CAP-007</td><td>AI Platform + Goals pod</td><td>Week 9&ndash;11</td></tr>
+</table>
+
+<h3>Future (post-Summer 2026 &mdash; out of MVP)</h3>
+<table>
+  <tr><th>Story</th><th>Caps</th><th>Trigger to start</th></tr>
+  <tr><td>Zoom automated ingestion</td><td>CAP-011 (Zoom auto)</td><td>After D1 (vendor-vs-native) decision</td></tr>
+  <tr><td>Teams adapter</td><td>CAP-011</td><td>Customer demand (Sony)</td></tr>
+  <tr><td>Slack adapter</td><td>CAP-011</td><td>Phase 2</td></tr>
+  <tr><td>Jira / HubSpot / Salesforce adapters</td><td>CAP-011</td><td>Customer-driven</td></tr>
+  <tr><td>CAP-004 full multi-session retrieval w/ MWAA preprocess</td><td>CAP-004</td><td>After S-04 ships</td></tr>
+  <tr><td>Outbox + CDC + SSE delivery upgrade</td><td>infra</td><td>When 3s-poll cost hurts</td></tr>
+  <tr><td>Learned ranking model</td><td>CAP-006</td><td>&ge;50k labeled accept/dismiss events</td></tr>
+  <tr><td>Per-signal-type connect granularity</td><td>CAP-012</td><td>Customer-driven</td></tr>
+  <tr><td>Admin &ldquo;auto-confirm&rdquo; policies for trusted signal types</td><td>new</td><td>Phase 3</td></tr>
+  <tr><td>Live A2A endpoint</td><td>a2a</td><td>Second agent needs it</td></tr>
+  <tr><td>Multi-language transcript support</td><td>CAP-001</td><td>Customer-driven</td></tr>
+  <tr><td>Cross-org skills clustering</td><td>new</td><td>Phase 3</td></tr>
+</table>
+
+<h3>Story dependency graph (critical path)</h3>
+<pre>S-01 (evidence schema) --+--&gt; S-04 (extraction) --&gt; S-05 (reconciliation) --+--&gt; S-06 (Meetings surfacing)
+                         |                                                   |
+                         +--&gt; S-02 (adapter contract) --&gt; S-03 (manual)      |
+                                                                             +--&gt; S-07 (Why-this) --&gt; S-11 (digest)
+
+S-08 (state model) --&gt; S-09 (exclusion) --&gt; S-10 (Connect Layer)
+S-12 (eval) runs in parallel from Week 4</pre>
+<p><strong>Critical path: S-01 &rarr; S-04 &rarr; S-05 &rarr; S-06 &rarr; S-11.</strong> S-01 and S-02 are the Week-1/Week-2 unblock priority.</p>
+
+<div class="phase-banner gated">Phase 2: Product Requirements (GATED &mdash; to be drafted in v0.5 after Phase 1 review)</div>
+
+<h2>8. What's Changed / What's New</h2>
+<p><em>Phase 2 content. Drafted in v0.5 after Phase 1 sign-off.</em></p>
+
+<h2>9. How It Works</h2>
+<p><em>Phase 2 content (including per-AC EARS criteria and MoSCoW table). Drafted in v0.5 after Phase 1 sign-off.</em></p>
+
+<h2>10. Assumptions, Dependencies &amp; Risks</h2>
+
+<h3>Assumptions</h3>
+<ul>
+  <li>Pipeline engineering resources allocated at sufficient capacity (pending AI engineering leadership + exec sponsor confirmation).</li>
+  <li>Private LLM stack (Llama 3.1 8B &rarr; Gemma 4) on AWS EC2 GPU via EKS, fronted by LM Engine + LM Proxy with 20-category guardrails (confirmed 2026-05-11 by AI Platform lead).</li>
+  <li>Async-poll pattern used today for Skills is the working delivery model; outbox + CDC + SSE is a v2 upgrade.</li>
+  <li>Pre-meeting Coaching Prompts (CAP-004) can leverage AWS MWAA scheduled preprocessing.</li>
+  <li>Customers will accept opt-in transcript processing with clear consent UX.</li>
+  <li>Manual copy-paste path is acceptable for MVP &mdash; automated ingestion is not required for the Rainforest demo to exec sponsor and AI engineering leadership.</li>
+  <li>Goals admin validation framework (CAP-007) can be invoked as a passthrough without modification (confirmed 2026-05-12 by Meetings/Goals PM).</li>
+  <li><code>llm-engine</code> PR #512 (ENG-78223) establishes the precedent for conversation-context flow &mdash; CAP-003/004 build on this, not greenfield.</li>
+</ul>
+
+<h3>Dependencies</h3>
+<ul>
+  <li><strong>Evidence schema</strong> (canonical <code>evidence</code> table in Aurora) &mdash; PM owner drives; consumed by all four module pods. <strong>Highest-priority pre-implementation dependency.</strong></li>
+  <li><strong>Adapter contract specification</strong> &mdash; PM owner + Integrations PM co-own; locks the shape future adapters inherit.</li>
+  <li>Speaker-to-Betterworks-user-ID resolution &mdash; Integrations pod.</li>
+  <li>Open goals data at inference time &mdash; Goals/Performance pod; blocks CAP-004.</li>
+  <li>Anytime 360 Feedback schema stability &mdash; Performance pod; blocks CAP-003 routing + CAP-010 template binding.</li>
+  <li>Feedback template enumeration API &mdash; for CAP-010 slot-filling.</li>
+  <li>Skills taxonomy stability &mdash; Talent Intelligence pod.</li>
+  <li>Goals admin validation framework (CAP-007 passthrough) &mdash; Goals pod.</li>
+  <li>Meetings pod UI for per-module surfacing + Why-this panel &mdash; Meetings pod.</li>
+  <li>Design specs for Why-this panel + connect-layer touchpoints &mdash; Design lead.</li>
+  <li>Connect Layer UI &mdash; cross-PRD (PRD-CONNECT-LAYER, owner TBD).</li>
+  <li>Deep-link URL builders per provider.</li>
+  <li>LM Engine + LM Proxy integration &mdash; AI Platform lead; available per 2026-05-11.</li>
+  <li>Aha! customer-request scan &mdash; Meetings/Goals PM sharing findings.</li>
+</ul>
+
+<h3>Risks / Areas to Monitor</h3>
+<table>
+  <tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+  <tr><td><strong>Rainforest milestone (2026-05-31) vs. current story sequencing</strong> <em>(NEW v0.7.0)</em></td><td><strong>High</strong></td><td>Several stories (S-04, S-06, M-02..M-08, C-03..C-06) are scheduled Week 5+ which lands after May 31. Exec sponsor accepts that the Rainforest date may need to move pending scope review rather than cutting scope. PM owner books exec scope-alignment in Week 2; until then, treat May 31 as a target, not a frozen commitment. <strong>No silent scope cuts.</strong></td></tr>
+  <tr><td><strong>Zoom API integration delivery risk</strong> <em>(escalated v0.8.0)</em></td><td><strong>High</strong></td><td>Per 2026-05-13 PM exec decision, Zoom API ingestion is <strong>MVP required</strong> (was "MVP if doable" in v0.7.0). Ownership fallback: AI Platform Lead absorbs the work if Integrations pod cannot deliver. Manual paste demoted to demo-only safety net. Integrations capability spec due Thursday 2026-05-15.</td></tr>
+  <tr><td><strong>Integrations pod pushing Recall AI over native Zoom POC</strong> <em>(NEW v0.8.0)</em></td><td>Med</td><td>Process risk flagged by exec sponsor 2026-05-13. Recall AI was rejected 2026-04-28 (D-001); current Integrations approach is misaligned. PM owner to re-state D-001 + D-013 in Thursday capability-spec meeting; escalation via Principal Eng.</td></tr>
+  <tr><td>Engineer-estimated 4&ndash;5 month timeline vs. summer deadline</td><td><strong>High</strong></td><td>Flagged by AI engineering leadership 2026-05-07; principal-eng escalation path per Owners; Problem 1/2 decoupling</td></tr>
+  <tr><td>Evidence schema unresolved across four module pods</td><td>Med</td><td>PM owner drives canonical schema sign-off Week 2</td></tr>
+  <tr><td>Evidence trust collapse from early bad attributions</td><td>Med</td><td>Ship Why-this panel + clickable links on day 1; &ldquo;Report bad evidence&rdquo; button from launch</td></tr>
+  <tr><td>Connect-layer adoption friction</td><td>Med</td><td>Per-module inline prompts at moments of clear value; first-run guided connect</td></tr>
+  <tr><td>Reconciliation produces wrong object-links</td><td>Med</td><td>Persist <code>link_method</code> + <code>link_confidence</code>; user can re-link via Why-this; tune thresholds from labels</td></tr>
+  <tr><td>Vendor vs. native Zoom decision (D1) slips past May 31</td><td>Med</td><td>Manual MVP unaffected</td></tr>
+  <tr><td>Processing architecture (D2) chosen before eval framework exists</td><td>Med</td><td>Minimal eval harness Week 2</td></tr>
+  <tr><td>Pending-suggestion retention policy (D5)</td><td>Low</td><td>30-day default; revise post-feedback</td></tr>
+  <tr><td>AI hallucination on sparse content</td><td>Med</td><td>Confidence threshold suppression; LM Proxy 20-category guardrails</td></tr>
+  <tr><td>Customer compliance / consent concerns</td><td>Med</td><td>Explicit per-app OAuth scopes; per-meeting exclusion (CAP-008); data governance design pre-launch</td></tr>
+  <tr><td>Gemma 4 latency regression</td><td>Low</td><td>Stay on Llama 3.1 8B for MVP</td></tr>
+</table>
+
+<h3>10a. Constraints &amp; Invariants</h3>
+<div class="callout"><strong>RFC-2119 binding.</strong> LOCKED. Coding agents and downstream PRDs must not violate.</div>
+
+<h4>MUST</h4>
+<table>
+  <tr class="must-row"><th>Constraint</th><th>Source</th></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL store evidence as a first-class entity linked to a user, source, observation timestamp, and (after reconciliation) an object.</td><td>D-008</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL render every evidence row with a clickable deep link to its source &mdash; internal or external.</td><td>D-008</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL perform a permission check at click time for external sources; if the viewer lacks access, the link is disabled but excerpt + speaker + timestamp remain visible.</td><td>v0.3.0</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL attribute every evidence row to a <code>speaker_user_id</code> when resolvable; unresolved speakers render with their raw source label.</td><td>v0.3.0</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL pre-fill feedback drafts into the user's existing allowed templates (anti-Lattice pattern).</td><td>v0.3.0</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL surface AI suggestions per-module on the relevant module page. No global queue.</td><td>v0.3.0</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL pass any accepted goal-type suggestion through the org's Goals admin validation before publish.</td><td>D-004</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL route all LLM inference through the LM Engine + LM Proxy with 20-category guardrails.</td><td>D-007</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL honour per-user meeting / source exclusion (CAP-008): excluded rows kept with <code>redacted=true</code> for audit.</td><td>D-004</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL require an explicit user-driven connect per external source before ingestion. Per-app, revocable, explicit OAuth scopes.</td><td>v0.3.0</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL write all AI output in <code>pending</code> state. No writes without explicit user confirmation.</td><td>ENG-79199</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL support the state model <code>pending | confirmed | dismissed | edited_confirmed | stale</code>.</td><td>v0.3.0</td></tr>
+  <tr class="must-row"><td>THE AI PLATFORM SHALL accept input only via a documented payload contract.</td><td>ENG-79199</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL ship automated Zoom transcript ingestion in MVP (Cloud Recording API + webhook + admin-enable + user-OAuth flow). Manual paste is a demo-only safety net, not a customer fallback.</td><td>D-013</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL require admin-level org enablement for any source integration before user-level OAuth connect is offered.</td><td>D-016</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL write evidence rows to the data warehouse (Aurora) for cross-pod access + reporting; rows SHALL NOT be siloed in pod-specific DBs.</td><td>D-014</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL generate meeting summaries via Betterworks' own LLM stack from raw transcripts; it SHALL NOT rely on Zoom AI Companion's native summary.</td><td>D-015</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL be feature-complete by August 2026 for the summer release.</td><td>2026-05-07 (AI engineering leadership)</td></tr>
+</table>
+
+<h4>MUST NOT</h4>
+<table>
+  <tr class="mustnot-row"><th>Constraint</th><th>Source</th></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT operate a global suggestions queue. Surfacing is per-module.</td><td>v0.3.0</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT emit feedback as free-form prose outside a user's allowed template.</td><td>v0.3.0</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT use bot-based meeting recording. (&ldquo;6 people = 6 bots &mdash; poor UX.&rdquo;)</td><td>D-001</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT take action on the user's behalf. Augment, not act.</td><td>2026-05-08 (exec sponsor framing)</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT ingest from a source the user has not connected.</td><td>v0.3.0</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT block AI processing (Problem 2) on the ingestion pipeline (Problem 1).</td><td>2026-05-07 (AI engineering leadership)</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT write any AI suggestion to a performance record without <code>state &isin; {confirmed, edited_confirmed}</code>.</td><td>ENG-79199</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT process meeting types other than 1:1 in MVP.</td><td>2026-05-08 (exec sponsor)</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT call external LLM providers from the inference path. Private LLM stack only.</td><td>D-007</td></tr>
+  <tr class="mustnot-row"><td>THE SYSTEM SHALL NOT name a specific LLM model version in user-facing copy or PRD body.</td><td>v0.2.0</td></tr>
+</table>
+
+<h4>SHOULD</h4>
+<table>
+  <tr class="should-row"><th>Constraint</th><th>Source</th></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD return outputs within 5 minutes of transcript availability; sub-20s for summary generation.</td><td>2026-05-11</td></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD use async-poll (3s DB poll) for MVP; outbox + CDC + SSE is a v2 upgrade.</td><td>2026-05-11</td></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD surface unresolved-speaker action items rather than suppress them.</td><td>ENG-79199</td></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD expose a confidence score on every output.</td><td>ENG-79199</td></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD apply per-type half-life decay to ranking (3&ndash;7 days for action items; longer for skill demos).</td><td>v0.3.0</td></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD allow per-tenant configuration of source trust weights.</td><td>v0.3.0</td></tr>
+  <tr class="should-row"><td>THE SYSTEM SHOULD persist <code>evidence_ids[]</code> on every suggestion and render the Why-this panel inline.</td><td>v0.3.0</td></tr>
+</table>
+
+<h3>10b. Pre-mortem</h3>
+<blockquote>It's September 2026. The feature shipped but failed. Five plausible failure modes &mdash; the PM owner should treat each as a Week-2/Week-3 unblock priority:</blockquote>
+<ol>
+  <li><strong>Schema fracture.</strong> The canonical <code>evidence</code> table contract was not signed off across four module pods (Goals, Feedback, Skills, Meetings); each built against an assumed shape; July integration exposed mismatches; refactor consumed the customer-validation window.</li>
+  <li><strong>Bad ranking.</strong> The module-native ranking rubric shipped without a calibrated half-life; managers saw stale or noisy suggestions on first open; &ldquo;augment&rdquo; read as &ldquo;annoy.&rdquo;</li>
+  <li><strong>Evidence trust collapsed.</strong> A few high-profile false attributions (wrong speaker, hallucinated quote, broken deep-link to Zoom) destroyed manager trust early. Users stopped clicking suggestions because they couldn't verify provenance.</li>
+  <li><strong>Connect-layer adoption stalled.</strong> Users didn't connect their meeting platform &mdash; feature looked empty; value never compounded. Per-module connect prompts at the moment of value were either missing or skipped.</li>
+  <li><strong>Zoom API didn't ship + scope/timeline negotiation slipped</strong> <em>(escalated v0.8.0)</em>. Rainforest milestone held as a date; Integrations pod couldn't deliver Zoom adapter; AI Platform Lead fallback was triggered too late; team shipped manual-paste-only demo that exec sponsor explicitly called "a non-starter for adoption." Mitigation: PM owner books exec scope-alignment Week 2; Integrations capability spec due Thursday 2026-05-15; AI Platform Lead fallback ownership formalized in writing.</li>
+</ol>
+<p><strong>Mitigations:</strong> (1) PM owner drives evidence-schema sign-off in Week 2 with all four pod leads, written contract committed before any pod builds. (2) Calibrate ranking against 10&ndash;15 sample user histories in Rainforest before customer rollout. (3) Ship Why-this panel + clickable links + &ldquo;Report bad evidence&rdquo; on day 1, not v2. (4) Design lead specifies in-module connect prompts that surface at moments of value, not as a one-time onboarding ask.</p>
+
+<h2>11. Out of Scope / Known Limitations</h2>
+
+<h3>Non-Goals (explicit, Phase 1)</h3>
+<ul>
+  <li><strong>No global Suggestions Queue.</strong> Per-module surfacing only.</li>
+  <li><strong>No free-form AI feedback emission.</strong> Template-bound (CAP-010) only.</li>
+  <li><strong>No autonomous action on behalf of the user.</strong> Augment, not act.</li>
+  <li>UI for transcript paste, suggestion rendering, confirmation flows &mdash; Meetings pod (owner per Owners block).</li>
+  <li>Admin controls and data governance UI &mdash; Integrations + Platform.</li>
+  <li>Writing confirmed suggestions to performance records &mdash; destination pod.</li>
+  <li>Meeting types other than 1:1 &mdash; group, all-hands, panel deferred.</li>
+  <li>Multi-source ingestion (Slack/Jira/HubSpot/Salesforce) &mdash; adapter contract designed in v1; only transcript adapter ships in MVP.</li>
+  <li>Goal suggestions as a primary MVP capability &mdash; stretch target only.</li>
+</ul>
+
+<h3>MVP Stretch (in scope if bandwidth permits)</h3>
+<ul>
+  <li><strong>Microsoft Teams API ingestion path</strong> &mdash; <strong>good-to-have stretch</strong>. In scope only if Zoom API lands early enough to free Integrations capacity. Aha! INT-181.</li>
+</ul>
+<div class="callout"><strong>Note</strong>: Zoom API ingestion is no longer "stretch" &mdash; it is <strong>MVP required</strong> per D-013 (see CAP-011, &sect;10a MUST). Manual paste is retained as a demo-only safety net.</div>
+
+<h3>Future Roadmap Items</h3>
+<ul>
+  <li><em>Previously deferred cross-module digest is now CAP-013 inside the Meetings module, in MVP scope.</em></li>
+  <li>Live A2A endpoint &mdash; static <code>agent-card.json</code> only in v1.</li>
+  <li>Slack / Jira / HubSpot / Salesforce adapters (post-Summer 2026).</li>
+  <li>Multi-language transcript support.</li>
+  <li>Cross-meeting theme detection at org level.</li>
+  <li>Admin-level &ldquo;auto-confirm&rdquo; policies for trusted signal types.</li>
+  <li>Per-signal-type connect granularity (Phase 2 stretch).</li>
+  <li>Outbox + CDC + SSE upgrade replacing 3-second poll.</li>
+  <li>Learned ranking model (after &ge;50k labeled accept/dismiss events).</li>
+</ul>
+
+<h3>Migration Considerations</h3>
+<ul>
+  <li>No existing data to migrate (greenfield).</li>
+  <li>Customers with existing 3rd-party transcription: opt-in positioning; GTM communications plan.</li>
+</ul>
+
+<h2>12. Documentation &amp; Resources</h2>
+<ul>
+  <li><strong>type: confluence</strong> &mdash; <strong>Parent PRD: <a href="https://betterworks.atlassian.net/wiki/spaces/PMD/pages/4247257097">Zoom &amp; Teams Transcripts Feature Documentation</a></strong> (last updated 2026-05-04). High-level strategic / GTM PRFAQ; this trio is the operational decomposition.</li>
+  <li><strong>type: jira</strong> &mdash; ENG-79199 (Epic), ENG-78223 (precedent for conversation context in AI features)</li>
+  <li><strong>type: aha</strong> &mdash; <code>AI-201</code> AI Processing / Conversation Intelligence (Level A &mdash; Revenue Creator)</li>
+  <li><strong>type: aha</strong> &mdash; <code>MEET-48</code> Meetings module 1:1 card, manual input, action items</li>
+  <li><strong>type: aha</strong> &mdash; <code>INT-181</code> Microsoft Teams OAuth + Graph API transcript retrieval</li>
+  <li><strong>type: aha</strong> &mdash; <code>INT-185</code> Zoom OAuth + Cloud Recording API transcript retrieval</li>
+  <li><strong>type: aha-idea</strong> &mdash; <code>INT-I-110</code> Sales-requested customer idea (High Priority): meeting transcript integration</li>
+  <li><strong>type: aha-idea</strong> &mdash; <code>AI-I-52</code> Sales-requested customer idea: AI-driven performance insights from meetings</li>
+  <li><strong>type: meeting-note</strong> &mdash; <code>ops/meeting-notes/2026-05-04-week-synthesis.md</code></li>
+  <li><strong>type: meeting-note</strong> &mdash; <code>ops/meeting-notes/2026-05-07-lalit-sriram.md</code></li>
+  <li><strong>type: zoom-transcript</strong> &mdash; 2026-05-08 MVP scope alignment (uuid F6113EF7-3757-491E-B45C-4B1E53D8D31F)</li>
+  <li><strong>type: zoom-transcript</strong> &mdash; 2026-05-08 Lalit + Gauri intro (uuid 5C80334B-5A25-4D36-B67A-EB44F1CC65A1)</li>
+  <li><strong>type: zoom-transcript</strong> &mdash; 2026-05-11 Architecture Walkthrough w/ Jason Zhang (uuid 9988F4F9-4D28-407C-868E-DB1052ADCED9)</li>
+  <li><strong>type: zoom-transcript</strong> &mdash; 2026-05-12 Varnika / Lalit (uuid D236D5E5-A01C-4D20-91C3-935FF3588D90)</li>
+  <li><strong>type: slack</strong> &mdash; #temp-meeting-transcript-integration (Nellie's framing: Apr 28 bot-rejection rationale; Apr 30 Before/During/After UX)</li>
+  <li><strong>type: slack</strong> &mdash; Design Group DM (May 12: Paul's GTM framing; Nataliya's review-refine-apply design ask)</li>
+  <li><strong>type: slack</strong> &mdash; #pod-ai-platform (PR #512 / ENG-78223)</li>
+  <li><strong>type: github</strong> &mdash; <code>BetterWorks/llm-engine</code> PR #512</li>
+  <li><strong>type: aha</strong> &mdash; [TBD &mdash; Meetings/Goals PM scanning]</li>
+  <li><strong>type: figma</strong> &mdash; [TBD &mdash; Design Lead, pending VPN; design action: Why-this panel + connect-prompt placements]</li>
+  <li><strong>type: confluence</strong> &mdash; [TBD]</li>
+  <li><strong>type: dashboard</strong> &mdash; [TBD &mdash; no metrics defined yet]</li>
+  <li><strong>type: prd</strong> &mdash; [TBD] PRD-TRANSCRIPT-INGESTION (Integrations pod) / PRD-MEETINGS-CONFIRMATION-UI (Meetings pod) / PRD-CONNECT-LAYER (owner TBD)</li>
+</ul>
+
+<h2>13a. Product Acceptance Criteria (Phase 1)</h2>
+<p>Product-level conditions for declaring Phase 1 ready to ship &mdash; distinct from per-AC EARS criteria (Phase 2 &sect;9). Inherits ENG-79199 epic-level criteria and adds PRD-specific ones grounded in &sect;10a Constraints.</p>
+
+<h3>Inherited from ENG-79199 (Jira epic)</h3>
+<ul>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-01</strong> &mdash; All four MVP AI capabilities return structured output matching the agreed input/output schema</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-02</strong> &mdash; No AI output is written to any Betterworks record without explicit user confirmation</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-03</strong> &mdash; Processing architecture (unified vs. multi-pass) documented and agreed before implementation</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-04</strong> &mdash; Evaluation framework with defined test corpus and acceptance thresholds in place before code review</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-05</strong> &mdash; Edge-case behaviour (sparse content, unresolved speakers, unsupported language) defined and tested</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-06</strong> &mdash; Input/output contract signed off by Meetings pod + AI platform leads before either team begins implementation</li>
+</ul>
+
+<h3>Added at PRD level (v0.4.0)</h3>
+<ul>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-07</strong> &mdash; Canonical <code>evidence</code> table schema (&sect;1a) signed off by <strong>all four module pod leads</strong> (Goals, Feedback, Skills, Meetings) and committed to repo before S-04 starts</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-08</strong> &mdash; Source adapter contract (CAP-011) committed; Zoom + Manual adapters implement it; contract supports Slack/Jira/HubSpot/Salesforce without schema changes</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-09</strong> &mdash; Every AI suggestion in the UI renders a Why-this panel inline with clickable, permission-checked deep links (Zoom timestamp deep-link + Betterworks meeting record minimum for MVP)</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-10</strong> &mdash; Connect Layer ships per <code>PRD-CONNECT-LAYER</code> &sect;13a CPAC-01..10. Platform-side: evidence rows respect <code>connection.state</code>; disconnect propagates to <code>evidence.locked=true</code>; hard-delete cascades after the 30-day grace.</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-11</strong> &mdash; Per-meeting exclusion (CAP-008) creates <code>redacted=true</code> rows kept for audit; UI hides redacted content but the row remains queryable in admin tooling</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-12</strong> &mdash; Module-native surfacing live for MVP &mdash; owned by surface PRDs (Meetings: see <code>PRD-MEETINGS-AI-SURFACES</code> &sect;13a MPAC-01..10). Goals / Feedback / Skills surfacing is stretch.</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-13</strong> &mdash; No global Suggestions Queue surface exists in the UI</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-14</strong> &mdash; Feedback emission (if shipped &mdash; stretch S-14) is template-bound only; no free-form feedback prose path exists</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-15</strong> &mdash; All inference runs through LM Engine + LM Proxy with 20-category guardrails (architecture-review checkpoint)</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-16</strong> &mdash; No bot-based meeting recording in the codebase (architecture-review checkpoint)</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-17</strong> &mdash; Rainforest smoke test passes for <strong>automated Zoom ingestion happy path</strong> (D-013 MVP commit) for Exec Sponsor + AI Engineering leadership review by the Rainforest milestone (target <strong>2026-05-31</strong>; <em>may move pending exec scope-alignment</em> &mdash; see &sect;10 Risks). Manual paste path is the demo-only safety net.</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-18</strong> &mdash; &ldquo;Report bad evidence&rdquo; affordance instrumented from day 1 of customer rollout, with metrics flowing to a dashboard</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-19</strong> &mdash; Data retention policy implemented per CAP-012 defaults (90d pending, 180d locked, 90d dismissed) and tunable per tenant</li>
+  <li><span class="pac-check">&#9744;</span> <strong>PAC-20</strong> &mdash; Stakeholder sign-off captured (resolve names via Owners block; log in &sect;14): PM Owner, Eng Lead (Pipeline), Design Lead, Exec Sponsor, Cross-pod PM (Meetings/Goals), AI Platform Lead, Principal Eng (escalation)</li>
+</ul>
+
+<h3>Quality bars (measurable, MVP-grade)</h3>
+<table>
+  <tr><th>Dimension</th><th>Bar</th></tr>
+  <tr><td>Latency (transcript ready &rarr; suggestions visible)</td><td>&lt; 5 minutes p95</td></tr>
+  <tr><td>Summary generation latency (per CAP-001)</td><td>&lt; 20 seconds p95</td></tr>
+  <tr><td>Reconciliation link confidence on Must Have types</td><td>&ge; 0.85 mean on eval set</td></tr>
+  <tr><td>Why-this deep-link success rate</td><td>&ge; 99%</td></tr>
+  <tr><td>Connect Layer success rate (Zoom OAuth flow)</td><td>&ge; 95%</td></tr>
+  <tr><td>Per-source trust scoring</td><td>Tunable per tenant; defaults shipped</td></tr>
+</table>
+
+<h2>13. Definition of Done &mdash; Phase 2 (placeholder)</h2>
+<p><em>Phase 2 artifact; references AC-IDs to be created in Phase 2 drafting. Draft scaffold below; full DoD finalised in v0.5.</em></p>
+<ul>
+  <li><span class="pac-check">&#9744;</span> All Must Have AC-IDs across CAP-001 through CAP-013 pass automated or manual test</li>
+  <li><span class="pac-check">&#9744;</span> Canonical evidence schema committed and signed off by all four module pod leads</li>
+  <li><span class="pac-check">&#9744;</span> Source adapter contract specified; Zoom + Manual adapters implemented</li>
+  <li><span class="pac-check">&#9744;</span> Evaluation harness with &ge;10 representative transcripts; per-capability thresholds met</li>
+  <li><span class="pac-check">&#9744;</span> State model implemented and end-to-end tested</li>
+  <li><span class="pac-check">&#9744;</span> Retention policy enforced</li>
+  <li><span class="pac-check">&#9744;</span> No-bot guarantee verified at architecture-review checkpoint</li>
+  <li><span class="pac-check">&#9744;</span> Why-this panel renders inline on every suggestion with working deep-links + permission checks</li>
+  <li><span class="pac-check">&#9744;</span> &ldquo;Report bad evidence&rdquo; affordance instrumented and metrics flowing</li>
+  <li><span class="pac-check">&#9744;</span> Connect Layer: central page live; per-module prompts gated correctly</li>
+  <li><span class="pac-check">&#9744;</span> Feedback drafts bound to template_id; no free-form emission in production</li>
+  <li><span class="pac-check">&#9744;</span> Module-native surfacing live on Goals + Feedback + Skills + Meetings pages</li>
+  <li><span class="pac-check">&#9744;</span> Rainforest smoke test passes for manual-input happy path (May 31 MVP milestone)</li>
+  <li><span class="pac-check">&#9744;</span> Stakeholder sign-off captured (per &sect;14)</li>
+</ul>
+
+<h2>14. Decisions Log</h2>
+<div class="callout">Dated record of locked decisions. <strong>This is the one place in the doc where naming an individual is appropriate</strong> &mdash; accountability is the point. Initials used for the named decider (resolve via Owners block); full source linked. Append-only.</div>
+
+<table>
+  <tr><th>ID</th><th>Date</th><th>Decision</th><th>Decider (role / initials)</th><th>Rationale</th><th>Source</th></tr>
+  <tr><td>D-001</td><td>2026-04-28</td><td>Recall.ai (bot-based ingestion) rejected as Zoom/Teams ingestion path</td><td>Exec Sponsor (NL)</td><td>"6 attendees = 6 bots &mdash; poor UX." Plus security review concerns; customer-friction risk.</td><td>Slack #temp-meeting-transcript-integration</td></tr>
+  <tr><td>D-002</td><td>2026-04-30</td><td>Adopt Before / During / After UX framing for AI moments in 1:1s</td><td>Exec Sponsor (NL)</td><td>Forces feature into the user's existing workflow rather than a separate AI surface</td><td>Slack #temp-meeting-transcript-integration</td></tr>
+  <tr><td>D-003</td><td>2026-05-08</td><td>Adopt centralised suggestion architecture: evidence-centric, reconciliation framework, per-user data</td><td>Exec Sponsor (NL) + PM Owner (LM) + Design Lead (GT)</td><td>Cross-module consistency without duplicating UI; reconciliation prevents duplicate suggestions across surfaces</td><td>Zoom uuid F6113EF7-3757-491E-B45C-4B1E53D8D31F</td></tr>
+  <tr><td>D-004</td><td>2026-05-12</td><td>Goal suggestions must pass through the org's existing Goals admin validation (CAP-007 passthrough)</td><td>Cross-pod PM Meetings/Goals (VG)</td><td>AI must not bypass governance; Goals pod validation framework is authoritative</td><td>Zoom uuid D236D5E5-A01C-4D20-91C3-935FF3588D90</td></tr>
+  <tr><td>D-005</td><td>2026-05-12</td><td>Phase 1 scope locked to Meetings module; Goal suggestions = stretch only</td><td>Cross-pod PM Meetings/Goals (VG) + PM Owner (LM)</td><td>Decouple from Goals to protect summer release; canonical user verbs (review &rarr; refine &rarr; apply) adopted as design language</td><td>Zoom uuid D236D5E5-A01C-4D20-91C3-935FF3588D90</td></tr>
+  <tr><td>D-006</td><td>2026-05-12</td><td>"Gap between conversations and work" adopted as canonical GTM framing</td><td>Cross-functional design Group DM</td><td>Stronger than "AI for HR"; centres the customer problem</td><td>Slack design Group DM</td></tr>
+  <tr><td>D-007</td><td>2026-05-11</td><td>All inference routes through LM Engine + LM Proxy with 20-category guardrails; private LLM stack only</td><td>AI Platform Lead (JZ)</td><td>Existing Skills-normalisation infra; meets customer-security commitment</td><td>Zoom uuid 9988F4F9-4D28-407C-868E-DB1052ADCED9</td></tr>
+  <tr><td>D-008</td><td>2026-05-13</td><td>Evidence-centric data model + clickable source provenance as non-negotiable</td><td>PM Owner (LM)</td><td>Trust is built through traceability (industry benchmark: Gong's deal timeline); polymorphic FK in Postgres chosen over property graph for operational fit</td><td>This PRD &sect;1a</td></tr>
+  <tr><td>D-009</td><td>2026-05-13</td><td>Multi-meeting digest scoped into MVP as a Meetings-module feature (CAP-013)</td><td>PM Owner (LM)</td><td>Meetings is the natural home for across-meeting digest; replaces previously-deferred "cross-module digest"</td><td>This PRD &sect;1b, &sect;7</td></tr>
+  <tr><td>D-010</td><td>2026-05-13</td><td>Names in PRD body replaced with roles; this Decisions Log is the accountability layer</td><td>PM Owner (LM)</td><td>Reduces staffing-drift, attribution-drift, GDPR/DSAR surface, and political ambiguity in a durable artifact</td><td>Industry practice (Atlassian / SVPG / Google design-doc convention)</td></tr>
+  <tr><td>D-011</td><td>2026-05-13</td><td>PRD split &mdash; <code>PRD-MEETINGS-AI-SURFACES</code> and <code>PRD-CONNECT-LAYER</code> promoted to sibling PRDs; this doc reduced to platform scope (contracts, capabilities, SLAs)</td><td>PM Owner (LM)</td><td>Both children satisfied &ge;3 of 6 split criteria (distinct persona, distinct pod, &ge;4 caps, indep. DoD, section &gt;8KB, distinct cross-fn consumers). Parent was &gt;60KB. Matches Amazon multi-customer-PRFAQ pattern.</td><td>Industry research (Cagan / Amazon Working Backwards / Atlassian PRD-vs-spec)</td></tr>
+  <tr><td>D-012</td><td>2026-05-13 (AM)</td><td>(a) Zoom API ingestion: Phase-2-deferred &rarr; <strong>MVP if doable</strong>; manual paste remains MVP fallback. (b) Microsoft Teams ingestion: MUST-NOT-Summer-2026 &rarr; <strong>good-to-have stretch</strong>. (c) Backfill from parent Confluence: release theme, Level A Revenue Creator, Aha! IDs, Innovation Partner Program early-access.</td><td>Exec Sponsor (NL)</td><td>Aligns trio with parent Confluence PRFAQ; raises ingestion ambition while keeping manual fallback.</td><td>Exec alignment 2026-05-13 AM; parent Confluence (pageId 4247257097)</td></tr>
+  <tr><td>D-013</td><td>2026-05-13 (PM)</td><td><strong>SUPERSEDES D-012(a):</strong> Zoom API ingestion is <strong>MVP required</strong> (not "if doable"). Manual paste demoted from MVP fallback &rarr; demo-only safety net. AI Platform Lead absorbs adapter ownership if Integrations pod cannot deliver.</td><td>Exec Sponsor (NL)</td><td>"Manual upload is a non-starter for adoption" &mdash; exec sponsor 2026-05-13 PM. Automated ingestion is the product commitment.</td><td>Zoom uuid 7D6A937E-6C54-4362-8AD2-8E16FF3E2A96 (Product Acceptance call)</td></tr>
+  <tr><td>D-014</td><td>2026-05-13 (PM)</td><td>Evidence rows write to <strong>data warehouse (Aurora)</strong> for cross-pod access + reporting; NOT siloed in pod DBs</td><td>AI Platform Lead (JZ) + Exec Sponsor (NL)</td><td>Cross-pod consumers + analytics reporting layer need shared access</td><td>Product Acceptance call 2026-05-13 PM</td></tr>
+  <tr><td>D-015</td><td>2026-05-13 (PM)</td><td>CAP-001 generates summaries from <strong>raw transcripts via Betterworks LLM</strong>; does NOT use Zoom AI Companion's native summaries</td><td>Exec Sponsor (NL) + PM Owner (LM)</td><td>Different intent, different user base, different downstream routing</td><td>Product Acceptance call 2026-05-13 PM</td></tr>
+  <tr><td>D-016</td><td>2026-05-13 (PM)</td><td><strong>Admin-level org enablement is a precondition</strong> for user-level OAuth connect to any source</td><td>Exec Sponsor (NL)</td><td>Matches Lattice/Workday tenant-scoped integration patterns; reduces blanket-consent risk; enterprise sales requirement</td><td>Product Acceptance call 2026-05-13 PM</td></tr>
+</table>
+
+<h3>Pending decisions (open, owners assigned)</h3>
+<table>
+  <tr><th>ID</th><th>Question</th><th>Decision owner (role)</th><th>Deadline</th></tr>
+  <tr><td>OPEN-D1</td><td>Vendor vs. native Zoom integration path (Phase 2 ingestion)</td><td>PM Owner + Cross-pod PM Integrations</td><td>2026-05-31</td></tr>
+  <tr><td>OPEN-D2</td><td>Processing architecture: unified vs. multi-pass</td><td>AI Platform Lead + PM Owner</td><td>Before Week 2 workshop</td></tr>
+  <tr><td>OPEN-D3</td><td>Eng allocation (lead + capacity) for Pipeline track</td><td>AI Engineering Leadership + Exec Sponsor</td><td>Week 1</td></tr>
+  <tr><td>OPEN-D4</td><td>Skills API V1.5-extend vs. V2-retool</td><td>App Platform Lead + Exec Sponsor</td><td>TBD &mdash; affects API design</td></tr>
+  <tr><td>OPEN-D5</td><td>Retention policy: 90 / 180 days default &mdash; confirm with Platform pod</td><td>PM Owner + Platform pod lead</td><td>Before Rainforest deploy</td></tr>
+</table>
+
+<hr style="margin-top: 48px; border: none; border-top: 1px solid #DFE1E6;">
+<p style="font-size: 11px; color: #5E6C84; text-align: center; margin-top: 16px;">
+  Generated from <code>ai-processing-pipeline.prd.md v0.4.0</code> &middot; Source of truth: Markdown &middot; HTML is a render artifact for Confluence paste
+</p>
+
+</body>
+</html>

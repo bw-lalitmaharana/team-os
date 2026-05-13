@@ -1,0 +1,50 @@
+{
+  "name": "prd-connect-layer",
+  "description": "Betterworks Cross-Platform Connect Layer — sibling PRD to PRD-AI-PROCESSING-PIPELINE. Source of truth for user-driven OAuth connect, central Connections page, per-module touchpoints, revoke matrix, retention policy, and connection state machine.",
+  "url": "product/meeting-transcripts/prds/connect-layer/connect-layer.prd.md",
+  "version": "0.1.0",
+  "parent": "PRD-AI-PROCESSING-PIPELINE",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "skills": [
+    {
+      "id": "get-capability",
+      "description": "Return a CONN-CAP section by ID (CONN-CAP-001..006).",
+      "inputSchema": {
+        "type": "object",
+        "properties": { "cap_id": { "type": "string", "pattern": "^CONN-CAP-[0-9]{3}$" } },
+        "required": ["cap_id"]
+      }
+    },
+    {
+      "id": "get-revoke-matrix",
+      "description": "Return the canonical revoke matrix (disconnect / expire / reconnect / hard-delete / admin disable / tenant offboarding)."
+    },
+    {
+      "id": "get-retention-defaults",
+      "description": "Return retention policy defaults (pending, locked, dismissed)."
+    },
+    {
+      "id": "get-product-acceptance-criteria",
+      "description": "Return §13a CPAC-01..10 plus quality bars."
+    }
+  ],
+  "sections": [
+    { "anchor": "#1-overview", "type": "section", "id": "S-1" },
+    { "anchor": "#1a-architecture-data-model", "type": "section", "id": "S-1A" },
+    { "anchor": "#1b-ux-framing", "type": "section", "id": "S-1B" },
+    { "anchor": "#conn-cap-001-central-connections-page", "type": "capability", "id": "CONN-CAP-001" },
+    { "anchor": "#conn-cap-002-per-module-inline-connect-prompts", "type": "capability", "id": "CONN-CAP-002" },
+    { "anchor": "#conn-cap-003-oauth-flow-per-source", "type": "capability", "id": "CONN-CAP-003" },
+    { "anchor": "#conn-cap-004-revoke-retention-lifecycle", "type": "capability", "id": "CONN-CAP-004" },
+    { "anchor": "#conn-cap-005-reconnect-with-optional-back-fill", "type": "capability", "id": "CONN-CAP-005" },
+    { "anchor": "#conn-cap-006-admin-org-wide-enable-disable", "type": "capability", "id": "CONN-CAP-006" },
+    { "anchor": "#7a-story-decomposition-mvp", "type": "section", "id": "S-7A" },
+    { "anchor": "#10a-constraints-invariants", "type": "constraint", "id": "CONSTRAINTS-10A" },
+    { "anchor": "#10b-pre-mortem", "type": "section", "id": "S-10B" },
+    { "anchor": "#13a-product-acceptance-criteria", "type": "acceptance-criteria", "id": "CPAC" }
+  ]
+}

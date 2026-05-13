@@ -1,0 +1,358 @@
+<!--
+  CONFLUENCE IMPORT INSTRUCTIONS:
+  1. Open this file in a browser (double-click it).
+  2. Select All (Cmd+A / Ctrl+A) and Copy (Cmd+C / Ctrl+C).
+  3. In Confluence, create or edit a page, paste into the editor.
+
+  Source of truth: connect-layer.prd.md (v0.3.0).
+  Sibling to: PRD-AI-PROCESSING-PIPELINE (platform).
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Cross-Platform Connect Layer PRD</title>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; max-width: 980px; margin: 40px auto; padding: 0 24px; color: #172B4D; line-height: 1.5; }
+  h1 { font-size: 26px; border-bottom: 3px solid #0052CC; padding-bottom: 10px; }
+  h2 { font-size: 18px; margin-top: 36px; color: #0052CC; border-bottom: 1px solid #DFE1E6; padding-bottom: 6px; }
+  h3 { font-size: 14px; font-weight: 600; margin-top: 20px; text-transform: uppercase; letter-spacing: 0.05em; color: #5E6C84; }
+  h4 { font-size: 13px; font-weight: 600; margin-top: 16px; color: #172B4D; }
+  .phase-banner { background: #DEEBFF; border-left: 4px solid #0052CC; padding: 10px 16px; border-radius: 3px; margin: 24px 0 8px; font-weight: 600; color: #0052CC; }
+  .sibling-banner { background: #E3FCEF; border-left: 4px solid #00875A; padding: 10px 16px; border-radius: 3px; margin: 24px 0 16px; font-size: 13px; color: #006644; }
+  .status-pill { display: inline-block; padding: 2px 10px; border-radius: 12px; background: #DFE1E6; color: #172B4D; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 13px; }
+  th, td { border: 1px solid #DFE1E6; padding: 8px 12px; text-align: left; vertical-align: top; }
+  th { background: #F4F5F7; font-weight: 600; }
+  ul, ol { padding-left: 22px; }
+  li { margin: 4px 0; }
+  pre { background: #F4F5F7; border: 1px solid #DFE1E6; border-radius: 3px; padding: 12px; font-size: 12px; overflow-x: auto; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  code { background: #F4F5F7; padding: 1px 4px; border-radius: 2px; font-size: 12px; font-family: "SF Mono", Menlo, Consolas, monospace; }
+  .must-row { background: #E3FCEF; }
+  .mustnot-row { background: #FFEBE6; }
+  .should-row { background: #DEEBFF; }
+  blockquote { border-left: 3px solid #DFE1E6; margin: 12px 0; padding: 4px 16px; color: #5E6C84; font-style: italic; }
+  .pac-check { font-family: "SF Mono", Menlo, Consolas, monospace; color: #5E6C84; }
+  .callout { background: #F4F5F7; border-left: 4px solid #5E6C84; padding: 10px 16px; margin: 12px 0; font-size: 13px; }
+</style>
+</head>
+<body>
+
+<h1>Cross-Platform Connect Layer (Phase 1)</h1>
+
+<div class="sibling-banner"><strong>Sibling PRD.</strong> Parent: <code>PRD-AI-PROCESSING-PIPELINE</code>. This PRD owns the user-driven auth + consent model, central Connections page, per-module touchpoints, revoke semantics, and retention policy. Required by: <code>PRD-MEETINGS-AI-SURFACES</code> (MEET-CAP-103 banner).</div>
+
+<h3>Owners (single source of truth; body refers to roles)</h3>
+<table>
+  <tr><th>Role</th><th>Name</th></tr>
+  <tr><td>PM Owner</td><td>Lalit Maharana</td></tr>
+  <tr><td>Exec Sponsor</td><td>Nellie LeMonier</td></tr>
+  <tr><td>Integrations PM</td><td>Rinku</td></tr>
+  <tr><td>Design Lead</td><td>Gauri Thakur</td></tr>
+  <tr><td>Eng Lead (Connections)</td><td>[TBD &mdash; Connections pod assignment]</td></tr>
+  <tr><td>Security Review</td><td>[TBD &mdash; Security pod sign-off required]</td></tr>
+  <tr><td>Legal Review</td><td>[TBD &mdash; Legal/Privacy review required]</td></tr>
+</table>
+
+<table>
+  <tr><th>Release</th><th>Code Ready</th><th>Status</th></tr>
+  <tr><td>Summer 2026</td><td>2026-08-15</td><td><span class="status-pill">Draft v0.3.0</span></td></tr>
+</table>
+
+<div class="phase-banner">Phase 1: Why It Matters</div>
+
+<h2>1. Overview</h2>
+<p>The AI pipeline can only ingest from sources the user has explicitly connected. The Connect Layer is the surface where that happens &mdash; a central Connections page in user settings plus contextual nudges in the modules that benefit from each source. Connect is <strong>per user, per app, one time</strong> with explicit OAuth scopes. Disconnecting halts ingestion but preserves existing evidence under retention policy. Hard deletion requires an explicit user (or admin) request.</p>
+<p>This is the gate that turns the AI pipeline from a feature into a habit: connect once, intelligence compounds over time.</p>
+
+<h2>1a. Architecture &amp; Data Model</h2>
+
+<h3>Connection state machine</h3>
+<pre>                connect (OAuth flow + scope grant)
+   not_connected ------------------------&gt; connected
+                                              |
+                  token refresh failure       |
+                          &lt;-------------------|
+       expired                                |
+          |  reconnect                        |
+          +------------------&gt;                |
+                                              |
+                  user disconnects            |
+                          &lt;-------------------|
+       revoked (locked, retention clock starts)
+          |  reconnect
+          +------------------&gt;
+                                              |
+                  hard-delete request         |
+                          &lt;-------------------+
+       deleted (retention grace -&gt; cascade purge)</pre>
+
+<h3>Connection record schema</h3>
+<pre>connection(
+  id              uuid pk,
+  user_id         fk users,
+  source_system   enum (zoom|teams|slack|jira|hubspot|salesforce),
+  state           enum (not_connected|connected|expired|revoked|deleted),
+  oauth_token     encrypted,
+  oauth_refresh   encrypted,
+  scopes_granted  text[],
+  connected_at    timestamptz,
+  state_changed_at timestamptz,
+  retention_clock_start timestamptz nullable,  -- set on revoke; controls cascade
+  hard_delete_requested_at timestamptz nullable
+)</pre>
+<p>Joins one-to-many with <code>evidence.source_system</code> (platform PRD &sect;1a). State transitions propagate to platform evidence rows (e.g. <code>revoked</code> flips evidence to <code>locked=true</code>).</p>
+
+<h3>Revoke matrix (canonical)</h3>
+<table>
+  <tr><th>Action</th><th>Ingestion</th><th>Evidence</th><th>Suggestions</th><th>UX copy</th></tr>
+  <tr><td>User disconnects</td><td>Halts immediately</td><td>Soft-lock (<code>locked=true</code>); kept visible</td><td>Pending remain reviewable until stale</td><td>"Disconnected. Your existing evidence stays visible. We won't ingest new data."</td></tr>
+  <tr><td>Token expires</td><td>Halts</td><td>Untouched, fully visible</td><td>Untouched</td><td>"Connection expired. Reconnect to keep evidence flowing."</td></tr>
+  <tr><td>User reconnects</td><td>Resumes from "now"</td><td>Locked rows unlocked; new rows append</td><td>Unchanged</td><td>"Reconnected. [Back-fill last 30 days?]"</td></tr>
+  <tr><td>User requests data deletion</td><td>Halts + initiates delete</td><td>Hard-delete after 30-day grace; cascade</td><td>Derived suggestions dismissed</td><td>"Your data from &lt;source&gt; will be deleted within 30 days. Confirmed suggestions on your record are kept."</td></tr>
+  <tr><td>Admin disables org-wide</td><td>Halts for all</td><td>Bulk soft-lock</td><td>Pending remain reviewable</td><td>Admin notice + per-user banner</td></tr>
+  <tr><td>Tenant offboarding</td><td>Halts everything</td><td>Hard-delete per MSA (30/60/90d)</td><td>Cascade delete</td><td>Admin-driven; out of scope</td></tr>
+</table>
+
+<h3>Retention policy defaults (tunable per tenant)</h3>
+<ul>
+  <li>Pending evidence not yet acted on: <strong>90 days</strong> &rarr; auto-archive</li>
+  <li>Locked evidence (post-disconnect): <strong>180 days</strong> retained for explainability, then hard-delete</li>
+  <li>Dismissed evidence: <strong>90 days</strong> for undo, then hard-delete</li>
+</ul>
+<p><strong>Decision rule:</strong> <em>Disconnect locks, doesn't delete. Delete requires explicit user/admin action. Retention reaps over time. Audit/explainability beats aggressive deletion except on explicit erasure request.</em></p>
+
+<h2>1b. UX Framing</h2>
+
+<h3>Touchpoints</h3>
+<table>
+  <tr><th>Touchpoint</th><th>Purpose</th><th>When shown</th></tr>
+  <tr><td>Central Connections page (user settings)</td><td>One-stop view: status per app, connect, reconnect, revoke</td><td>Always available</td></tr>
+  <tr><td>Per-module inline prompt</td><td>"Connect Zoom to surface action items from your 1:1s" (Meetings); equivalents on Goals/Feedback/Skills as sources emerge</td><td>Only when source not yet connected and module would benefit</td></tr>
+  <tr><td>First-run onboarding (optional)</td><td>Guided connect for highest-leverage source(s)</td><td>New users only</td></tr>
+  <tr><td>Reconnect banner</td><td>Surfaced on relevant module pages when state = <code>expired</code></td><td>Until reconnected or dismissed</td></tr>
+</table>
+
+<h3>Consent model</h3>
+<ul>
+  <li><strong>Granular per app</strong> &mdash; connecting Zoom does not implicitly connect Teams.</li>
+  <li><strong>Always revocable</strong> &mdash; user can disconnect at any time.</li>
+  <li><strong>Per-source meeting exclusion (CAP-008 from platform)</strong> layered on top &mdash; user can connect Zoom AND exclude specific meetings.</li>
+  <li><strong>Per-signal-type connect granularity</strong> is <strong>Phase 2 stretch</strong> &mdash; MVP is all-or-nothing per source.</li>
+</ul>
+
+<h3>Anti-patterns rejected</h3>
+<ul>
+  <li><strong>Admin-pushed connect</strong> &mdash; connect is user-driven; admins enable the integration but cannot connect on a user's behalf.</li>
+  <li><strong>Modal connect demand</strong> &mdash; never block the user with a modal; CTAs are inline, dismissable.</li>
+  <li><strong>Hidden disconnect</strong> &mdash; revoke must be one click from the Connections page.</li>
+</ul>
+
+<h2>6. Key Metrics</h2>
+<div class="callout"><strong>Funnel + integration-health metrics.</strong> These prove users <em>can</em> and <em>do</em> turn the feature on. All <code>[proposed, awaiting analytics verification]</code>. Platform-pipeline metrics in <code>PRD-AI-PROCESSING-PIPELINE</code> &sect;6; surface engagement in <code>PRD-MEETINGS-AI-SURFACES</code> &sect;6.</div>
+
+<h3>Connect funnel</h3>
+<table>
+  <tr><th>Stage</th><th>Metric</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>1</td><td>CTA click rate (per visit)</td><td>volume metric</td><td><code>connect.cta_clicked</code></td></tr>
+  <tr><td>2</td><td>OAuth consent granted / CTA clicked</td><td>70%</td><td><code>oauth.consent_granted</code></td></tr>
+  <tr><td>3</td><td>Callback success / consent granted</td><td>85%</td><td><code>oauth.callback_success</code></td></tr>
+  <tr><td>4</td><td>First ingestion / callback success</td><td>90%</td><td><code>ingestion.first_success</code></td></tr>
+  <tr><td>5</td><td>First AI confirm / first ingestion</td><td>75%</td><td><code>ai.first_confirm</code></td></tr>
+  <tr class="must-row"><td><strong>End-to-end</strong></td><td><strong>CTA &rarr; first AI confirm</strong> &#9733; NORTH STAR</td><td>30&ndash;35% (Slack/B2B SaaS benchmark)</td><td>composite</td></tr>
+</table>
+
+<h3>Health</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>Time-to-First-Value (TTFV)</td><td>Connect success &rarr; first AI suggestion shown</td><td>&lt; 10 min for async sources</td><td>timestamp delta</td></tr>
+  <tr><td>Token refresh success rate</td><td>Successful refresh / attempts</td><td>&gt; 99% (HubSpot benchmark); &lt; 97% = scope drift</td><td><code>oauth.token.refresh.result</code></td></tr>
+  <tr><td>Ingestion error rate by cause</td><td>Bucketed: auth / rate-limit / schema / empty</td><td>&lt; 1% auth, &lt; 3% total</td><td><code>ingestion.failed</code> w/ <code>error_class</code></td></tr>
+</table>
+
+<h3>Trust / retention</h3>
+<table>
+  <tr><th>Metric</th><th>Definition</th><th>Benchmark</th><th>Event</th></tr>
+  <tr><td>30-day disconnect/revoke rate</td><td>% connected users who revoke within 30 days</td><td>&lt; 5% healthy; &gt; 15% = trust/value problem</td><td><code>connect.revoked</code> w/ <code>source: user|provider|admin</code></td></tr>
+  <tr><td>60-day reconnect rate</td><td>% revoked users who reconnect</td><td>20&ndash;30% recoverable; near 0 = permanent churn</td><td><code>connect.reconnected</code></td></tr>
+  <tr><td>Connected-but-silent rate (7d)</td><td>% connected accounts with 0 ingestions in 7 days</td><td>&lt; 10%; diagnoses scope misconfigs / dormant users</td><td>composite</td></tr>
+</table>
+
+<h3>Open metric gaps</h3>
+<table>
+  <tr><th>Gap</th><th>Owner</th><th>Trigger</th></tr>
+  <tr><td>Zoom OAuth funnel baselines (industry benchmarks are Slack-app derived)</td><td>Analytics owner + Integrations PM</td><td>After 30 days of real Zoom OAuth traffic</td></tr>
+  <tr><td>Per-source trust score impact on engagement (Phase 2)</td><td>PM owner + Analytics</td><td>When second adapter ships</td></tr>
+</table>
+
+<h2>7. Capabilities</h2>
+<ul>
+  <li><strong>CONN-CAP-001 &mdash; Central Connections page &mdash; V2/STRETCH</strong> <em>(deferred per 2026-05-13 exec decision CD-007)</em> &mdash; User-settings page listing all available integrations with current state. <strong>Replaced in MVP by CONN-CAP-001a (modal).</strong></li>
+  <li><strong>CONN-CAP-001a &mdash; Zoom connect modal (MVP)</strong> <em>(NEW v0.3.0, per CD-007)</em> &mdash; Lightweight modal triggered from the Meetings page (and from CONN-CAP-002 banner) when a user clicks "Connect Zoom". Handles OAuth consent flow, scope display, and connection-state confirmation. No separate Settings page in MVP. Once connected, the modal closes; subsequent revoke/reconnect flows route through the same modal via banner trigger.</li>
+  <li><strong>CONN-CAP-002 &mdash; Per-module inline connect prompts</strong> &mdash; Banner-style prompts in <strong>Meetings module only</strong> (Phase 1); Goals/Feedback/Skills (Phase 2). Dismissable. Re-surfaces on per-card empty states. Triggers CONN-CAP-001a modal on click.</li>
+  <li><strong>CONN-CAP-003 &mdash; OAuth flow per source</strong> &mdash; <strong>Zoom OAuth is MVP</strong> (per 2026-05-13 exec decision: Zoom API ingestion = MVP if doable); Teams OAuth is <strong>good-to-have stretch</strong> (CD-006). Each source has its own scope list. Token storage encrypted; refresh handled transparently. Aha: <code>INT-185</code> (Zoom), <code>INT-181</code> (Teams).</li>
+  <li><strong>CONN-CAP-004 &mdash; Revoke + retention lifecycle</strong> &mdash; Soft-lock on disconnect; retention clock; cascade on hard-delete request. Implements the revoke matrix (&sect;1a).</li>
+  <li><strong>CONN-CAP-005 &mdash; Reconnect with optional back-fill</strong> &mdash; Default: resume from "now". Opt-in: back-fill last 30 days.</li>
+  <li><strong>CONN-CAP-006 &mdash; Admin org-wide enable + disable</strong> <em>(scope expanded 2026-05-13 per CD-008)</em> &mdash; <strong>Admin enablement is a precondition for user-level OAuth connect</strong> (not just a kill-switch). The integration must be enabled at the org level by an admin before any user in that org can OAuth-connect. Admin can also disable (bulk soft-lock). Admin still CANNOT connect on a user's behalf. Surfaces: admin console toggle per integration; user-facing banner copy adapts ("Your admin needs to enable Zoom integration first" &rarr; "Connect Zoom").</li>
+</ul>
+
+<h2>7a. Story decomposition (MVP)</h2>
+<table>
+  <tr><th>#</th><th>Story</th><th>CONN-CAPs</th><th>Owner</th><th>Sequencing</th></tr>
+  <tr><td>C-01</td><td>Connection state machine + schema (Aurora)</td><td>foundation</td><td>Connections pod</td><td><strong>Week 1&ndash;2 (blocking)</strong></td></tr>
+  <tr><td>C-02</td><td>Zoom OAuth flow end-to-end (connect, refresh, scope validation)</td><td>CONN-CAP-003</td><td>Connections pod</td><td>Week 2&ndash;4</td></tr>
+  <tr><td>C-03a</td><td>Zoom connect modal triggered from Meetings page (MVP)</td><td>CONN-CAP-001a</td><td>Connections pod + Meetings pod + Design Lead</td><td>Week 3&ndash;5</td></tr>
+  <tr><td><s>C-03</s> <strong>V2</strong></td><td>Central Connections page (full settings surface) &mdash; <strong>deferred to V2</strong> per CD-007</td><td>CONN-CAP-001</td><td>Connections pod + Design Lead</td><td>V2</td></tr>
+  <tr><td>C-04</td><td>Per-module Meetings banner + empty-state</td><td>CONN-CAP-002</td><td>Connections pod + Meetings pod</td><td>Week 4&ndash;6</td></tr>
+  <tr><td>C-05</td><td>Revoke + retention lifecycle (soft-lock, clock, cascade)</td><td>CONN-CAP-004</td><td>Connections pod + AI Platform</td><td>Week 4&ndash;6</td></tr>
+  <tr><td>C-06</td><td>Reconnect with opt-in back-fill</td><td>CONN-CAP-005</td><td>Connections pod</td><td>Week 6&ndash;7</td></tr>
+  <tr><td>C-07 (stretch)</td><td>Admin org-wide enable/disable</td><td>CONN-CAP-006</td><td>Connections pod + Admin pod</td><td>Week 7&ndash;9</td></tr>
+</table>
+<p><strong>Critical path: C-01 &rarr; C-02 &rarr; C-03 &rarr; C-04.</strong> Without C-04, the Meetings AI surfaces have no path to value.</p>
+
+<h2>10. Assumptions, Dependencies &amp; Risks</h2>
+
+<h3>Assumptions</h3>
+<ul>
+  <li>Zoom OAuth app provisioned and scopes pre-approved by Zoom; no marketplace review delays.</li>
+  <li>Encrypted token storage available in existing Betterworks platform infrastructure.</li>
+  <li>Customers willing to accept user-driven connect with explicit OAuth scopes.</li>
+</ul>
+
+<h3>Dependencies</h3>
+<ul>
+  <li><strong>Security review</strong> of OAuth scope list + token storage &mdash; Security pod; blocks production launch.</li>
+  <li><strong>Legal/Privacy review</strong> of consent copy + revoke matrix &mdash; Legal; blocks production launch.</li>
+  <li><strong>AI Pipeline platform PRD</strong> &mdash; evidence schema must support <code>locked=true</code> state and cascade-on-delete semantics.</li>
+  <li><strong>Meetings module</strong> &mdash; CONN-CAP-002 banner placement requires Meetings pod cooperation.</li>
+</ul>
+
+<h3>Risks</h3>
+<table>
+  <tr><th>Risk</th><th>Likelihood</th><th>Mitigation</th></tr>
+  <tr><td>OAuth scope creep during Zoom review &mdash; expanded scopes feel invasive</td><td>Med</td><td>Scope to minimum (recording read only); document each scope's purpose</td></tr>
+  <tr><td>Token refresh failures cause silent ingestion stops</td><td>Med</td><td>State machine surfaces <code>expired</code> as visible banner; copy explicit</td></tr>
+  <tr><td>GDPR/DSAR ambiguity on "locked" evidence</td><td>Med</td><td>Legal sign-off on retention defaults pre-launch; admin tooling for DSAR query</td></tr>
+  <tr><td>Banner blindness &mdash; users dismiss without connecting</td><td>Med</td><td>Per-card empty-state CTAs (Design Lead) re-surface at value moments</td></tr>
+</table>
+
+<h3>10a. Constraints &amp; Invariants</h3>
+
+<h4>MUST</h4>
+<table>
+  <tr class="must-row"><th>Constraint</th></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL require explicit user-driven OAuth consent before any ingestion from a source.</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL store OAuth tokens encrypted at rest.</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL support revoke at any time from the Connections page.</td></tr>
+  <tr class="must-row"><td>DISCONNECT SHALL soft-lock evidence (set <code>locked=true</code>); SHALL NOT hard-delete.</td></tr>
+  <tr class="must-row"><td>HARD-DELETE SHALL require an explicit user (or admin) request and SHALL respect the 30-day grace period.</td></tr>
+  <tr class="must-row"><td>THE SYSTEM SHALL log every state transition (connect, disconnect, reconnect, delete) with timestamp + actor.</td></tr>
+</table>
+
+<h4>MUST NOT</h4>
+<table>
+  <tr class="mustnot-row"><th>Constraint</th></tr>
+  <tr class="mustnot-row"><td>ADMINS SHALL NOT be able to connect a source on a user's behalf.</td></tr>
+  <tr class="mustnot-row"><td>THE CONNECT FLOW SHALL NOT be modal or otherwise block the user from continuing other work.</td></tr>
+  <tr class="mustnot-row"><td>DISCONNECT SHALL NOT delete evidence as a side effect.</td></tr>
+</table>
+
+<h4>SHOULD</h4>
+<table>
+  <tr class="should-row"><th>Constraint</th></tr>
+  <tr class="should-row"><td>The Connections page SHOULD show last-connected timestamp + granted scopes for transparency.</td></tr>
+  <tr class="should-row"><td>Reconnect SHOULD default to "resume from now" with opt-in back-fill, not auto-back-fill.</td></tr>
+</table>
+
+<h3>10b. Pre-mortem</h3>
+<blockquote>It's September 2026. Connect Layer shipped but failed adoption. Most plausible failure: connect rate ceilinged at ~30% because the central Connections page was buried in user settings and per-module banners were dismissed once and forgotten. Users never connected &rarr; AI pipeline ran on empty input &rarr; feature appeared broken. Mitigation: pair every untranscribed meeting card with an inline empty-state CTA; track connect-from-Meetings as a primary funnel metric; first-run onboarding for new users post-feature-enablement.</blockquote>
+
+<h2>11. Out of Scope / Known Limitations</h2>
+
+<h3>Non-Goals (Phase 1)</h3>
+<ul>
+  <li><strong>Per-signal-type connect granularity</strong> &mdash; Phase 2 stretch.</li>
+  <li><strong>Slack / Jira / HubSpot / Salesforce adapters</strong> &mdash; MVP is Zoom (with Teams as good-to-have stretch); the rest are Phase 2.</li>
+  <li><strong>Admin-driven SSO-style bulk connect</strong> &mdash; explicit non-goal; user-driven only.</li>
+</ul>
+
+<h3>MVP Stretch (per 2026-05-13 exec decision)</h3>
+<ul>
+  <li><strong>Microsoft Teams OAuth</strong> (INT-181) &mdash; good-to-have if Zoom path lands early enough to free Integrations capacity. Aligned with parent Confluence PRFAQ which lists Teams as Path A.</li>
+</ul>
+
+<h3>Future Roadmap</h3>
+<ul>
+  <li>Slack, Jira, HubSpot, Salesforce adapters (one PRD per family or grouped)</li>
+  <li>Per-signal-type granular consent</li>
+  <li>Audit log surface for admins (DSAR support)</li>
+  <li>Bulk-revoke from admin console</li>
+</ul>
+
+<h2>12. Documentation &amp; Resources</h2>
+<ul>
+  <li><strong>type: confluence</strong> &mdash; <strong>Parent PRD: <a href="https://betterworks.atlassian.net/wiki/spaces/PMD/pages/4247257097">Zoom &amp; Teams Transcripts Feature Documentation</a></strong> (strategic / GTM PRFAQ)</li>
+  <li><strong>type: prd</strong> &mdash; PRD-AI-PROCESSING-PIPELINE (platform contracts)</li>
+  <li><strong>type: prd</strong> &mdash; PRD-MEETINGS-AI-SURFACES (consumer of CONN-CAP-002)</li>
+  <li><strong>type: jira</strong> &mdash; ENG-79199 (Epic)</li>
+  <li><strong>type: aha</strong> &mdash; <code>INT-185</code> Zoom OAuth + Cloud Recording API</li>
+  <li><strong>type: aha</strong> &mdash; <code>INT-181</code> Microsoft Teams OAuth + Graph API (stretch)</li>
+  <li><strong>type: zoom-developer</strong> &mdash; Zoom OAuth scope documentation</li>
+  <li><strong>type: figma</strong> &mdash; [TBD &mdash; Design Lead: Connections page + per-module banner specs]</li>
+  <li><strong>type: security-doc</strong> &mdash; [TBD &mdash; Security pod scope review]</li>
+  <li><strong>type: legal-doc</strong> &mdash; [TBD &mdash; Privacy/Legal consent copy review]</li>
+</ul>
+
+<h2>13a. Product Acceptance Criteria</h2>
+<ul>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-01</strong> &mdash; Zoom OAuth flow end-to-end works in Rainforest (connect, token refresh, scope validation)</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-02</strong> &mdash; Central Connections page renders state per app; connect / revoke actions work</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-03</strong> &mdash; Per-module Meetings banner appears when <code>state &ne; connected</code> and source would benefit; dismissable</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-04</strong> &mdash; Revoke flow soft-locks evidence per the &sect;1a revoke matrix; no hard-delete on disconnect</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-05</strong> &mdash; Reconnect defaults to "resume from now"; opt-in back-fill works</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-06</strong> &mdash; All state transitions logged with timestamp + actor</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-07</strong> &mdash; Security review sign-off on OAuth scopes + token storage</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-08</strong> &mdash; Legal/Privacy review sign-off on consent copy + revoke matrix</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-09</strong> &mdash; Retention policy enforced per defaults (90d pending, 180d locked, 90d dismissed); tunable per tenant</li>
+  <li><span class="pac-check">&#9744;</span> <strong>CPAC-10</strong> &mdash; Connect-from-Meetings funnel metric instrumented from day one</li>
+</ul>
+
+<h3>Quality bars</h3>
+<table>
+  <tr><th>Dimension</th><th>Bar</th></tr>
+  <tr><td>Zoom OAuth flow success rate</td><td>&ge; 95%</td></tr>
+  <tr><td>Token refresh success rate</td><td>&ge; 99%</td></tr>
+  <tr><td>Connect-rate ceiling (% of active users)</td><td>&ge; 50% within 30 days post-launch (target)</td></tr>
+  <tr><td>Time from disconnect &rarr; ingestion halt</td><td>&lt; 60 seconds</td></tr>
+  <tr><td>State transition log completeness</td><td>100%</td></tr>
+</table>
+
+<h2>14. Decisions Log</h2>
+<table>
+  <tr><th>ID</th><th>Date</th><th>Decision</th><th>Decider (role / initials)</th><th>Rationale</th><th>Source</th></tr>
+  <tr><td>CD-001</td><td>2026-05-13</td><td>Split Connect Layer into sibling PRD (this doc)</td><td>PM Owner (LM)</td><td>Distinct pod, distinct security/legal review path, &ge;4 capabilities, independent DoD</td><td>Parent PRD D-011</td></tr>
+  <tr><td>CD-002</td><td>2026-05-13</td><td>Disconnect locks evidence; does not delete</td><td>PM Owner (LM)</td><td>Audit + explainability beat aggressive deletion; matches Gong / Microsoft Graph practice</td><td>Industry research 2026-05-13</td></tr>
+  <tr><td>CD-003</td><td>2026-05-13</td><td>Connect is user-driven; admins cannot connect on user's behalf</td><td>PM Owner (LM)</td><td>Per-user OAuth scopes; security best practice; reduces blanket-consent risk</td><td>This PRD &sect;10a</td></tr>
+  <tr><td>CD-004</td><td>2026-05-13</td><td>Reconnect resumes from "now" by default; back-fill is opt-in</td><td>PM Owner (LM)</td><td>Avoids surprise reprocessing; user controls historical scope</td><td>This PRD &sect;1a</td></tr>
+  <tr><td>CD-005</td><td>2026-05-13</td><td>Zoom OAuth only in MVP; adapter contract supports future sources</td><td>PM Owner (LM) + Integrations PM (R)</td><td>Decouple from Phase 2 ingestion decision</td><td>Parent PRD &sect;11</td></tr>
+  <tr><td>CD-006</td><td>2026-05-13</td><td>Teams OAuth upgraded from "deferred past Summer 2026" &rarr; <strong>good-to-have stretch in MVP</strong></td><td>Exec Sponsor (NL)</td><td>Aligns Connect Layer with parent Confluence PRFAQ which lists Teams as Path A</td><td>Exec alignment 2026-05-13; parent Confluence (pageId 4247257097)</td></tr>
+  <tr><td>CD-007</td><td>2026-05-13 (PM)</td><td><strong>MVP ships Zoom connect modal (CONN-CAP-001a) from Meetings page; full central Connections page (CONN-CAP-001) deferred to V2</strong></td><td>Exec Sponsor (NL)</td><td>Reduces MVP scope; users connect at moment of value (Meetings page); full Connections page becomes useful when there are multiple sources to manage</td><td>Product Acceptance call 2026-05-13 PM</td></tr>
+  <tr><td>CD-008</td><td>2026-05-13 (PM)</td><td><strong>Admin org-level enablement is a precondition</strong> for user-level OAuth connect (CONN-CAP-006 scope expanded)</td><td>Exec Sponsor (NL)</td><td>Enterprise sales requirement; matches Lattice/Workday tenant-scoped patterns; reduces blanket-consent risk</td><td>Product Acceptance call 2026-05-13 PM</td></tr>
+</table>
+
+<h3>Pending decisions</h3>
+<table>
+  <tr><th>ID</th><th>Question</th><th>Decision owner</th><th>Deadline</th></tr>
+  <tr><td>COPEN-D1</td><td>Default OAuth scope list for Zoom (recording-read vs. broader)</td><td>PM Owner + Security pod</td><td>Before C-02</td></tr>
+  <tr><td>COPEN-D2</td><td>Connections page IA: own page or sub-tab of existing Settings</td><td>Design Lead + Meetings PM</td><td>Before C-03</td></tr>
+  <tr><td>COPEN-D3</td><td>First-run onboarding: guided connect or post-login banner</td><td>Design Lead + Meetings PM</td><td>Before launch</td></tr>
+  <tr><td>COPEN-D4</td><td>Retention policy defaults: 90/180/90d &mdash; Platform pod sign-off</td><td>PM Owner + Platform pod lead</td><td>Before Rainforest deploy</td></tr>
+</table>
+
+<hr style="margin-top: 48px; border: none; border-top: 1px solid #DFE1E6;">
+<p style="font-size: 11px; color: #5E6C84; text-align: center; margin-top: 16px;">
+  Generated from <code>connect-layer.prd.md v0.1.0</code> &middot; Sibling to <code>PRD-AI-PROCESSING-PIPELINE</code>
+</p>
+
+</body>
+</html>

@@ -79,6 +79,8 @@ When a new skill is added under `.claude/skills/<name>/` or a new slash command 
 
 Future sessions discover skills automatically, but they discover *when to reach for them* through this file. Out-of-date routing is silent — keep it current.
 
+Every edit to any `CLAUDE.md` in this tree (via Claude Code Edit/Write/MultiEdit) is auto-logged to `ops/claudemd-changelog.md` by the `.claude/hooks/log-claudemd-change.sh` PostToolUse hook — that's the traceability trail for routing changes. Don't hand-edit the changelog; rely on `git log` for edits made outside Claude Code.
+
 ## Knowledge loop
 Before any new task, check `/knowledge/<domain>/` for:
 - `rules.md` — apply by default
