@@ -20,6 +20,15 @@ Recurring refinement-prep skill. Strict policy: **read-only against Jira/Aha —
 
 ## Steps
 
+### 0. Cross-area ownership sweep (outcome-shaped, runs every time)
+
+Before scoping to the target release, surface anything where Lalit is involved outside his declared focus areas. This catches verbal handoffs that never reached Aha (e.g., the APP-369 custom-roles miss in May 2026).
+
+- **Aha:** `search_records` with queries broader than `assigned_to = Lalit` — include features whose description, custom fields, or comments mention "Lalit", and any feature linked to a Jira issue Lalit touches.
+- **Jira:** `searchJiraIssuesUsingJql` with `(assignee = currentUser() OR reporter = currentUser() OR watcher = currentUser() OR text ~ "Lalit") AND statusCategory != Done`. Exclude items already in the release scope below.
+- For each hit **outside** `<release>` and **outside** the areas listed in root `CLAUDE.md` § My current focus: append to a new section in `backlog-rank.md` titled `## Cross-area items (not scored against release capacity)`. One line each: `Aha/Jira key — name — where it surfaced — needs area? y/n`.
+- Never score cross-area items against release capacity. They exist to be noticed, not ranked.
+
 ### 1. Resolve release across all three systems
 
 - **Aha:** `mcp__claude_ai_Aha__search_records` with `record_type=release`, queries=`[<release>]`. Filter to AI workspace (`reference_prefix=AI` for AI team scope). Get features via `read_records` `include=[feature]`, `association_fields=standard`.
