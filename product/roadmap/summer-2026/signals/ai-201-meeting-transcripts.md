@@ -73,3 +73,23 @@ Lattice's AI Meeting Agent auto-joins 1:1s via bot — direct competitor. Our de
 Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI service architecture diagrams by May 9. Jay-Z has dedicated diagrams.
 
 **Implication for ranking:** Foundation for v1 architecture pick (native vs. Recall, MCP-coupled vs. direct).
+
+### 2026-05-14 — slack
+- **Who:** Sriram CS
+- **Where:** #temp-meeting-transcript-integration
+- **Summary:** Organized cross-pod alignment call (10:30 PM IST, post-all-hands); asked Rinku and Tanveer to join; flagged unresolved delivery-manager question (Rinku or Tanveer?), with Anuj Pancholi as primary tech lead for Zoom native integration.
+
+### 2026-05-14 — slack
+- **Who:** Sriram CS
+- **Where:** #temp-meeting-transcript-integration
+- **Summary:** Proposed call agenda: (1) ownership & high-level project plan across 3 teams, (2) requirements walkthrough with Nellie and Lalit, (3) Anuj to walk through Zoom native integration challenges.
+
+### 2026-05-14 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #temp-meeting-transcript-integration
+- **Summary:** Shared Confluence doc for Zoom/Teams Transcripts Feature Documentation (https://betterworks.atlassian.net/wiki/spaces/PMD/pages/4247257097/) for team transparency.
+
+### 2026-05-14 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #temp-meeting-transcript-integration
+- **Summary:** Confirmed project kickoff readiness; acknowledged Lalit's requirements deep dive and that 3 pods (Meetings, Integration, AI) all need to collaborate.
