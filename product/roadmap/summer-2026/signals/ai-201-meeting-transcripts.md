@@ -93,3 +93,13 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Nellie LeMonier
 - **Where:** #temp-meeting-transcript-integration
 - **Summary:** Confirmed project kickoff readiness; acknowledged Lalit's requirements deep dive and that 3 pods (Meetings, Integration, AI) all need to collaborate.
+
+### 2026-05-15 — slack
+- **Who:** Slack system (channel admin)
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1778824551570539)
+- **Summary:** Channel renamed from #temp-meeting-transcript-integration to #meeting-transcript-integration, signaling transition from POC/temp to active-project status.
+
+### 2026-05-15 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM — Paul Agustin, Sarah Brose, Austine Joy, Nataliya Kolb, Nellie LeMonier](https://betterworks.slack.com/archives/C0B2ZDJ5K2R/p1778786930112609)
+- **Summary:** Lalit articulated manager + employee personas for the feature, defining 5 core use cases: pre-meeting cross-session prep, post-meeting auto-capture (action items + agenda chips), open-item carry-forward, cross-1:1 pattern/coaching analysis, and AI-sourcing transparency ("Why-this" deep-link panel); also noted Paul's data showing users prep agendas but under-document post-meeting actions.

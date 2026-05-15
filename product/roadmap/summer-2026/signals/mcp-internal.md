@@ -52,3 +52,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - Server-side errors on some queries (Raghu — resolved on re-auth)
 
 **Implication for ranking:** Polish items for Public MCP launch; not blocking, but worth backlog-tracking.
+
+### 2026-05-15 — slack
+- **Who:** Bhargav Prajapati
+- **Where:** [#pod-engage](https://betterworks.slack.com/archives/C05MZESVCTV/p1778843406338179)
+- **Summary:** Created a custom New Relic MCP server for reading logs during debugging (PR #7 in engage-workspace); demonstrates internal MCP-server pattern spreading beyond Betterworks product into engineering tooling.
