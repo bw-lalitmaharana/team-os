@@ -103,3 +103,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [Group DM — Paul Agustin, Sarah Brose, Austine Joy, Nataliya Kolb, Nellie LeMonier](https://betterworks.slack.com/archives/C0B2ZDJ5K2R/p1778786930112609)
 - **Summary:** Lalit articulated manager + employee personas for the feature, defining 5 core use cases: pre-meeting cross-session prep, post-meeting auto-capture (action items + agenda chips), open-item carry-forward, cross-1:1 pattern/coaching analysis, and AI-sourcing transparency ("Why-this" deep-link panel); also noted Paul's data showing users prep agendas but under-document post-meeting actions.
+
+### 2026-05-18 — slack
+- **Who:** Sriram CS
+- **Where:** [#pod-meetings](https://betterworks.slack.com/archives/C035AAZ5P6H/p1779100845297159)
+- **Summary:** Asked Anuj Pancholi to discuss the meeting transcript feature design with Lalit and the designer (Sarah/Austine), signalling active cross-pod coordination on design handoff.

@@ -57,3 +57,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Bhargav Prajapati
 - **Where:** [#pod-engage](https://betterworks.slack.com/archives/C05MZESVCTV/p1778843406338179)
 - **Summary:** Created a custom New Relic MCP server for reading logs during debugging (PR #7 in engage-workspace); demonstrates internal MCP-server pattern spreading beyond Betterworks product into engineering tooling.
+
+### 2026-05-18 — slack
+- **Who:** Balram Agnihotri
+- **Where:** [#pod-engage](https://betterworks.slack.com/archives/C05MZESVCTV/p1779094722648109)
+- **Summary:** Created a new custom MCP server for Codecov and unified all MCP server locations in engage-workspace per VSCode guidelines (PR #9); extends the pattern of engineering-tooling MCP adoption beyond product features.
