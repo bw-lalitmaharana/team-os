@@ -108,3 +108,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Sriram CS
 - **Where:** [#pod-meetings](https://betterworks.slack.com/archives/C035AAZ5P6H/p1779100845297159)
 - **Summary:** Asked Anuj Pancholi to discuss the meeting transcript feature design with Lalit and the designer (Sarah/Austine), signalling active cross-pod coordination on design handoff.
+
+### 2026-05-19 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779137966414569)
+- **Summary:** Proposed using Zoom's MCP server to ingest per-user transcripts as an alternative to vendors like Unified.to, citing a successful personal proof-of-concept via Claude → Zoom MCP (filtered by day/meeting name, extracted action items and summary).
+
+### 2026-05-19 — slack
+- **Who:** Sriram CS
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779192068406249)
+- **Summary:** Pinged Anuj Pancholi and Danish Sharma to review and comment on Nellie's Zoom MCP proposal.
+
+### 2026-05-19 — slack
+- **Who:** Danish Sharma
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779195019575879)
+- **Summary:** Rejected Zoom MCP as the ingestion mechanism — product requires multi-user background fetching with persistent token management, webhook listeners, and job queues that MCP cannot provide; reframed the architectural decision as direct provider APIs vs. Unified.to, not MCP vs. either.
