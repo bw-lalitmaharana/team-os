@@ -123,3 +123,13 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Danish Sharma
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779195019575879)
 - **Summary:** Rejected Zoom MCP as the ingestion mechanism — product requires multi-user background fetching with persistent token management, webhook listeners, and job queues that MCP cannot provide; reframed the architectural decision as direct provider APIs vs. Unified.to, not MCP vs. either.
+
+### 2026-05-20 — slack
+- **Who:** Nataliya Kolb
+- **Where:** [Group DM — Paul Agustin, Sarah Brose, Austine Joy, Nataliya Kolb, Nellie LeMonier, Lalit](https://betterworks.slack.com/archives/C0B2ZDJ5K2R/p1779221811906849?thread_ts=1779221811.906849&cid=C0B2ZDJ5K2R)
+- **Summary:** Sales/CS request to (1) manually add transcript notes from Zoom or Gong calls, and (2) create retroactive historical 1:1 records for meetings that happened outside Betterworks (e.g., Slack huddles, ad hoc calls).
+
+### 2026-05-20 — slack
+- **Who:** Austine Joy
+- **Where:** [Group DM — Paul Agustin, Sarah Brose, Austine Joy, Nataliya Kolb, Nellie LeMonier, Lalit](https://betterworks.slack.com/archives/C0B2ZDJ5K2R/p1779271731147669?thread_ts=1779221811.906849&cid=C0B2ZDJ5K2R)
+- **Summary:** Confirmed manual transcript input will be added to v1; Meetings engineering team completed a refinement call and will begin development soon.
