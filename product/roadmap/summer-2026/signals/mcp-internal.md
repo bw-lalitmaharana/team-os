@@ -62,3 +62,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Balram Agnihotri
 - **Where:** [#pod-engage](https://betterworks.slack.com/archives/C05MZESVCTV/p1779094722648109)
 - **Summary:** Created a new custom MCP server for Codecov and unified all MCP server locations in engage-workspace per VSCode guidelines (PR #9); extends the pattern of engineering-tooling MCP adoption beyond product features.
+
+### 2026-05-22 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1779399619060769)
+- **Summary:** PR #55 in public-api-mcp wires MCP log context into the service; JB continues active development on the shipped internal MCP server.
