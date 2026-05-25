@@ -138,3 +138,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread — subject "Meeting assets for Meetings Transcript - Daily Catchup are ready!" (thread 19e4ad7896a8efc7)
 - **Summary:** Zoom delivered meeting recap for the daily ENG-79199 sync; recap notes the session focused on synchronizing progress and addressing blocking issues on a story.
+
+### 2026-05-25 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Lalit Maharana / Varnika Garg](https://betterworks.slack.com/archives/D0B2L15AY2W/p1779679800158759)
+- **Summary:** Lalit DM'd Varnika Garg to (1) request help pulling Metabase usage data for shared notes, private notes, rollover action/agenda items, and admin-edited items, and (2) sync on the meetings transcript story progress.
