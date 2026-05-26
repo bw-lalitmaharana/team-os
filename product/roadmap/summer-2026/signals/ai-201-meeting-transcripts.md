@@ -143,3 +143,28 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [DM — Lalit Maharana / Varnika Garg](https://betterworks.slack.com/archives/D0B2L15AY2W/p1779679800158759)
 - **Summary:** Lalit DM'd Varnika Garg to (1) request help pulling Metabase usage data for shared notes, private notes, rollover action/agenda items, and admin-edited items, and (2) sync on the meetings transcript story progress.
+
+### 2026-05-25 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779714397168189)
+- **Summary:** Raised Zoom account registration blocker — Betterworks emails cannot register new Zoom accounts; proposed creating Gmail IDs as a workaround to enable testing; awaiting confirmation from Pankaj and Danish.
+
+### 2026-05-25 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779716713396459)
+- **Summary:** Shared Google Sheets with prodUS and prodEU anon DB stats on meeting instances, providing token-processing baseline data for the AI team.
+
+### 2026-05-25 — slack
+- **Who:** Hemant Kumar
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779724016268189)
+- **Summary:** Shared documentation on how Goal Assist fetches data from three nextgen services (Goals, Feedback, Conversations) and persists it into dsml.llm_user_prompts, with direct code links (file paths and line numbers) in the llm-engine repo.
+
+### 2026-05-25 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread — subject "Meeting assets for Meetings Transcript - Daily Catchup are ready!" (thread 19e5f61e7907f269)
+- **Summary:** Zoom AI recap of May 25 daily catchup; key decisions: Zoom API lacks per-speaker IDs so a bot (Fireflies/Recall) is required for attribution; Unified excluded as pass-through only; baseline data scope set at 1 year; Prasanna flagged accuracy risk (wrong speaker ID → wrong goal assignment). Actions: Anuj to share token stats, Hemant to share DB docs, Pankaj to share sample transcript, Danish to evaluate Recall/Unified.
+
+### 2026-05-26 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread — subject "Meeting assets for Lalit / Nellie 1:1 are ready!" (thread 19e647c275e41cbb)
+- **Summary:** Zoom AI recap of May 26 Lalit/Nellie 1:1; Lalit presented 49 categorized AHA tickets for meetings/transcripts features consolidated into 15–18 ranked stories; Nellie shared Gong customer research on manager pain points; AI story and Zoom integration confirmed as critical-path MVP items; agreed Lalit will align with Varnika (meetings pod PM) to avoid overlap and co-create roadmap.

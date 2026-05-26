@@ -11,3 +11,8 @@
 - **Who:** Aakansha Srivastava
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1779695870007809)
 - **Summary:** PR review request for ENG-81013 (Performance Summary jsondecode fix), with branch deployed to Rainforest for testing; tagging Riya Malik and Tejas for review.
+
+### 2026-05-25 — slack
+- **Who:** Aakansha Srivastava
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1779716323006229)
+- **Summary:** Follow-up PR review request for ENG-81013 (Performance Summary jsondecode fix) — QA now complete on Rainforest; PR#529 ready for team review.
