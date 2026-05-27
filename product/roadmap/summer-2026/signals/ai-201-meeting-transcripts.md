@@ -168,3 +168,38 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread — subject "Meeting assets for Lalit / Nellie 1:1 are ready!" (thread 19e647c275e41cbb)
 - **Summary:** Zoom AI recap of May 26 Lalit/Nellie 1:1; Lalit presented 49 categorized AHA tickets for meetings/transcripts features consolidated into 15–18 ranked stories; Nellie shared Gong customer research on manager pain points; AI story and Zoom integration confirmed as critical-path MVP items; agreed Lalit will align with Varnika (meetings pod PM) to avoid overlap and co-create roadmap.
+
+### 2026-05-26 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e648f0ec161e83 — "Meeting assets for Meetings Transcript - Daily Catchup are ready!"
+- **Summary:** Daily ENG-79199 catchup focused on discussing implementation of an AI system to generate user recommendations from meeting transcripts.
+
+### 2026-05-27 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1779866939205349)
+- **Summary:** Shared WIP Confluence PRD for AI Processing Pipeline for Meeting Transcripts Phase 1 (Zoom as source, meeting items + goals nudges) with the channel for team visibility.
+
+### 2026-05-27 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Harshini Vijay](https://betterworks.slack.com/archives/D0B58DS1W1K/p1779867082596929)
+- **Summary:** Shared Confluence PRD link for AI Processing Pipeline for Meeting Transcripts Phase 1 directly with Harshini Vijay.
+
+### 2026-05-27 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e685581e77fbb1 — "Meeting assets for Meetings Backlog / Usage Data are ready!"
+- **Summary:** Lalit + Varnika synced on usage data access (Metabase/Mixpanel credential issues), meeting transcript roadmap status (most items in planning/dev, resource constraints with Anuj split across goals + meetings), and UI redesign plans — Varnika flagged information density risk for new users.
+
+### 2026-05-27 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e68db3df86e116 — "Meeting assets for Meeting Transcript - Refinement are ready!"
+- **Summary:** Architecture refinement call: team aligned on recommendation system design (Zoom transcripts → goals/action items/agenda/recognition queue); key decisions: priority levels over complex re-ranking, 1 fiscal year window for goals, 3-month window for recognition, Sagar's team owns architecture freeze and LLM engine integration.
+
+### 2026-05-27 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1779885872544779)
+- **Summary:** Flagged he'll miss the meeting transcript sync due to a home situation; asked Lalit to confirm if anything changed from the plan discussed earlier that day.
+
+### 2026-05-27 — slack
+- **Who:** Tejas S
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1779888396295609)
+- **Summary:** Flagged he'll miss the meetings transcript call; noted he's working on Synopsys regression dashboard; asked Lalit to surface anything requiring his attention.
