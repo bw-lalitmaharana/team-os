@@ -67,3 +67,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Jason Bilyeu
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1779399619060769)
 - **Summary:** PR #55 in public-api-mcp wires MCP log context into the service; JB continues active development on the shipped internal MCP server.
+
+### 2026-05-29 — slack
+- **Who:** Mary Makris
+- **Where:** [#mktg-weekly-updates](https://betterworks.slack.com/archives/C09DP7MRB8X/p1780005055611429)
+- **Summary:** PMM weekly update lists "MCP Server GTM Plan" as upcoming work — marketing planning for the shipped internal MCP server is now active alongside competitive docs (Lattice, UKG, Cornerstone).

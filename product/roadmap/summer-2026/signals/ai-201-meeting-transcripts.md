@@ -203,3 +203,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Tejas S
 - **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1779888396295609)
 - **Summary:** Flagged he'll miss the meetings transcript call; noted he's working on Synopsys regression dashboard; asked Lalit to surface anything requiring his attention.
+
+### 2026-05-29 — slack
+- **Who:** Harshini Vijay, Lalit Maharana
+- **Where:** [DM](https://betterworks.slack.com/archives/D0B58DS1W1K/p1780036106277139)
+- **Summary:** Harshini clarified two mutually exclusive transcript scenarios (Zoom-connected = auto-sync, no manual upload; Zoom-not-connected = manual upload only); Lalit confirmed Zoom takes precedence, attachments should split into "meeting transcript" vs "notes/files" types, and past meetings will allow manual transcript attachment since old Zoom meetings won't retroactively sync.

@@ -16,3 +16,8 @@
 - **Who:** Aakansha Srivastava
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1779716323006229)
 - **Summary:** Follow-up PR review request for ENG-81013 (Performance Summary jsondecode fix) — QA now complete on Rainforest; PR#529 ready for team review.
+
+### 2026-05-29 — slack
+- **Who:** Riya Malik
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1780042289931109)
+- **Summary:** Performance Summary correctly picks up scheduled conversation data; anytime conversations have a bug in the Conversations module (team investigating); Riya will re-verify Performance Summary integration once Conversations bug is resolved.
