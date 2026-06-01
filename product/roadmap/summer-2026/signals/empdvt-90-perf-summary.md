@@ -21,3 +21,8 @@
 - **Who:** Riya Malik
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1780042289931109)
 - **Summary:** Performance Summary correctly picks up scheduled conversation data; anytime conversations have a bug in the Conversations module (team investigating); Riya will re-verify Performance Summary integration once Conversations bug is resolved.
+
+### 2026-06-01 — slack
+- **Who:** AIOnCallBot (on-call alert)
+- **Where:** [#internal-ai-alerts](https://betterworks.slack.com/archives/C0B26A0EC5U/p1780304105700659)
+- **Summary:** CRITICAL alert on ai-pluto-errors: performance_summary feature failing — LLM returned unparseable JSON or upstream schema changed; dependency team flagged to investigate LLM proxy schema changes; Aakansha Srivastava on-call.

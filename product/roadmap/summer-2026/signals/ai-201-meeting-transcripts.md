@@ -208,3 +208,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Harshini Vijay, Lalit Maharana
 - **Where:** [DM](https://betterworks.slack.com/archives/D0B58DS1W1K/p1780036106277139)
 - **Summary:** Harshini clarified two mutually exclusive transcript scenarios (Zoom-connected = auto-sync, no manual upload; Zoom-not-connected = manual upload only); Lalit confirmed Zoom takes precedence, attachments should split into "meeting transcript" vs "notes/files" types, and past meetings will allow manual transcript attachment since old Zoom meetings won't retroactively sync.
+
+### 2026-06-01 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Sagar Bhat](https://betterworks.slack.com/archives/D0B1WU4C08Z/p1780297180379059)
+- **Summary:** Lalit reached out to Sagar Bhat to set up a sync on meeting transcripts.
+
+### 2026-06-01 — slack
+- **Who:** Rinku Ravi
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B19L7D33M/p1780310988720169)
+- **Summary:** Rinku asked whether user stories have been designed for Meeting Transcripts yet.
+
+### 2026-06-01 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Rinku Ravi](https://betterworks.slack.com/archives/D0B19L7D33M/p1780313871677389)
+- **Summary:** Lalit shared that ENG-82387 has been created so far, and flagged he still needs to discuss meeting-related stories with Anuj and Pankaj.
