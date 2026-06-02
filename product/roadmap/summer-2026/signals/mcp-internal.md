@@ -72,3 +72,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Mary Makris
 - **Where:** [#mktg-weekly-updates](https://betterworks.slack.com/archives/C09DP7MRB8X/p1780005055611429)
 - **Summary:** PMM weekly update lists "MCP Server GTM Plan" as upcoming work — marketing planning for the shipped internal MCP server is now active alongside competitive docs (Lattice, UKG, Cornerstone).
+
+### 2026-06-02 — slack
+- **Who:** Eric Toner (relaying Nicholas VanKlompenberg, Sr People Ops Tech Partner, Jump Trading)
+- **Where:** [#jumptrading-oppty](https://betterworks.slack.com/archives/C0ALYKNA6SF/p1780343722556079)
+- **Summary:** Jump Trading prospect flagged "Native MCP and Talent Management features" as having high potential after a sales demo; noted role matching as a possible future fit; identified engagement branching logic and performance task delineation as gaps — strong external prospect validation of MCP.

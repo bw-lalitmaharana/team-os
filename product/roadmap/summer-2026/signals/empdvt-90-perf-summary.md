@@ -26,3 +26,8 @@
 - **Who:** AIOnCallBot (on-call alert)
 - **Where:** [#internal-ai-alerts](https://betterworks.slack.com/archives/C0B26A0EC5U/p1780304105700659)
 - **Summary:** CRITICAL alert on ai-pluto-errors: performance_summary feature failing — LLM returned unparseable JSON or upstream schema changed; dependency team flagged to investigate LLM proxy schema changes; Aakansha Srivastava on-call.
+
+### 2026-06-02 — slack
+- **Who:** Hemant Kumar
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B1J102F34/p1780384501046599)
+- **Summary:** Hemant flagged ENG-74804 to Lalit — design question on performance summary fiscal year rollover; Nellie clarified the current behavior (summaries stay in the configured FY until admin rolls it over) is expected; Hemant asking whether to close the ticket and proposed adding an admin warning for past-end-date FY configs.
