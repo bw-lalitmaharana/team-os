@@ -31,3 +31,8 @@
 - **Who:** Hemant Kumar
 - **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B1J102F34/p1780384501046599)
 - **Summary:** Hemant flagged ENG-74804 to Lalit — design question on performance summary fiscal year rollover; Nellie clarified the current behavior (summaries stay in the configured FY until admin rolls it over) is expected; Hemant asking whether to close the ticket and proposed adding an admin warning for past-end-date FY configs.
+
+### 2026-06-03 — slack
+- **Who:** Tejas S
+- **Where:** [Group DM (Tejas S, Nellie LeMonier, Lalit Maharana)](https://betterworks.slack.com/archives/C0B1Y367FK3/p1780457400484669)
+- **Summary:** Tejas asked for feature flag rollout date for Performance Summary UI redesign — needs timeline to prioritize updating AI E2E automated test suite before new design goes live.

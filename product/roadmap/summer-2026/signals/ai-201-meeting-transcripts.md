@@ -228,3 +228,33 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [DM — Sagar Bhat](https://betterworks.slack.com/archives/D0B1WU4C08Z/p1780378903603759)
 - **Summary:** Lalit sent Sagar Bhat the ENG-79199 Jira link directly — likely active follow-up coordination after their June 1 sync to align on engineering scope.
+
+### 2026-06-03 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1780489868706839)
+- **Summary:** Sagar flagged he'd miss today's transcript connect; confirmed AI team walkthrough complete and POC for transcript processing is now underway.
+
+### 2026-06-03 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM (Anuj Pancholi, Varnika Garg)](https://betterworks.slack.com/archives/C0B5XMSN155/p1780429179795989)
+- **Summary:** Lalit shared detailed UI states spec for meetings/transcripts (object states per story, added to Confluence) and requested Varnika Garg review for coverage gaps.
+
+### 2026-06-02 — gmail
+- **Who:** Zoom (no-reply@zoom.us)
+- **Where:** Email — "Meeting assets for Meetings Transcript - Daily Catchup are ready"
+- **Summary:** Zoom meeting summary and action items from the June 2 Meetings Transcript Daily Catchup are available; recap mentions AI implementation discussions.
+
+### 2026-06-03 — gmail
+- **Who:** Sagar Bhat
+- **Where:** Calendar — "Meetings Transcript - Daily Catchup" (Wed Jun 3 @ 7pm IST)
+- **Summary:** Sagar Bhat declined the Meetings Transcript Daily Catchup meeting for June 3.
+
+### 2026-06-03 — gmail
+- **Who:** Nellie LeMonier
+- **Where:** Calendar — "Meetings Transcripts - UX Sync" (Wed Jun 3 @ 11pm IST)
+- **Summary:** Nellie LeMonier accepted the Meetings Transcripts UX Sync meeting scheduled for tonight.
+
+### 2026-06-03 — gmail
+- **Who:** Sarah Brose
+- **Where:** Calendar — "Meetings Transcripts - UX Sync" (Wed Jun 3 @ 11pm IST)
+- **Summary:** Sarah Brose accepted the Meetings Transcripts UX Sync meeting scheduled for tonight.
