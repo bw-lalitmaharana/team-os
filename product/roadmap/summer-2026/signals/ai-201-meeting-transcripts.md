@@ -258,3 +258,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Sarah Brose
 - **Where:** Calendar — "Meetings Transcripts - UX Sync" (Wed Jun 3 @ 11pm IST)
 - **Summary:** Sarah Brose accepted the Meetings Transcripts UX Sync meeting scheduled for tonight.
+
+### 2026-06-03 — gmail
+- **Who:** Cheryl Johnson (via Aha notification)
+- **Where:** Email thread 19e8ebb06d193156 — "[AHA] Cheryl Johnson updated feature: AI Processing Pipeline for Meeting Transcripts"
+- **Summary:** Cheryl Johnson (CPTO) updated the AI-201 feature record in Aha, signalling active executive-level engagement with the meeting transcripts pipeline.
+
+### 2026-06-04 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1780555212521689)
+- **Summary:** Asked Lalit to include Brahadeesh in all calls for this initiative; Brahadeesh will help Anuj with meetings-service engineering effort and contribute to plan/architecture discussions.
+
+### 2026-06-04 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1780575460420809)
+- **Summary:** Missed today's call; no new blockers; currently doing code review of calendar-integration PR to get conferencing data from calendar events.
