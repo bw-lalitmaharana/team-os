@@ -273,3 +273,33 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Anuj Pancholi
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1780575460420809)
 - **Summary:** Missed today's call; no new blockers; currently doing code review of calendar-integration PR to get conferencing data from calendar events.
+
+### 2026-06-05 — slack
+- **Who:** Hemant Kumar
+- **Where:** #meeting-transcript-integration
+- **Summary:** Missed today's catchup; working on quality testing the prompt for transcript processing and action item generation.
+
+### 2026-06-05 — slack
+- **Who:** Hemant Kumar
+- **Where:** #pod-ai-platform
+- **Summary:** Running small-scale Gemma tests (one meeting transcript), hitting max token limit; planning a load test to determine max concurrent request capacity.
+
+### 2026-06-05 — slack
+- **Who:** Lalit Maharana
+- **Where:** DM — Pankaj Lohmor
+- **Summary:** Asked Pankaj to create Jira stories per the meeting transcript plan.
+
+### 2026-06-05 — slack
+- **Who:** Lalit Maharana
+- **Where:** DM — Rinku Ravi
+- **Summary:** Shared a Google doc link (likely stories/planning doc for transcript feature) with Rinku.
+
+### 2026-06-05 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e92dbb11541e4b — "Meeting assets for Meetings Transcript - Daily Catchup are ready!"
+- **Summary:** POC findings: context limit ~60k tokens (~1h meeting), 25s inference latency; Hemant applied schema-first prompting and 7 other techniques; next steps are LM-as-judge quality eval (Tejas to advise on GPT-5 with temp=0) and load testing.
+
+### 2026-06-05 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e939793d054869 — "Meeting assets for Nellie / Lalit - Roadmap priorities are ready!"
+- **Summary:** Duplicate Aha ticket for "transmit from external meeting tools" flagged for closure; Lalit to link it to the correct AI processing pipeline ticket (ENG-79199).

@@ -36,3 +36,8 @@
 - **Who:** Tejas S
 - **Where:** [Group DM (Tejas S, Nellie LeMonier, Lalit Maharana)](https://betterworks.slack.com/archives/C0B1Y367FK3/p1780457400484669)
 - **Summary:** Tejas asked for feature flag rollout date for Performance Summary UI redesign — needs timeline to prioritize updating AI E2E automated test suite before new design goes live.
+
+### 2026-06-05 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e939793d054869 — "Meeting assets for Nellie / Lalit - Roadmap priorities are ready!"
+- **Summary:** Nellie flagged a new story on performance summary bucketing by fiscal year; she will refine the story and discuss with Jay-Z (Jason Zhang) about potential impacts on search and filter capabilities.

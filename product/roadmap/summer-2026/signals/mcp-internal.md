@@ -77,3 +77,13 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Eric Toner (relaying Nicholas VanKlompenberg, Sr People Ops Tech Partner, Jump Trading)
 - **Where:** [#jumptrading-oppty](https://betterworks.slack.com/archives/C0ALYKNA6SF/p1780343722556079)
 - **Summary:** Jump Trading prospect flagged "Native MCP and Talent Management features" as having high potential after a sales demo; noted role matching as a possible future fit; identified engagement branching logic and performance task delineation as gaps — strong external prospect validation of MCP.
+
+### 2026-06-05 — slack
+- **Who:** Mary Makris
+- **Where:** #mktg-weekly-updates
+- **Summary:** PMM weekly check-in lists "MCP Server GTM Plan" as upcoming work alongside competitive builds for Workday and Oracle.
+
+### 2026-06-05 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19e939793d054869 — "Meeting assets for Nellie / Lalit - Roadmap priorities are ready!"
+- **Summary:** Nellie confirmed public MCP data is shipped with only a small disclaimer task outstanding; JB's research indicates all tools can consolidate into one MCP server, with MCP beta evolving to expose REST endpoints for other tooling.
