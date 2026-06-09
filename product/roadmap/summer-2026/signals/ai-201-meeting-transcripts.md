@@ -318,3 +318,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [DM — Varnika Garg](https://betterworks.slack.com/archives/D0B2L15AY2W/p1780900638302939)
 - **Summary:** Lalit DM'd Varnika Garg with ENG-79199 link; requested her review and suggestions on newly added stories.
+
+### 2026-06-09 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1780986658445869)
+- **Summary:** Following yesterday's call, raised two Zoom OAuth approaches for user-level transcript consent: (1) Zoom app with user-level OAuth, (2) Zoom app with admin-managed org-level OAuth + BW-managed user consent. Flagged that auth-proxy expertise (Danish / Integrations) is needed to pick; followed up asking whether the meetings service can call Zoom APIs for transcript download via auth-proxy without needing the user's token directly. Tagging Danish Sharma and Lalit to connect.
+
+### 2026-06-09 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1780981949949849)
+- **Summary:** Standup update: discussed meeting transcript POC results and strategy with Hemant; planning next steps with Tanveer today for AI team handoff.
+
+### 2026-06-09 — gmail
+- **Who:** Jira Automation (jira@betterworks.atlassian.net → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ea784d08ff7c94 — "[JIRA] (ENG-79199) AI Processing Pipeline for Meeting Transcripts"
+- **Summary:** Jira automation set start date on ENG-79199 to 2026-06-08, signalling the epic is now formally open for work scheduling.

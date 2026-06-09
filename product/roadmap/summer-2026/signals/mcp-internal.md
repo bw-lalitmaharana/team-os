@@ -87,3 +87,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19e939793d054869 — "Meeting assets for Nellie / Lalit - Roadmap priorities are ready!"
 - **Summary:** Nellie confirmed public MCP data is shipped with only a small disclaimer task outstanding; JB's research indicates all tools can consolidate into one MCP server, with MCP beta evolving to expose REST endpoints for other tooling.
+
+### 2026-06-09 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [Group DM (Akhil Desai, Aakansha Srivastava, Nellie LeMonier, Lalit Maharana)](https://betterworks.slack.com/archives/C0B7Y7CRWJH/p1780945871914749)
+- **Summary:** Product vision: extend AI Chat to support connecting to external MCP tools beyond Betterworks MCP, positioning BW as a "connective hub" that ingests and analyzes data from multiple sources — analogous to Claude's cross-tool experience but native within BW, without requiring Claude.
