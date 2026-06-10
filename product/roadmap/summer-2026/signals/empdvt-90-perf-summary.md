@@ -41,3 +41,8 @@
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19e939793d054869 — "Meeting assets for Nellie / Lalit - Roadmap priorities are ready!"
 - **Summary:** Nellie flagged a new story on performance summary bucketing by fiscal year; she will refine the story and discuss with Jay-Z (Jason Zhang) about potential impacts on search and filter capabilities.
+
+### 2026-06-10 — slack
+- **Who:** Joe Tambascio
+- **Where:** [#oppty-gtm](https://betterworks.slack.com/archives/C0B7ZS5EJMU/p1781044959708169)
+- **Summary:** Customer surfaced in GTM channel needs dual competency ratings (current-role performance + promotion-readiness) in one system to replace Excel tracking — adjacent scope signal for Performance Summary redesign.

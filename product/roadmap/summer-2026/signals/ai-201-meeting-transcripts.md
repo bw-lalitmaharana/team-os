@@ -333,3 +333,33 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Jira Automation (jira@betterworks.atlassian.net → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19ea784d08ff7c94 — "[JIRA] (ENG-79199) AI Processing Pipeline for Meeting Transcripts"
 - **Summary:** Jira automation set start date on ENG-79199 to 2026-06-08, signalling the epic is now formally open for work scheduling.
+
+### 2026-06-10 — slack
+- **Who:** Hemant Kumar
+- **Where:** [Group DM — Sagar Bhat, Hemant Kumar, Lalit Maharana](https://betterworks.slack.com/archives/C0B7KG9AZQV/p1781067440411349)
+- **Summary:** Shared LLM quality evaluation prompt (JUDGE_SYSTEM) for scoring meeting transcript AI outputs on completeness, accuracy, summary quality, and third-speaker attribution — signals active AI quality work for the pipeline.
+
+### 2026-06-10 — gmail
+- **Who:** Anuj Pancholi (via Jira)
+- **Where:** Email thread 19eacc61652f7b5c — "[JIRA] (ENG-82992) Spike: AI surface contract, meeting lifecycle infrastructure & state model"
+- **Summary:** Anuj posted 4 detailed spike comments on ENG-82992 covering I/O contracts for post-meeting processing, pre-meeting brief, meeting lifecycle infrastructure, and meeting page rendering architecture.
+
+### 2026-06-10 — gmail
+- **Who:** Zoom (no-reply@zoom.us)
+- **Where:** Email thread 19eb118477d54ba1 — "Meeting assets for Meeting Transcripts - Refinement are ready!"
+- **Summary:** Zoom recap of refinement call where team reviewed all 7 epic stories for the transcript integration project.
+
+### 2026-06-10 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781095674335789)
+- **Summary:** Clarified AI pipeline architecture: REST API endpoints (not EDA listeners) will trigger insight generation; flagged that current ingestion is .txt upload to S3 and asked whether multi-source extensibility requires a different approach.
+
+### 2026-06-10 — slack
+- **Who:** Danish Sharma
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781092573478839)
+- **Summary:** Confirmed design direction looks good; will be sharing HLD for the webhook gateway soon.
+
+### 2026-06-10 — slack
+- **Who:** Rinku Ravi
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B19L7D33M/p1781075210145209)
+- **Summary:** Asked whether a dedicated standup exists for meeting transcripts; flagged integration-side delivery as a concern to watch.
