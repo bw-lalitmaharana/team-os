@@ -46,3 +46,13 @@
 - **Who:** Joe Tambascio
 - **Where:** [#oppty-gtm](https://betterworks.slack.com/archives/C0B7ZS5EJMU/p1781044959708169)
 - **Summary:** Customer surfaced in GTM channel needs dual competency ratings (current-role performance + promotion-readiness) in one system to replace Excel tracking — adjacent scope signal for Performance Summary redesign.
+
+### 2026-06-11 — slack
+- **Who:** Tejas S
+- **Where:** [#pluto_support](https://betterworks.slack.com/archives/C02CYPAHR4Y/p1781147026358339)
+- **Summary:** Data cleanup confirmed complete in Pluto database — performance_summary orphan records cleared (0 remaining as of 2026-06-11T03:02:33 UTC).
+
+### 2026-06-11 — slack
+- **Who:** Riya Malik
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1781176306740979)
+- **Summary:** QA testing complete for Conversation Writing Assistant (CWA) and Feedback Writing Assistant (FWA) on gemma model integration across Haven and Legacy — 100 tests, 100% pass rate, overall quality 9.0/10 (grammar 9.1, formatting 9.2); performance_review conversation category 100% pass — adjacent AI quality signal for the platform pod.

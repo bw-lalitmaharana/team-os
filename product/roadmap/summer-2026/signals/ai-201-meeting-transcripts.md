@@ -363,3 +363,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Rinku Ravi
 - **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B19L7D33M/p1781075210145209)
 - **Summary:** Asked whether a dedicated standup exists for meeting transcripts; flagged integration-side delivery as a concern to watch.
+
+### 2026-06-11 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781165179184129)
+- **Summary:** Shared meeting-states reference document with Anuj Pancholi to guide engineering implementation of meeting lifecycle state transitions ("Download and open in browser, this covers the different states of meetings").
