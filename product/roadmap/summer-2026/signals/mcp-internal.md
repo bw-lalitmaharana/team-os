@@ -92,3 +92,13 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Nellie LeMonier
 - **Where:** [Group DM (Akhil Desai, Aakansha Srivastava, Nellie LeMonier, Lalit Maharana)](https://betterworks.slack.com/archives/C0B7Y7CRWJH/p1780945871914749)
 - **Summary:** Product vision: extend AI Chat to support connecting to external MCP tools beyond Betterworks MCP, positioning BW as a "connective hub" that ingests and analyzes data from multiple sources — analogous to Claude's cross-tool experience but native within BW, without requiring Claude.
+
+### 2026-06-12 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1781206572855129)
+- **Summary:** Opened 4 coordinated PRs adding Core /api/llm-tools support (BetterWorks main PR #28660, public-api-mcp PR #57, helmfiles PR #934, dev-env PR #103) — active delivery on Public MCP Server.
+
+### 2026-06-12 — slack
+- **Who:** Sriram CS
+- **Where:** [#hackathon-product-prep-temp](https://betterworks.slack.com/archives/C0B8526SM8U/p1781236005095859)
+- **Summary:** Listed Betterworks MCP server as a pre-training topic for the upcoming hackathon/offsite alongside AI platform (Gemma, N8N, Embedding engine) and Integration platform tracks.
