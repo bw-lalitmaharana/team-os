@@ -368,3 +368,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781165179184129)
 - **Summary:** Shared meeting-states reference document with Anuj Pancholi to guide engineering implementation of meeting lifecycle state transitions ("Download and open in browser, this covers the different states of meetings").
+
+### 2026-06-15 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781530094707919?thread_ts=1781523006.582699&cid=C0ACYVAG5A8)
+- **Summary:** Lalit pinged Sagar Bhat, Danish Sharma, and Anuj Pancholi in standup thread asking for progress updates on contract documentation — signals contract spec is now the active blocker being tracked.
+
+### 2026-06-15 — gmail
+- **Who:** Hemant Kumar (via Jira ENG-82389)
+- **Where:** Email thread 19ecb061612c2d13 — "[JIRA] Hemant Kumar mentioned you on ENG-82389"
+- **Summary:** Hemant confirmed quality milestone on the transcript POC: LLM achieves accurate source captioning with timestamps; shared speaker-attributed action item JSON from a real meeting (Sagar Bhat confirmed as owner of dummy API contract + Bhavesh loop-in for response structure finalization).
+
+### 2026-06-15 — gmail
+- **Who:** Anuj Pancholi (via Jira ENG-82992)
+- **Where:** Email thread 19eacc61652f7b5c — "[JIRA] (ENG-82992) Spike: AI surface contract, meeting lifecycle infrastructure & state model"
+- **Summary:** Anuj updated the post-meeting I/O contract comment in the ENG-82992 spike — active engineering documentation of the AI surface API contract is ongoing ahead of dummy API handoff to meetings team.

@@ -56,3 +56,8 @@
 - **Who:** Riya Malik
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1781176306740979)
 - **Summary:** QA testing complete for Conversation Writing Assistant (CWA) and Feedback Writing Assistant (FWA) on gemma model integration across Haven and Legacy — 100 tests, 100% pass rate, overall quality 9.0/10 (grammar 9.1, formatting 9.2); performance_review conversation category 100% pass — adjacent AI quality signal for the platform pod.
+
+### 2026-06-15 — slack
+- **Who:** Amy Culverhouse
+- **Where:** [#oppty_drreddy](https://betterworks.slack.com/archives/C0BA636686B/p1781524666841779)
+- **Summary:** Dr. Reddy's (active evaluation, FY27 go-live target) surfaced explicit need for AI-driven performance management including goal recommendations, manager insights, and AI support for performance workflows — external prospect validation that performance summary + AI direction is market-relevant.
