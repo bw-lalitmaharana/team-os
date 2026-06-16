@@ -383,3 +383,28 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Anuj Pancholi (via Jira ENG-82992)
 - **Where:** Email thread 19eacc61652f7b5c — "[JIRA] (ENG-82992) Spike: AI surface contract, meeting lifecycle infrastructure & state model"
 - **Summary:** Anuj updated the post-meeting I/O contract comment in the ENG-82992 spike — active engineering documentation of the AI surface API contract is ongoing ahead of dummy API handoff to meetings team.
+
+### 2026-06-16 — slack
+- **Who:** Prasanna Poojary
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1781589004503929)
+- **Summary:** Prasanna called the team to review Meeting Transcripts Epic tickets ahead of a 3pm story-pointing session, asking members to come prepared with questions for Lalit.
+
+### 2026-06-16 — slack
+- **Who:** Tanveer Farooq
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781592143010799)
+- **Summary:** Tanveer scheduled a 4:30pm team alignment call to review high-level items (attendees: Sagar, Anuj, Lalit, Pankaj, Danish, Sriram).
+
+### 2026-06-16 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781607336644569)
+- **Summary:** Anuj shared a Google Doc in the channel ahead of the 4:30pm alignment call (likely architecture or design spec).
+
+### 2026-06-16 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781611668063139)
+- **Summary:** Sagar shared three Claude.ai design prototypes — Zoom Integration Flow, Meetings AI page UI, and Create Goal Flow — posted after the 4:30pm alignment call.
+
+### 2026-06-16 — gmail
+- **Who:** Tanveer Farooq (invite to lalit.maharana@betterworks.com et al.)
+- **Where:** Email thread 19ecf29953d6cb08 — "Invitation: Project Plan | Meeting Transcript @ Tue Jun 16, 2026 4:30pm – 5pm (IST)"
+- **Summary:** Calendar invite for "Project Plan | Meeting Transcript" team sync Jun 16 4:30–5pm IST; attendees include Sriram, Anuj, Pankaj, Sagar, Danish, and Lalit.

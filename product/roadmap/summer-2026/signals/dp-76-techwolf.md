@@ -28,3 +28,8 @@ Paul flagged from Synopsys conversations:
 - LinkedIn Learning / Udemy integration follow-up
 
 **Implication for ranking:** Doesn't change DP-76 directly; surfaces three candidate items for Summer/Winter backlog.
+
+### 2026-06-16 — slack
+- **Who:** Tejas S
+- **Where:** [#pod-data-platform](https://betterworks.slack.com/archives/CSEURUBDG/p1781596570283749)
+- **Summary:** Tejas verified TechWolf integration end-to-end (import and org-enable flow) and posted detailed observations to Jira ENG-77778, tagging Cheau Ng and Okan for review.

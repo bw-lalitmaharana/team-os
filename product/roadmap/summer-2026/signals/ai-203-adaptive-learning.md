@@ -35,3 +35,8 @@ The Aha description is narrower (match employee skill gaps to LMS content). Sale
 ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored Aha feature in the release, this is the gating delivery risk.
 
 **Implication for ranking:** Either reaffirm P0 and resource it, or downgrade. Walking through Nellie.
+
+### 2026-06-16 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ecfaff3f721aa5 — "Meeting assets for Learning Recommendations are ready!"
+- **Summary:** Zoom summary arrived for a "Learning Recommendations" meeting today; AI could not generate a summary due to insufficient transcript — signals the topic is being actively discussed in calls.
