@@ -4,9 +4,9 @@ Auto-maintained by `.claude/hooks/index-signals.sh` (PostToolUse on signals/*.md
 
 | Feature | Last touched | Bytes |
 |---|---|---|
-| dp-76-techwolf | 2026-06-16T13:35:08Z | 2066 |
-| ai-203-adaptive-learning | 2026-06-16T13:35:04Z | 2788 |
-| ai-201-meeting-transcripts | 2026-06-16T13:34:57Z | 29504 |
-| mcp-internal | 2026-06-16T13:32:46Z | 7151 |
-| empdvt-90-perf-summary | 2026-06-16T13:32:46Z | 4668 |
+| mcp-internal | 2026-06-17T13:35:11Z | 7512 |
+| ai-201-meeting-transcripts | 2026-06-17T13:35:03Z | 29893 |
+| empdvt-90-perf-summary | 2026-06-17T13:32:42Z | 4668 |
+| dp-76-techwolf | 2026-06-17T13:32:42Z | 2066 |
+| ai-203-adaptive-learning | 2026-06-17T13:32:42Z | 2788 |
 | _low-signal | 2026-06-05T02:37:31Z | 1709 |

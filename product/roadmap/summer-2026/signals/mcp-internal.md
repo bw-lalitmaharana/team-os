@@ -102,3 +102,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Sriram CS
 - **Where:** [#hackathon-product-prep-temp](https://betterworks.slack.com/archives/C0B8526SM8U/p1781236005095859)
 - **Summary:** Listed Betterworks MCP server as a pre-training topic for the upcoming hackathon/offsite alongside AI platform (Gemma, N8N, Embedding engine) and Integration platform tracks.
+
+### 2026-06-17 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1781647406689859)
+- **Summary:** Updated MCP search tools — renamed `size` → `limit` parameter (standards alignment), enforced max 50 cap, added Agent/LLM hints; Core PR #28666 and public-api-mcp PR #64 posted for review.

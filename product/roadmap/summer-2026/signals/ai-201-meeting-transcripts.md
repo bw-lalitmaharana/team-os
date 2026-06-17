@@ -408,3 +408,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Tanveer Farooq (invite to lalit.maharana@betterworks.com et al.)
 - **Where:** Email thread 19ecf29953d6cb08 — "Invitation: Project Plan | Meeting Transcript @ Tue Jun 16, 2026 4:30pm – 5pm (IST)"
 - **Summary:** Calendar invite for "Project Plan | Meeting Transcript" team sync Jun 16 4:30–5pm IST; attendees include Sriram, Anuj, Pankaj, Sagar, Danish, and Lalit.
+
+### 2026-06-17 — slack
+- **Who:** Danish Sharma
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781695833385089)
+- **Summary:** Danish announced PTO June 18–24 (key delivery risk: Zoom OAuth implementation lead out for a week); offered to share the authn-proxy branch link covering Zoom OAuth setup with Anuj Pancholi by EOD today.
