@@ -413,3 +413,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Danish Sharma
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781695833385089)
 - **Summary:** Danish announced PTO June 18–24 (key delivery risk: Zoom OAuth implementation lead out for a week); offered to share the authn-proxy branch link covering Zoom OAuth setup with Anuj Pancholi by EOD today.
+
+### 2026-06-18 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Harshini Vijay](https://betterworks.slack.com/archives/D0B58DS1W1K/p1781774945153469)
+- **Summary:** Lalit sent detailed QA/UX feedback to Harshini Vijay on the Meetings flow — flagging missing transcript while AI prep icon is shown, checkbox design issues in agenda and action items, missing delete/refetch transcript options, inconsistent zoom icon states across meeting types, and action item completion discrepancy vs. goal creation flow.
