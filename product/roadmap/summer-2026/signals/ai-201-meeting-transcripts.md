@@ -418,3 +418,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [DM — Harshini Vijay](https://betterworks.slack.com/archives/D0B58DS1W1K/p1781774945153469)
 - **Summary:** Lalit sent detailed QA/UX feedback to Harshini Vijay on the Meetings flow — flagging missing transcript while AI prep icon is shown, checkbox design issues in agenda and action items, missing delete/refetch transcript options, inconsistent zoom icon states across meeting types, and action item completion discrepancy vs. goal creation flow.
+
+### 2026-06-19 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781822492948249)
+- **Summary:** Nellie reassigned the Webhook spike (ENG-82678) to Okan, who has bandwidth to explore and build out the capability; Danish is on PTO Jun 18–24 (Zoom OAuth lead absent for a week), making this handoff timely.

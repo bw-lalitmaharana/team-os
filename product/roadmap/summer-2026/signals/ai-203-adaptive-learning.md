@@ -40,3 +40,8 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19ecfaff3f721aa5 — "Meeting assets for Learning Recommendations are ready!"
 - **Summary:** Zoom summary arrived for a "Learning Recommendations" meeting today; AI could not generate a summary due to insufficient transcript — signals the topic is being actively discussed in calls.
+
+### 2026-06-19 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ede613388803a2 — "Meeting Summary for PDP - Integrations LMS work discussion"
+- **Summary:** Cross-functional sync (Sriram, Nitish, Jason Zhang, Pankaj, Rinku, Lalit) on LMS integration architecture for AI course recommendations: Jason flagged accuracy limitations of text-based search and proposed semantic embedding on skills/competencies; Nitish to deliver unified LMS endpoints (Udemy, LinkedIn, Docebo) in ~2 weeks; cross-functional team (AI + Integrations + Goals + SDET) formed; all technical decisions to freeze by end of June to protect August delivery timeline.
