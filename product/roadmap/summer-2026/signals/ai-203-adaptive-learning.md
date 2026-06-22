@@ -45,3 +45,8 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19ede613388803a2 — "Meeting Summary for PDP - Integrations LMS work discussion"
 - **Summary:** Cross-functional sync (Sriram, Nitish, Jason Zhang, Pankaj, Rinku, Lalit) on LMS integration architecture for AI course recommendations: Jason flagged accuracy limitations of text-based search and proposed semantic embedding on skills/competencies; Nitish to deliver unified LMS endpoints (Udemy, LinkedIn, Docebo) in ~2 weeks; cross-functional team (AI + Integrations + Goals + SDET) formed; all technical decisions to freeze by end of June to protect August delivery timeline.
+
+### 2026-06-22 — slack
+- **Who:** Lalit Maharana (morning brief)
+- **Where:** [Self-DM morning brief](https://betterworks.slack.com/archives/D0B0W25MMV2/p1782095691045329)
+- **Summary:** "Rec. Architecture Sync-up" with Jason Zhang (10:00–10:45 PM IST tonight) appears on calendar but conflicts with Lalit/Nellie 1:1 (10:00–11:00 PM); one must be rescheduled — flags a scheduling risk against the end-of-June architecture-freeze deadline established in the Jun 19 LMS sync.

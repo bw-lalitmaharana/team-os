@@ -423,3 +423,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Nellie LeMonier
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1781822492948249)
 - **Summary:** Nellie reassigned the Webhook spike (ENG-82678) to Okan, who has bandwidth to explore and build out the capability; Danish is on PTO Jun 18–24 (Zoom OAuth lead absent for a week), making this handoff timely.
+
+### 2026-06-22 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782109493847029)
+- **Summary:** Sagar flagged he'll miss today's standup — third consecutive standup absence flagged in this channel (Jun 3, Jun 9 pattern); Danish still on PTO, so two senior leads are simultaneously unavailable today.
