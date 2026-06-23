@@ -50,3 +50,18 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Lalit Maharana (morning brief)
 - **Where:** [Self-DM morning brief](https://betterworks.slack.com/archives/D0B0W25MMV2/p1782095691045329)
 - **Summary:** "Rec. Architecture Sync-up" with Jason Zhang (10:00–10:45 PM IST tonight) appears on calendar but conflicts with Lalit/Nellie 1:1 (10:00–11:00 PM); one must be rescheduled — flags a scheduling risk against the end-of-June architecture-freeze deadline established in the Jun 19 LMS sync.
+
+### 2026-06-23 — gmail
+- **Who:** Nataliia Savenko (nataliia.savenko@betterworks.com)
+- **Where:** Email thread 19ef2f708dabfd0c — "Invitation: PDP: AI Recommendation sync @ Tue Jun 23, 2026 8pm – 8:30pm (IST)"
+- **Summary:** Calendar invite to Lalit, Nellie, and Nataliya Kolb for a 30-min AI Recommendation sync; stated purpose is to align on UI visuals and requirements for the scenario where a user has no LMS configured or no relevant courses are available — directly addresses the AI-generated guidance fallback path in AI-203 scope.
+
+### 2026-06-23 — gmail
+- **Who:** Nellie LeMonier (nellie.lemonier@betterworks.com via Google Drive)
+- **Where:** Email thread 19ef27a7fed85ab6 — "Document shared with you: AI_Usage_Ratings_Report"
+- **Summary:** Nellie shared a Google Doc "AI_Usage_Ratings_Report" with Lalit (CC: Jason Zhang, Tejas S); based on Tejas' data pull, Nellie conducted further analysis on AI usage ratings — likely a quality baseline or release readiness input for the recommendations engine.
+
+### 2026-06-23 — gmail
+- **Who:** Jason Zhang (jzhang@betterworks.com)
+- **Where:** Email thread 19ef051172abdcdc — "Updated invitation: Rec. Architecture Sync-up @ Weekly from 10pm to 10:45pm on Monday (IST)"
+- **Summary:** Jason Zhang updated the Rec. Architecture Sync-up to a weekly recurring Monday slot (10–10:45pm IST) — confirms the architecture sync for the recommendations engine is now a standing weekly cadence, resolving the one-time scheduling conflict flagged in the Jun 22 morning brief.
