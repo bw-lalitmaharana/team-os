@@ -107,3 +107,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Jason Bilyeu
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1781647406689859)
 - **Summary:** Updated MCP search tools — renamed `size` → `limit` parameter (standards alignment), enforced max 50 cap, added Agent/LLM hints; Core PR #28666 and public-api-mcp PR #64 posted for review.
+
+### 2026-06-24 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ef592c2dbdfe94 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Lalit/Nellie 1:1 (Jun 23): Nellie's action item to send inventory of MCP items to clients for early feedback — signals client-facing MCP readiness check is now in motion.

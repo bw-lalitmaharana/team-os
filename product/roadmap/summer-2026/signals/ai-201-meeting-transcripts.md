@@ -428,3 +428,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Sagar Bhat
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782109493847029)
 - **Summary:** Sagar flagged he'll miss today's standup — third consecutive standup absence flagged in this channel (Jun 3, Jun 9 pattern); Danish still on PTO, so two senior leads are simultaneously unavailable today.
+
+### 2026-06-24 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ef592c2dbdfe94 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Lalit/Nellie 1:1 (Jun 23): Lalit mentioned receiving a contract for meeting transcripts covering through July, and flagged feeling slow on progress with integrations and meetings teams; Nellie offered support.
