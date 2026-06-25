@@ -70,3 +70,8 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19ef592c2dbdfe94 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
 - **Summary:** Lalit/Nellie 1:1 (Jun 23): Discussed AI recommendation endpoint design for learning plans based on pre-fed user skills/goals context; Nellie flagged need for a new talent-team API to find users with similar skills (Jason Seitz to contact); Lalit proposed 70-20-10 holistic learning model (courses → social → capstone); action items: Lalit to fine-tune AI rec prototype and share with Nellie, and reach out to Jason Seitz on skills API privacy requirements.
+
+### 2026-06-25 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19efe0b21f3eb13c — "Meeting assets for Pankaj <> Lalit Weekly Sync are ready!"
+- **Summary:** Zoom summary for Pankaj <> Lalit weekly sync: discussed LMS course catalog architecture (per-customer vs. centralized, with latency/licensing tradeoffs), AI skills matching and assessment provider integration (Darwin Box, Lightcast), skill proficiency validation flow for managers, and self-service prompt management for AI-generated summaries; Pankaj to finalize course catalog approach; Lalit to share Agentic Framework case studies and work on standardizing business entities and custom role permissions.

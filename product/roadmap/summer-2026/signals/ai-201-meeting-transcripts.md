@@ -433,3 +433,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19ef592c2dbdfe94 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
 - **Summary:** Lalit/Nellie 1:1 (Jun 23): Lalit mentioned receiving a contract for meeting transcripts covering through July, and flagged feeling slow on progress with integrations and meetings teams; Nellie offered support.
+
+### 2026-06-25 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Harshini Vijay](https://betterworks.slack.com/archives/D0B58DS1W1K/p1782364900125659)
+- **Summary:** Lalit flagged a #meeting-transcript-integration thread to Harshini noting the team "seems confused" — possible alignment gap on AI Meeting Prep spec requiring Lalit/Harshini follow-up.
+
+### 2026-06-25 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782372946300089)
+- **Summary:** Sagar posted a detailed AI Meeting Prep + Meeting Recap schema proposal: Meeting Prep pulls last 4 meetings, is persona-specific (manager gets coaching_cards/attention_flags/goal_signals; peers/direct-reports get my_wins/my_commitments/recurring_topics), and is refreshable; Meeting Recap uses per-meeting transcript data in persona-agnostic structured format. TODO: Lalit and Harshini to decide which keys to surface in the UI.
+
+### 2026-06-25 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Jason Sites](https://betterworks.slack.com/archives/D0BD2S67MUJ/p1782374724075319)
+- **Summary:** Lalit reached out to Jason Sites asking (1) whether an endpoint exists to search users by skills and proficiency levels to surface mentors within an org, and (2) whether current skill/proficiency data per user can be fetched — to power skill recommendations derived from meeting transcripts, Slack conversations, and Jira updates.

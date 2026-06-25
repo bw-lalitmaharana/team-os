@@ -33,3 +33,8 @@ Paul flagged from Synopsys conversations:
 - **Who:** Tejas S
 - **Where:** [#pod-data-platform](https://betterworks.slack.com/archives/CSEURUBDG/p1781596570283749)
 - **Summary:** Tejas verified TechWolf integration end-to-end (import and org-enable flow) and posted detailed observations to Jira ENG-77778, tagging Cheau Ng and Okan for review.
+
+### 2026-06-25 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19efe0b21f3eb13c — "Meeting assets for Pankaj <> Lalit Weekly Sync are ready!"
+- **Summary:** Zoom summary for Pankaj <> Lalit weekly sync includes a TechWolf features update: Lalit discussed TechWolf pay updates and user data maintenance (skills + people data); outlined upcoming features including group creation, retirement, HR admin, MCP beta, custom content by tenant, notifications, email previews, business entities, custom role permissions, and module name translations.
