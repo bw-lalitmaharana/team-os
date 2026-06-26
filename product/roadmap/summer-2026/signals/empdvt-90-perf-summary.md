@@ -61,3 +61,8 @@
 - **Who:** Amy Culverhouse
 - **Where:** [#oppty_drreddy](https://betterworks.slack.com/archives/C0BA636686B/p1781524666841779)
 - **Summary:** Dr. Reddy's (active evaluation, FY27 go-live target) surfaced explicit need for AI-driven performance management including goal recommendations, manager insights, and AI support for performance workflows — external prospect validation that performance summary + AI direction is market-relevant.
+
+### 2026-06-26 — slack
+- **Who:** Riya Malik
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1782447934208549)
+- **Summary:** Production incident: Performance Summary returning 500 errors (14 replies in thread, Tejas cc'd) — possible regression or infra issue requiring active investigation.

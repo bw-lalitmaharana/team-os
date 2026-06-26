@@ -112,3 +112,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19ef592c2dbdfe94 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
 - **Summary:** Lalit/Nellie 1:1 (Jun 23): Nellie's action item to send inventory of MCP items to clients for early feedback — signals client-facing MCP readiness check is now in motion.
+
+### 2026-06-26 — slack
+- **Who:** Paul Agustin
+- **Where:** [#champagne-mcp-support](https://betterworks.slack.com/archives/C0B0Q5WBN0N/p1782469277599309)
+- **Summary:** Paul shared a detailed "Betterworks MCP Data Inventory — Scorecard KPIs" with JB and Nellie (prompted by Sean Godfrey use case), mapping 16 KPIs across live/simulated/not-exposed endpoints; surfaced 5 priority API asks: add `from_user_id` to `list_recognitions`, expose `completion_summary` on conversation deployments, fix `list_feedback` auth scope, add `completion_pct` to team/user objects, and build a `list_succession_plans` endpoint.

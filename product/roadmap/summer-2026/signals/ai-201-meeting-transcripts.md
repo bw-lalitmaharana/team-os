@@ -448,3 +448,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [DM — Jason Sites](https://betterworks.slack.com/archives/D0BD2S67MUJ/p1782374724075319)
 - **Summary:** Lalit reached out to Jason Sites asking (1) whether an endpoint exists to search users by skills and proficiency levels to surface mentors within an org, and (2) whether current skill/proficiency data per user can be fetched — to power skill recommendations derived from meeting transcripts, Slack conversations, and Jira updates.
+
+### 2026-06-26 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Tanveer Farooq](https://betterworks.slack.com/archives/D0B90D9LQ74/p1782461986469199)
+- **Summary:** Lalit asked Tanveer to add end dates to meeting transcript tasks and share status with Sriram — signals active timeline management on ENG-79199.
