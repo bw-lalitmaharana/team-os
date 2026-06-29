@@ -453,3 +453,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [DM — Tanveer Farooq](https://betterworks.slack.com/archives/D0B90D9LQ74/p1782461986469199)
 - **Summary:** Lalit asked Tanveer to add end dates to meeting transcript tasks and share status with Sriram — signals active timeline management on ENG-79199.
+
+### 2026-06-29 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782721102536089)
+- **Summary:** Sagar raised a UX question about three separate refresh buttons (for meeting prep, recap, and recommendations), questioning whether a single unified refresh would be less confusing; thread resolved with Lalit confirming a unified refresh that updates all stale AI-connected parts at once is the right direction.

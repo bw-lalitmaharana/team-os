@@ -75,3 +75,8 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19efe0b21f3eb13c — "Meeting assets for Pankaj <> Lalit Weekly Sync are ready!"
 - **Summary:** Zoom summary for Pankaj <> Lalit weekly sync: discussed LMS course catalog architecture (per-customer vs. centralized, with latency/licensing tradeoffs), AI skills matching and assessment provider integration (Darwin Box, Lightcast), skill proficiency validation flow for managers, and self-service prompt management for AI-generated summaries; Pankaj to finalize course catalog approach; Lalit to share Agentic Framework case studies and work on standardizing business entities and custom role permissions.
+
+### 2026-06-29 — slack
+- **Who:** Nataliia Savenko / Nitish Devadiga
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1782732412563249)
+- **Summary:** Nataliia shared the full end-to-end flow doc (Confluence) for the recommendations feature, requesting Pankaj review "technical confirmation needed" sections; Nitish confirmed AI+LMS integration side looks good but raised 3 open questions about the downstream goal-creation flow — (1) whether "Save PDP for skill" means goal-skill linking, (2) whether draft goal creation should use a modal rather than a background process, and (3) which goal structure to use when creating goals from selected courses (parent+milestone-per-course vs. parent with all courses). Nataliia confirmed all questions escalated to the goals team in a relevant spike.
