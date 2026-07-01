@@ -7,6 +7,53 @@
 
 ## Signals
 
+> **2026-06-30 backfill** — entries below (2026-06-16 → 06-29) from Zoom AI-summaries of the Rec.-Architecture / PDP / Learning-Recommendations sessions. ("Learning Recommendations" 6/16, UUID 8DB0EFDD, had NO recorded assets.) These share the inference substrate + integration platform with [[ai-201-meeting-transcripts]].
+
+### 2026-06-29 — Substrate + skill-graph strategy locked (direct LM inference server, Gemma 4 by Aug 10, 64K ctx; mentor matching SQL-first→graph)
+**Source:** Zoom — "Rec. Architecture Sync-up" 2026-06-29 (UUID CDD007A8-BB42-489F-8DC7-021FD16F8CF9). AI summary digested.
+**Type:** architecture
+**Owner-impact:** Nellie, Sagar, Pankaj, Aryan, Nitish, Lalit
+
+MVP inference path = **direct LM inference server endpoint** (LM Proxy bypassed — structured/function calling via LangChain not yet prod-ready), **Gemma 4 in production by ~Aug 10**, **64K context** default. Hybrid recommendation strategy: pre-generate per-(skill × proficiency) learning-path steps offline (LLM self-eval + human review before deploy), personalize/re-rank at runtime with user context. **Mentor matching: deterministic SQL first** (peers at ≥ proficiency), **skill graph with semantic embeddings later** for adjacency/career-path inference. End-to-end latency target ~5–10s worst case (Nitish to measure Gemma 4 + API). Only the user's selected LMS platform is queried at runtime. **Lalit owes spike stories** per component (skill graph, pre-processing, runtime generation).
+
+**Implication for ranking:** Substrate de-risked; shares the exact stack decision with AI-201 (transcripts OPEN-D11). Aug 10 Gemma-4 prod date is the hard gate.
+
+### 2026-06-23 — LLM-fallback recommendations always-on; ~10s LMS latency acknowledged; goal-conversion deferred
+**Source:** Zoom — "PDP: AI Recommendation sync" 2026-06-23 (UUID C80A0846-7405-45DA-9369-528F730AC0B8). AI summary digested.
+**Type:** scope-decision + architecture
+**Owner-impact:** Nellie, Nataliya Kolb, Nataliia Savenko, AI team, Lalit
+
+LLM-generated recommendations shown **always** — as default when LMS is off, and as a loading fallback while LMS fetches (~**10s** real-time latency); both render in the same UI location and are per-org configurable. **Summer MVP = happy path** (course selection + AI recommendation placeholder); converting AI recommendations into PDP/development goals **deferred** (open design hole — how to persist rec text into a goal without loss). Nellie proposed an internal **Talent API** endpoint queryable by the LLM for colleague skill proficiency (mentor recommendations); AI guardrails/anti-hallucination prompt work owned by AI team.
+
+**Implication for ranking:** Expands the AI surface for summer (fallback always-on) while deferring goal-conversion to V2.
+
+### 2026-06-22 — Unified /LMS endpoint live in sandbox; two-phase LLM (search-terms → re-rank); latency unmeasured
+**Source:** Zoom — "Rec. Architecture Sync-up" 2026-06-22 (UUID 7AA19AFC-D66A-436C-9D28-FEA559D31DAE). AI summary digested.
+**Type:** architecture + open-question
+**Owner-impact:** Nitish, Rinku, AI team, Lalit
+
+New `/LMS` endpoint (LinkedIn, Udemy, Docebo) returns standardized course data filterable by keyword + difficulty; LMS call latency ~ms but the **two-phase LLM overhead (generate search terms → re-rank) is unmeasured → dedicated latency spike required.** AI search terms use profile context, not just raw skill names. Docebo is org-internal-only (structurally weaker for broad discovery). Nitish to test `/LMS` against real customer tokens (via Rinku); sandbox catalog breadth may not be representative.
+
+**Implication for ranking:** Integration plumbing exists; latency of the LLM-augmented flow is the open scalability question.
+
+### 2026-06-19 — Transcripts = first validation use case for the new event-based integration platform; LMS = tech debt to migrate
+**Source:** Zoom — "PDP - Integrations LMS work discussion" 2026-06-19 (UUID EAF87C52-0810-44CC-8448-E36D6B560867). AI summary digested. (Cross-posted to [[ai-201-meeting-transcripts]].)
+**Type:** architecture + cross-team
+**Owner-impact:** Pankaj, Nitish, Jason Sites, Danish, Okan, Lalit
+
+Decoupled event-based integration platform is the strategic direction; existing LMS integrations become tech debt to migrate **after the new architecture is validated on meeting transcripts first**. Semantic-embedding (skills/competency) search agreed over text-based LMS search. **EOJ-2026 technical freeze** on contracts/protocols to protect August. Cross-functional team (Pankaj/Nitish/Emerson/AI/SDET/Okan/Danish); Monday 9:30 technical review (Jason Sites).
+
+**Implication for ranking:** PDP/LMS recs now share webhook + AI-platform infra with AI-201 — coordination + Danish bandwidth are shared risks.
+
+### 2026-06-16/23/29 — Nellie steering: PDP prototype is now a deliverable; 10/20/70 learning-plan framework; Talent API dependency; Custom Roles on hold pending Alex
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-06-23 (UUID 2FE3D86A) + 2026-06-29 (UUID 25E15DB1) + "AI Projects Debrief" 2026-06-16 (UUID DB2BD344). AI summaries digested.
+**Type:** stakeholder-position + scope
+**Owner-impact:** Lalit, Nellie, Natalia (designer), Jason Seitz (Talent), JZ
+
+Nellie elevated the **AI-recommendation prototype from exploratory to an expected deliverable** (goal-based learning suggestions + find-similar-skill users), gated on designs from **Natalia** (on leave — design-direction + token-usage discussion with Natalia + JZ deferred to her return). Confirmed **learning-plan framework: 10% study / 20% social / 70% practical projects** (courses → social → capstone w/ assessments). New cross-team dependency: a **privacy-preserving Talent-team skill-search API** (Lalit → Jason Seitz). Learning recommendations named the **next product track after transcripts**. PDP / Custom-Roles platform work **on hold pending Alex's return**.
+
+**Implication for ranking:** AI-203 actively progressing under Nellie; key risks = Natalia's availability + the new Talent API dependency.
+
 ### 2026-05-13 — Scope decision: AI-generated guidance IS in v1 (Lalit)
 **Source:** Lalit session 2026-05-13
 **Type:** scope-decision (locked, pending refinement call confirmation)
