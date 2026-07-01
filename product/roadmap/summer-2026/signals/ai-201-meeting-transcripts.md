@@ -458,3 +458,48 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Sagar Bhat
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782721102536089)
 - **Summary:** Sagar raised a UX question about three separate refresh buttons (for meeting prep, recap, and recommendations), questioning whether a single unified refresh would be less confusing; thread resolved with Lalit confirming a unified refresh that updates all stale AI-connected parts at once is the right direction.
+
+### 2026-07-01 — gmail
+- **Who:** Tanveer Farooq (tanveer.farooq@betterworks.com)
+- **Where:** Email thread 19f171135767e994 — "Updated invitation: Daily Scrum | Meeting Transcript @ Weekly from 12pm to 12:30pm on weekdays"
+- **Summary:** Daily standup for meeting transcript formalized as a weekly recurring scrum (Mon–Fri, 12–12:30pm IST) starting Jun 29; full cross-pod attendee list (Harshini, Anuj, Pankaj, Prasanna, Sagar, Danish, Varnika, Hemant) — signals structured delivery cadence is now in place.
+
+### 2026-07-01 — gmail
+- **Who:** Tanveer Farooq (tanveer.farooq@betterworks.com)
+- **Where:** Email thread 19f17440d4c52779 — "Invitation: Estimations | Meeting Transcript @ Tue Jun 30, 2026 3:30pm – 4pm (IST)"
+- **Summary:** Tanveer scheduled an estimations call for the meeting transcript epic with Lalit, Hemant, Anuj, Sagar, Danish, and Hiten — signals active sprint planning and story-pointing effort is underway.
+
+### 2026-07-01 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782889916781049)
+- **Summary:** Asked Anuj Pancholi to share transcript pre-processing validation details that the meetings team will apply before passing data to AI for recommendation generation.
+
+### 2026-07-01 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782890101487809)
+- **Summary:** Outlined transcript validation plan: MIME type (vtt/txt), max 5 MB file size, valid VTT with speaker tags, unique speaker tags attributed to BW users in metadata; not yet implemented.
+
+### 2026-07-01 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782891054483569)
+- **Summary:** Flagged edge states to document and handle in transcript processing: multiple transcripts, more than 2 participants, dropped-meeting (half transcript), and conference room device joining.
+
+### 2026-07-01 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782891406248169)
+- **Summary:** Clarified AI generation logic: upcoming meetings → generate Prep + Recap + Recommendations; past meetings with added/updated transcript → generate Recap only (refresh Prep and Recommendations if doable). Tagged Anuj Pancholi and Sagar Bhat.
+
+### 2026-07-01 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Harshini Vijay](https://betterworks.slack.com/archives/D0B58DS1W1K/p1782890631904329)
+- **Summary:** Asked Harshini to address remaining Figma design gaps: past meetings transcript flow (full CRUD), AI component feedback elements (like/dislike/copy), and combined Zoom and meeting updates view.
+
+### 2026-07-01 — slack
+- **Who:** Varnika Garg
+- **Where:** [Group DM — Varnika Garg, Harshini Vijay, Lalit Maharana](https://betterworks.slack.com/archives/C0B8WG1RRP0/p1782895058105479)
+- **Summary:** Active design review thread for overall meetings transcript designs — Varnika, Harshini, and Lalit collaborating on design coverage.
+
+### 2026-07-01 — slack
+- **Who:** Hemant Kumar
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782902008622149)
+- **Summary:** Asked Tanveer to share the tracker sheet with the AI team to help keep transcript work on track — signals need for shared progress visibility across pods.
