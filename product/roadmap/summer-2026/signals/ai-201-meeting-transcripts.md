@@ -7,6 +7,98 @@
 
 ## Signals
 
+> **2026-06-30 backfill** — 10 entries below (2026-06-10 → 06-30) reconstructed from Zoom AI-summaries to close the June 9–30 gap (ledger was last touched 2026-06-08). Two sessions left no recorded assets and are flagged inline as gaps: "Meeting Transcript - AI sync" (6/9) and "Story pointing ENG-82387" (6/16).
+
+### 2026-06-30 — Implementation kicked off; full task-level timeline (dev-complete ~Aug 10); extensible DB schema; debrief → monthly
+**Source:** Zoom — "Estimations | Meeting Transcript" 2026-06-30 (UUID 2B037EA4-56C3-477C-942A-0C8240FA88AC) + "AI Projects Debrief" 2026-06-30 (UUID A63F8BF8-843E-4537-9428-94DC600BC48A). AI summaries digested.
+**Type:** planning + scope-decision + status
+**Owner-impact:** Lalit, Sagar, Hemant, Anuj, Danish, Tanveer, Nellie/Maher
+
+Design is aligned across all three pods and the project moved **POC → implementation** (Hemant + Sagar on DB schema). First concrete task-level plan sequences dev work **July 1 → ~Aug 10** (≈5-day buffer before the Aug 15 pre-prod date); no major blockers, several inter-team dependencies. DB schema built **extensible** — Zoom-only source now, but must absorb Teams/Slack/Jira/free-text without rework (matches Lalit's stated Phase-2 order: Teams → Slack → Jira). In-house inbound webhook confirmed (Okan's spike found no viable OSS; ingests provider events → Kafka). Recap refresh is **per-instance** (not unified); old summary + new recap coexist behind an **org-level enablement flag**; email/push notification kept as a task but **explicitly not release-blocking** (needs an LLM-Engine notification spike). GPT-5 used as LLM judge in POC eval. Maher approved dropping the AI Projects Debrief to **monthly** — leadership reads the project as stable. **Lalit's most time-sensitive blocker:** deliver finalized **recap/prep key fields** to Sagar — his prompt engineering can't start (July 2) without them. Same-day infra gaps: S3 bucket Terraform (Anuj→Emerson), EDA-event DB schema (Anuj+Hiten); Hiten's frontend estimates still outstanding.
+
+**Implication for ranking:** On track for Aug 29 / pre-prod Aug 15; risk shifted from scope to schedule-compression on Lalit-owned inputs + infra setup.
+
+### 2026-06-29 — Transcripts execution-ready; OPEN-D11 substrate resolved (direct LM inference server, Gemma 4 by Aug 10, 64K ctx); MCP V2 goals contract
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-06-29 (UUID 25E15DB1-1035-4CA7-A37F-927A4D62ADFD) + "Rec. Architecture Sync-up" 2026-06-29 (UUID CDD007A8-BB42-489F-8DC7-021FD16F8CF9) + "Goals and MCP" 2026-06-29 (UUID D637A051-8F78-45DF-B4C4-47F595B5C8D7). AI summaries digested.
+**Type:** scope-decision + architecture
+**Owner-impact:** Lalit, Nellie, Sagar, Hemant, Emerson, Varnica
+
+(1) Nellie confirmed the **transcripts track is execution-ready** — designs mostly complete; next gates = Lalit reviews the sprint plan with her, then Sagar + Hemant present spike findings to the full team and run story refinement. (2) **OPEN-D11 inference substrate resolved for MVP** → **direct LM inference server endpoint** (LM Proxy can't yet do structured/function calling via LangChain), **Gemma 4 replacing Llama in production by ~Aug 10**, **64K-token context** default (≈1hr meeting per Hemant's POC). Embeddings/skill-graph move to a future-evolution role (mentor matching SQL-first, embeddings later) — the Sagar/Pankaj/Aryan embedding track now has a downstream home rather than gating MVP. (3) **MCP V2 goals contract** (backend under the Meetings "Create Goal" / goal-recommendation cards): four tools — `list goals`, `update goal`, `goals get settings`, `create goal`; no bulk; Tier-1 default. **PATCH-at-service-layer is the critical outstanding backend task (Emerson) and gates `update goal`** (detail in [[mcp-internal]]). Nellie also steered Lalit toward a new Slackbot/MCP connector + a notifications-batching design (see [[mcp-internal]]); Custom Roles on hold pending Alex's return.
+
+**Implication for ranking:** The long-open substrate question (OPEN-D11) is now a known MVP path — materially de-risks the AI pipeline. Meetings goal-card flow inherits a dependency on MCP V2 + the PATCH gap.
+
+### 2026-06-25 — AI surface design finalized: 5 meeting-state tags, recap + prep-brief content schema, "AI Suggested" header removed, Figma = source of truth
+**Source:** Zoom — "Meetings" 2026-06-25 (UUID 451648E8-6B95-41DF-B999-1C68BBCC3942). AI summary digested.
+**Type:** scope-decision + ux
+**Owner-impact:** Lalit, Harshini, Varnica, eng
+
+Core AI surface locked. **Five meeting-state tags** (only one shown per meeting at a time): *AI Prep Ready* · *Upload Transcript to Update AI Insights* (non-Zoom only) · *Processing* (simplified from "Processing Transcript") · *AI Updates Available – Reload* · *AI Updated*. **Recap schema:** Summary → Blockers (max 3) → What Happened (decided / agreed / open risks) → Follow-ups (max 5); outcome caps scale by duration (≤30min = 3 pts, 30–60min = 5 pts). **Prep-brief schema:** ARC Synthesis (1–2 plain sentences, no title) → Attention Flags (unlabeled bullets) → Goal Signals (unlabeled bullets); AI logo only on individual line items. **"AI Suggested" header block removed** (redundant with per-item logos). Past meetings drop the "Completed" tag and the "Meeting Recap [date]" label. Uploaded transcripts shown read-only. **Workflow ruling: Claude for flows/prototypes; Figma is source of truth for styling/spacing/dev handoff** (to prevent the component-mismatch rework seen on a prior feature). Goals form will eventually load inline platform-wide; redirect is the stopgap pending the dev spike. **Lalit owes:** review + confirm the documented tag-state matrix (upcoming vs past).
+
+**Implication for ranking:** Design risk for the Meetings surface largely retired; remaining open = goal inline-vs-redirect.
+
+### 2026-06-23 — Integration sidebar consolidation; transcript contract extended through July
+**Source:** Zoom — "Meetings AI" 2026-06-23 (UUID 95BEC3FA-BC62-40E0-999B-CEA13EBDCD3B) + "Lalit / Nellie 1:1" 2026-06-23 (UUID 2FE3D86A-5DAB-43F0-A571-C311C71D3950). ("PDP: AI Recommendation sync" same day → routed to [[ai-203-adaptive-learning]].) AI summaries digested.
+**Type:** ux-decision + scope + stakeholder-position
+**Owner-impact:** Lalit, Harshini, Varnica, Anuj, Nellie
+
+Meetings connection UX: a **single consolidated integration sidebar** replaces the calendar-only pattern, categorized (Calendar: Google/Outlook; Meetings: Zoom, future Teams). **Banner-suppression is category-based** — hides when ≥1 app per category is connected (Lalit's cluster logic). Redundant right-side nudge removed; top + in-meeting banners retained for now. Zoom auth = internal Betterworks consent screen → Zoom admin-level authorization (no user-level OAuth). Open: whether Google Calendar also needs a pre-auth consent screen (Varnica → Anuj); goal inline-creation vs redirect (dev spike — Anuj is shared eng lead for Goals + Meetings goals logic). From the Nellie 1:1: **meeting-transcript contract confirmed through July** (scope continuity).
+
+**Implication for ranking:** Connection/onboarding flow defined; some dev migration of the existing Google Calendar approach required.
+
+### 2026-06-19 — Transcripts named first use case for the new event-based integration platform; end-of-June technical freeze
+**Source:** Zoom — "PDP - Integrations LMS work discussion" 2026-06-19 (UUID EAF87C52-0810-44CC-8448-E36D6B560867). AI summary digested. (Cross-posted to [[ai-203-adaptive-learning]].)
+**Type:** architecture + cross-team dependency
+**Owner-impact:** Lalit, Pankaj, Nitish, Danish, Okan, Jason Sites, Rinku
+
+Strategic direction: a **decoupled, event-based integration platform** where internal modules no longer know about specific third-party sources. Nitish recommended **validating the new architecture on meeting transcripts FIRST** (LMS integrations treated as tech debt to migrate later) — giving transcripts a foothold in the platform redesign. Danish/Okan's inbound-webhook spike is now a **named dual-use dependency** for the PDP/LMS team too → bandwidth-contention risk on Danish. **All technical decisions/protocols/contracts to be frozen by end of June 2026** to protect August delivery — making Lalit's attendance at Jason Sites' Monday 9:30 technical meeting time-critical. Cross-functional team formed (Pankaj, Nitish, Goals/Emerson, AI, SDET, Okan/Danish).
+
+**Implication for ranking:** Raises shared-infra coupling between transcripts and PDP/LMS — coordination + the EOJ freeze are the near-term risks.
+
+### 2026-06-18 — AI module enable/disable control surface has gating bugs (admin-trust risk pre-GA)
+**Source:** Zoom — "AI tickets for AI module enable/disable" 2026-06-18 (UUID B6AAFE92-CCB9-4A30-ADA8-48B09ABA0B67). AI summary digested.
+**Type:** risk + scope-decision
+**Owner-impact:** Lalit, Nellie, Eden (UI team), Tejas
+
+Triage surfaced a real gating risk: **disabling a module (e.g. Goals) does not reliably suppress its AI feature flags**, and saving system-admin settings can restore AI flags even when the module is off — directly relevant to how admin orgs gate the transcripts/AI features before GA. 1:1 settings are dependency-linked to the meeting-summary feature (disable needs a page reload; proposed auto-reload on save). Action-button-visibility bug (hidden during impersonation) reclassified as a global-component issue → **Eden's UI team**, not AI. Operational note: org hit its **Claude monthly usage cap on 6/18** (ChatGPT interim fallback). **Lalit owes:** clean up the ticket doc (proposed solutions + AI-vs-other-pod ownership split), share with Nellie; log the visibility bug to Eden; add AC to Tejas's ticket.
+
+**Implication for ranking:** Module-gating reliability is a GA-blocking quality item for any AI feature shipping behind org enablement.
+
+### 2026-06-16 — Project-plan alignment: admin OAuth + consent-based per-participant processing locked; scale targets; sync daily scrum; POC complete
+**Source:** Zoom — "Project Plan | Meeting Transcript" 2026-06-16 (UUID 0501939E-0758-4A0C-9B8F-4D130A12F5CF) + "AI Projects Debrief" 2026-06-16 (UUID DB2BD344-0701-46C2-9C86-D48F689CB172). **GAP:** "Story pointing for Meetings transcripts ENG-82387" 2026-06-16 (UUID 9B91A12D-…) had **NO recorded assets** — recover point estimates/sequencing from Jira/attendees. AI summaries digested.
+**Type:** scope-decision + architecture + planning
+**Owner-impact:** Lalit, Anuj, Danish, Sagar, Hemant, Harshini, Tanveer
+
+Primary architecture/UX alignment. **Locked:** OAuth is **admin-level, one-time per org** (users give in-app consent only — no per-user Zoom redirect); **consent-based per-participant processing** — if A consents and B doesn't, only A's transcript is processed, B sees nothing until consent, **future meetings only** (no retroactive); consent flag travels in the Meetings→AI payload; AI emits **two suggestion types (create / update-close)** with entity IDs for UI grouping; for MVP the AI fetches goals directly from the Goals microservice by participant ID; manual paste/upload supported when Zoom isn't connected (validated → S3 by Meeting Service); a third **"AI Transcript" tab** (name kept per Sriram). **Scale estimate:** ~1,600 concurrent participants / ~400 simultaneous transcripts at peak → single inference server insufficient, horizontal scaling (HPA) needed. **Process change:** async scrum dropped → synchronous **daily 15-min scrum at 12pm IST**. **Open:** webhook routing — single Betterworks-wide URL (via account_id) vs per-org URL (Pankaj + Danish offline); whether Zoom Marketplace approval is required for prod GA (Anuj). From the debrief: **POC complete and successful** (data extraction + source citation + timestamps validated); story-pointing ~half done; Lalit framed a ~**6–8 week runway**; the Meetings API hands the AI team an **S3 link** (Meetings pod owns transcript-storage infra, keeping AI infra scope lean).
+
+**Implication for ranking:** Major scope/architecture de-risking; admin-OAuth + consent model are now firm PRD constraints.
+
+### 2026-06-15 — Nellie 1:1: backlog hygiene + risk flags (Docebo at risk, TechWolf licensing, embeddings status)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-06-15 (UUID DECC97E4-936E-4C28-835E-0E1341569187). AI summary digested.
+**Type:** stakeholder-position + risk
+**Owner-impact:** Lalit, Nellie, Rinku, Danish
+
+Broad backlog + cross-team hygiene review. Risk flags: **Docebo integration at risk** (dependency issues — Lalit to assess feasibility with Rinku before committing); **TechWolf taxonomy/licensing** (Lightcast vs TechWolf) unresolved, gates Phase-2 Kafka/webhook work (follow up Ocon); **embeddings work needs a status follow-up** (Ulama→Gemma migration done). Process steers: leverage **Prasanna** (delivery manager, underutilized) for standup facilitation/process; a **QA-rigor gap** across pods (JB's pod weaker than AI side) that Nellie will raise with Cheryl. Reinforced standing expectation: Lalit owns ticket-level hygiene + cross-team follow-up proactively.
+
+**Implication for ranking:** No scope change; Docebo + TechWolf are watch-items that could affect Phase-2 integration sequencing.
+
+### 2026-06-11 — Design review: Phase-1 scope cuts (due dates, AI notes) + two-layer consent + async processing pattern
+**Source:** Zoom — "Meetings AI" 2026-06-11 (UUID 63FE0187-3DBD-4164-80D1-1E00621BF377). **GAP:** "Meeting Transcript - AI sync" 2026-06-09 (UUID E4E45AEA-…) had **NO recorded assets**. AI summary digested.
+**Type:** scope-decision + ux
+**Owner-impact:** Lalit, Harshini, Varnica, Anuj
+
+Design review (Harshini/Varnica/Lalit). **Scope cuts:** action-item **due dates removed from MVP** (admin-config complexity); **AI-generated notes deferred**; Recognition + Feedback kept in Figma for visibility but **out of Phase-1 scope** (goals flow only). **Flows:** "Create Goal" from an AI suggestion → redirect to Goals page with pre-filled attributes; "Update Goal" → open goal form with AI hints (not auto-applied); after creation the goal reference is added to action items but needs a **page reload** (no real-time update). **Consent:** two-layer model confirmed — Betterworks disclaimer screen, then Zoom OAuth redirect. **Processing UX:** ~**5–10 min async**, status states "Add transcript…" → "Insight generation in progress" → "Updates available" (reload). Open: dismiss = modal vs toast (Lalit); pre-fill vs hint feasibility in MVP (Varnica/Anuj); event-based callback on goal-save to refresh the recommendations queue (POC ticket to be created).
+
+**Implication for ranking:** Trims MVP surface (due dates, AI notes out) and firms the consent + async-processing patterns.
+
+### 2026-06-10 — Refinement (epic-7 story review) + Nellie 1:1 scope-setting (summer/winter split; MeetingsPod owns ingestion; epic rename; Phase-2 → separate Aha)
+**Source:** Zoom — "Meeting Transcripts - Refinement" 2026-06-10 (UUID B47492F3-960B-4616-BCD3-114A9520E312) + "Lalit / Nellie 1:1" 2026-06-10 (UUID 5D3A03B3-E5FD-47FA-9CB7-0789CE160969). AI summaries digested.
+**Type:** scope-decision + planning
+**Owner-impact:** Lalit, Nellie, Danish, Anuj, Sagar, Hemant
+
+**Refinement** walked the epic-7 stories pod-by-pod toward one signed-off I/O contract before implementation. Decisions: AI brief generation runs as a **daily batch 12–24h before upcoming meetings** (+ manual refresh); **speaker identity resolution target 90–95% accuracy**, matched on email + employee ID, handled at the **Meetings-service level (not Integrations)**; **meeting exclusions owned by Meetings service**; admin-level Zoom enablement spans org settings + a third-party integration page; event-driven (vs static-endpoint) integration preferred for scalability; Anuj to share an S3 sample-transcript bucket with folder/naming conventions. **Nellie 1:1 (scope-setting):** locked the **summer/winter split** — Summer = Zoom + manual only (**Teams explicitly out**); **Phase-2 signal extraction (goals/recognition/skills) must become its own Aha feature for Winter**, with Confluence updated to show the split. Feedback: **rename the parent epic** (don't imply "AI pipeline only"); decompose coarse stories before refinement; whole AI team (incl. JZ) joins refinement (no Hemant/Sagar silo). Speaker-resolution + user-revoke stories move to MeetingsPod. Lalit to set up a shared Google Drive of sample 1:1 transcripts for Hemant's POC.
+
+**Implication for ranking:** First firm summer-vs-winter scope boundary + ownership model; creates new standing PM obligations (epic rename, Phase-2 Aha epic, Confluence split, story decomposition).
+
 ### 2026-05-07 — Hard date: May 31 Rainforest live for ENG-79199
 **Source:** Daily meeting extract — Lalit/Cheryl 1:1 prep
 **Type:** commitment

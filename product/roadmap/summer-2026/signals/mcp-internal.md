@@ -6,6 +6,24 @@
 
 ## Signals
 
+### 2026-06-29 — MCP V2 goals contract defined (4 tools; no bulk; Tier-1 default; PATCH-at-service-layer is the blocker)
+**Source:** Zoom — "Goals and MCP" 2026-06-29 (UUID D637A051-8F78-45DF-B4C4-47F595B5C8D7). AI summary digested.
+**Type:** scope-decision + architecture
+**Owner-impact:** JB, Emerson, Nellie, Varnica, Lalit (consumer via Meetings "Create Goal")
+
+V1 MCP tools deprecated → lightweight LLM-friendly endpoints (no raw public-API wrappers). **Four V2 goals tools for summer:** `list goals`, `update goal`, `goals get settings`, `create goal` — `goals get settings` built first. **No bulk ops** (deferred V3+); bulk delete excluded entirely (use Postman/API); no "get goal by ID" (filtered `list goals` avoids N+1); "check-in" terminology retired (use `update goal`). Permissions reuse existing internal-endpoint auth (no separate layer). **PATCH (not PUT) at the service layer is the longest outstanding backend task — Emerson owns; gates `update goal`.** Jira integration pattern: Jira MCP to pull, Betterworks MCP to write (no persistent mapping in V2). All tools Tier-1 (public) by default; tiered pricing → winter. Open: Kong rate-limiting spike (session-ID based).
+
+**Implication for ranking:** This is the backend contract under [[ai-201-meeting-transcripts]]'s Meetings "Create Goal" / goal-recommendation cards — the PATCH gap is a shared dependency.
+
+### 2026-06-29 — New project: Slackbot connector powered by MCP (Lalit exploring ownership)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-06-29 (UUID 25E15DB1-1035-4CA7-A37F-927A4D62ADFD). AI summary digested.
+**Type:** scope-decision (new initiative)
+**Owner-impact:** Lalit, Nellie
+
+Nellie steered Lalit toward owning a **Slackbot connector powered by MCP** — internal-first for dogfooding, then scale to customers; a broken earlier version already exists. Lalit agreed to explore ownership. Related: Nellie sent the **MCP items inventory to clients for early feedback** (external socialization of MCP direction); a **notifications-batching UI** (building on Hung's digest-batching spike) is also now a Lalit deliverable.
+
+**Implication for ranking:** Potential new owned initiative for Lalit beyond AI-201; watch for it needing its own Aha/Jira surface.
+
 ### 2026-05-06 — MCP Servers launched on all four internal envs
 **Source:** [Slack #general](https://betterworks.slack.com/archives/C0298HV20/p1778093375442609) — Nellie LeMonier
 **Type:** commitment-shipped
