@@ -80,3 +80,23 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Nataliia Savenko / Nitish Devadiga
 - **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1782732412563249)
 - **Summary:** Nataliia shared the full end-to-end flow doc (Confluence) for the recommendations feature, requesting Pankaj review "technical confirmation needed" sections; Nitish confirmed AI+LMS integration side looks good but raised 3 open questions about the downstream goal-creation flow — (1) whether "Save PDP for skill" means goal-skill linking, (2) whether draft goal creation should use a modal rather than a background process, and (3) which goal structure to use when creating goals from selected courses (parent+milestone-per-course vs. parent with all courses). Nataliia confirmed all questions escalated to the goals team in a relevant spike.
+
+### 2026-07-02 — slack
+- **Who:** Nitish Devadiga
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1782978755663329)
+- **Summary:** Shared Colab notebook implementing the two-phase LLM course recommendation pipeline (query generation + re-ranking) using unified LMS endpoints (LinkedIn + Udemy on rainforest); tested with Betterworks Gemma (~17 tok/s) and OpenAI GPT-5-nano (50–130 tok/s variable) — results available for team comparison and refinement.
+
+### 2026-07-02 — slack
+- **Who:** Nitish Devadiga
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1782979206171559)
+- **Summary:** Posted benchmark results: GPT-5-nano with minimal reasoning = ~6s latency but hallucinates on re-ranking; GPT-5-nano with low reasoning for re-rank only = 13–15s, no hallucination; Gemma 4 = ~30–40s; re-ranking provides noticeable quality uplift; deterministic interleaved overlap with LLM re-rank is <50% — confirms re-ranking is worthwhile.
+
+### 2026-07-02 — gmail
+- **Who:** Nataliia Savenko (nataliia.savenko@betterworks.com)
+- **Where:** Email thread 19f22de88a9a7f1f — "Invitation: PDP: AI Recommendation Performance and Latency @ Mon Jul 6, 2026 7:30pm–8pm (IST)"
+- **Summary:** Nataliia scheduled a cross-functional sync (Nellie, Pankaj, Lalit, Rinku, Nataliya Kolb, Anastasiia Voronina, Nitish) for Mon Jul 6 to review Nitish's LLM spike results and decide on the latency strategy and Summer PDP scope — architecture decision gate now formally calendared.
+
+### 2026-07-02 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f220d476d2e4c5 — "Meeting assets for Pankaj <> Lalit Weekly Sync are ready!"
+- **Summary:** Pankaj/Lalit weekly sync: Lalit presented holistic 70-20-10 skill development plan for PDP (formal LMS courses, social/influencer discovery, experiential learning, mentor matching); Pankaj raised liability concerns about recommending specific influencers and questioned value vs. user self-directed search; agreed to tone down social recs, focus on search-term provision and user-led tracking; Pankaj to review with Nitish and potentially schedule a separate call.

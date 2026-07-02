@@ -117,3 +117,13 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Paul Agustin
 - **Where:** [#champagne-mcp-support](https://betterworks.slack.com/archives/C0B0Q5WBN0N/p1782469277599309)
 - **Summary:** Paul shared a detailed "Betterworks MCP Data Inventory — Scorecard KPIs" with JB and Nellie (prompted by Sean Godfrey use case), mapping 16 KPIs across live/simulated/not-exposed endpoints; surfaced 5 priority API asks: add `from_user_id` to `list_recognitions`, expose `completion_summary` on conversation deployments, fix `list_feedback` auth scope, add `completion_pct` to team/user objects, and build a `list_succession_plans` endpoint.
+
+### 2026-07-02 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-feedback](https://betterworks.slack.com/archives/C08HR9851PS/p1782932413198439)
+- **Summary:** JB opened PRs adding LLM Tool support to feedback-api (PR #682) and public-mcp (PR #76) with an initial `list_feedback` tool/endpoint — active delivery on Public MCP Server surface expansion.
+
+### 2026-07-02 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1782957275351269)
+- **Summary:** Answered inbound question in #product: Betterworks MCP does not integrate with Pendo guides; provided two paths for customers — (1) bring your own LLM and prompt it with Pendo guide content via our MCP server, or (2) use BW AI Chat where customer-specific guidelines/prompt content can be stored natively.

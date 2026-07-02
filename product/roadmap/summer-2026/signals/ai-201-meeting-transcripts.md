@@ -503,3 +503,33 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Hemant Kumar
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782902008622149)
 - **Summary:** Asked Tanveer to share the tracker sheet with the AI team to help keep transcript work on track — signals need for shared progress visibility across pods.
+
+### 2026-07-02 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1782975148017229)
+- **Summary:** Clarified refresh semantics in standup thread: Recap is persona-agnostic and refreshes for all users simultaneously; Prep and Recommendations are persona-specific and refresh only for the requesting user — key design decision now documented in channel.
+
+### 2026-07-02 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1782985152219739)
+- **Summary:** Posted <!here> in #pod-ai-platform inviting Sagar and Hemant to today's scrum to discuss the AI meeting transcripts plan and architecture and share status updates asynchronously before the call.
+
+### 2026-07-02 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f2230bda469668 — "Meeting assets for Sagar / Lalit are ready!"
+- **Summary:** Sagar/Lalit sync: Sagar is designing DB schema for transcript management (series+instance IDs, transcript-source enum, hash to avoid reprocessing); Hemant integrating transcript processing pipeline; Sagar to create dummy APIs by evening to unblock meetings pod; target August production release; Lalit to clarify scope of learning recommendation engine work with Nitish.
+
+### 2026-07-02 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f2178b570ee52b — "Meeting assets for Hemant / Lalit are ready!"
+- **Summary:** Hemant/Lalit catch-up: Hemant confirmed transcript implementation has started; team split suggested as 80% AI team work / 20% misc; Lalit to focus on meeting transcripts in July; Hemant tracking 3 Jira tickets for prompt migration to DB (running in parallel with Gemma upgrade).
+
+### 2026-07-02 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f21b9876d830cf — "Meeting assets for Tanveer / Lalit are ready!"
+- **Summary:** Tanveer/Lalit intro sync: Tanveer manages 4 teams including meeting transcripts; confirmed dev-complete and tested by August 15 for summer release; Lalit to support hackathon in person; Tanveer to schedule requirements call next week.
+
+### 2026-07-02 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f2169cb36d112f — "Meeting assets for Aakansha / Lalit are ready!"
+- **Summary:** Aakansha/Lalit status sync: discussed AI processing pipeline for meeting transcripts and skill-to-learning matching; Aakansha flagged tokenizer implementation risk — suggested validating and potentially removing the tokenizer before full build to avoid blockers; Lalit working on Gemma upgrade and LLM prompt management in parallel.
