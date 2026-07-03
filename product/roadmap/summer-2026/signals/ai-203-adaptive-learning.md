@@ -100,3 +100,8 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f220d476d2e4c5 — "Meeting assets for Pankaj <> Lalit Weekly Sync are ready!"
 - **Summary:** Pankaj/Lalit weekly sync: Lalit presented holistic 70-20-10 skill development plan for PDP (formal LMS courses, social/influencer discovery, experiential learning, mentor matching); Pankaj raised liability concerns about recommending specific influencers and questioned value vs. user self-directed search; agreed to tone down social recs, focus on search-term provision and user-led tracking; Pankaj to review with Nitish and potentially schedule a separate call.
+
+### 2026-07-03 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com) — Nellie / Lalit meeting
+- **Where:** Email thread 19f23c84c313ab4d — "Meeting assets for Nellie / Lalit are ready!"
+- **Summary:** Nellie/Lalit PDP scoping session (Jul 2): V1 scope narrowed to courses + mentor connections only (internal content, no public internet sources); customizable judge prompt for enterprise content guardrails; thumbs up/thumbs down feedback mechanism on AI recommendations. Action items: Lalit to validate recs with CS, start Slack thread with Nellie/Chao/Jay-Z on mentor matching architecture, explore AI-generated recs for leadership/strategy goal types, discuss Connect-with-Mentor feature ownership with JV and Nitesh.

@@ -533,3 +533,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f2169cb36d112f — "Meeting assets for Aakansha / Lalit are ready!"
 - **Summary:** Aakansha/Lalit status sync: discussed AI processing pipeline for meeting transcripts and skill-to-learning matching; Aakansha flagged tokenizer implementation risk — suggested validating and potentially removing the tokenizer before full build to avoid blockers; Lalit working on Gemma upgrade and LLM prompt management in parallel.
+
+### 2026-07-03 — slack
+- **Who:** Laurie Hawco
+- **Where:** [#ask_rypple](https://betterworks.slack.com/archives/)
+- **Summary:** Gen 3 "Meetings" page shipped in Ask Rypple — AI-powered meeting prep and commitment tracking across Today/My Schedule/Completed sections; stats bar shows meetings, commitments (including overdue); AI insights surfaced per meeting with voice+text continuity and Slack integration. Signals internal bar for meeting intelligence UX that AI-201 will need to match or exceed.

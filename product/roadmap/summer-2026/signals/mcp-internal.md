@@ -127,3 +127,8 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Nellie LeMonier
 - **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1782957275351269)
 - **Summary:** Answered inbound question in #product: Betterworks MCP does not integrate with Pendo guides; provided two paths for customers — (1) bring your own LLM and prompt it with Pendo guide content via our MCP server, or (2) use BW AI Chat where customer-specific guidelines/prompt content can be stored natively.
+
+### 2026-07-03 — slack
+- **Who:** Balram Agnihotri
+- **Where:** [#eng-ai-engineering-lab](https://betterworks.slack.com/archives/C08V0C3JRGE/)
+- **Summary:** Flagged that GitHub repo `github.com/kalub92/betterworks-mcp` is being indexed as a public internet source by GPT — asked whether it is an internal tool. Raises IP/discoverability risk: public LLMs may surface internal MCP schema or capabilities to external users.
