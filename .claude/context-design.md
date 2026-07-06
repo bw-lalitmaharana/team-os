@@ -71,6 +71,10 @@ Scheduled remote agents via `/schedule`. They run in their own context, write ar
 
 The morning brief eliminates the most common in-session question: "what's the current state of X?" The answer is already a file.
 
+### Execution engine (local-model parity)
+
+Routines run on one of two engines: **CCR** (Anthropic cloud + Claude, registered via `/schedule`) or **local** (launchd + self-hosted Ollama models on the Mac, ~zero API cost). The output target is identical — **parity comes from the harness** (deterministic scaffolding + structured output + retrieval + verification), not raw model IQ. Each routine declares `engine` / `tier` / `verify` in its spec. Full concept, the model-routing tiers, per-routine tiering, and the migration order live in **`.claude/local-model-routines.md`** — read it before building, changing, or migrating any routine.
+
 ## Adding new structure
 
 | When adding... | Do this |
@@ -79,7 +83,7 @@ The morning brief eliminates the most common in-session question: "what's the cu
 | A new workflow | Create `.claude/skills/<name>/SKILL.md` with YAML frontmatter; add one-line pointer in root `CLAUDE.md` § Dedicated Tools |
 | A new finding | Append to existing `signals/<feature>.md`. Never create a new always-loaded file for a single finding |
 | A new hook | Add script under `.claude/hooks/`, wire in `.claude/settings.json`, document above |
-| A new routine | Use `/schedule` to register; document above |
+| A new routine | Pick engine: `/schedule` (CCR) or a local spec under `automation/`. Declare `engine`/`tier`/`verify` per `.claude/local-model-routines.md`; document above |
 
 ## Auditing drift
 
