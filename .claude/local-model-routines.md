@@ -38,7 +38,7 @@ Route by task, not habit. **Small model + good harness > big model + no harness.
 - **Orchestrator:** a shared Python framework (proposed `automation/` in this repo, or `~/.agentic-os/`): model-router, connectors (Google/Slack/Jira/Zoom/web), team-os memory+log writers, structured-output + verify helpers, per-routine golden-evals.
 - **Models:** Ollama (multi-model, `localhost:11434`, OpenAI-compatible `/v1`).
 - **Scheduler:** launchd (one job per routine; runs missed jobs on wake). The Mac must be awake near run time.
-- **Auth:** local credentials — Google OAuth client (calendar + sheets scopes), Slack app token, Jira token. CCR's managed OAuth does **not** transfer; re-auth is the main migration cost and some scopes may need Workspace/Slack-admin approval.
+- **Auth:** local MCP servers run as subprocesses with tokens injected at the **transport layer from the macOS Keychain** (the LLM never sees a token); initial 3-legged OAuth via a temporary local FastAPI redirect. Reusing claude.ai's remote connectors is a bootstrap/fallback only. Concrete Aegis model: `automation/aegis/PLAN.md` §4 + `decisions/2026-07-07-aegis-local-agentic-os.md`.
 - **Fallback (hybrid):** on local failure or low verify-confidence, escalate that single run to CCR/Claude, logged. Keeps reliability while local matures.
 
 ## Per-routine tiering (current personal-OS routines)
