@@ -1,6 +1,6 @@
 # Project Aegis — team-os rework plan (FOR REVIEW)
 
-**Status:** Draft for Lalit's review · 2026-07-07 · reconciles **Aegis PRD v1.0** with the current team-os architecture and the existing concept doc `.claude/local-model-routines.md`. Nothing here is merged/active yet. Where this and the PRD disagree, the disagreement is called out — I am not rubber-stamping the PRD.
+**Status:** **APPROVED — decisions locked 2026-07-07** (see `decisions/2026-07-07-aegis-local-agentic-os.md`; supersedes the §10 open decisions below). Reconciles **Aegis PRD v1.0** with team-os and the concept doc `.claude/local-model-routines.md`. Locked: Qwen3-30B-A3B MoE · code in `automation/aegis/` · macOS Keychain · local SearXNG · Chainlit-only HITL · no direct writes without approval (Jira/Aha also refinement-gated). Next: Phase 0 (§8).
 
 ---
 
