@@ -42,5 +42,8 @@ One-time manual backfill run **2026-07-07**, closing the gap where meeting notes
 2. **`2026-06-16-project-plan-meeting-transcript.md`** merges 11 captures that share one meeting number but whose transcripts reference different dates — likely distinct daily recurrences folded into one note. All 11 uuids are listed in its front-matter; split per-day in a later pass if per-recurrence granularity is needed.
 3. A few notes are transcript-only (no AI summary existed); flagged in-file where partial.
 
+## Addendum — July 1–7, 2026 (added 2026-07-07)
+Extended the backfill through today. **21 more notes** written (Jul 1–6). Skipped 11: **5** are Jul-7 meetings still upcoming / no assets yet (Capstone connect, Meetings AI Jira Realignment, Hackathon Refinement, Course recommendations, Webhooks — these get auto-captured by `zoom-signal-sweep` on its next runs); **2** numeric-ID wrong-instance (AI Release, Lalit/Cheryl); **3** no-assets (AI Platform Product Acceptance, AI hackathon brainstorm, and **Lalit/Nova — a participant objected to being transcribed, so intentionally not written**). Meeting notes are now backfilled **May 8 → Jul 6** (plus the 2 pre-existing May 4/7 notes).
+
 ## Going forward
-No routine yet writes full notes to `ops/meeting-notes/`. Decisions ARE auto-captured to `signals/` by the `zoom-signal-sweep` routine (weekdays 20:30 IST). Making this backfill self-sustaining = extend `zoom-signal-sweep` to also emit a note here, or build Aegis Epic 1 ("meeting-transcript fetch → git"). See `automation/aegis/PLAN.md`.
+This gap is now **routine-covered**: `zoom-signal-sweep` (weekdays ~20:35 IST) writes BOTH decisions→`signals/` AND full notes→`ops/meeting-notes/` (fixed 2026-07-07 — Zoom connector attached + prompt extended). No more manual backfills needed. The eventual local-model version is Aegis Epic 1 (`automation/aegis/PLAN.md`).
