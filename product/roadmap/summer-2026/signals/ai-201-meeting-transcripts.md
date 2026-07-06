@@ -630,3 +630,8 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Laurie Hawco
 - **Where:** [#ask_rypple](https://betterworks.slack.com/archives/)
 - **Summary:** Gen 3 "Meetings" page shipped in Ask Rypple — AI-powered meeting prep and commitment tracking across Today/My Schedule/Completed sections; stats bar shows meetings, commitments (including overdue); AI insights surfaced per meeting with voice+text continuity and Slack integration. Signals internal bar for meeting intelligence UX that AI-201 will need to match or exceed.
+
+### 2026-07-06 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783342118000819)
+- **Summary:** Lalit shared a Google Doc capturing consent, sensitivity, data-availability, and user-expectation scenarios for meeting transcripts (post-catchup); tagged Sagar, Hemant, Anuj, and Harshini Vijay for discussion in next catchup — input required before Sagar's prompt-engineering can proceed.
