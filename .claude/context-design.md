@@ -62,14 +62,19 @@ Hooks are insurance, not the only mechanism. Principles come first.
 
 Scheduled remote agents via `/schedule`. They run in their own context, write artifacts to disk, and cost zero tokens to you until you read the artifact.
 
-| Routine | Cadence | Output |
-|---|---|---|
-| Morning brief | Weekdays 8:00 | `ops/daily/<date>.md` — overnight Jira changes, Slack mentions, calendar peek |
-| Day-end signal sweep | Weekdays 19:00 | Appends to `product/roadmap/<release>/signals/<feature>.md` for each feature mentioned |
-| Monthly audit-context | 1st of month 9:00 | `analytics/context-audit/<YYYY-MM>.md` — flags drift |
-| Quarterly archive | Jan/Apr/Jul/Oct 1st | Moves resolved signals to `_archive/` |
+| Routine | Cadence (IST) | Engine | Output / essential covered |
+|---|---|---|---|
+| `morning-brief` | Weekdays 08:00 | CCR | `ops/daily/<date>.md` — Jira / Slack / calendar context |
+| `daily-meeting-extract` | Daily 20:00 | CCR | Slack canvas + self-DM — action/task digest & reconciliation |
+| `day-end-sweep` | Weekdays 19:00 | CCR | `signals/<feature>.md` — Slack + Gmail signal |
+| `zoom-signal-sweep` | Weekdays 20:35 | CCR | `signals/` (decisions) **+ `ops/meeting-notes/` (full notes)** — Zoom capture |
+| `focus-planner` (weekly) | Mon 08:35 | CCR | Slack proposal + `ops/focus/tracker.md` — weekly focus plan |
+| `focus-reminder` (daily) | Weekdays 08:50 | CCR | calendar holds + tracker + reminder — focus execution |
+| `monthly-audit-context` | 1st 09:00 | CCR | `analytics/context-audit/` — context drift |
 
 The morning brief eliminates the most common in-session question: "what's the current state of X?" The answer is already a file.
+
+**Essentials coverage (2026-07-07):** morning context ✅ · Slack+Gmail signal ✅ · Zoom decisions ✅ **and** Zoom meeting notes ✅ (both via `zoom-signal-sweep`, which now writes to `signals/` and `ops/meeting-notes/`) · action digest ✅ · focus time ✅ · drift audit ✅. **Known gaps:** `quarterly-archive` is documented here historically but was never created as a trigger; `daily-meeting-extract`'s prompt is stale (May-31 target, old names) and needs a Routines-UI refresh. All routines are CCR (Claude) today — migration to local Ollama per `.claude/local-model-routines.md` / `automation/aegis/`.
 
 ### Execution engine (local-model parity)
 
