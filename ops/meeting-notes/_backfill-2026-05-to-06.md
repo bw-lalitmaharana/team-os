@@ -47,3 +47,10 @@ Extended the backfill through today. **21 more notes** written (Jul 1–6). Skip
 
 ## Going forward
 This gap is now **routine-covered**: `zoom-signal-sweep` (weekdays ~20:35 IST) writes BOTH decisions→`signals/` AND full notes→`ops/meeting-notes/` (fixed 2026-07-07 — Zoom connector attached + prompt extended). No more manual backfills needed. The eventual local-model version is Aegis Epic 1 (`automation/aegis/PLAN.md`).
+
+## Recovery pass — previously-skipped meetings (2026-07-07)
+Retried the skips by resolving the CORRECT historical instance UUID via `search_meetings` (Zoom `recordings_list` returns nothing — Lalit isn't the recording owner; each recurring topic exposes a `schedule_expired` placeholder whose UUID equals the numeric id, plus the real `history` instance with an alphanumeric UUID — always use the latter).
+
+**8 recovered:** 2026-05-11 Lalit / Nellie 1:1 · 2026-05-12 App Platform QA & Product Acceptance · 2026-05-13 AI Platform Product Acceptance · 2026-05-18 App Platform - Sprint Planning (transcript-only) · 2026-05-21 Meetings Transcript - Daily Catchup · 2026-05-28 Lalit / Sriram (transcript-only) · 2026-06-17 Story pointing session Cont. (greetings-only) · 2026-07-01 AI Platform Product Acceptance.
+
+**Confirmed unrecoverable** (no assets even at the correct instance): Backlog Refinement 05-08, AI Release 05-13 & 07-01, Sprint Retro 05-15, Data&AI Sprint Planning 05-18, Monthly UX Review 05-19, AI Projects Debrief 05-19, Conversational AI PRD 05-20, Pankaj sync 05-21 (no recorded instance), Lalit/Cheryl 06-04, Lalit/Tejas 06-16, Learning Recommendations 06-16, Story-pointing ENG-82387 06-16, Cross Team Sync 06-17, Hackathon discussion 06-25, AI hackathon brainstorm 07-03. **Access-denied (host-only):** AI Engineering Lab 05-19, AI Accelerator Briefing 07-06. **Still upcoming:** Lalit/Cheryl 07-07 (auto-captured going forward). **Intentionally excluded:** Lalit / Nova (05-20 & 07-03) — a participant objected to being transcribed.
