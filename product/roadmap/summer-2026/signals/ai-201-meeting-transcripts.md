@@ -650,3 +650,21 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f3b46a633d2b8e — "Meeting assets for Meetings AI Jira Realignment are ready!"
 - **Summary:** Hemant and Lalit discussed implementation of consent-based data processing for meeting transcripts; Jira realignment session with action items now available.
+
+### 2026-07-06 — Lalit/Nellie 1:1 (zoom)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-07-06 (UUID 22045743-D219-45C6-AA3D-E13DB53C05F1)
+**Type:** commitment
+**Owner-impact:** Lalit, Nellie, Brian Jacobs (InfoSec)
+
+Lalit and Nellie kicked off the InfoSec review process for meeting-transcript consent: document consent/wording on Confluence, then send to Brian Jacobs (Head of InfoSec) for review ahead of the summer release, following the same process used for MCP; a walkthrough with the architect (and Nellie) will follow. Separately, webhook-ownership scope was clarified — AI-specific features (meeting transcripts, TechWolf, PDP) must be covered by the inbound webhook framework regardless of which team builds it, with Lalit driving clarity on what the integration team delivers.
+
+**Implication for ranking:** InfoSec sign-off is now a named, scheduled gate ahead of summer release — track alongside the transcript delivery timeline; webhook ownership ambiguity (integration team vs. Okan's spike vs. AI team) remains unresolved and worth flagging in refinement.
+
+### 2026-07-07 — Meetings AI Jira Realignment (zoom)
+**Source:** Zoom — "Meetings AI Jira Realignment" 2026-07-07 (UUID 05F5F260-81F1-4BBC-8993-F70275DAF83E)
+**Type:** scope-decision
+**Owner-impact:** Hemant, Lalit, InfoSec
+
+Hemant and Lalit locked the consent model for recap/prep generation: full consent required for any transcript-derived recap (any non-consenting participant excludes the transcript); notes/agenda/action items are generated implicitly and aren't consent-gated; an unplanned third-party join discards the entire recap; retroactive consent has no backfill; revoked consent halts future generation but retains past artifacts pending InfoSec confirmation. Recommendations will no longer use the transcript at all — structured meeting data only. A series/instance-level sensitivity flag is under consideration, and edge-case work is estimated at 7–9 days.
+
+**Implication for ranking:** Consent architecture is now concrete enough to unblock Sagar's prompt-engineering and Hemant's parsing work; InfoSec confirmation on retention policy is the remaining hard dependency before edge-case implementation starts.

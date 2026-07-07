@@ -165,3 +165,21 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Aimie Lim
 - **Where:** [#hr-pulse](https://betterworks.slack.com/archives/C0APX9835BN/p1783367479741089)
 - **Summary:** HR Pulse session discussed MCP launch messaging strategy — avoid "MCP" jargon with ICPs, lead with outcomes; narrative arc outlined: frictionless adoption → data inferred skills → MCP collapsing walls between succession, L&D, performance, and career pathing; Jamie's "scaly fish" progression framing.
+
+### 2026-07-06 — App Platform - Daily Standup (zoom)
+**Source:** Zoom — "App Platform - Daily Standup" 2026-07-06 (UUID 25ACE9F7-3B57-4432-9DDE-6E113EE3C899)
+**Type:** risk
+**Owner-impact:** JB, Emerson
+
+JB flagged a tool-explosion risk on MCP during a broader MCP-vs-Public-API-V2 architecture discussion: V2 can follow the normal 2-week release cadence, but MCP is expected to update near-instantly/programmatically, so the team needs to be deliberate about what gets added rather than letting anything in. Emerson is finishing a write-up covering both the MCP and V2 solutions for team review.
+
+**Implication for ranking:** Direct governance signal for MCP scope discipline — worth folding into whatever "MCP items inventory" Nellie is building (see 2026-06-29 entry above) so the diligence bar is written down, not just verbally agreed.
+
+### 2026-07-07 — App Platform QA & Product Acceptance (zoom)
+**Source:** Zoom — "App Platform QA & Product Acceptance" 2026-07-07 (UUID 408D09A7-4FED-4723-B8C5-CBB925181736)
+**Type:** open-question
+**Owner-impact:** Nellie, Sanchit, Tejas, JB
+
+MCP testing strategy remains informal: Sanchit found the NPX inspector doesn't surface the goals date-range filter (though the same prompt works fine via Claude), and the team punted the "NPX inspector vs. Claude, what's our pass/fail criteria" question to a dedicated Thursday strategy session (Nellie, Tejas, JB). Nellie is separately building an MCP tool inventory and a prompt/expected-response document, and plans a Rainforest test org with correct data to support proper MCP testing.
+
+**Implication for ranking:** Testing-strategy formalization is now scheduled (Thursday) — good checkpoint to confirm whether it produces a written criteria doc, since QA capacity is currently just Nellie + Lalit splitting the ticket backlog manually.

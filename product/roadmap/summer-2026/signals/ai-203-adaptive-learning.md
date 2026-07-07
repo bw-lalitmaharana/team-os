@@ -162,3 +162,30 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f3bd87a162d445 — "Meeting assets for Course recommendations are ready!"
 - **Summary:** Meeting focused on designing a two-phase AI-powered course recommendation system for an LMS integration; action items and full summary now available in Zoom.
+
+### 2026-07-06 — PDP: AI Recommendation Performance and Latency (zoom)
+**Source:** Zoom — "PDP: AI Recommendation Performance and Latency" 2026-07-06 (UUID 9ECD0C03-1234-465A-9883-216AE7462CDA)
+**Type:** scope-decision
+**Owner-impact:** Nitish, Nellie, Nataliya Kolb, Nataliia Savenko, Pankaj, Rinku, Lalit
+
+Nitish's latency investigation confirmed the two-pass course-recommender (query generation + re-ranking) runs 30–40s end-to-end on Gemma 4, dominated by the ~30s re-ranking pass; GPT-5 Nano hits ~15s but is ruled out for production (not private, variable cost). The team decided to fire the upskilling-steps and course-recommendation requests in parallel on skill selection to mask latency, ship the deterministic SQL-driven mentor-connect step immediately regardless of AI readiness, and build+test the real user experience before pursuing streaming/preprocessing mitigations with the AI team. Preprocessing was judged likely wasteful given the combinatorial skill×level×user space (~1,000 skills/user).
+
+**Implication for ranking:** Reinforces (doesn't change) the MVP-first latency approach already locked on 2026-06-29 — this session supplies the concrete numbers (30–40s, 17 tok/s Gemma 4) and rules out preprocessing as a near-term lever; streaming stays an AI-team follow-up, not a summer blocker.
+
+### 2026-07-06 — Integrations/AI Cross Team Sync (zoom)
+**Source:** Zoom — "Integrations/AI Cross Team Sync" 2026-07-06 (UUID FB70D4B2-1D82-4B9E-A8C7-F315DC57F85F)
+**Type:** scope-decision
+**Owner-impact:** Nellie, Lalit, Nataliya Kolb, Nitish, Jason Zhang, Sagar, Okan, Danish, Pankaj
+
+First Integrations↔AI weekly sync confirmed the MVP plan: parallel AI requests (upskilling steps + course recommendations) on skill selection, ship without preprocessing/streaming first, treat streaming as a V2 phase requiring multi-hop infra work (API gateway, LM Engine, inference server, DevOps), and defer skill-graph to a future phase (Okan's proposal judged not feasible before August). Danish demoed a working webhook gateway MVP for Zoom (events → internal topic); LMS integration confirmed bring-your-own for clients beyond Docebo-internal.
+
+**Implication for ranking:** Formalizes the latency approach as a cross-team commitment (not just an AI-side call) with named owners (Jason on streaming PoC, Lalit/Nitish on mock-data test scenarios); the webhook gateway MVP now existing gives AI-201 a shared dependency to track.
+
+### 2026-07-07 — Course recommendations (zoom)
+**Source:** Zoom — "Course recommendations" 2026-07-07 (UUID B183C2AC-EE91-46CE-9741-136FECDB37F2)
+**Type:** scope-decision
+**Owner-impact:** Nitish, Pankaj, Lalit
+
+Nitish and Lalit confirmed the two-pass pipeline (query generation → re-rank) as the current working approach, with round-robin interleaving used to merge multi-query results into a diverse top-20 set; re-ranking was judged necessary since raw LMS provider ranking surfaces irrelevant courses (e.g., a Snowflake cert for a PM). The team agreed dislike-as-metric is insufficient (conflates latency dissatisfaction with quality) and committed to automating comparative evaluation of two-pass vs. single-pass and per-provider variations rather than deciding manually.
+
+**Implication for ranking:** Adds a concrete automation/eval action item (golden dataset + multi-strategy harness) ahead of committing to one recommendation architecture — worth checking status of before the next PDP scoping decision.
