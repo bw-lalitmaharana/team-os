@@ -152,3 +152,13 @@ ENG-80931 is unassigned and has zero open-sprint items. For the highest-scored A
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com) — Nellie / Lalit meeting
 - **Where:** Email thread 19f23c84c313ab4d — "Meeting assets for Nellie / Lalit are ready!"
 - **Summary:** Nellie/Lalit PDP scoping session (Jul 2): V1 scope narrowed to courses + mentor connections only (internal content, no public internet sources); customizable judge prompt for enterprise content guardrails; thumbs up/thumbs down feedback mechanism on AI recommendations. Action items: Lalit to validate recs with CS, start Slack thread with Nellie/Chao/Jay-Z on mentor matching architecture, explore AI-generated recs for leadership/strategy goal types, discuss Connect-with-Mentor feature ownership with JV and Nitesh.
+
+### 2026-07-06 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f3886584065824 — "Meeting assets for Integrations/AI Cross Team Sync are ready!"
+- **Summary:** First weekly alignment call for summer projects between the integrations and AI teams; AI-203 shares integration platform infrastructure with AI-201 — this standing sync covers both tracks.
+
+### 2026-07-07 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f3bd87a162d445 — "Meeting assets for Course recommendations are ready!"
+- **Summary:** Meeting focused on designing a two-phase AI-powered course recommendation system for an LMS integration; action items and full summary now available in Zoom.

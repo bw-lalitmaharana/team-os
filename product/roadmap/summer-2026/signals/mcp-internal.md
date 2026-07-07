@@ -150,3 +150,18 @@ This is the architectural line for the **Public MCP Server** Summer commitment (
 - **Who:** Balram Agnihotri
 - **Where:** [#eng-ai-engineering-lab](https://betterworks.slack.com/archives/C08V0C3JRGE/)
 - **Summary:** Flagged that GitHub repo `github.com/kalub92/betterworks-mcp` is being indexed as a public internet source by GPT — asked whether it is an internal tool. Raises IP/discoverability risk: public LLMs may surface internal MCP schema or capabilities to external users.
+
+### 2026-07-06 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f38610c62f7d73 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Nellie and Lalit discussed tactical items and goals for AI projects, including MCP-related items; meeting summary now available.
+
+### 2026-07-07 — slack
+- **Who:** Emerson Matthews
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783373675800269)
+- **Summary:** Emerson proposed auto-generating MCP server tool definitions and a Redocly documentation site combining OpenAPI specs for v1/v1.5/v2 customer-facing docs (ENG-43053); offered to demo ideas to the team.
+
+### 2026-07-07 — slack
+- **Who:** Aimie Lim
+- **Where:** [#hr-pulse](https://betterworks.slack.com/archives/C0APX9835BN/p1783367479741089)
+- **Summary:** HR Pulse session discussed MCP launch messaging strategy — avoid "MCP" jargon with ICPs, lead with outcomes; narrative arc outlined: frictionless adoption → data inferred skills → MCP collapsing walls between succession, L&D, performance, and career pathing; Jamie's "scaly fish" progression framing.

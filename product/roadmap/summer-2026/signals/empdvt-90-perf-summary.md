@@ -66,3 +66,13 @@
 - **Who:** Riya Malik
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1782447934208549)
 - **Summary:** Production incident: Performance Summary returning 500 errors (14 replies in thread, Tejas cc'd) — possible regression or infra issue requiring active investigation.
+
+### 2026-07-07 — slack
+- **Who:** Support incident bot
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1783430495483989)
+- **Summary:** P2 support incident filed: ENG-84564 — Teacher Retirement System of Texas reporting AI Performance Summary still showing last fiscal year's data under YTD; customer-facing data staleness bug.
+
+### 2026-07-07 — slack
+- **Who:** Rachel Scoffield
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1783430541866319)
+- **Summary:** Rachel raised Jira ENG-84564 after confirming the issue is not matching what Nellie described — P2 customer incident on AI Performance Summary showing stale FY data for an org that has reached out.

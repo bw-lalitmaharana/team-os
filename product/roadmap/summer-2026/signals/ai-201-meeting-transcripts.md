@@ -635,3 +635,18 @@ Action: Lalit to book session with Jay-Z (Jason Zhang) to walk through LLM/AI se
 - **Who:** Lalit Maharana
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783342118000819)
 - **Summary:** Lalit shared a Google Doc capturing consent, sensitivity, data-availability, and user-expectation scenarios for meeting transcripts (post-catchup); tagged Sagar, Hemant, Anuj, and Harshini Vijay for discussion in next catchup — input required before Sagar's prompt-engineering can proceed.
+
+### 2026-07-06 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f3886584065824 — "Meeting assets for Integrations/AI Cross Team Sync are ready!"
+- **Summary:** First weekly alignment call for summer projects between the integrations and AI teams; meeting summary and action items now available in Zoom.
+
+### 2026-07-06 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f38610c62f7d73 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Nellie and Lalit discussed several tactical items and goals for AI projects; meeting summary and action items now available.
+
+### 2026-07-07 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f3b46a633d2b8e — "Meeting assets for Meetings AI Jira Realignment are ready!"
+- **Summary:** Hemant and Lalit discussed implementation of consent-based data processing for meeting transcripts; Jira realignment session with action items now available.

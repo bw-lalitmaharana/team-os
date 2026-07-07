@@ -43,3 +43,8 @@ Paul flagged from Synopsys conversations:
 - **Who:** Cheau-Long Ng
 - **Where:** [#pod-data-platform](https://betterworks.slack.com/archives/CSEURUBDG/p1782424757012389)
 - **Summary:** Cheau and Okan successfully tested TechWolf import in production on Clone_Synopsys (org 500001539): 39k taxonomy + 20k+ skill profiles imported; Nellie tagged to coordinate TechWolf credentials for real Synopsys org setup — Synopsys integration moving toward production readiness.
+
+### 2026-07-07 — slack
+- **Who:** Jason Sites
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783383278612039)
+- **Summary:** Jason Sites rewrote requirements and shared an ERD for Talent profile skills visibility: group/dept-based access rules governing who sees talent_profile_skills (user self-view, manager view, admin view); explicitly notes skills exist in a globally available skill taxonomy (Lightcast, TechWolf) — signals ongoing engineering work on the skills display layer that DP-76 data feeds into.
