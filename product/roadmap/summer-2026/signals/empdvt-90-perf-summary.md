@@ -76,3 +76,8 @@
 - **Who:** Rachel Scoffield
 - **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1783430541866319)
 - **Summary:** Rachel raised Jira ENG-84564 after confirming the issue is not matching what Nellie described — P2 customer incident on AI Performance Summary showing stale FY data for an org that has reached out.
+
+### 2026-07-08 — slack
+- **Who:** Aakansha Srivastava
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1783487894025249)
+- **Summary:** Follow-up on ENG-84564 (Teacher Retirement System of Texas): confirmed prod customer-facing issue; fix is to regenerate performance summary for the affected org; Tejas and Bhavesh Vaviya looped in for execution.

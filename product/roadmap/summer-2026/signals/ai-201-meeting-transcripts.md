@@ -668,3 +668,28 @@ Lalit and Nellie kicked off the InfoSec review process for meeting-transcript co
 Hemant and Lalit locked the consent model for recap/prep generation: full consent required for any transcript-derived recap (any non-consenting participant excludes the transcript); notes/agenda/action items are generated implicitly and aren't consent-gated; an unplanned third-party join discards the entire recap; retroactive consent has no backfill; revoked consent halts future generation but retains past artifacts pending InfoSec confirmation. Recommendations will no longer use the transcript at all — structured meeting data only. A series/instance-level sensitivity flag is under consideration, and edge-case work is estimated at 7–9 days.
 
 **Implication for ranking:** Consent architecture is now concrete enough to unblock Sagar's prompt-engineering and Hemant's parsing work; InfoSec confirmation on retention policy is the remaining hard dependency before edge-case implementation starts.
+
+### 2026-07-07 — gmail
+- **Who:** Danish (via Zoom AI summary)
+- **Where:** Zoom meeting "Webhooks" (email to lalit.maharana@betterworks.com)
+- **Summary:** Danish reviewed his implementation of a webhook gateway service as a platform component — this is the inbound webhook for the transcripts ingestion pipeline (provider events → Kafka).
+
+### 2026-07-08 — gmail
+- **Who:** Harshini Vijay, Anuj Pancholi (via Zoom AI summary)
+- **Where:** Zoom meeting "Lalit Maharana's Zoom Meeting" (email to lalit.maharana@betterworks.com)
+- **Summary:** Harshini, Lalit, and Anuj discussed implementation of Zoom transcript integration; full meeting assets and action items available in Zoom.
+
+### 2026-07-08 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#pod-meetings](https://betterworks.slack.com/archives/C035AAZ5P6H/p1783486970169059)
+- **Summary:** Standup update: merging PRs in code review for meetings transcripts, actively working on transcripts tasks, one deployment issue in calendar service to resolve.
+
+### 2026-07-08 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783492874540969)
+- **Summary:** Transcript standup check — Sagar pinged the channel to confirm standup attendance; thread has 5 replies suggesting discussion proceeded.
+
+### 2026-07-08 — slack
+- **Who:** Harshini Vijay
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783510224923099)
+- **Summary:** Three open design questions raised for Lalit and Anuj on Zoom connected-state behavior: (1) should manual upload be allowed when Zoom is connected? (2) what happens when two transcripts exist (Zoom + manual)? (3) confirmation needed on delete-Zoom-transcript and re-sync flow.

@@ -189,3 +189,13 @@ First Integrations↔AI weekly sync confirmed the MVP plan: parallel AI requests
 Nitish and Lalit confirmed the two-pass pipeline (query generation → re-rank) as the current working approach, with round-robin interleaving used to merge multi-query results into a diverse top-20 set; re-ranking was judged necessary since raw LMS provider ranking surfaces irrelevant courses (e.g., a Snowflake cert for a PM). The team agreed dislike-as-metric is insufficient (conflates latency dissatisfaction with quality) and committed to automating comparative evaluation of two-pass vs. single-pass and per-provider variations rather than deciding manually.
 
 **Implication for ranking:** Adds a concrete automation/eval action item (golden dataset + multi-strategy harness) ahead of committing to one recommendation architecture — worth checking status of before the next PDP scoping decision.
+
+### 2026-07-08 — gmail
+- **Who:** Nitish Devadiga (via Zoom AI summary)
+- **Where:** Zoom meeting "PDP Stand Up" (email to lalit.maharana@betterworks.com)
+- **Summary:** Nitish presented Google Colab work on text processing — likely LLM inference/evaluation for the learning recommendations pipeline.
+
+### 2026-07-08 — slack
+- **Who:** Nitish Devadiga
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1783492209130109)
+- **Summary:** Architecture rationale posted against LMS catalog sync: GraphQL migration blocks REST API auth needed for catalog, syncing 7k+ Udemy courses adds infra + periodic embedding jobs, Docebo is internal-only (not useful for real skills). Confirmed two-pass pipeline latency: ~10s query generation + ~30s re-ranking; enrollment status for Udemy deferred to phase 2. Real optimization path is iterative — inference servers, caching, smarter offline re-rank.

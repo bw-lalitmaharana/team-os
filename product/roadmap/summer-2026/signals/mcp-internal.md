@@ -183,3 +183,18 @@ JB flagged a tool-explosion risk on MCP during a broader MCP-vs-Public-API-V2 ar
 MCP testing strategy remains informal: Sanchit found the NPX inspector doesn't surface the goals date-range filter (though the same prompt works fine via Claude), and the team punted the "NPX inspector vs. Claude, what's our pass/fail criteria" question to a dedicated Thursday strategy session (Nellie, Tejas, JB). Nellie is separately building an MCP tool inventory and a prompt/expected-response document, and plans a Rainforest test org with correct data to support proper MCP testing.
 
 **Implication for ranking:** Testing-strategy formalization is now scheduled (Thursday) — good checkpoint to confirm whether it produces a written criteria doc, since QA capacity is currently just Nellie + Lalit splitting the ticket backlog manually.
+
+### 2026-07-08 — slack
+- **Who:** Emerson Matthews
+- **Where:** [#pod-goals](https://betterworks.slack.com/archives/CTEDNQQLS/p1783453508896099)
+- **Summary:** Emerson posted MVP Jira ticket list for MCP goal management to Nellie and Varnica: ENG-83695, ENG-83383, ENG-84574–84579 (8 tickets; mostly small due to code reuse).
+
+### 2026-07-08 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#pod-goals](https://betterworks.slack.com/archives/CTEDNQQLS/p1783469907297459)
+- **Summary:** Nellie added Emerson's list to her MCP inventory spreadsheet and scheduled a 3-person sync for tomorrow morning to align on scope.
+
+### 2026-07-08 — slack
+- **Who:** Jason Bilyeu, Emerson Matthews
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783450807240479)
+- **Summary:** JB proposed a "Quarterly Goal Prep" MCP prompt (review feedback, conversations, skills → suggest next-quarter goals); confirmed custom MCP prompts already supported in Rainforest; Emerson asked for a definition of "MCP workflow" vs. tool call for goal-suggestion scenarios.
