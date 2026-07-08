@@ -693,3 +693,30 @@ Hemant and Lalit locked the consent model for recap/prep generation: full consen
 - **Who:** Harshini Vijay
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783510224923099)
 - **Summary:** Three open design questions raised for Lalit and Anuj on Zoom connected-state behavior: (1) should manual upload be allowed when Zoom is connected? (2) what happens when two transcripts exist (Zoom + manual)? (3) confirmation needed on delete-Zoom-transcript and re-sync flow.
+
+### 2026-07-07 — Webhook gateway architecture reviewed; positioned as shared platform component (zoom)
+**Source:** Zoom — "Webhooks" 2026-07-07 (UUID E8683DD9-A5A8-409E-B39A-0B8A2D56276F)
+**Type:** architecture
+**Owner-impact:** Danish, Okan, Nellie, JB (App Platform), Sagar, Hemant
+
+Danish walked the team through the inbound webhook gateway service that AI-201's Zoom transcript ingestion depends on: an auth-proxy-managed layer that issues unique webhook URLs/credentials per vendor-org for individually-provisioned vendors (Docebo, LinkedIn Learning), but requires manual CLI provisioning for Zoom's shared-webhook/marketplace-app model. The gateway does enrichment, Redis-based deduplication, and CRC handshake for Zoom, publishing to internal Kafka topics without schema validation (deferred, to keep latency low). Okan pushed for aligning the event schema to Cloud Events standards and flagged that Zoom's shared-webhook pattern (vs. per-org webhooks used by other vendors) may need a JIRA ticket to formalize whether it's industry-standard or a one-off. Group agreed to position this as a reusable platform component, not a transcripts-only build.
+
+**Implication for ranking:** Confirms the webhook gateway is now a cross-project dependency (transcripts + future integrations), raising the bar on review requirements — JB (App Platform) and InfoSec sign-off both needed before Danish's PR merges, which could add lead time to AI-201's transcript-ingestion critical path.
+
+### 2026-07-08 — Three-level consent model locked; series-level checkbox deferred to follow-up; sensitive-flag + manual-upload flows designed (zoom)
+**Source:** Zoom — "Lalit Maharana's Zoom Meeting" 2026-07-08 (UUID 30528AE0-B600-4415-8D59-F6C9827F296A)
+**Type:** scope-decision
+**Owner-impact:** Lalit, Harshini, Anuj, AI team (sensitive-flag regeneration)
+
+Lalit, Harshini, and Anuj locked the consent model for Zoom transcript ingestion: org-level + user-level consent via the global "Connect Apps" side panel (covers all future series by default), plus a series-level "Sync meeting transcripts" checkbox (default ON, opt-out per series) — but the series-level checkbox is explicitly deferred until after core ingestion + AI insights ship, to avoid delaying delivery. Existing series get a Connect banner + confirmation pop-up rather than a full consent re-flow. A per-instance "sensitive" flag was designed: transcript is stored but never sent to AI, and if flagged post-ingestion, recap/prep get regenerated without that transcript (pending AI-team feasibility check). Manual upload when Zoom is connected only unlocks after the user deletes the Zoom transcript; multiple file uploads supported; upload/paste stays open both before and after meeting-end to avoid users forgetting.
+
+**Implication for ranking:** Two open risks worth tracking for scope creep: (1) the Zoom-vs-manual-upload race condition (simultaneous arrival) has no finalized resolution strategy, and (2) sensitive-flag-triggered regeneration of recap/prep needs AI-team sign-off — both were pushed to a Lalit/Anuj follow-up later the same day rather than resolved in this session.
+
+### 2026-07-08 — Webhook ownership resolved (India/AI team, not Integrations); JB+JZ review + InfoSec gate added; summer delivery reconfirmed (zoom)
+**Source:** Zoom — "Nellie / Lalit" 2026-07-08 (UUID 01A86199-2B52-4C03-8F03-CBAB29BE3129)
+**Type:** scope-decision + risk
+**Owner-impact:** Lalit, Nellie, Danish, Okan, JB, JZ
+
+Nellie resolved a cross-team friction point: the India/AI team (not Integrations) will own the inbound webhook implementation, closing out Okan's concern about being sidelined after his spike research. As a condition of moving forward, **JB and JZ (system architects) must both be added to the webhook PR review**, and an **InfoSec review is required before release** — formalizing the review gate already flagged in the 2026-07-07 Webhooks meeting. Lalit to nudge Danish to submit the PR and set up the review call, and to brief JB directly given the integrations team has been building without his visibility. Separately, Lalit reconfirmed to Nellie that the Zoom transcript feature is on track for summer delivery, with Sagar and Hemant doing one review round.
+
+**Implication for ranking:** Adds two named-approver gates (JB, JZ) plus InfoSec sign-off ahead of merge — consistent with the 2026-07-07 entry's flagged risk, now confirmed as a hard requirement rather than a proposal. Worth tracking whether these reviews get scheduled promptly given Danish is the sole implementation owner.

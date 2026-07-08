@@ -199,3 +199,21 @@ Nitish and Lalit confirmed the two-pass pipeline (query generation → re-rank) 
 - **Who:** Nitish Devadiga
 - **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1783492209130109)
 - **Summary:** Architecture rationale posted against LMS catalog sync: GraphQL migration blocks REST API auth needed for catalog, syncing 7k+ Udemy courses adds infra + periodic embedding jobs, Docebo is internal-only (not useful for real skills). Confirmed two-pass pipeline latency: ~10s query generation + ~30s re-ranking; enrollment status for Udemy deferred to phase 2. Real optimization path is iterative — inference servers, caching, smarter offline re-rank.
+
+### 2026-07-08 — Fake-latency UX pattern adopted to mask AI delay; optimization deferred pending NVIDIA inference release; MVP-first reaffirmed (zoom)
+**Source:** Zoom — "PDP Stand Up" 2026-07-08 (UUID 145B3FE9-9CE5-4E7E-AA3D-36FCBEC6205B)
+**Type:** scope-decision
+**Owner-impact:** Nitish, Sriram CS, Pankaj, Nataliia, Rinku, Harikrishnan
+
+Team adopted a psychological "fake latency" loading pattern to hide the ~10s AI-recommendation delay: show predetermined "Connect with a Mentor" (~2s) and "Take Courses" (~3s) steps first, then surface AI-generated suggestions once ready. Latency optimization (MTP Raptors for Gemma, ~2x speedup; scale-graph approach) is explicitly deferred — the AI team (Jay-Z) is blocked on an upcoming NVIDIA inference-server release and won't prioritize optimization work until then. Sriram reaffirmed the MVP-first sequencing already locked 2026-06-29/07-06: build remaining features now, optimize latency closer to release. Pankaj's completed front-end screen (currently staged in Rainforest) still needs design/product review before further testing to avoid rework.
+
+**Implication for ranking:** No change to the locked MVP-first/latency-fallback strategy, but adds a hard external dependency (NVIDIA release timing, outside Betterworks' control) as the gate on any future latency improvement — worth flagging if Aug 10 Gemma-4 prod date or the release date slips.
+
+### 2026-07-08 — Course-recommendation summer delivery reconfirmed to Nellie; Sagar/Hemant review round committed (zoom)
+**Source:** Zoom — "Nellie / Lalit" 2026-07-08 (UUID 01A86199-2B52-4C03-8F03-CBAB29BE3129)
+**Type:** commitment
+**Owner-impact:** Lalit, Nellie, Mitesh, Sagar, Hemant
+
+Lalit confirmed to Nellie that the PDP/course-recommendation feature remains on track for summer delivery, with Mitesh dedicated to the work and Sagar + Hemant committing to one review round before release. Reported alongside the Zoom-transcript summer confirmation in the same 1:1 (see [[ai-201-meeting-transcripts]]).
+
+**Implication for ranking:** Reaffirms delivery confidence already built up through the 07-06/07-07 architecture and latency-strategy decisions — no new scope or risk, but closes the loop with Nellie on summer commitment.
