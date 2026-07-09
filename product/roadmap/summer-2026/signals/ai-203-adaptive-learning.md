@@ -217,3 +217,13 @@ Team adopted a psychological "fake latency" loading pattern to hide the ~10s AI-
 Lalit confirmed to Nellie that the PDP/course-recommendation feature remains on track for summer delivery, with Mitesh dedicated to the work and Sagar + Hemant committing to one review round before release. Reported alongside the Zoom-transcript summer confirmation in the same 1:1 (see [[ai-201-meeting-transcripts]]).
 
 **Implication for ranking:** Reaffirms delivery confidence already built up through the 07-06/07-07 architecture and latency-strategy decisions — no new scope or risk, but closes the loop with Nellie on summer commitment.
+
+### 2026-07-09 — slack
+- **Who:** Jason Zhang
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1783554539837789)
+- **Summary:** Jason Zhang pushed hard for embeddings-based course retrieval over LLM query generation: confirmed course data (name + description) is retrievable from Udemy/Docebo; argued embeddings sidestep org-categorization unreliability and are deterministic, sub-100ms, and testable — vs. ~35s for the two LLM phases; framed the LLM's role as mapping free-text goals → skills (generative step), not retrieval (similarity step). Proposed adding an embeddings comparison cell to Nitish's spike notebook alongside LLM and interleave baselines + a Docebo sandbox check. Also flagged a hardcoded API key in the Colab notebook that needs rotation before further sharing.
+
+### 2026-07-09 — slack
+- **Who:** Rinku Ravi
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1783575316125339)
+- **Summary:** Acknowledged Jason Zhang's embeddings proposal and confirmed Nitish will investigate with JZ.

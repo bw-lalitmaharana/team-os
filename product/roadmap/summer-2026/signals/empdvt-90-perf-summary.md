@@ -81,3 +81,13 @@
 - **Who:** Aakansha Srivastava
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1783487894025249)
 - **Summary:** Follow-up on ENG-84564 (Teacher Retirement System of Texas): confirmed prod customer-facing issue; fix is to regenerate performance summary for the affected org; Tejas and Bhavesh Vaviya looped in for execution.
+
+### 2026-07-09 — slack
+- **Who:** n8n-e2e-notifier (bot)
+- **Where:** [#nextgen-haven-tests](https://betterworks.slack.com/archives/C09JQFLK5D1/p1783585809007119)
+- **Summary:** E2E test failures detected on commit "chore(ENG-80935): Gemma 4 implementation for Performance Summary (#6398)"; integration pod (Harikrishnan S), feedback pod (Manish Tomar), and AI pod (Tejas S, Riya Malik) all tagged for investigation.
+
+### 2026-07-09 — slack
+- **Who:** Paul Agustin
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1783597620191659)
+- **Summary:** Brief mention in a product discussion thread: "Don't we include it in the AI Performance Summary" — signals Performance Summary scope is surfacing in broader product conversations.

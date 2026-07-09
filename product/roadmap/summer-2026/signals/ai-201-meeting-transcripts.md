@@ -720,3 +720,13 @@ Lalit, Harshini, and Anuj locked the consent model for Zoom transcript ingestion
 Nellie resolved a cross-team friction point: the India/AI team (not Integrations) will own the inbound webhook implementation, closing out Okan's concern about being sidelined after his spike research. As a condition of moving forward, **JB and JZ (system architects) must both be added to the webhook PR review**, and an **InfoSec review is required before release** — formalizing the review gate already flagged in the 2026-07-07 Webhooks meeting. Lalit to nudge Danish to submit the PR and set up the review call, and to brief JB directly given the integrations team has been building without his visibility. Separately, Lalit reconfirmed to Nellie that the Zoom transcript feature is on track for summer delivery, with Sagar and Hemant doing one review round.
 
 **Implication for ranking:** Adds two named-approver gates (JB, JZ) plus InfoSec sign-off ahead of merge — consistent with the 2026-07-07 entry's flagged risk, now confirmed as a hard requirement rather than a proposal. Worth tracking whether these reviews get scheduled promptly given Danish is the sole implementation owner.
+
+### 2026-07-09 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783587824644329)
+- **Summary:** Resolved Harshini's 3 open design questions from Jul 8: (1) manual upload is the default state; (2) when Zoom is connected it takes precedence — multiple Zoom transcripts shown via a dropdown to switch between them; (3) delete = soft delete (hide from user, not hard delete). Also raised open question to Hemant and Sagar on how the inference layer should handle 2 simultaneous Zoom transcripts — Anuj can pass multiple S3 links via the event payload.
+
+### 2026-07-09 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783587574873209)
+- **Summary:** Called for testing on real prod data before committing to a confidence-threshold cutoff for AI output display — decision on threshold deferred until real-data quality is observed.
