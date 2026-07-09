@@ -198,3 +198,21 @@ MCP testing strategy remains informal: Sanchit found the NPX inspector doesn't s
 - **Who:** Jason Bilyeu, Emerson Matthews
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783450807240479)
 - **Summary:** JB proposed a "Quarterly Goal Prep" MCP prompt (review feedback, conversations, skills → suggest next-quarter goals); confirmed custom MCP prompts already supported in Rainforest; Emerson asked for a definition of "MCP workflow" vs. tool call for goal-suggestion scenarios.
+
+### 2026-07-08 — MCP smoke tests scoped to a single example test in Quality Automation Services repo (zoom)
+**Source:** Zoom — "OKR Team - Daily Standup" 2026-07-08 (UUID 9093DC61-F910-4628-9444-6B7F26C0E5AC)
+**Type:** scope-decision
+**Owner-impact:** Jason Bilyeu, Nellie, Tejas, Sanchit
+
+MCP smoke tests will live in the Quality Automation Services repo under a new "MCP tests" folder; the original spike was renamed "MCP smoke test" to reflect its narrower scope. Approach settled on a single example test (the "Who Am I" tool) using a static public API token, using dynamic org creation if already available in the QA suite (Sanchit to verify). JB to write the example test plus a scheduled GitHub Action; Nellie to post the approach to the app-platform Slack channel for Tejas's feedback. OAuth flow testing for MCP was flagged as likely needing a separate spike given browser-interaction complexity.
+
+**Implication for ranking:** this is the first concrete automated-test coverage plan for MCP tools — worth tracking as a dependency before broader MCP tool expansion.
+
+### 2026-07-09 — Nellie's MCP tool inventory/design research shared with AI pod (zoom)
+**Source:** Zoom — "AI Platform Product Acceptance" 2026-07-09 (UUID 85644A0C-818C-4E67-85E8-EF2383CC16E6)
+**Type:** architecture
+**Owner-impact:** Nellie, Tejas, Lalit
+
+Nellie is researching MCP tool/framework design best practices (context engineering for AI agents, testing methodology) and built a spreadsheet inventorying current MCP tools, distinguishing deprecated wrapper tools ("Lisco"-prefixed) from new native tools (prefixed "Core," "conversation," or "goals"). She proposed a separate tool for team members rather than folding it into the existing search-teams tool, with pagination instead of returning all members at once for large teams. Nellie will share the spreadsheet and the underlying Anthropic design resources with Tejas and Lalit; Tejas will review after returning from the offsite.
+
+**Implication for ranking:** the tool-inventory work is a precursor to any MCP tool consolidation/cleanup — relevant context for the next MCP-adjacent Jira grooming pass, though this is internal tooling housekeeping rather than a scored feature.

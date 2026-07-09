@@ -730,3 +730,30 @@ Nellie resolved a cross-team friction point: the India/AI team (not Integrations
 - **Who:** Lalit Maharana
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783587574873209)
 - **Summary:** Called for testing on real prod data before committing to a confidence-threshold cutoff for AI output display — decision on threshold deferred until real-data quality is observed.
+
+### 2026-07-09 — Live drop/rejoin test surfaces unresolved multi-transcript handling for disconnected participants (zoom)
+**Source:** Zoom — "Lalit Maharana's Zoom Meeting" 2026-07-09 (UUID 58375598-8D6D-4FB8-AEF3-1A38D65BE027)
+**Type:** open-question
+**Owner-impact:** Lalit, Sagar, Hemant
+
+Lalit, Hemant, and Sagar live-tested the scenario where a participant drops and rejoins a Zoom meeting, to check whether the pipeline correctly merges or splits the resulting transcripts. No resolution was confirmed in this session — it's unclear whether to use the same transcript code or create separate records for drop/rejoin events. Transcript input via paste/upload and UI drop-down access were reconfirmed as already working; Sagar to verify whether a second transcript is captured correctly after the test drop/rejoin.
+
+**Implication for ranking:** Transcript merge/split behavior on disconnect is a real edge case for AI-201 pipeline design — ties directly to the S3-link deduplication question raised in the same day's ticket-reorg session (see entry below) and should be resolved together, ideally before DB schema (ticket 282135) is finalized.
+
+### 2026-07-09 — Confirmed: multi-segment recordings each produce separate transcripts; host reassignment not required with one participant remaining (zoom)
+**Source:** Zoom — "Lalit Maharana's Zoom Meeting" 2026-07-09 (UUID EE7E238F-B148-4AA3-BBEA-65434FD93331)
+**Type:** architecture
+**Owner-impact:** Sagar, Lalit, Hemant
+
+Follow-up live test to the drop/rejoin session above confirmed two concrete pipeline-relevant behaviors: (1) multiple short start/stop recordings within one meeting each generate a separate transcript, and (2) host reassignment is not required when the host drops as long as at least one other participant remains on the call. This is a firm design constraint — the AI-201 pipeline must expect and reconcile multiple transcript segments per meeting rather than assuming a strict one-to-one mapping.
+
+**Implication for ranking:** Directly informs the multi-transcript reconciliation logic still open from the prior test — no scope change, but narrows the open question to "how to merge known multi-segment transcripts" rather than "whether they occur."
+
+### 2026-07-09 — Jira ticket breakdown reorganized for the transcript-processing pipeline (zoom)
+**Source:** Zoom — "Lalit Maharana's Zoom Meeting" 2026-07-09 (UUID FCE75A4F-7D35-4338-ABD1-0CEC2715CBAD)
+**Type:** scope-decision
+**Owner-impact:** Sagar, Lalit, Hemant, Anuj
+
+Hemant, Lalit, and Sagar reorganized the Jira ticket structure for the meeting-transcript pipeline: "Read from S3 and Process Transcript" combined into one ticket; ticket 82390 renamed to "Meeting Recap Generation"; Agenda Topic Extraction, Goal/Recommendation Extraction, and Summary/Action Item Extraction confirmed as distinct tickets; the callback-endpoint ticket renamed to "Update Endpoint"; infrastructure/pipeline work folded into the DB Schema Design ticket (282135) rather than split out; PII handling stays a standalone ticket for now. Open question on structuring the S3 link/meeting-ID folder for multiple submissions per meeting — to be deep-dived with Anuj.
+
+**Implication for ranking:** Ticket structure now reflects actual pipeline stages; the S3-link-dedup logic here is the same open question as the drop/rejoin transcript-merge issue above and should be resolved as one piece of work, not two.
