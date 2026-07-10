@@ -30,3 +30,21 @@ Three pending auth-policy PRs are blocked — disabling "squares" in sysadmin cu
 The AI pre-processing DAG has been running ~11.5 days (full initial load, not delta sync), with a backlog of runs queued; Tejas proposed temporarily dropping frequency from weekly to bi-weekly until it stabilizes, pending Nellie/JZ confirmation. Separately, the existing goal quality report only supports Legacy goals, not NextGen — a gap that will surface as a customer issue once orgs (e.g. Sony) migrate to NextGen and request the report. Nellie to communicate the Legacy-only limitation to CS/Christina and design a self-service UI for the report in the admin reports section, to be built by the AI team using the WA API (Haven-admin first, Legacy support later).
 
 **Implication for ranking:** No current Aha/Jira item tracks the goal-quality-report NextGen gap or a self-service UI — worth raising with Nellie as a potential net-new roadmap item once the ticket is created, since it's customer-facing and has already surfaced via a live customer (Sony).
+
+### 2026-07-10 — Manager Copilot capstone: engagement + Betterworks data pipeline scoped, prototype due next Thursday (zoom)
+**Source:** Zoom — "Capstone Project Connect" 2026-07-10 (UUID ED663B99-252E-4FBB-9F76-0296416CFFE8)
+**Type:** scope-decision
+**Owner-impact:** Lalit, Sharan, Gauri Thakur, Paul Agustin, Varnika Garg
+
+Team locked scope for a standalone "Manager Copilot" proof-of-concept (personal capstone project, not a Summer roadmap item): one manager plus several direct reports with synthetic engagement/goals/feedback/recognition data, an AI layer split into three roles (sensor / historian / writing-assistant) to generate coaching recommendations, and a homepage-card UI (Gauri). Flagged that the persona/memory layer is PII and needs GDPR-visibility for employees if it goes beyond prototype. Paul will stand up a local DB; target is a clickable prototype for next Thursday's presentation.
+
+**Implication for ranking:** Not a roadmap item — personal/capstone exploration — but the sensor/historian/writing-assistant AI-layer pattern and the PII/GDPR flag on memory layers may be reusable if a coaching-copilot concept is later pitched into Summer/Fall planning.
+
+### 2026-07-10 — Manager Copilot capstone: inference-layer schedule + Saturday sync to finalize flow before handoff to design/backend (zoom)
+**Source:** Zoom — "Zoom Meeting" 2026-07-10 (UUID CAC219E0-BC74-4646-BE0D-F3C2554B6DDC)
+**Type:** commitment
+**Owner-impact:** Lalit, Sharan, Gauri Thakur, Paul Agustin
+
+Follow-on 1:1 between Lalit and Sharan on the same Manager Copilot capstone: agreed the persona-extraction pipeline (persona sheets → synthetic check-ins/1:1 notes → evidence extraction → core-persona objects) will run on a schedule or on a data-change trigger. Lalit committed to reviewing the eval step (step 5) and bringing an integration proposal to a short Saturday sync with Sharan, after which the finalized flow hands off to Gauri (design) and Paul (backend/DB).
+
+**Implication for ranking:** Same as above — personal/capstone scope, no roadmap item. No action needed unless the concept later gets pitched as a real feature.

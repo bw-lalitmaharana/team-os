@@ -241,3 +241,21 @@ PDP team standardized proficiency scoring to three fixed buckets (0–33 beginne
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f4befdf6e86945 — "Meeting assets for PDP Stand Up are ready!"
 - **Summary:** Friday PDP standup recap available; team discussed progress on AI feature development with Jennifer (identity unclear from snippet) — India team offsite week begins Mon Jul 13 so this is the last sync before async mode.
+
+### 2026-07-10 — Skill-graph mentor-recommendation flow scoped for AI hackathon (zoom)
+**Source:** Zoom — "Hackathon : Skill graph" 2026-07-10 (UUID 9A5206F6-96F8-4D81-8479-621A6629F6E7)
+**Type:** architecture
+**Owner-impact:** Lalit, Neetesh Kaushik, Dasharath, Manish Tomar, Tanveer Farooq
+
+Team scoped a hackathon build of mentor recommendations on top of an existing skill-graph/talent-graph database (skills + user-profile nodes, semantic-similarity edges) that Neetesh already has running — the same graph substrate AI-203's mentor-matching plan calls for. Demo flow: user picks a target position → required Lightcast skills extracted → skill gaps identified → mentors ranked per skill (same-level-or-senior only), with no request/approval friction — contact goes straight to a DM or a pre-filled 1:1. Scope is hard-coded to 2–3 demo roles; the hardest open piece is mapping free-text JD descriptions to Lightcast skill IDs via LLM.
+
+**Implication for ranking:** Prototype validates AI-203's "skill graph with semantic embeddings" mentor-matching approach earlier than planned — worth flagging to Nellie as a possible head start on that workstream if the hackathon output is reusable.
+
+### 2026-07-10 — PDP standup: LLM struggles on proficiency differentiation in query generation; re-ranking with LMS course data works better (zoom)
+**Source:** Zoom — "PDP Stand Up" 2026-07-10 (UUID 712DE033-C74B-4BC5-B6CB-0BC77DB56C73)
+**Type:** risk
+**Owner-impact:** Nitish Devadiga, Nataliia Savenko, Pankaj Lohmor
+
+Nitish's updated notebooks show the LLM doesn't reliably differentiate between proficiency levels during query generation (it defaults to base world-knowledge associations, e.g. suggesting advanced React content regardless of learner level), but accuracy improves once results are re-ranked against external LMS (LinkedIn) course data. Team also decided to keep the current skeleton/shimmer loading UI as implemented and add PDP-type goal filters plus edit forms to the goals table; the regular standup converts to a refinement session next week once Pankaj is back from leave.
+
+**Implication for ranking:** Confirms AI-203's hybrid strategy (LLM generation + re-ranking) is the right call — query-generation alone under-performs on proficiency targeting. No new risk to the Aug 10 Gemma-4 date, but query-generation quality may warrant a second look post-launch.
