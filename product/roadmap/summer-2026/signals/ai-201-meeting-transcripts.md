@@ -757,3 +757,18 @@ Follow-up live test to the drop/rejoin session above confirmed two concrete pipe
 Hemant, Lalit, and Sagar reorganized the Jira ticket structure for the meeting-transcript pipeline: "Read from S3 and Process Transcript" combined into one ticket; ticket 82390 renamed to "Meeting Recap Generation"; Agenda Topic Extraction, Goal/Recommendation Extraction, and Summary/Action Item Extraction confirmed as distinct tickets; the callback-endpoint ticket renamed to "Update Endpoint"; infrastructure/pipeline work folded into the DB Schema Design ticket (282135) rather than split out; PII handling stays a standalone ticket for now. Open question on structuring the S3 link/meeting-ID folder for multiple submissions per meeting — to be deep-dived with Anuj.
 
 **Implication for ranking:** Ticket structure now reflects actual pipeline stages; the S3-link-dedup logic here is the same open question as the drop/rejoin transcript-merge issue above and should be resolved as one piece of work, not two.
+
+### 2026-07-10 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783650240940589)
+- **Summary:** Nellie raised consent clarification question: whether BW-level user consent (separate from Zoom OAuth) is required for transcript processing in the UI, and whether it extends to manually uploaded transcripts — open consent architecture question requiring Lalit/Anuj response.
+
+### 2026-07-10 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#pod-meetings](https://betterworks.slack.com/archives/C035AAZ5P6H/p1783658488772859)
+- **Summary:** Standup update: working on transcript validation and speaker attribution; finalized Zoom user consent schema with Hiten Khuman; Haven PRs merged after Ryan Mulready approval; code review of Hiten's authn proxy integration for Zoom pending.
+
+### 2026-07-10 — slack
+- **Who:** Tanveer Farooq
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783667099410749)
+- **Summary:** Full project status for Jul 10: Integrations finalizing repo PR deployment (needs App Platform review); Meetings team working on manual upload/copy-paste, transcript validation, speaker attribution, authn proxy event consumption, and user consent; AI team refining transcript processing requirements; UI/UX deferred until post-hackathon (Mahesh's workflow); non-happy-flow inference testing underway with prod data via Maher guidance.

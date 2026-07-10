@@ -236,3 +236,8 @@ Lalit confirmed to Nellie that the PDP/course-recommendation feature remains on 
 PDP team standardized proficiency scoring to three fixed buckets (0–33 beginner, 33–66 intermediate, 66–100 advanced) for LLM generation regardless of org-level proficiency-level configuration, keeping the underlying skill score model unchanged (Betterworks 0–100 scale). Team confirmed local course-catalog + vector search (proposed by JC/Daisy to cut latency) is deferred out of v1 due to architectural cost — to be revisited as a post-launch improvement. Full India product/eng team offsite next week (Mon–Fri) means no standups; async updates will substitute.
 
 **Implication for ranking:** vector-search deferral keeps v1 scope contained — no change to summer timeline reconfirmed 2026-07-08; PDP Springboard board (owned by Eden) still not created as of this standup, a minor process risk to watch.
+
+### 2026-07-10 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f4befdf6e86945 — "Meeting assets for PDP Stand Up are ready!"
+- **Summary:** Friday PDP standup recap available; team discussed progress on AI feature development with Jennifer (identity unclear from snippet) — India team offsite week begins Mon Jul 13 so this is the last sync before async mode.

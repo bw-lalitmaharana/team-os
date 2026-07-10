@@ -216,3 +216,28 @@ MCP smoke tests will live in the Quality Automation Services repo under a new "M
 Nellie is researching MCP tool/framework design best practices (context engineering for AI agents, testing methodology) and built a spreadsheet inventorying current MCP tools, distinguishing deprecated wrapper tools ("Lisco"-prefixed) from new native tools (prefixed "Core," "conversation," or "goals"). She proposed a separate tool for team members rather than folding it into the existing search-teams tool, with pagination instead of returning all members at once for large teams. Nellie will share the spreadsheet and the underlying Anthropic design resources with Tejas and Lalit; Tejas will review after returning from the offsite.
 
 **Implication for ranking:** the tool-inventory work is a precursor to any MCP tool consolidation/cleanup — relevant context for the next MCP-adjacent Jira grooming pass, though this is internal tooling housekeeping rather than a scored feature.
+
+### 2026-07-10 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783624483528149)
+- **Summary:** Initiated repo rename from `public-api-mcp` → `public-mcp` via corp.betterworks.co PR #253 — signals ongoing repo housekeeping and consolidation of the public MCP surface.
+
+### 2026-07-10 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-devops](https://betterworks.slack.com/archives/CHL819EM7/p1783626857381719)
+- **Summary:** ECR deployment broken after repo rename — new repo name `public-mcp` not yet created in ECR registry (error: "The repository with name 'public-mcp' does not exist"); asked DevOps for guidance on whether a corp repo rename requires a separate ECR creation step.
+
+### 2026-07-10 — slack
+- **Who:** Mary Makris
+- **Where:** [#marketing-ops-marketing-requests](https://betterworks.slack.com/archives/C0A2NBEDDHV/p1783631972278909)
+- **Summary:** MCP Landing Page request submitted to Marketing Ops — Lucas wireframing the page (PMM draft linked); plan is an ungated product tour → Book a Demo/Qualified scheduler at end; email-only capture being tested on back end.
+
+### 2026-07-10 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783634835858379)
+- **Summary:** Opened PR #78 in public-api-mcp to fix deprecated MCP tool names — active housekeeping ahead of public launch.
+
+### 2026-07-10 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#ai-innovation-lab](https://betterworks.slack.com/archives/C0AML6FH22H/p1783645549047309)
+- **Summary:** Slack launched native MCP support in Slackbot; Nellie tested connecting it to the Betterworks Rainforest MCP but the BW Slack instance does not yet support calling tools from Slackbot (possibly plan restriction); flagged Ash to investigate — potential path to the Slackbot/MCP connector Nellie steered Lalit toward on 2026-06-29.
