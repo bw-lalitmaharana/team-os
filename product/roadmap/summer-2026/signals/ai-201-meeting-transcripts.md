@@ -768,6 +768,16 @@ Hemant, Lalit, and Sagar reorganized the Jira ticket structure for the meeting-t
 - **Where:** [#pod-meetings](https://betterworks.slack.com/archives/C035AAZ5P6H/p1783658488772859)
 - **Summary:** Standup update: working on transcript validation and speaker attribution; finalized Zoom user consent schema with Hiten Khuman; Haven PRs merged after Ryan Mulready approval; code review of Hiten's authn proxy integration for Zoom pending.
 
+### 2026-07-13 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM (self)](https://betterworks.slack.com/archives/D0B0W25MMV2/p1783912048564419)
+- **Summary:** Week-of-Jul-13 focus plan allocates T1 (meeting transcripts) blocks: finalize recap/prep key data fields for Sagar (Mon Jul 13), write visibility-sharing decisions doc (Wed Jul 15), and resolve webhook routing (single vs per-org) with Pankaj+Danish + decide transcript TTL policy with Anuj (Thu Jul 16).
+
+### 2026-07-13 — gmail
+- **Who:** Tanveer Farooq
+- **Where:** Email — "Canceled event with note: Daily Scrum | Meeting Transcript @ Tue Jul 14, 2026" (thread 19f599c372e7eb24)
+- **Summary:** Daily Scrum | Meeting Transcript standup canceled for Jul 14 — reason: "Cancelling due to meetup" (India team hackathon offsite week begins Jul 13).
+
 ### 2026-07-10 — slack
 - **Who:** Tanveer Farooq
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783667099410749)

@@ -241,3 +241,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Nellie LeMonier
 - **Where:** [#ai-innovation-lab](https://betterworks.slack.com/archives/C0AML6FH22H/p1783645549047309)
 - **Summary:** Slack launched native MCP support in Slackbot; Nellie tested connecting it to the Betterworks Rainforest MCP but the BW Slack instance does not yet support calling tools from Slackbot (possibly plan restriction); flagged Ash to investigate — potential path to the Slackbot/MCP connector Nellie steered Lalit toward on 2026-06-29.
+
+### 2026-07-13 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM (self)](https://betterworks.slack.com/archives/D0B0W25MMV2/p1783912048564419)
+- **Summary:** Week-of-Jul-13 focus plan slots Thu Jul 16 for "verify ENG-69839 Jira link; transition ENG-76815 → Done; create Public MCP Server epic if missing", and Fri Jul 17 for "decide whether to own MCP Slackbot v2; scope notifications-batching UI".

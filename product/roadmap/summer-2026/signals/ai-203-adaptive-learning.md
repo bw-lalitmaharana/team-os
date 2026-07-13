@@ -259,3 +259,8 @@ Team scoped a hackathon build of mentor recommendations on top of an existing sk
 Nitish's updated notebooks show the LLM doesn't reliably differentiate between proficiency levels during query generation (it defaults to base world-knowledge associations, e.g. suggesting advanced React content regardless of learner level), but accuracy improves once results are re-ranked against external LMS (LinkedIn) course data. Team also decided to keep the current skeleton/shimmer loading UI as implemented and add PDP-type goal filters plus edit forms to the goals table; the regular standup converts to a refinement session next week once Pankaj is back from leave.
 
 **Implication for ranking:** Confirms AI-203's hybrid strategy (LLM generation + re-ranking) is the right call — query-generation alone under-performs on proficiency targeting. No new risk to the Aug 10 Gemma-4 date, but query-generation quality may warrant a second look post-launch.
+
+### 2026-07-13 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM (self)](https://betterworks.slack.com/archives/D0B0W25MMV2/p1783912048564419)
+- **Summary:** Week-of-Jul-13 focus plan allocates T2 (adaptive learning / skill matching) blocks: write spike stories per component (skill graph, pre-processing, runtime generation) (Tue Jul 14), contact Jason Seitz (Talent) re privacy-preserving skill-search API and validate public-content sourcing with CS (Wed Jul 15), and start Slack thread with Nellie/Chao/JV on mentor matching + escalate unassigned mentor-ranking dev owner (Fri Jul 17).
