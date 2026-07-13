@@ -11,6 +11,20 @@ Single source of truth for Lalit's 2h deep-work focus blocks, **Weekly plan + Da
 
 _Newest week first. Each new week block is inserted directly under this line._
 
+### Week of 2026-07-13
+| Day | Time (IST) | Track | Focus |
+|---|---|---|---|
+| Mon Jul 13 | 09:00–11:00 | T6 | Hackathon — connect w/ Neetesh, refine + document requirements (due Jul 15) |
+| Mon Jul 13 | 14:30–16:30 | T1 | Transcripts — finalize recap/prep fields for Sagar |
+| Tue Jul 14 | 09:00–11:00 | T6 | Hackathon — review Neetesh's draft problem statement; prep demo |
+| Tue Jul 14 | 14:30–16:30 | T2 | PDP — write spike stories per component |
+| Wed Jul 15 | 09:00–11:00 | T1 | Transcripts — write visibility-sharing decisions doc |
+| Wed Jul 15 | 14:30–16:30 | T2 | PDP — Talent API contact + public-content sourcing w/ CS |
+| Thu Jul 16 | 09:00–11:00 | T3 | MCP — verify ENG-69839; transition ENG-76815 -> Done |
+| Thu Jul 16 | 14:30–16:30 | T1 | Transcripts — webhook routing w/ Pankaj+Danish; TTL policy w/ Anuj |
+| Fri Jul 17 | 09:00–11:00 | T4 | Slackbot v2 — ownership decision; scope notifications-batching UI |
+| Fri Jul 17 | 14:30–16:30 | T2 | PDP — mentor-matching Slack thread; escalate dev owner gap |
+
 ### Week of 2026-07-06
 | Day | Time (IST) | Track | Focus |
 |---|---|---|---|
