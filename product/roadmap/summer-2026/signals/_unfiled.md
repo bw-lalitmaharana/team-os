@@ -48,3 +48,12 @@ Team locked scope for a standalone "Manager Copilot" proof-of-concept (personal 
 Follow-on 1:1 between Lalit and Sharan on the same Manager Copilot capstone: agreed the persona-extraction pipeline (persona sheets → synthetic check-ins/1:1 notes → evidence extraction → core-persona objects) will run on a schedule or on a data-change trigger. Lalit committed to reviewing the eval step (step 5) and bringing an integration proposal to a short Saturday sync with Sharan, after which the finalized flow hands off to Gauri (design) and Paul (backend/DB).
 
 **Implication for ranking:** Same as above — personal/capstone scope, no roadmap item. No action needed unless the concept later gets pitched as a real feature.
+
+### 2026-07-13 — BetterBrain demo: internal Guru replacement, feedback loop and MCP exposure raised as open questions (zoom)
+**Source:** Zoom — "BetterBrain Demo" 2026-07-13 (UUID E6883F55-1A7F-4997-8768-B0641A214260)
+**Type:** commitment
+**Owner-impact:** Paul Agustin, Balram Agnihotri, Nitish Devadiga, Sweta Kande (engineering support ask)
+
+Paul Agustin demoed BetterBrain, a Codex-scheduled pipeline that scrapes Aha, Confluence, and Slack (#product/#support/#engage-product) daily into versioned "product knowledge records" (JSON, with confidence scores and tracked contradictions/open questions), replacing an unconfigured Guru agent that had been giving wrong/bloated answers. Sweta asked whether a thumbs-up/down feedback loop could feed back into confidence scoring; Paul agreed it's wanted and referenced work Balram has been doing toward a native Slack agent front-end (dropping Guru as the UI). Paul is open to handing off/pairing on the repo and floated exposing BetterBrain via MCP as a future customer-facing support agent. Sweta is steering SE1/SE2 engineers toward this as an AI-impact project.
+
+**Implication for ranking:** Not a Summer 2026 roadmap item — internal tooling — but worth watching: an MCP-exposed BetterBrain-as-support-agent would sit adjacent to the MCP-internal work in [[mcp-internal]] if it ever gets customer-facing scope.
