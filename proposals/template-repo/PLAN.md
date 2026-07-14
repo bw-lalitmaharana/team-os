@@ -1,6 +1,6 @@
-# Spin out `team-os` into a public starter repo — plan (FOR REVIEW)
+# Spin out `team-os` into a public starter repo — plan (SHIPPED)
 
-**Status:** **BUILT & VERIFIED — awaiting your one-click publish** (§10). Decisions locked per your "go with recommendations": name `pm-os-starter` · MIT · personal GitHub · advanced skills shipped scrubbed & active · private-until-you-flip-public. Phases 1–2 are done and the clean tree scans CLEAN (incl. negative tests). Phase 3 (repo creation) is blocked only because this session's GitHub token is scoped to `team-os` and can't create repos — so **you** create the empty repo and push the packaged tree. Builds on `scripts/new-team-os.sh` (clean generator), `scripts/scan-pii.sh` (hardened leak scanner), `scripts/scrub-skills.sh` (skill sanitizer).
+**Status:** **✅ LIVE** at https://github.com/bw-lalitmaharana/pm-os-starter — public, "Use this template" enabled, PII-scan CI green. Decisions locked per your "go with recommendations": name `pm-os-starter` · MIT · personal GitHub · advanced skills shipped scrubbed & active. Published 2026-07-14; guided onboarding merged same day (PR #1). Full launch record in §11. Builds on `scripts/new-team-os.sh` (clean generator), `scripts/scan-pii.sh` (hardened leak scanner), `scripts/scrub-skills.sh` (skill sanitizer).
 
 ---
 
@@ -168,3 +168,27 @@ git push -u origin main
 The PII-scan Action runs on that first push — confirm it's green, eyeball the repo once, then flip it **public** in Settings when you're satisfied. Enable **Settings → Template repository** so others can "Use this template."
 
 **Reproducing the build here:** `new-team-os.sh <dir>` → copy the advanced skills in (loose, no `.skill` binaries) → `scrub-skills.sh <dir>` → `scan-pii.sh <dir>` (CLEAN) → add docs + CI. If you want a single `build-starter.sh` that does all of it in one command, say so and I'll add it.
+
+---
+
+## 11. Launch record (2026-07-14) — SHIPPED
+
+The template is **live and public**: https://github.com/bw-lalitmaharana/pm-os-starter
+
+**How Phase 3 actually resolved.** `create_repository` stayed blocked (session token scoped to `team-os`), so Lalit created the empty repo and pushed by hand from his Mac. Two snags surfaced and were fixed in the process:
+- **macOS bash 3.2 incompatibility.** `scan-pii.sh` used a `declare -A` associative array (bash 4+); macOS ships bash 3.2 as `/bin/bash`, so the scanner aborted with `names: unbound variable` on every Mac. Rewrote the marker groups as parallel indexed arrays — behavior identical, now portable. Committed to `team-os` as `a27009b`.
+- **Local tarball friction** (Safari auto-unzip, zsh not stripping inline `#` comments) — walked through, resolved. Not a repo issue.
+
+Sequence that went live: `git init -b main` → empty private GitHub repo → push → PII-scan Action green → flipped **public** + enabled **Template repository**.
+
+**Then: guided onboarding (PR #1, merged).** The original template made initialization a manual ~40-token placeholder hunt. Replaced with a Claude-driven flow:
+- **`/onboard` command** — interviews the new owner (name, company, role, manager, collaborators, first focus area, integrations), fills the identity-level placeholders across root + area `CLAUDE.md`, scaffolds their first `product/<area>/`, prunes `.mcp.json`, re-scans. Idempotent.
+- **`SessionStart` greeting hook** (`greet-fresh-install.sh`) — detects the un-personalized state and nudges first-timers to run `/onboard`; silent once set up.
+- QUICKSTART §3 + root `CLAUDE.md` updated to lead with `/onboard`.
+- Built and PII-scanned in this workspace's scratchpad, then committed **directly from a session clone** of `pm-os-starter` (the repo was added to session scope via `add_repo`), pushed as branch `add-guided-onboarding`, opened as PR #1, merged by Lalit.
+
+**First-time user flow now:** Use this template → open in Claude Code → greeted → `/onboard` → answer a few questions → personalized OS → `/mcp` to connect tools. Initialization went from placeholder-hunt to guided interview.
+
+**Still manual (by design):** repo description + topics are UI-only (no MCP tool to set them). Suggested values handed to Lalit for paste — description: *"A Claude Code operating system for product managers — specs, roadmap, meeting extraction, and a learning loop, as a personalizable template."*; topics: `claude-code`, `product-management`, `ai-agents`, `template`, `pm-tools`, `knowledge-management`.
+
+**Note:** the `pm-os-starter` clone lives at `/workspace/pm-os-starter` in-session and is **not** part of `team-os` — it's a separate repo with its own history, exactly as §1 intended.
