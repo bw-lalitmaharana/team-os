@@ -77,9 +77,9 @@
 <h1>team-os</h1>
 <p class="meta">
   <strong>Betterworks PM Operating System</strong> &nbsp;·&nbsp;
-  <span class="pill pill-version">v0.1</span> &nbsp;·&nbsp;
+  <span class="pill pill-version">v0.2</span> &nbsp;·&nbsp;
   <span class="pill pill-live">Live</span> &nbsp;·&nbsp;
-  <strong>Last updated:</strong> 2026-05-14
+  <strong>Last updated:</strong> 2026-07-14
 </p>
 
 <p>
@@ -125,11 +125,13 @@
     <tr><td><code>.claude/skills/</code></td><td>Workflow playbooks (PRD, sense-backlog, audit-context, etc.) — load on invocation</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
     <tr><td><code>.claude/commands/</code></td><td>Slash commands — <code>/my-actions</code>, <code>/meeting-debrief</code>, <code>/write-prd</code>, etc.</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
     <tr><td><code>.claude/hooks/</code></td><td>Event-driven scripts that filter or guard context</td><td>—</td></tr>
-    <tr><td><code>product/</code></td><td>Per-area specs, roadmap ledgers, signals</td><td>Mixed</td></tr>
+    <tr><td><code>.claude/local-model-routines.md</code></td><td>Concept doc — running routines on local models at Claude-parity (Aegis)</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>product/</code></td><td>Per-area PRDs (<code>meeting-transcripts/</code>), roadmap ledgers + signals (<code>roadmap/</code>)</td><td>Mixed</td></tr>
+    <tr><td><code>automation/</code></td><td>Aegis — the local agentic runtime that reads/writes this repo (<code>CLAUDE.md</code> + <code>aegis/PLAN.md</code>)</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
     <tr><td><code>knowledge/</code></td><td>Learning loop — rules, hypotheses, observations per domain</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
-    <tr><td><code>decisions/</code></td><td>Decision journal — ADRs for PM decisions</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
-    <tr><td><code>ops/</code></td><td>Sprint cadence, meeting notes, daily briefs, team rituals</td><td>Mixed</td></tr>
-    <tr><td><code>analytics/</code></td><td>Metric definitions, audit reports, playbooks</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>decisions/</code></td><td>Decision journal — ADRs for PM decisions (D / CD / MD / ZD series)</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
+    <tr><td><code>ops/</code></td><td>Sprint cadence, <code>meeting-notes/</code>, <code>daily/</code> briefs, <code>focus/</code> tracker, team rituals</td><td>Mixed</td></tr>
+    <tr><td><code>analytics/</code></td><td>Metric definitions, <code>context-audit/</code> reports, playbooks</td><td><span class="pill pill-tier2">Tier-2</span></td></tr>
     <tr><td><code>team/</code></td><td>Roster, Slack channels, who-does-what</td><td>Mixed</td></tr>
   </tbody>
 </table>
@@ -160,15 +162,19 @@
   <thead><tr><th>Name</th><th>Trigger</th><th>Purpose</th></tr></thead>
   <tbody>
     <tr><td><code>prd-agentic</code></td><td>via <code>/write-prd</code></td><td>Draft Markdown PRDs with stable IDs, EARS acceptance criteria, agent-card.json</td></tr>
-    <tr><td><code>sense-backlog</code></td><td><code>/sense-backlog &lt;release&gt;</code></td><td>Refresh release working ledger from Aha + Jira + Confluence + Slack signal</td></tr>
-    <tr><td><code>sync-prd</code></td><td><code>/sync-prd &lt;slug&gt;</code></td><td>Reconcile md ↔ html ↔ INDEX ↔ agent-card after claude.ai chat iteration</td></tr>
+    <tr><td><code>pmd-template</code></td><td>(wrapped by <code>prd-agentic</code>)</td><td>Canonical 12-section Betterworks Feature Doc template + Confluence-ready HTML render</td></tr>
+    <tr><td><code>sync-prd</code></td><td><code>/sync-prd &lt;slug&gt;</code></td><td>Reconcile md ↔ html ↔ INDEX ↔ agent-card ↔ §14 after a claude.ai chat iteration (local-only)</td></tr>
+    <tr><td><code>prd-review</code></td><td><code>/prd-review &lt;file&gt;</code></td><td>Run the prd-agentic quality checklist against an existing <code>*.prd.md</code></td></tr>
+    <tr><td><code>sense-backlog</code></td><td><code>/sense-backlog &lt;release&gt;</code></td><td>Refresh release working ledger from Aha + Jira + Confluence + Slack signal (read-only)</td></tr>
     <tr><td><code>meeting-to-tasks</code></td><td>auto on transcripts</td><td>Extract structured tasks, knowledge, decisions, people from a meeting transcript</td></tr>
     <tr><td><code>tldr-pdf</code></td><td>on demand</td><td>200-word TL;DR from a PDF without loading full text into parent context</td></tr>
     <tr><td><code>audit-context</code></td><td><code>/audit-context</code> + monthly</td><td>Check <code>CLAUDE.md</code> / memory / signal drift against the sizing rules</td></tr>
     <tr><td><code>/my-actions</code></td><td>start of session</td><td>Surface open items before doing anything else</td></tr>
     <tr><td><code>/meeting-debrief</code></td><td>after meetings</td><td>Capture decisions, tasks, signals from a meeting</td></tr>
-    <tr><td><code>/standup</code></td><td>daily standup</td><td>Synthesize yesterday/today/blockers</td></tr>
-    <tr><td><code>/daily-meeting-extract</code></td><td>cron 20:00 IST</td><td>Backup extraction in case live debriefs were missed</td></tr>
+    <tr><td><code>/standup</code></td><td>daily standup</td><td>Synthesize yesterday/today/blockers from last-24h Slack + Jira</td></tr>
+    <tr><td><code>/daily-meeting-extract</code></td><td>routine 20:00 IST</td><td>Backup Zoom extraction in case live debriefs were missed</td></tr>
+    <tr><td><code>/zoom-signal-sweep</code></td><td>routine (daily)</td><td>Capture Zoom decisions/signals into the git signal ledger + <code>ops/meeting-notes/</code></td></tr>
+    <tr><td><code>/spec-review</code></td><td>on demand</td><td>Critique a spec against the team rubric <em>(legacy — <code>product/specs/</code> + write-spec rubric not present)</em></td></tr>
   </tbody>
 </table>
 
@@ -185,18 +191,21 @@
 </table>
 
 <h2 id="routines">Active routines</h2>
-<p>Scheduled remote agents — run in their own context, write artifacts to disk, never tax foreground sessions.</p>
+<p>Scheduled agents — run in their own context, write artifacts to disk, never tax foreground sessions. All currently run on <strong>CCR</strong> (Claude cloud); migration to the local <strong>Aegis</strong> runtime is planned (see <code>automation/</code>).</p>
 <table>
   <thead><tr><th>Routine</th><th>Cadence</th><th>Output</th><th>Status</th></tr></thead>
   <tbody>
-    <tr><td><strong>daily-meeting-extract</strong></td><td>weekdays 20:00 IST (system cron)</td><td>Per-meeting extracts</td><td><span class="pill pill-live">Live</span></td></tr>
-    <tr><td><strong>morning-brief</strong></td><td>weekdays 08:00 IST</td><td><code>ops/daily/&lt;date&gt;.md</code></td><td>Pending registration via <code>/schedule</code></td></tr>
-    <tr><td><strong>day-end-sweep</strong></td><td>weekdays 19:00 IST</td><td>Appends to <code>signals/&lt;feature&gt;.md</code></td><td>Pending registration</td></tr>
-    <tr><td><strong>monthly-audit-context</strong></td><td>1st of month 09:00 IST</td><td><code>analytics/context-audit/&lt;date&gt;.md</code></td><td>Pending registration</td></tr>
-    <tr><td><strong>quarterly-archive</strong> (optional)</td><td>1st of Jan/Apr/Jul/Oct</td><td>Moves stale signals to <code>_archive/</code></td><td>Pending registration</td></tr>
+    <tr><td><strong>morning-brief</strong></td><td>weekdays 08:00 IST</td><td><code>ops/daily/&lt;date&gt;.md</code></td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>focus-planner</strong></td><td>Mondays 08:35 IST</td><td><code>ops/focus/tracker.md</code> (weekly plan)</td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>focus-reminder</strong></td><td>weekdays 08:50 IST</td><td>Focus-time nudge</td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>day-end-sweep</strong></td><td>weekdays 19:00 IST</td><td>Appends to <code>signals/&lt;feature&gt;.md</code> + <code>ops/meeting-notes/</code></td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>daily-meeting-extract</strong></td><td>daily 20:00 IST (CCR trigger)</td><td>Per-meeting Zoom extracts + Slack Canvas + DM digest</td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>zoom-signal-sweep</strong></td><td>weekdays 20:35 IST</td><td><code>signals/&lt;feature&gt;.md</code> + <code>ops/meeting-notes/</code></td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>monthly-audit-context</strong></td><td>1st of month 09:00 IST</td><td><code>analytics/context-audit/&lt;date&gt;.md</code></td><td><span class="pill pill-live">Live</span></td></tr>
+    <tr><td><strong>quarterly-archive</strong> (optional)</td><td>1st of Jan/Apr/Jul/Oct</td><td>Moves stale signals to <code>_archive/</code></td><td>Not registered</td></tr>
   </tbody>
 </table>
-<p>Registration prompts: <code>ops/routines-playbook.md</code> (one-time setup file, self-deletes after applying).</p>
+<p>Routines are registered as CCR triggers. <code>ops/routines-playbook.md</code> remains as the original one-time setup file but is now historical — its "pending" statuses predate the routines going live.</p>
 
 <h2 id="daily">A day in the OS</h2>
 <ol>
@@ -216,7 +225,7 @@
     <tr><td>A new workflow / playbook</td><td>Create <code>.claude/skills/&lt;name&gt;/SKILL.md</code> with YAML frontmatter; add one-liner under root <code>CLAUDE.md</code> § Dedicated Tools</td></tr>
     <tr><td>A new finding</td><td>Append to existing <code>signals/&lt;feature&gt;.md</code>. Never create a new always-loaded file for a single finding.</td></tr>
     <tr><td>A new hook</td><td>Script under <code>.claude/hooks/</code>, wire in <code>.claude/settings.json</code>, document in this README's hooks table and in <code>.claude/context-design.md</code></td></tr>
-    <tr><td>A new routine</td><td>Register via <code>/schedule</code>; document in this README's routines table</td></tr>
+    <tr><td>A new routine</td><td>Register as a CCR trigger (or add a spec under <code>automation/</code> for Aegis); document in this README's routines table</td></tr>
     <tr><td>A new always-true fact about Lalit</td><td>Auto-memory (<code>user_lalit_pm.md</code> or <code>process_rules.md</code>). Not <code>CLAUDE.md</code>.</td></tr>
     <tr><td>A meaningful change to the OS itself</td><td>Add an entry to the <a href="#iteration-log">Iteration log</a> below.</td></tr>
   </tbody>
@@ -243,14 +252,31 @@
 <!-- ADD NEW ITERATION ENTRIES ABOVE THIS LINE, NEWEST FIRST.
      Each entry follows the v0.1 template: version, date, one-line summary, bullets, branches. -->
 
+<div class="iteration" id="v0-2">
+  <h3>v0.2 — 2026-07-14 · Backfill: README synced to live OS (Jun–Jul evolution)</h3>
+  <p class="iter-meta">The OS evolved substantially between v0.1 and now without iteration-log entries. This backfills the record and brings the tables above in line with the live repo. Dates are from git history.</p>
+  <ul>
+    <li><strong>Aegis local runtime introduced (2026-07-07).</strong> New top-level <code>automation/</code> area (<code>automation/CLAUDE.md</code> + <code>automation/aegis/PLAN.md</code>, plan APPROVED / decisions locked). team-os becomes the memory + governance layer; a local Ollama/LangGraph runtime — still being built, no runtime code yet — becomes the execution layer. Concept doc: <code>.claude/local-model-routines.md</code>. ADR: <code>decisions/2026-07-07-aegis-local-agentic-os.md</code>. Jira/Aha writes stay refinement-gated.</li>
+    <li><strong>Routines went live and were re-catalogued (2026-07-07).</strong> <code>context-design.md</code>'s Routines table was refreshed to the real set — morning-brief, focus-planner, focus-reminder, day-end-sweep, daily-meeting-extract, zoom-signal-sweep, monthly-audit-context — all on CCR, Aegis migration pending. The routines table above moves from "Pending registration" to live status.</li>
+    <li><strong>Meeting-notes corpus built out (Jun–Jul).</strong> <code>ops/meeting-notes/</code> backfilled from Zoom to ~130 dated notes (May 8 → Jul 13), including recovery of 8 previously-skipped meetings.</li>
+    <li><strong>PRD round-trip + review tooling.</strong> Added the <code>sync-prd</code> skill + <code>/sync-prd</code>, <code>/prd-review</code>, and the <code>/sense-backlog</code> command; documented <code>pmd-template</code> as the canonical template <code>prd-agentic</code> wraps.</li>
+    <li><strong>Focus tracking (2026-07-06).</strong> <code>ops/focus/tracker.md</code> seeded; the focus-planner / focus-reminder routines drive it.</li>
+  </ul>
+  <p class="iter-meta">Known drift flagged during this sync (not new structure): <code>ops/routines-playbook.md</code> persists with stale "pending" statuses (its §6 says delete after applying); <code>/spec-review</code> references a <code>product/specs/</code> folder and a <code>write-spec</code> rubric that don't exist; the <code>zoom-signal-sweep</code> command frontmatter still reads "proposed" though the routine commits daily.</p>
+  <p class="iter-meta">Branch: <code>claude/readme-update-tzytpy</code>.</p>
+</div>
+
 <h2 id="references">References</h2>
 <ul>
   <li><code>CLAUDE.md</code> — root routing for every session</li>
   <li><code>.claude/context-design.md</code> — full architecture document</li>
-  <li><code>ops/routines-playbook.md</code> — current manual steps (delete after applying)</li>
-  <li><code>ops/claudemd-changelog.md</code> — auto-log of every CLAUDE.md edit (maintained by hook)</li>
+  <li><code>.claude/local-model-routines.md</code> — running routines on local models at Claude-parity (Aegis concept)</li>
+  <li><code>automation/CLAUDE.md</code> + <code>automation/aegis/PLAN.md</code> — the local agentic runtime and its build plan</li>
+  <li><code>ops/routines-playbook.md</code> — original one-time setup steps (now historical)</li>
+  <li><code>ops/claudemd-changelog.md</code> — auto-log of CLAUDE.md edits made via Claude Code (maintained by hook)</li>
+  <li><code>ops/meeting-notes/</code> — dated Zoom-sourced meeting notes (backfilled corpus)</li>
   <li><code>analytics/context-audit/</code> — monthly drift reports (oldest first)</li>
-  <li><code>decisions/</code> — ADRs for PM decisions</li>
+  <li><code>decisions/</code> — ADRs for PM decisions (D / CD / MD / ZD series)</li>
   <li><code>knowledge/</code> — learning loop: rules / hypotheses / observations per domain</li>
 </ul>
 

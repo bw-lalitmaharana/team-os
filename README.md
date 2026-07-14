@@ -1,6 +1,6 @@
 # team-os
 
-**Betterworks PM Operating System** · `v0.1` · Live · Last updated: 2026-05-14
+**Betterworks PM Operating System** · `v0.2` · Live · Last updated: 2026-07-14
 
 Personal-but-shareable operating system for Lalit's PM work at Betterworks. The repo is the shared context every Claude Code session reads from. This document is the entry point — start here if you've just opened the repo, are joining the team, or are evaluating where to put new content.
 
@@ -37,11 +37,13 @@ Personal-but-shareable operating system for Lalit's PM work at Betterworks. The 
 | `.claude/skills/` | Workflow playbooks (PRD, sense-backlog, audit-context, etc.) — load on invocation | Tier-2 |
 | `.claude/commands/` | Slash commands — `/my-actions`, `/meeting-debrief`, `/write-prd`, etc. | Tier-2 |
 | `.claude/hooks/` | Event-driven scripts that filter or guard context | — |
-| `product/` | Per-area specs, roadmap ledgers, signals | Mixed |
+| `.claude/local-model-routines.md` | Concept doc — running routines on local models at Claude-parity (Aegis) | Tier-2 |
+| `product/` | Per-area PRDs (`meeting-transcripts/`), roadmap ledgers + signals (`roadmap/`) | Mixed |
+| `automation/` | Aegis — the local agentic runtime that reads/writes this repo (`CLAUDE.md` + `aegis/PLAN.md`) | Tier-2 |
 | `knowledge/` | Learning loop — rules, hypotheses, observations per domain | Tier-2 |
-| `decisions/` | Decision journal — ADRs for PM decisions | Tier-2 |
-| `ops/` | Sprint cadence, meeting notes, daily briefs, team rituals | Mixed |
-| `analytics/` | Metric definitions, audit reports, playbooks | Tier-2 |
+| `decisions/` | Decision journal — ADRs for PM decisions (D / CD / MD / ZD series) | Tier-2 |
+| `ops/` | Sprint cadence, `meeting-notes/`, `daily/` briefs, `focus/` tracker, team rituals | Mixed |
+| `analytics/` | Metric definitions, `context-audit/` reports, playbooks | Tier-2 |
 | `team/` | Roster, Slack channels, who-does-what | Mixed |
 
 ## Architecture — the five principles
@@ -68,15 +70,19 @@ Full version in `.claude/context-design.md`. Summary:
 | Name | Trigger | Purpose |
 |---|---|---|
 | `prd-agentic` | via `/write-prd` | Draft Markdown PRDs with stable IDs, EARS acceptance criteria, agent-card.json |
-| `sense-backlog` | `/sense-backlog <release>` | Refresh release working ledger from Aha + Jira + Confluence + Slack signal |
-| `sync-prd` | `/sync-prd <slug>` | Reconcile md ↔ html ↔ INDEX ↔ agent-card after claude.ai chat iteration |
+| `pmd-template` | (wrapped by `prd-agentic`) | Canonical 12-section Betterworks Feature Doc template + Confluence-ready HTML render |
+| `sync-prd` | `/sync-prd <slug>` | Reconcile md ↔ html ↔ INDEX ↔ agent-card ↔ §14 after a claude.ai chat iteration (local-only) |
+| `prd-review` | `/prd-review <file>` | Run the prd-agentic quality checklist against an existing `*.prd.md` |
+| `sense-backlog` | `/sense-backlog <release>` | Refresh release working ledger from Aha + Jira + Confluence + Slack signal (read-only) |
 | `meeting-to-tasks` | auto on transcripts | Extract structured tasks, knowledge, decisions, people from a meeting transcript |
 | `tldr-pdf` | on demand | 200-word TL;DR from a PDF without loading full text into parent context |
 | `audit-context` | `/audit-context` + monthly | Check `CLAUDE.md` / memory / signal drift against the sizing rules |
 | `/my-actions` | start of session | Surface open items before doing anything else |
 | `/meeting-debrief` | after meetings | Capture decisions, tasks, signals from a meeting |
-| `/standup` | daily standup | Synthesize yesterday/today/blockers |
-| `/daily-meeting-extract` | cron 20:00 IST | Backup extraction in case live debriefs were missed |
+| `/standup` | daily standup | Synthesize yesterday/today/blockers from last-24h Slack + Jira |
+| `/daily-meeting-extract` | routine 20:00 IST | Backup Zoom extraction in case live debriefs were missed |
+| `/zoom-signal-sweep` | routine (daily) | Capture Zoom decisions/signals into the git signal ledger + `ops/meeting-notes/` |
+| `/spec-review` | on demand | Critique a spec against the team rubric *(legacy — `product/specs/` + write-spec rubric not present)* |
 
 ## Active hooks
 
@@ -91,17 +97,20 @@ Wired in `.claude/settings.json` · scripts in `.claude/hooks/`
 
 ## Active routines
 
-Scheduled remote agents — run in their own context, write artifacts to disk, never tax foreground sessions.
+Scheduled agents — run in their own context, write artifacts to disk, never tax foreground sessions. All currently run on **CCR** (Claude cloud); migration to the local **Aegis** runtime is planned (see `automation/`).
 
 | Routine | Cadence | Output | Status |
 |---|---|---|---|
-| **daily-meeting-extract** | weekdays 20:00 IST (system cron) | Per-meeting extracts | Live |
-| **morning-brief** | weekdays 08:00 IST | `ops/daily/<date>.md` | Pending registration |
-| **day-end-sweep** | weekdays 19:00 IST | Appends to `signals/<feature>.md` | Pending registration |
-| **monthly-audit-context** | 1st of month 09:00 IST | `analytics/context-audit/<date>.md` | Pending registration |
-| **quarterly-archive** (optional) | 1st of Jan/Apr/Jul/Oct | Moves stale signals to `_archive/` | Pending registration |
+| **morning-brief** | weekdays 08:00 IST | `ops/daily/<date>.md` | Live |
+| **focus-planner** | Mondays 08:35 IST | `ops/focus/tracker.md` (weekly plan) | Live |
+| **focus-reminder** | weekdays 08:50 IST | Focus-time nudge | Live |
+| **day-end-sweep** | weekdays 19:00 IST | Appends to `signals/<feature>.md` + `ops/meeting-notes/` | Live |
+| **daily-meeting-extract** | daily 20:00 IST (CCR trigger) | Per-meeting Zoom extracts + Slack Canvas + DM digest | Live |
+| **zoom-signal-sweep** | weekdays 20:35 IST | `signals/<feature>.md` + `ops/meeting-notes/` | Live |
+| **monthly-audit-context** | 1st of month 09:00 IST | `analytics/context-audit/<date>.md` | Live |
+| **quarterly-archive** (optional) | 1st of Jan/Apr/Jul/Oct | Moves stale signals to `_archive/` | Not registered |
 
-Registration prompts: `ops/routines-playbook.md` (one-time setup file, self-deletes after applying).
+Routines are registered as CCR triggers. `ops/routines-playbook.md` remains as the original one-time setup file but is now historical — its "pending" statuses predate the routines going live.
 
 ## A day in the OS
 
@@ -120,7 +129,7 @@ Registration prompts: `ops/routines-playbook.md` (one-time setup file, self-dele
 | A new workflow / playbook | Create `.claude/skills/<name>/SKILL.md` with YAML frontmatter; add one-liner under root `CLAUDE.md` § Dedicated Tools |
 | A new finding | Append to existing `signals/<feature>.md`. Never create a new always-loaded file for a single finding. |
 | A new hook | Script under `.claude/hooks/`, wire in `.claude/settings.json`, document in this README's hooks table and in `.claude/context-design.md` |
-| A new routine | Register via `/schedule`; document in this README's routines table |
+| A new routine | Register as a CCR trigger (or add a spec under `automation/` for Aegis); document in this README's routines table |
 | A new always-true fact about Lalit | Auto-memory (`user_lalit_pm.md` or `process_rules.md`). Not `CLAUDE.md`. |
 | A meaningful change to the OS itself | Add an entry to the [Iteration log](#iteration-log) below. |
 
@@ -145,14 +154,31 @@ Branches: `claude-context/ethos-foundation` (foundation), `claude-context/trim-c
 <!-- ADD NEW ITERATION ENTRIES ABOVE THIS LINE, NEWEST FIRST.
      Each entry follows the v0.1 template: version, date, one-line summary, bullets, branches. -->
 
+### v0.2 — 2026-07-14 · Backfill: README synced to live OS (Jun–Jul evolution)
+
+The OS evolved substantially between v0.1 and now without iteration-log entries. This backfills the record and brings the tables above in line with the live repo. Dates are from git history.
+
+- **Aegis local runtime introduced (2026-07-07).** New top-level `automation/` area (`automation/CLAUDE.md` + `automation/aegis/PLAN.md`, plan APPROVED / decisions locked). team-os becomes the memory + governance layer; a local Ollama/LangGraph runtime — still being built, no runtime code yet — becomes the execution layer. Concept doc: `.claude/local-model-routines.md`. ADR: `decisions/2026-07-07-aegis-local-agentic-os.md`. Jira/Aha writes stay refinement-gated.
+- **Routines went live and were re-catalogued (2026-07-07).** `context-design.md`'s Routines table was refreshed to the real set — morning-brief, focus-planner, focus-reminder, day-end-sweep, daily-meeting-extract, zoom-signal-sweep, monthly-audit-context — all on CCR, Aegis migration pending. The routines table above moves from "Pending registration" to live status.
+- **Meeting-notes corpus built out (Jun–Jul).** `ops/meeting-notes/` backfilled from Zoom to ~130 dated notes (May 8 → Jul 13), including recovery of 8 previously-skipped meetings.
+- **PRD round-trip + review tooling.** Added the `sync-prd` skill + `/sync-prd`, `/prd-review`, and the `/sense-backlog` command; documented `pmd-template` as the canonical template `prd-agentic` wraps.
+- **Focus tracking (2026-07-06).** `ops/focus/tracker.md` seeded; the focus-planner / focus-reminder routines drive it.
+
+Known drift flagged during this sync (not new structure): `ops/routines-playbook.md` persists with stale "pending" statuses (its §6 says delete after applying); `/spec-review` references a `product/specs/` folder and a `write-spec` rubric that don't exist; the `zoom-signal-sweep` command frontmatter still reads "proposed" though the routine commits daily.
+
+Branch: `claude/readme-update-tzytpy`.
+
 ## References
 
 - `CLAUDE.md` — root routing for every session
 - `.claude/context-design.md` — full architecture document
-- `ops/routines-playbook.md` — current manual steps (delete after applying)
-- `ops/claudemd-changelog.md` — auto-log of every CLAUDE.md edit (maintained by hook)
+- `.claude/local-model-routines.md` — running routines on local models at Claude-parity (Aegis concept)
+- `automation/CLAUDE.md` + `automation/aegis/PLAN.md` — the local agentic runtime and its build plan
+- `ops/routines-playbook.md` — original one-time setup steps (now historical)
+- `ops/claudemd-changelog.md` — auto-log of CLAUDE.md edits made via Claude Code (maintained by hook)
+- `ops/meeting-notes/` — dated Zoom-sourced meeting notes (backfilled corpus)
 - `analytics/context-audit/` — monthly drift reports (oldest first)
-- `decisions/` — ADRs for PM decisions
+- `decisions/` — ADRs for PM decisions (D / CD / MD / ZD series)
 - `knowledge/` — learning loop: rules / hypotheses / observations per domain
 - `README.html` — same content as this file, styled for browser viewing
 
