@@ -24,15 +24,16 @@ SELF_REL="scripts/scan-pii.sh"
 # --- marker groups -----------------------------------------------------------
 # Grouped so the report tells you WHAT kind of leak each hit is.
 declare -A PII_GROUPS=(
-  [names]='Lalit|Maharana|Nellie|Lemonier|Varni[ck]a|Rinku|Bilyeu|Zhang|Gauri|Harshini|Pankaj|Loh?mor?|Cheryl|Sriram|Nataliya|Anthony'
+  [names]='Lalit|Maharana|Nellie|Lemonier|Varni[ck]a|Rinku|Bilyeu|Zhang|Gauri|Harshini|Pankaj|Loh?mor?|Cheryl|Sriram|Nataliya|Anthony|Paul'
   [email]='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
   [company]='Betterworks'
-  [jira_aha]='\b(APP|ENG)-[0-9]+\b|\b(CD|MD|ZD|D)-[0-9]{3}\b'
+  [jira_aha]='\b(APP|ENG)-[0-9]+\b|\b(CD|MD|ZD)-[0-9]{3}\b'
   [service_ids]='trig_[A-Za-z0-9]+|env_[A-Za-z0-9]+|\bD0[A-Z0-9]{8,}\b'
   [user_paths]='-Users-[a-z._-]+|/Users/[a-z._-]+'
   [epics_releases]='Summer 2026|Winter 2026|AI Processing Pipeline|ai-processing-pipeline|custom-roles|Rainforest'
   [vendors]='Synopsys|Techwolf|Gemma'
   [slack_channels]='#(temp|champagne|oppty|eng-|pod-)[A-Za-z0-9_-]+'
+  [numeric_ids]='\bboard +[0-9]+\b|\b[0-9]{9,}\b'
 )
 
 # Common grep excludes: VCS, deps, and this script (its regexes would self-match).
@@ -74,6 +75,17 @@ if [[ -n "$EXTRA_PATTERNS" ]]; then
     printf '%s\n' "$hits"
   fi
 fi
+
+# --- opaque/binary files: the scanner can't see inside them, so they must
+# --- not exist in a repo that claims to be all-text-and-clean. Hard-flag any.
+while IFS= read -r bf; do
+  if [[ -s "$bf" ]] && ! grep -qI . "$bf" 2>/dev/null; then
+    total=$((total + 1))
+    echo ""
+    echo "### [opaque-file]  (binary — cannot be PII-scanned; remove or ship as text)"
+    echo "$bf"
+  fi
+done < <(find "$TARGET" -type f -not -path '*/.git/*' 2>/dev/null)
 
 echo ""
 echo "================================================================="

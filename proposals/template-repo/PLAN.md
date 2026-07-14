@@ -1,6 +1,6 @@
 # Spin out `team-os` into a public starter repo — plan (FOR REVIEW)
 
-**Status:** **DRAFT — awaiting your decisions** (§8). Proposes extracting the reusable framework from this private live workspace into a standalone, PII-free repo (working name **`pm-os-starter`**) that anyone can clone and fill with their own data. Builds on the tooling already in this repo: `scripts/new-team-os.sh` (clean generator), `scripts/scan-pii.sh` (leak scanner), and `QUICKSTART.md` (the self-build guide). Nothing ships publicly until `scan-pii.sh` is green in CI.
+**Status:** **BUILT & VERIFIED — awaiting your one-click publish** (§10). Decisions locked per your "go with recommendations": name `pm-os-starter` · MIT · personal GitHub · advanced skills shipped scrubbed & active · private-until-you-flip-public. Phases 1–2 are done and the clean tree scans CLEAN (incl. negative tests). Phase 3 (repo creation) is blocked only because this session's GitHub token is scoped to `team-os` and can't create repos — so **you** create the empty repo and push the packaged tree. Builds on `scripts/new-team-os.sh` (clean generator), `scripts/scan-pii.sh` (hardened leak scanner), `scripts/scrub-skills.sh` (skill sanitizer).
 
 ---
 
@@ -138,4 +138,33 @@ Phases 1–3 are ~a session's work given the tooling already exists. Phase 0 is 
 
 ## 9. Immediate next step
 
-On your `go` for §8, I'll execute Phases 1–3 in one pass: generate → scrub → scan → write docs → add CI → create the public template repo → push commit 1, and report back the repo URL with a green PII-scan badge. Until then this is a proposal only — no repo gets created.
+Superseded by §10 — the build is done. See below to publish.
+
+---
+
+## 10. Build status (executed 2026-07-14)
+
+**Done & verified (Phases 1–2):**
+- Generated the clean tree with `new-team-os.sh` (allowlist copy + empty content folders + templated root `CLAUDE.md`).
+- Shipped the advanced skills **active** (revised from the §2 "templates/ + enable-script" plan — once placeholder-scrubbed and CI-gated, hiding them behind an enable step only broke the shipped commands): `prd-agentic`, `pmd-template`, `sync-prd`, `sense-backlog`, `meeting-to-tasks`, `audit-context`, `tldr-pdf`, all scrubbed to `<PLACEHOLDER>` tokens via `scrub-skills.sh`.
+- **Second-pass review caught leaks the regex missed** and all were fixed: a real name ("Paul") in `prd-agentic`; a vendor typo, a Jira board id, and a release name in `sense-backlog`; a Confluence page id in `sync-prd`; and — critically — the packaged `pmd-template.skill` **binary**, which hid `Betterworks`×5 from the scanner (`grep --binary-files=without-match` skipped it). Fixed by shipping `pmd-template` as loose Markdown and dropping the binary.
+- **Hardened `scan-pii.sh`:** added `Paul`, a `numeric_ids` group (board refs + long ids), removed the over-broad bare `D-###` rule, and added an **opaque-file guard** so any binary the scanner can't read now hard-fails.
+- Made `spec-review` self-contained (its `write-spec` skill never existed — broken in source too).
+- Wrote `README.md`, `QUICKSTART.md`, `CONTRIBUTING.md`, `LICENSE` (MIT), and `.github/workflows/pii-scan.yml`.
+- Verified: planted-PII → FAIL, planted-binary → FAIL, clean tree → CLEAN.
+
+**Artifact:** the full 34-file tree is packaged as `pm-os-starter.tar.gz` (sent to you). It's **not** committed into `team-os` on purpose — its nested `.github/workflows/pii-scan.yml` would otherwise run against this PII-heavy repo and fail every push.
+
+**Blocker for Phase 3:** `create_repository` returns `403 Resource not accessible by integration` — the session token only covers `team-os`.
+
+**To publish (you, ~2 min):**
+```bash
+tar -xzf pm-os-starter.tar.gz && cd pm-os-starter
+git init && git add -A && git commit -m "Initial commit: pm-os-starter template"
+# create an empty repo named pm-os-starter on your GitHub (no README/license), keep it PRIVATE, then:
+git remote add origin git@github.com:bw-lalitmaharana/pm-os-starter.git
+git push -u origin main
+```
+The PII-scan Action runs on that first push — confirm it's green, eyeball the repo once, then flip it **public** in Settings when you're satisfied. Enable **Settings → Template repository** so others can "Use this template."
+
+**Reproducing the build here:** `new-team-os.sh <dir>` → copy the advanced skills in (loose, no `.skill` binaries) → `scrub-skills.sh <dir>` → `scan-pii.sh <dir>` (CLEAN) → add docs + CI. If you want a single `build-starter.sh` that does all of it in one command, say so and I'll add it.
