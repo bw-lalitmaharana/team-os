@@ -264,3 +264,13 @@ Nitish's updated notebooks show the LLM doesn't reliably differentiate between p
 - **Who:** Lalit Maharana
 - **Where:** [DM (self)](https://betterworks.slack.com/archives/D0B0W25MMV2/p1783912048564419)
 - **Summary:** Week-of-Jul-13 focus plan allocates T2 (adaptive learning / skill matching) blocks: write spike stories per component (skill graph, pre-processing, runtime generation) (Tue Jul 14), contact Jason Seitz (Talent) re privacy-preserving skill-search API and validate public-content sourcing with CS (Wed Jul 15), and start Slack thread with Nellie/Chao/JV on mentor matching + escalate unassigned mentor-ranking dev owner (Fri Jul 17).
+
+### 2026-07-14 — gmail
+- **Who:** Lalit Maharana, Neetesh, Manish, Abhishek, Ayush (via Zoom AI summary)
+- **Where:** Zoom meeting assets email → lalit.maharana@betterworks.com (thread 19f5f759db597b6a)
+- **Summary:** Talent Graph sync — Neetesh demoed Neo4j + OpenAI-embeddings skill graph (admin-side visualization, profile similarity search, mentor recommendation cards); team aligned on table view over graph view, toggle for user/skill search, exact-match prioritized over similar-match; Lalit action items: update Talent Graph design file and generate synthetic test data; Neetesh: set up local Neo4j env, implement JD→skill extraction for empty positions, add mentor recommendation logic and visual match-score indicators.
+
+### 2026-07-14 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#temp-hackathon-team](https://betterworks.slack.com/archives/C0BEGEBB7C4/p1784012701159859)
+- **Summary:** Lalit posted detailed hackathon implementation spec for Talent Graph — admin org-skill network (skill detail side-panel, ranked similar skills), search talent graph (skill/user toggle, ranked exact+similar matches in table view, succession cards for filled and empty positions), and user-side mentor cards on talent profiles (top-3 similar-skill mentors, Slack/Teams DM action spike); FE scope: table, search, 2× card sets; team (Lalit, Manish, Abhishek, Ayush) to divide implementation.
