@@ -23,17 +23,23 @@ SELF_REL="scripts/scan-pii.sh"
 
 # --- marker groups -----------------------------------------------------------
 # Grouped so the report tells you WHAT kind of leak each hit is.
-declare -A PII_GROUPS=(
-  [names]='Lalit|Maharana|Nellie|Lemonier|Varni[ck]a|Rinku|Bilyeu|Zhang|Gauri|Harshini|Pankaj|Loh?mor?|Cheryl|Sriram|Nataliya|Anthony|Paul'
-  [email]='[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
-  [company]='Betterworks'
-  [jira_aha]='\b(APP|ENG)-[0-9]+\b|\b(CD|MD|ZD)-[0-9]{3}\b'
-  [service_ids]='trig_[A-Za-z0-9]+|env_[A-Za-z0-9]+|\bD0[A-Z0-9]{8,}\b'
-  [user_paths]='-Users-[a-z._-]+|/Users/[a-z._-]+'
-  [epics_releases]='Summer 2026|Winter 2026|AI Processing Pipeline|ai-processing-pipeline|custom-roles|Rainforest'
-  [vendors]='Synopsys|Techwolf|Gemma'
-  [slack_channels]='#(temp|champagne|oppty|eng-|pod-)[A-Za-z0-9_-]+'
-  [numeric_ids]='\bboard +[0-9]+\b|\b[0-9]{9,}\b'
+# NOTE: parallel indexed arrays (not `declare -A`) so this runs on the bash 3.2
+# that ships as /bin/bash on macOS — associative arrays are bash 4+ only.
+GROUP_NAMES=(
+  names email company jira_aha service_ids
+  user_paths epics_releases vendors slack_channels numeric_ids
+)
+GROUP_PATTERNS=(
+  'Lalit|Maharana|Nellie|Lemonier|Varni[ck]a|Rinku|Bilyeu|Zhang|Gauri|Harshini|Pankaj|Loh?mor?|Cheryl|Sriram|Nataliya|Anthony|Paul'
+  '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
+  'Betterworks'
+  '\b(APP|ENG)-[0-9]+\b|\b(CD|MD|ZD)-[0-9]{3}\b'
+  'trig_[A-Za-z0-9]+|env_[A-Za-z0-9]+|\bD0[A-Z0-9]{8,}\b'
+  '-Users-[a-z._-]+|/Users/[a-z._-]+'
+  'Summer 2026|Winter 2026|AI Processing Pipeline|ai-processing-pipeline|custom-roles|Rainforest'
+  'Synopsys|Techwolf|Gemma'
+  '#(temp|champagne|oppty|eng-|pod-)[A-Za-z0-9_-]+'
+  '\bboard +[0-9]+\b|\b[0-9]{9,}\b'
 )
 
 # Common grep excludes: VCS, deps, and this script (its regexes would self-match).
@@ -52,8 +58,9 @@ echo "PII scan → ${TARGET}"
 echo "-----------------------------------------------------------------"
 
 total=0
-for group in "${!PII_GROUPS[@]}"; do
-  pattern="${PII_GROUPS[$group]}"
+for i in "${!GROUP_NAMES[@]}"; do
+  group="${GROUP_NAMES[$i]}"
+  pattern="${GROUP_PATTERNS[$i]}"
   # grep exits 1 when no match; don't let that kill the script.
   hits="$(grep "${GREP_COMMON[@]}" -e "$pattern" "$TARGET" 2>/dev/null || true)"
   if [[ -n "$hits" ]]; then
