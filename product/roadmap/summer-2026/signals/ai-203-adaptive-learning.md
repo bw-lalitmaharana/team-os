@@ -274,3 +274,21 @@ Nitish's updated notebooks show the LLM doesn't reliably differentiate between p
 - **Who:** Lalit Maharana
 - **Where:** [#temp-hackathon-team](https://betterworks.slack.com/archives/C0BEGEBB7C4/p1784012701159859)
 - **Summary:** Lalit posted detailed hackathon implementation spec for Talent Graph — admin org-skill network (skill detail side-panel, ranked similar skills), search talent graph (skill/user toggle, ranked exact+similar matches in table view, succession cards for filled and empty positions), and user-side mentor cards on talent profiles (top-3 similar-skill mentors, Slack/Teams DM action spike); FE scope: table, search, 2× card sets; team (Lalit, Manish, Abhishek, Ayush) to divide implementation.
+
+### 2026-07-13 — LMS default-provider decision blocked on API capacity matrix; Lalit to drive Docebo vs Udemy comparison, due July 24 (zoom)
+**Source:** Zoom — "LMS Integrations Sync: Default Provider for AI Recommendations" 2026-07-13 (UUID 4CD8C203-E419-45B7-8E95-8A4F1557D2A9)
+**Type:** open-question + commitment
+**Owner-impact:** Lalit, Jason Zhang, Nataliya Kolb, Nataliia Savenko, Nellie, Rinku (to be looped in)
+
+Team revisited the default-LMS-provider call for AI course recommendations — original assumption was Docebo, but neither Docebo nor Udemy cleanly supports pulling individual courses/catalogs via API per Jason Zhang's and Nitish's research, undercutting the embedding-based semantic-search design that assumes full catalog ingestion. Agreed to first build an API-capability matrix (course pull, category pull, internal-vs-external metadata) comparing Docebo and Udemy before committing to a default provider. Lalit was named to drive the matrix with the India AI team, with Rinku to be looped in given the cross-team (Integrations) surface area. Nataliya set a deadline of **July 24** for alignment on provider + capabilities, citing ~1.5 months to GA. Also surfaced as a possible differentiator: exposing an org's own private Docebo courses (e.g. internal leadership programs) through personalized development plans, not just marketplace content (Udemy).
+
+**Implication for ranking:** Adds an unplanned pre-work item (API capacity matrix) directly gating AI-203's LMS integration path, on top of the 2026-06-22 "Unified /LMS endpoint" and 2026-07-11 Docebo/Udemy architecture-rationale entries above — this is the vendor-selection layer sitting above that work. July 24 alignment deadline should be tracked against the Aug 10 Gemma-4 prod gate. Confirm with Nellie/Rinku whether the matrix warrants its own Jira spike.
+
+### 2026-07-14 — Talent Graph: JD-coverage gap (90-95% of profiles have no linked JD) blocks auto skill-assignment; weighted exact-vs-similar ranking and mentor cards confirmed (zoom)
+**Source:** Zoom — "Zoom Meeting" 2026-07-14 (UUID A498472D-2CC7-4795-96E2-3AB4D2868410)
+**Type:** architecture
+**Owner-impact:** Lalit, Neetesh Kaushik, Manish Tomar, Abhishek Punj, Ayush Singh
+
+Supplements the 2026-07-14 gmail entry above (same meeting) with detail from the full Zoom transcript/summary. Key addition: Neetesh and Lalit confirmed **90-95% of talent profiles have no job description attached**, which blocks automatic skill-extraction/assignment for those profiles — no fix decided, flagged as an open gap rather than solved. On ranking logic, the team confirmed a weighted scoring system distinguishing exact skill matches from embedding-similarity matches (exact prioritized, similarity score surfaced visually), and agreed the admin/search view should support natural-language search and clearer visualization of similarity scores as future improvements (not committed for now). Confirms and extends the already-logged decisions: table view over graph view, user/skill search toggle, mentor-recommendation cards on talent profiles, and per-row action buttons ("View Talent Profile," "Add as Successor").
+
+**Implication for ranking:** The JD-coverage gap (90-95%) is a new, previously-unlogged dependency risk for AI-203's PDP/skill-matching scope — worth flagging to Nellie since it affects how much of the profile base can get automatic skill assignment vs. requiring manual JD entry. No change to the Aug 10 gate.
