@@ -22,7 +22,7 @@ Personal-but-shareable operating system for Lalit's PM work at Betterworks. The 
 
 ## Quickstart
 
-> **Setting up a fresh clone on your own machine?** See [`QUICKSTART.md`](QUICKSTART.md) for local install + MCP auth. The steps below are for navigating the OS once it's loaded.
+> **Want to build your own copy of this system?** See [`QUICKSTART.md`](QUICKSTART.md) — it scaffolds a clean, personal-data-free skeleton (this repo holds real PII, so don't just clone-and-republish it). The steps below are for navigating the OS once it's loaded.
 
 1. Read root `CLAUDE.md` (≤80 lines) — universal house rules + dedicated tool routing.
 2. Read `.claude/context-design.md` once — the architecture this OS is built on.
