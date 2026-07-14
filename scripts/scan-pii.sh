@@ -1,20 +1,29 @@
 #!/usr/bin/env bash
-# scan-pii.sh — heuristic PII / owner-data scanner for a team-os fork.
+# scan-pii.sh — heuristic secret / PII scanner for a team-os fork.
 #
-# Purpose: before you publish a copy of this OS, prove that none of the
-# original owner's personal or company data survived the scrub. Run it against
-# your fork; it greps for the specific markers known to appear in the source
-# repo (names, emails, company, Jira/Aha keys, trigger/env/Slack IDs, absolute
-# user paths). Exit 0 = clean; exit 1 = hits found (review each).
+# Purpose: prove that nothing you shouldn't publish survives before you push.
+# It scans for TWO classes of leak:
+#
+#   1. UNIVERSAL secrets — useful to every fork, regardless of origin: live
+#      credentials (AWS / GitHub / Slack / OpenAI tokens, private keys, JWTs),
+#      quoted password/api_key/secret assignments, and IPv4 addresses. These
+#      are the ones that actually hurt if they land in a public repo.
+#   2. TEMPLATE-LINEAGE guards — markers from THIS template's source workspace
+#      (names, emails, company, Jira/Aha keys, trigger/env/Slack IDs, absolute
+#      user paths). They should already be scrubbed; the scan proves it. Once
+#      you've made this OS yours these rarely fire — swap in your own
+#      predecessor-specific terms via .pii-extra as your data changes.
+#
+# Exit 0 = clean; exit 1 = hits found (review each).
 #
 # It is a HEURISTIC, not a guarantee — it errs toward over-flagging. Add your
-# own predecessor-specific terms to .pii-extra (one regex per line) if needed.
+# own patterns to .pii-extra (one regex per line) if needed.
 #
 # Usage:
 #   scripts/scan-pii.sh [target-dir]     # default: current directory
 #
-# NOTE: run this in your FORK. Run against the original repo and it will
-# (correctly) light up — the original is the owner's live workspace.
+# NOTE: if you forked from a populated workspace, run this in your FORK. Run it
+# against the original owner's live repo and it will (correctly) light up.
 
 set -euo pipefail
 
@@ -25,11 +34,24 @@ SELF_REL="scripts/scan-pii.sh"
 # Grouped so the report tells you WHAT kind of leak each hit is.
 # NOTE: parallel indexed arrays (not `declare -A`) so this runs on the bash 3.2
 # that ships as /bin/bash on macOS — associative arrays are bash 4+ only.
+#
+# Two blocks: UNIVERSAL secrets (first — matter to any fork) then
+# TEMPLATE-LINEAGE guards (markers specific to this template's source repo).
 GROUP_NAMES=(
+  # --- universal secrets ---
+  secret_tokens credential_assignment ipv4
+  # --- template-lineage guards ---
   names email company jira_aha service_ids
   user_paths epics_releases vendors slack_channels numeric_ids
 )
 GROUP_PATTERNS=(
+  # secret_tokens: high-signal live-credential formats (near-zero false positives).
+  'AKIA[0-9A-Z]{16}|(ghp|gho|ghs|ghu)_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|xox[baprs]-[A-Za-z0-9-]{8,}|sk-[A-Za-z0-9]{20,}|-----BEGIN [A-Z ]*PRIVATE KEY-----|eyJ[A-Za-z0-9_-]{10,}\.eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]+'
+  # credential_assignment: password/secret/api_key set to a QUOTED value (quotes
+  # keep prose like "your secret sauce" from firing).
+  '(password|passwd|secret|api[_-]?key|access[_-]?key|auth[_-]?token|client[_-]?secret|bearer)['\''"]?[[:space:]]*[:=][[:space:]]*['\''"][A-Za-z0-9/+_.=-]{8,}['\''"]'
+  # ipv4: dotted-quad. Localhost / example IPs are expected false positives.
+  '\b([0-9]{1,3}\.){3}[0-9]{1,3}\b'
   'Lalit|Maharana|Nellie|Lemonier|Varni[ck]a|Rinku|Bilyeu|Zhang|Gauri|Harshini|Pankaj|Loh?mor?|Cheryl|Sriram|Nataliya|Anthony|Paul'
   '[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}'
   'Betterworks'
