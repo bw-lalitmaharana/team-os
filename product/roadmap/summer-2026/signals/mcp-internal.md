@@ -246,3 +246,23 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Lalit Maharana
 - **Where:** [DM (self)](https://betterworks.slack.com/archives/D0B0W25MMV2/p1783912048564419)
 - **Summary:** Week-of-Jul-13 focus plan slots Thu Jul 16 for "verify ENG-69839 Jira link; transition ENG-76815 → Done; create Public MCP Server epic if missing", and Fri Jul 17 for "decide whether to own MCP Slackbot v2; scope notifications-batching UI".
+
+### 2026-07-15 — slack
+- **Who:** Sudin Maharjan
+- **Where:** [#pod-conversations](https://betterworks.slack.com/archives/CELP1R10D/p1784058944993189)
+- **Summary:** Release v0.452.0 shipped to pre-prod and prod — includes "Fixed MCP user_id filtering" and "Fixed MCP question response value handling"; release also expands Organization Settings management APIs and improves Conversation service reliability.
+
+### 2026-07-15 — slack
+- **Who:** Aimie Lim
+- **Where:** [#salesteam](https://betterworks.slack.com/archives/C04KBSK65/p1784054172021499)
+- **Summary:** Bi-weekly sales content digest includes "Betterworks MCP Server: Performance Intelligence in ChatGPT, Claude, or Any AI Tool" as a product news item — active external marketing of the MCP capability to the sales team.
+
+### 2026-07-15 — slack
+- **Who:** Paul Agustin
+- **Where:** [Group DM (Paul Agustin, Varnika Garg, Sharan, Gauri Thakur, Lalit Maharana)](https://betterworks.slack.com/archives/C0BD5B5KDJN/p1784084135657839)
+- **Summary:** Paul Agustin added Lalit to capstone project GitHub repo (github.com/paulagustin-bw/capstone) — project leverages the Pluto MCP for engagement data; recognition data not yet accessible via MCP (flagged as gap).
+
+### 2026-07-15 — slack
+- **Who:** Brian Jacobs, Allie Collins, Doug Dennerline, Raj Sinkar, Ash Todd
+- **Where:** [#ai-innovation-lab](https://betterworks.slack.com/archives/C0AML6FH22H/p1784050022738729)
+- **Summary:** AI Core governance debate on agentic AI tools: Cowork being restricted/replaced; ChatGPT Work phased rollout proposed by JB — Phase 1 (48h) marketing access with no external connectors, Phase 2 (1–2 weeks) connector-by-connector approval, Phase 3 selective agentic actions. All MCP connectors subject to the same review process. Doug overruled cost concerns; JB confirmed all agentic tools including Cowork under the same governance umbrella. Signals increased internal scrutiny on MCP connector access controls.
