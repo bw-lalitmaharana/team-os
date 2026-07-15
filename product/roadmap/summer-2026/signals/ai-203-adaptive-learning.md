@@ -293,6 +293,60 @@ Supplements the 2026-07-14 gmail entry above (same meeting) with detail from the
 
 **Implication for ranking:** The JD-coverage gap (90-95%) is a new, previously-unlogged dependency risk for AI-203's PDP/skill-matching scope — worth flagging to Nellie since it affects how much of the profile base can get automatic skill assignment vs. requiring manual JD entry. No change to the Aug 10 gate.
 
+### 2026-07-14 — Hackathon guidance - skill graph (zoom)
+**Source:** Zoom — "Hackathon guidance - skill graph" 2026-07-14 (UUID E40BE32D-F1F8-4B6B-8F54-D62D3B1D0D3F)
+**Type:** architecture
+**Owner-impact:** Lalit, Neetesh Kaushik, Jason Zhang
+
+Supplements the 2026-07-15 gmail entry below (same meeting) with full transcript/summary detail. Jason Zhang reviewed the Neo4j skill-graph demo and endorsed it for PDP recommendations, and revealed the data warehouse already has ~32K Lightcast SKU embeddings the team can reuse rather than generating their own. He proposed extending the same graph substrate into a broader "people graph" spanning goals, feedback, conversations, org-chart, and policy-engine data — beyond the current skill-matching scope — and offered to share prior internal research on that concept. Two open production concerns were flagged but not resolved: multi-taxonomy support (Lightcast vs. TechWolf skill vocabularies coexisting) and GraphDB performance/schema design at the scale of thousands of orgs with up to ~100K users each.
+
+**Implication for ranking:** Raises AI-203 from a hackathon PoC to a potential shared-platform capability (people graph) — worth flagging to Nellie and Jason Zhang's team before MVP scoping locks in, since it could reshape the graph's data model. Multi-taxonomy and at-scale performance are new open risks to track ahead of the Aug 10 Gemma-4 gate.
+
+### 2026-07-15 — UI scope locked: fixed filters, CSV export, Slack DM for mentor contact (zoom)
+**Source:** Zoom — "Zoom Meeting" 2026-07-15 (UUID 911AF59A-0973-497B-9582-3AB53FEA38BB)
+**Type:** scope-decision
+**Owner-impact:** Lalit, Manish Tomar, Abhishek Punj, Ayush Singh
+
+Team locked the admin/search UI surface for the hackathon build: fixed filters (skill, department, location, match-score threshold), CSV/table export of results, and the Explore Graph view retained alongside the table view. Mentor contact from talent profiles will go out as a Slack DM rather than any new messaging surface. The Claude-Design-generated HTML mockup was confirmed as the basis for implementation. Natural-language search and improved score-visualization (flagged as future work in the 07-14 Talent Graph entry above) were explicitly deferred, not built.
+
+**Implication for ranking:** Narrows the AI-203 MVP surface to a concrete, buildable feature set — useful as a scope anchor for the PRD. NL search and score-visualization stay parked as later-phase items, consistent with the 07-14 entry above.
+
+### 2026-07-15 — Demo data population: manual/scripted seeding, no random assignment (zoom)
+**Source:** Zoom — "Zoom Meeting" 2026-07-15 (UUID 385CD5A3-396A-40BD-9E55-279641FA42BF)
+**Type:** commitment
+**Owner-impact:** Dasharath, Lalit, Neetesh Kaushik
+
+Team agreed on a plan to populate demo data: stand up Postgres + Neo4j locally, then run a Python script that bypasses the Talent API and writes directly to the DB (using an OpenAI key) to assign role-relevant skills to profiles. Dasharath and Lalit will prepare the script/inputs; Neetesh will run it. The team explicitly rejected random or blanket skill assignment as not credible for a demo. Incumbent/position-level skill assignment was deferred until after the core skills population is done.
+
+**Implication for ranking:** Low direct ranking impact, but confirms the demo depends on manual/local data seeding rather than any production pipeline — a gap to flag if AI-203 progresses past the hackathon stage into a real rollout plan.
+
+### 2026-07-15 — Demo recording scope: reuse existing search API, hard-code position skills, defer LLM JD extraction (zoom)
+**Source:** Zoom — "Demo Recording - Skill graph" 2026-07-15 (UUID 24240C75-C131-437F-9F9E-2D159EB63F16)
+**Type:** scope-decision
+**Owner-impact:** Lalit, Neetesh Kaushik, Manish Tomar
+
+Planning call ahead of the recorded demo. Succession and mentor recommendations will reuse the existing search-by-skill API rather than a new endpoint. Position-related skills will be hard-coded for the demo rather than LLM-extracted from job descriptions — the LLM extraction engine was judged too complex to stand up in time and is deferred. Score-legend convention was fixed: green for exact match, another color for similar match.
+
+**Implication for ranking:** Clearest AI-203 scope-narrowing signal from this batch — "hard-code position skills, defer LLM JD extraction" should be called out as an explicit MVP constraint before refinement, since it's the same JD-extraction gap flagged as unresolved in the 07-14 Talent Graph entry above (90-95% of profiles lack a linked JD).
+
+### 2026-07-15 — Demo Recording - Skill graph: final recording — architecture, provider strategy, and differentiation case confirmed (zoom)
+**Source:** Zoom — "Demo Recording - Skill graph" 2026-07-15 (UUID 20D72671-CF99-4F84-A322-98E244EB1E9E)
+**Type:** architecture
+**Owner-impact:** Lalit, Neetesh Kaushik, Nellie (for PRD/backlog framing)
+
+The final recorded demo confirmed the graph architecture (skill nodes + talent-profile nodes linked by semantic-similarity edges), with Lightcast as the current skill-taxonomy provider under a plug-and-play design meant to support additional providers (e.g. TechWolf) later. Four working features were demonstrated: search-by-skill/person, succession recommendations, mentor recommendations, and CSV export. The business case cited: 68% of skills are expected to change by 2030 and 58% of the workforce will need new skills, with Betterworks' differentiator being its existing performance data versus point competitors (Workday, 8fold, Gloat, Lattice, 15Five). Proposed (not committed) next steps: a unified "work graph" spanning goals/feedback/conversations, a shared API endpoint, natural-language/voice input, mobile support, and compliance/security work needed at scale.
+
+**Implication for ranking:** Strongest single artifact from this batch for AI-203 — the architecture and competitive-differentiation story should feed directly into PRD framing and backlog-rank scoring. The unified work-graph extension (echoing Jason Zhang's "people graph" proposal in the 07-14 entry above) is a future refinement-call scope question, not yet decided.
+
+### 2026-07-15 — Notebook location settled; open question on skill-ID requirement for succession queries (zoom)
+**Source:** Zoom — "Zoom Meeting" 2026-07-15 (UUID EABA166E-F950-46A2-8234-3124AB9EE315)
+**Type:** open-question
+**Owner-impact:** Neetesh Kaushik, Lalit
+
+Team decided the analysis notebook will live inside the existing Talent API repo rather than a new standalone repo. One technical question was left open: whether skill IDs are required for succession-page position queries, or whether the existing schema can serve them without that field — Neetesh to verify.
+
+**Implication for ranking:** Minor housekeeping decision plus one small unresolved technical question; no ranking impact, but the skill-ID question should be closed out before the succession feature is considered demo-complete.
+
 ### 2026-07-15 — gmail
 - **Who:** Neetesh Kaushik, Lalit Maharana, Jason Zhang (via Zoom AI summary)
 - **Where:** Email thread 19f613256e6aab1d — "Meeting assets for Hackathon guidance - skill graph are ready!"
