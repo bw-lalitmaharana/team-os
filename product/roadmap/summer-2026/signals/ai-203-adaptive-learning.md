@@ -351,3 +351,8 @@ Team decided the analysis notebook will live inside the existing Talent API repo
 - **Who:** Neetesh Kaushik, Lalit Maharana, Jason Zhang (via Zoom AI summary)
 - **Where:** Email thread 19f613256e6aab1d — "Meeting assets for Hackathon guidance - skill graph are ready!"
 - **Summary:** Hackathon demo to Jason Zhang: Neetesh and Lalit presented Neo4j-based skills graph (skill + talent-profile nodes, semantic embeddings, vector-indexed Cypher queries for profile similarity and mentor matching). Jason confirmed value for PDP recommendations, revealed existing Lightcast embeddings already in the data warehouse (action: Jason to Slack Lalit details), and discussed using GraphDB for broader use cases (people graph, org chart, goals, conversations). Action items: Jason to share prior "people graph" research with team; Neetesh to share demo notebook, address multi-taxonomy support and performance/scalability questions. Event-driven graph refresh via EDA flagged as future improvement.
+
+### 2026-07-16 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f65d9a2a0ccc21 — "Meeting assets for Demo Recording - Skill graph are ready!"
+- **Summary:** Zoom delivered recording assets (11:39 min) for a skill graph demo session; AI summary describes the session as focused on demonstrating talent search and succession planning functionality using the skill graph; recording available for review.
