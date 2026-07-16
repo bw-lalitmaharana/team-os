@@ -356,3 +356,12 @@ Team decided the analysis notebook will live inside the existing Talent API repo
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f65d9a2a0ccc21 — "Meeting assets for Demo Recording - Skill graph are ready!"
 - **Summary:** Zoom delivered recording assets (11:39 min) for a skill graph demo session; AI summary describes the session as focused on demonstrating talent search and succession planning functionality using the skill graph; recording available for review.
+
+### 2026-07-15 — AI Accelerator hackathon judged: Skill Graph placed among top performers, org-wide production evaluation now planned (zoom)
+**Source:** Zoom — "AI Accelerator Program: India Team Hackathon" 2026-07-15 (UUID 64C83971-E4C8-43E9-8936-D309E1669136)
+**Type:** commitment
+**Owner-impact:** Lalit, Neetesh Kaushik, Sriram CS, Nataliya Kolb, Maher Hanafi, Nellie LeMonier
+
+Ten teams presented at the India Team Hackathon finale; Lalit's Skill Graph-based Recommendations entry (built by the same team as the 07-15 demo recordings above) was called out by judges as one of the strong performers, behind winner Better Ask Cal (4.51) and runner-up Internal Mobility Matching (4.04). Sriram committed to a follow-up with Nataliya, Maher, and product/engineering leadership to evaluate and plan production paths for all 10 presented ideas, including Skill Graph. Doug is to share the full judge scoring spreadsheet with participants.
+
+**Implication for ranking:** First org-level signal that Skill Graph may get evaluated for a real production track outside the hackathon — worth flagging to Nellie ahead of the next AI-203 refinement pass, since a production commitment here would firm up the still-provisional Tier E / composite-34 scoring.
