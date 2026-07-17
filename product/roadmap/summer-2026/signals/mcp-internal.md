@@ -266,3 +266,28 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Brian Jacobs, Allie Collins, Doug Dennerline, Raj Sinkar, Ash Todd
 - **Where:** [#ai-innovation-lab](https://betterworks.slack.com/archives/C0AML6FH22H/p1784050022738729)
 - **Summary:** AI Core governance debate on agentic AI tools: Cowork being restricted/replaced; ChatGPT Work phased rollout proposed by JB — Phase 1 (48h) marketing access with no external connectors, Phase 2 (1–2 weeks) connector-by-connector approval, Phase 3 selective agentic actions. All MCP connectors subject to the same review process. Doug overruled cost concerns; JB confirmed all agentic tools including Cowork under the same governance umbrella. Signals increased internal scrutiny on MCP connector access controls.
+
+### 2026-07-17 — slack
+- **Who:** Aimie Lim
+- **Where:** [#mktg-weekly-updates](https://betterworks.slack.com/archives/C09DP7MRB8X/p1784228456573119)
+- **Summary:** MCP marketing deliverables fully launched — QA completed and all MCP launch assets shipped; coordinated with the public MCP Server LinkedIn announcement today.
+
+### 2026-07-17 — slack
+- **Who:** Emerson Matthews
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1784228335598349?thread_ts=1784162009.283619&cid=C01GYVBME90)
+- **Summary:** Submitted fix PR public-api-mcp/pull/87 in the App Platform thread — active engineering work on MCP V2.
+
+### 2026-07-17 — slack
+- **Who:** Emerson Matthews
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1784237169347519)
+- **Summary:** Posted PRs for MCP V2 "goal settings tool" — goals-api PR#904 and public-api-mcp PR#88; this is the first V2 goals tool to be built per the 2026-06-29 contract (goals get settings built first).
+
+### 2026-07-17 — slack
+- **Who:** Joy Johnson
+- **Where:** [#mktg-weekly-updates](https://betterworks.slack.com/archives/C09DP7MRB8X/p1784246942725989)
+- **Summary:** MCP Launch design assets complete — carousel and featured images done; Summer Campaign LinkedIn and display ads also delivered; coordinated marketing push around the MCP public announcement.
+
+### 2026-07-17 — gmail
+- **Who:** GaggleAMP (member-noreply@gaggleamp.com → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f6e75d3b89adda — "You have New Messages to Share on betterworks"
+- **Summary:** GaggleAMP social-amplification request for a LinkedIn post announcing the Betterworks MCP Server publicly: "Today, we're introducing the Betterworks MCP Server, bringing Betterworks performance intelligence directly into ChatGPT, Claude, Microsoft Copilot, Gemini, and other MCP-compatible AI tools" — first confirmed external public announcement of the MCP product.
