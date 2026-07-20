@@ -1,8 +1,8 @@
 # Local-model cost map — which model per task, and why
 
-**Purpose.** A per-task recommendation of which locally-hosted (Ollama) model to run each team-os routine, command, LLM-skill, and hook on — chosen to **cut cost** while holding Claude-parity output. Companion to `.claude/local-model-routines.md` (the parity concept) and `automation/aegis/PLAN.md` (the runtime). This file is a **study / recommendation** — it changes no routine and pushes nothing. Verify tags and measure parity (below) before flipping anything.
+**Purpose.** A per-task recommendation of which locally-hosted model to run each team-os routine, command, LLM-skill, and hook on — chosen to **cut cost** while holding Claude-parity output. Companion to `.claude/local-model-routines.md` (the parity concept) and `automation/aegis/PLAN.md` (the runtime). This file is a **study / recommendation** — it changes no routine and pushes nothing. Verify tags and measure parity (§5) before flipping anything.
 
-Hardware assumed throughout: **M4 Pro / 48 GB**, budget **<24 GB RAM, 16k ctx, no swap**, ~273 GB/s bandwidth — the envelope locked in `decisions/2026-07-07-aegis-local-agentic-os.md`.
+Hardware assumed throughout: **M4 Pro / 48 GB**, budget **<24 GB RAM, 16k ctx, no swap** — the envelope locked in `decisions/2026-07-07-aegis-local-agentic-os.md`. Runtime is **MLX** (see §2), reflecting the model already installed locally: **`gemma4 26B` (the 26B-A4B MoE)**.
 
 ---
 
@@ -10,40 +10,59 @@ Hardware assumed throughout: **M4 Pro / 48 GB**, budget **<24 GB RAM, 16k ctx, n
 
 The dollar cost today is **CCR / Claude cloud tokens** — every routine, command, and skill runs there. So:
 
-- **The saving is CCR → local.** Once a task runs on the resident Ollama model, its marginal API cost is **~zero**. That is the win, and it is the same win regardless of *which* local model serves the task.
-- **Per-task model choice trades RAM & latency, not dollars.** On this box only **one large model can be resident** (`PLAN.md:66-67`). So "which model per task" is really "can I serve this task on the one model I already have warm, or must I escalate?" — a budget/latency question, with a small residual that stays on Claude for quality.
+- **The saving is CCR → local.** Once a task runs on the resident local model, its marginal API cost is **~zero**. That is the win, and it is the same win regardless of *which* local model serves the task.
+- **Per-task model choice trades RAM & latency, not dollars.** On this box only **one large model can be resident** (`PLAN.md:66-67`). So "which model per task" is really "can I serve this on the one model I already have warm, or must I escalate?" — a budget/latency question, with a small residual that stays on Claude for quality.
 
-**Consequence:** the cheapest correct default is to run **as many tasks as possible on the single resident model**, because it is already loaded — extra tasks on it cost no extra RAM and no cold-start. Pulling a second model to "optimize" a task usually *costs* you (RAM + swap risk), it doesn't save.
-
----
-
-## 2. The one rule that decides the roster
-
-> `PLAN.md:67`: 30B-A3B (~18 GB) + 16k KV + embed (~0.5 GB) + Python/LangGraph/Chainlit/Chroma ≈ **21–23 GB**. Fits — **but only if exactly one large model is resident. Never load a 2nd big model** for a verifier pass; reuse the same model with a critic prompt, or a small model.
-
-The **Qwen3-30B-A3B MoE** is uniquely good here because only **3.3B params are active** — ~30B-class quality at ~40 tok/s and ~18 GB (`PLAN.md:60`). A dense 32B gives slightly better raw quality but ~12–15 tok/s (misses the speed target), so it is a **swap-in, not the default** (`PLAN.md:61,64`).
+**Consequence:** the cheapest correct default is to run **as many tasks as possible on the single resident model**, because it is already loaded — extra tasks on it cost no extra RAM and no cold-start. Pulling a second model to "optimize" a task usually *costs* you (RAM + swap risk), it doesn't save. **You already have that resident model: `gemma4 26B` MoE — use it.**
 
 ---
 
-## 3. Recommended lean roster (what to pull)
+## 2. Runtime: MLX (and how it reconciles with the Aegis plan's Ollama assumptions)
 
-| Model | Role | Resident? | RAM | Serves |
+The Aegis plan (`PLAN.md`, `local-model-routines.md`) assumes **Ollama** (`localhost:11434`, OpenAI `/v1`, native `format` for JSON-constrained decoding, `keep_alive`). You run **MLX**. These are no longer either/or:
+
+- **Recommended — Ollama 0.19 on the MLX backend** (`OLLAMA_BACKEND=mlx`). Ollama 0.19 (Mar 2026) replaced its Metal backend with **MLX** on Apple Silicon (Macs ≥32 GB), ~1.6–2× faster. You get **MLX compute speed** *and* keep native JSON `format`, `keep_alive`, and the `/v1` endpoint the plan already targets — so **no rewrite of the Aegis integration is needed.** MLX-quantized builds are pulled automatically when they exist (from `mlx-community`); GGUF-only models fall back to llama.cpp.
+- **Alternative — pure `mlx-lm` / LM Studio.** `mlx_lm.server` exposes an OpenAI-compatible endpoint, but you **lose native `format`** — JSON-schema-constrained decoding then comes via **Outlines' MLX backend** (schema → constrained sampling; ~50–200 ms first-schema compile, cached after). Choose this only if you want to stay off Ollama entirely; it means adding Outlines and reworking the plan's structured-output path.
+
+Either way the parity harness (§5) is unchanged. **Recommendation: Ollama-0.19-on-MLX** — least disruptive, keeps the plan intact, gives you MLX speed.
+
+---
+
+## 3. Recommended lean roster (what to run)
+
+| Model | Role | Resident? | RAM (MLX 4-bit) | Serves |
 |---|---|---|---|---|
-| **Qwen3-30B-A3B MoE (Q4_K_M)** | Workhorse reasoner | **Yes — the one big model** | ~18 GB | Tier-1 mechanical **and** Tier-2 synthesis — nearly every routine |
-| **bge-m3** *(or `nomic-embed-text`)* | Embeddings / RAG grounding | Yes, co-resident | ~0.5 GB | Chroma retrieval for synthesis routines |
-| **Dense 32B (Q4_K_M)** | Offline high-stakes synthesis | **No — swap in on demand** | ~18–20 GB | Tier-3 deep-research synthesis, harness review (latency-insensitive) |
+| **gemma4 26B-A4B MoE** *(already installed)* | Workhorse reasoner | **Yes — the one big model** | ~18 GB | Tier-1 mechanical **and** Tier-2 synthesis — nearly every routine |
+| **bge-m3** *(or `nomic-embed-text-v2`)* | Embeddings / RAG grounding | Yes, co-resident | ~2 GB | Chroma retrieval; serve via Ollama (GPU auto) — MLX-native embedding support is still immature |
+| **gemma4 31B dense** | Offline high-stakes synthesis | **No — swap in on demand** | ~19–22 GB | Tier-3 deep-research synthesis, harness review (latency-insensitive, max quality) |
 | **Claude + human** | Frontier checkpoint | n/a | — | PRD authorship, harness self-review, OS self-upgrade — until golden-eval proves parity |
-| *(optional)* small 4B, e.g. `qwen3:4b` | Latency/throughput escape hatch | Only if a routine proves bound | ~3 GB | **Skip by default** — protects the RAM budget |
+| *(alt, not required)* Qwen3-30B-A3B MoE | Candidate to A/B vs gemma4 | — | ~17–18 GB | Only pull to benchmark against gemma4 in the golden-eval; don't run both resident |
 
-**Open tag question to settle before pulling** (`PLAN.md:64,139`): confirm the exact Ollama tag — `qwen3:30b-a3b` vs a mid-2026 `qwen3.5` 30B-A3B refresh. Do not pull blind.
+**Speed on your box:** gemma4-26B-A4B at MLX 4-bit reports **~30–56 tok/s on M4 Pro 48 GB** (varies with context length and other apps) — the MoE activates only ~3.8B of 26B params per token, which is why a "26B" fits ~18 GB and runs fast. **Measure it on your machine** before setting expectations; treat published numbers as a range, not a promise.
 
-**Reconciliation note.** The older roster in `.claude/local-model-routines.md:16-24` (`gemma4`/`qwen2.5:7b` → `qwen2.5:32b` → `qwen2.5:72b`) predates the locked ADR and is **superseded on this hardware**: you can't hold 7B + 32B + 72B resident, and swapping between them is slow. A separate 7B for "cheap" Tier-1 work would *add* ~5 GB and a cold-start for tasks the warm MoE already handles for free. Keep the *tiering idea* (route by task difficulty); drop the *multi-big-model* implementation. That doc's own §11 (`PLAN.md:150`) already flags itself for this update.
+**Commit to one embedding model** — bge-m3 and nomic vectors live in different spaces and aren't comparable; switching means a full re-index.
+
+#### Why 26B-A4B MoE resident, not 31B dense
+| | **26B-A4B (MoE)** — installed | **31B dense** |
+|---|---|---|
+| Active params/token | ~3.8B of 26B | all ~31B |
+| RAM (MLX 4-bit) | ~18 GB — fits <24 GB with headroom | ~19–22 GB — at the ceiling, little room for KV cache at 16k ctx |
+| Speed | ~30–56 tok/s | ~2–4× slower (dense fires every param/token) |
+| Quality | strong on scoped synthesis/extract/classify | higher ceiling on long-chain, open-ended reasoning |
+| Fit | **always-resident workhorse** | **on-demand swap-in only** |
+
+The MoE buys speed **and** RAM by activating a slice of weights per token — which is exactly why it's the right always-on default. 31B dense spends its whole budget every token, so you pay the latency and sit at the top of the RAM ceiling for a gain that **only shows on the frontier residual** (deep-research synth, harness review) — not the Tier-1/2 work that is ~95% of the cost surface. Two big models can't co-reside, so 31B always means **evicting 26B first** (a cold-swap). Reserve it for latency-insensitive Tier-3 jobs, and even there let the golden-eval (§5) decide whether 31B beats **26B + a verify pass** before accepting the cost.
+
+### Reconciliation with the repo's older roster
+- `local-model-routines.md:20` files "gemma4 (installed)" as a **Tier-1 small** extract/classify model. **That's wrong** — the installed model is the **26B-A4B MoE**, a Tier-2-capable *synthesis* reasoner. It should be the resident workhorse, not a bulk-classify helper.
+- The ADR's dense-vs-MoE deliberation (`PLAN.md:56-64`) is **moot here**: gemma4-26B is *already* an MoE, so it satisfies the speed **and** RAM budgets simultaneously — the exact property the ADR chose Qwen3-30B-A3B for. You don't need to pull Qwen; gemma4-26B already fills that slot.
+- The old 7B/32B/72B ladder (`local-model-routines.md:16-24`) stays **superseded**: you can't hold multiple big models resident, and a separate 7B would just add ~5 GB + a cold-start for work the warm MoE does for free. Keep the *tiering idea* (route by difficulty), drop the *multi-big-model* implementation. The doc's own §11 (`PLAN.md:150`) already flags itself for this update.
 
 ---
 
 ## 4. Per-task map (every routine, command, LLM-skill, hook)
 
-Engine key (`local-model-routines.md:11-14`): **A** = deterministic, no LLM · **B** = scoped local LLM call (JSON-constrained) · **C** = code-orchestrated reasoning pipeline.
+Engine key (`local-model-routines.md:11-14`): **A** = deterministic, no LLM · **B** = scoped local LLM call (JSON-constrained) · **C** = code-orchestrated reasoning pipeline. "Resident model" below = **gemma4 26B-A4B MoE**.
 
 ### 4a. Hooks — already free, nothing to migrate
 | Hook | Engine | Model | Note |
@@ -56,41 +75,41 @@ Engine key (`local-model-routines.md:11-14`): **A** = deterministic, no LLM · *
 ### 4b. Routines (scheduled) — the cost surface
 | Routine | Cadence (IST) | Engine/Tier | Recommended model | Cost note | Governance |
 |---|---|---|---|---|---|
-| `morning-brief` | Wkdys 08:00 | A+B / 1 | **30B-A3B** (resident) | zero marginal | read-only |
-| `focus-planner` | Mon 08:35 | A+B / 1 | **30B-A3B** | zero marginal | HITL on calendar create |
-| `focus-reminder` | Wkdys 08:50 | A+B / 1 | **30B-A3B** | zero marginal | HITL on calendar holds |
-| `day-end-sweep` | Wkdys 19:00 | A+B / 1 | **30B-A3B** | zero marginal | append-only signals |
-| `daily-meeting-extract` | Daily 20:00 | A+B / 1 | **30B-A3B** | zero marginal | Slack self-DM/canvas |
-| `zoom-signal-sweep` | Wkdys ~20:35 *(proposed)* | A+B / 1 | **30B-A3B** | zero marginal | append-only + git |
-| `monthly-audit-context` | 1st 09:00 | A(+B) / 1 | **30B-A3B** | zero marginal | writes report only |
-| Slack DM sweep | (Aegis Phase 1) | A+B / 1 | **30B-A3B** | zero marginal | read-only |
-| Jira sweep | (Aegis Phase 1) | A+B / 1–2 | **30B-A3B** | zero marginal | **read-only** (writes refinement-gated) |
-| Meeting-transcript → synth | (Aegis Phase 3) | A+B/C / 2 | **30B-A3B** + verify + RAG | zero marginal | append-only |
-| Synthesis → memory events | (Aegis Phase 3) | B/C / 2 | **30B-A3B** + verify | zero marginal | append-only |
-| Marking key events | (Aegis Phase 3) | A+B / 1 | **30B-A3B** (vote-classify) | zero marginal | append-only |
-| Task manager | (Aegis Phase 2) | A(+B) / 1 | **30B-A3B** | zero marginal | HITL on writes |
-| Daily/weekly digest → Slack | (Aegis Phase 3) | A+B / 1 | **30B-A3B** | zero marginal | — |
-| Deep research (internet) | (Aegis Phase 4) | C / 3 | **30B-A3B** + **dense-32B** for synth | swap-in cost | local search (SearXNG) |
-| Harness review | (Aegis Phase 4) | C / 3 | **dense-32B** + Claude/human checkpoint | swap-in + checkpoint | **propose-only (PR = HITL)** |
+| `morning-brief` | Wkdys 08:00 | A+B / 1 | **resident MoE** | zero marginal | read-only |
+| `focus-planner` | Mon 08:35 | A+B / 1 | **resident MoE** | zero marginal | HITL on calendar create |
+| `focus-reminder` | Wkdys 08:50 | A+B / 1 | **resident MoE** | zero marginal | HITL on calendar holds |
+| `day-end-sweep` | Wkdys 19:00 | A+B / 1 | **resident MoE** | zero marginal | append-only signals |
+| `daily-meeting-extract` | Daily 20:00 | A+B / 1 | **resident MoE** | zero marginal | Slack self-DM/canvas |
+| `zoom-signal-sweep` | Wkdys ~20:35 *(proposed)* | A+B / 1 | **resident MoE** | zero marginal | append-only + git |
+| `monthly-audit-context` | 1st 09:00 | A(+B) / 1 | **resident MoE** | zero marginal | writes report only |
+| Slack DM sweep | (Aegis Phase 1) | A+B / 1 | **resident MoE** | zero marginal | read-only |
+| Jira sweep | (Aegis Phase 1) | A+B / 1–2 | **resident MoE** | zero marginal | **read-only** (writes refinement-gated) |
+| Meeting-transcript → synth | (Aegis Phase 3) | A+B/C / 2 | **resident MoE** + verify + RAG | zero marginal | append-only |
+| Synthesis → memory events | (Aegis Phase 3) | B/C / 2 | **resident MoE** + verify | zero marginal | append-only |
+| Marking key events | (Aegis Phase 3) | A+B / 1 | **resident MoE** (vote-classify) | zero marginal | append-only |
+| Task manager | (Aegis Phase 2) | A(+B) / 1 | **resident MoE** | zero marginal | HITL on writes |
+| Daily/weekly digest → Slack | (Aegis Phase 3) | A+B / 1 | **resident MoE** | zero marginal | — |
+| Deep research (internet) | (Aegis Phase 4) | C / 3 | **resident MoE** + **gemma4 31B dense** for synth | swap-in cost | local search (SearXNG) |
+| Harness review | (Aegis Phase 4) | C / 3 | **gemma4 31B dense** + Claude/human checkpoint | swap-in + checkpoint | **propose-only (PR = HITL)** |
 | Upgrade agentic OS (meta) | (Aegis Phase 4) | C / 3 | **Claude/human checkpoint** | keep on Claude | **propose-only (PR = HITL)** |
 
 ### 4c. Slash-commands (mostly manual today)
 | Command | Task | Recommended model | Rationale |
 |---|---|---|---|
-| `my-actions` | aggregate/sort open actions | **30B-A3B** (mostly Engine A) | mechanical; model only parses NL |
-| `standup` | 24h Slack+Jira → Y/T/Blockers | **30B-A3B** | light synthesis |
-| `meeting-debrief` | extract tasks/knowledge/decisions | **30B-A3B** + verify | scoped synthesis over one transcript |
-| `sense-backlog` | refresh release ledger (Aha+Jira+Confluence+Slack) | **30B-A3B** + verify | heavy but scoped; **read-only vs Jira/Aha** |
-| `prd-review` / `spec-review` | critique vs rubric | **30B-A3B** | scoped critique, read-only |
-| `write-prd` (`prd-agentic`) | draft PRD | **Keep on Claude** until golden-eval; then trial 30B-A3B **behind human review** | real open-ended planning — the frontier residual |
+| `my-actions` | aggregate/sort open actions | **resident MoE** (mostly Engine A) | mechanical; model only parses NL |
+| `standup` | 24h Slack+Jira → Y/T/Blockers | **resident MoE** | light synthesis |
+| `meeting-debrief` | extract tasks/knowledge/decisions | **resident MoE** + verify | scoped synthesis over one transcript |
+| `sense-backlog` | refresh release ledger (Aha+Jira+Confluence+Slack) | **resident MoE** + verify | heavy but scoped; **read-only vs Jira/Aha** |
+| `prd-review` / `spec-review` | critique vs rubric | **resident MoE** | scoped critique, read-only |
+| `write-prd` (`prd-agentic`) | draft PRD | **Keep on Claude** until golden-eval; then trial the MoE **behind human review** | real open-ended planning — the frontier residual |
 
 ### 4d. LLM-skills
 | Skill | Pins today | Recommended local | Note |
 |---|---|---|---|
-| `meeting-to-tasks` | `model: sonnet` | **30B-A3B** | JSON-only extraction — safe early flip |
-| `audit-context` | `model: sonnet` | **30B-A3B** | counting + light synthesis — safe early flip |
-| `tldr-pdf` | `model: sonnet` | **30B-A3B** | summarization — safe early flip |
-| `sync-prd` | Opus (main) | **30B-A3B** | mechanical consistency checks + scoped fixes |
+| `meeting-to-tasks` | `model: sonnet` | **resident MoE** | JSON-only extraction — safe early flip |
+| `audit-context` | `model: sonnet` | **resident MoE** | counting + light synthesis — safe early flip |
+| `tldr-pdf` | `model: sonnet` | **resident MoE** | summarization — safe early flip |
+| `sync-prd` | Opus (main) | **resident MoE** | mechanical consistency checks + scoped fixes |
 | `prd-agentic` / `pmd-template` | Opus (main) | **Keep on Claude** initially | real PRD authorship — frontier residual |
 
 **The three `model: sonnet` skills are the best first flips** — scoped, schema-bounded, low risk, and they exercise the whole B-engine path (structured output + validate + retry).
@@ -102,8 +121,8 @@ Engine key (`local-model-routines.md:11-14`): **A** = deterministic, no LLM · *
 Per the house rule *"never claim parity you haven't measured"* (`local-model-routines.md:9,34`). For each routine, in flip order:
 
 1. **Golden set.** Capture 5–10 recent real CCR outputs as references (from `ops/daily/`, `signals/`, `ops/meeting-notes/`, prior digests).
-2. **Structural gate.** Run the local candidate; require **JSON-schema valid + all required fields present** (Ollama `format`, validate, 5-retry). Target ≥95% first-pass (`PLAN.md:132`) — treat as a gate, not a given.
-3. **Quality gate.** LLM-judge / rubric score of local output vs the golden reference on a held set; set a per-routine pass bar (e.g. judge-parity on ≥90%). For classification routines (marking key events), use a self-consistency **vote**.
+2. **Structural gate.** Run the local candidate; require **JSON-schema valid + all required fields present** (Ollama `format`, or Outlines on pure mlx-lm; validate, 5-retry). Target ≥95% first-pass (`PLAN.md:132`) — treat as a gate, not a given.
+3. **Quality gate.** LLM-judge / rubric score of local output vs the golden reference on a held set; set a per-routine pass bar (e.g. judge-parity on ≥90%). For classification routines (marking key events), use a self-consistency **vote**. *(This is also where you A/B gemma4-26B vs Qwen3-30B-A3B if you want to confirm the resident-model choice.)*
 4. **Resource gate.** Confirm **8h zero-swap** via `vm_stat` with the model resident (`PLAN.md:119,133`).
 5. **Flip one at a time.** Keep the CCR twin as **fallback** until the local golden-eval passes; then disable the CCR trigger. **Never run both engines for one routine** (double-posting). Hybrid escalation: on local failure or low verify-confidence, escalate that single run to CCR, logged (`local-model-routines.md:42,77`).
 
@@ -125,6 +144,18 @@ Model selection never relaxes these — they are hard guards (`automation/CLAUDE
 
 ## 7. Bottom line
 
-- Pull **two models**: the resident **Qwen3-30B-A3B MoE** + an **embedding model**. Keep **dense-32B** on disk for on-demand frontier synthesis. Everything else routes to the resident MoE at **zero marginal cost**.
-- **Don't** pull the old 7B/32B/72B ladder — it fights the one-big-model RAM rule and saves nothing here.
+- **Run the model you already have.** `gemma4 26B-A4B` (MoE, ~18 GB, ~30–56 tok/s on your M4 Pro) is the resident workhorse for Tier-1 **and** Tier-2 — every routine routes to it at **zero marginal cost**. Add an **embedding model** (bge-m3/nomic via Ollama) and keep **gemma4 31B dense** on disk for on-demand frontier synthesis.
+- **Serve it via Ollama 0.19 on the MLX backend** (`OLLAMA_BACKEND=mlx`) — MLX speed while keeping the plan's `format`/`keep_alive`/`/v1` integration intact. Pure mlx-lm + Outlines is the alternative.
+- **Don't** pull the old 7B/32B/72B ladder, and **don't** feel obliged to pull Qwen3-30B-A3B — gemma4-26B already fills the MoE slot; benchmark Qwen only if you want to confirm the choice.
 - The real cost win is **moving each routine CCR → local**, gated by a golden-eval, one at a time, with a Claude/human checkpoint retained only on the genuine frontier residual.
+
+---
+
+### Sources (external research, July 2026)
+- MLX vs Ollama on Apple Silicon: https://willitrunai.com/blog/mlx-vs-ollama-apple-silicon-benchmarks
+- Ollama 0.19 MLX backend: https://ollama.com/blog/mlx · https://andrew.ooo/posts/ollama-mlx-apple-silicon-review/
+- Gemma 4 lineup (26B-A4B MoE / 31B dense): https://ai.google.dev/gemma/docs/core · https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know
+- gemma4-26B-A4B on M4 Pro (RAM / tok-s): https://gemma4-ai.com/blog/gemma4-mac-performance · https://gemma4-ai.com/blog/gemma4-hardware
+- Qwen3-30B-A3B MLX speed (for A/B comparison): https://willitrunai.com/blog/qwen-3-5-mlx-apple-silicon-guide · https://llmcheck.net/benchmarks
+- MLX structured output (Outlines): https://mbrenndoerfer.com/writing/constrained-decoding-structured-llm-output
+- Local embeddings on Apple Silicon: https://contracollective.com/blog/local-embeddings-apple-silicon-nomic-bge-qwen3-m5-max-2026
