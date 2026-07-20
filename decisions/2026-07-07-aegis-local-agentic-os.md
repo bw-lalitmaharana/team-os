@@ -28,3 +28,15 @@ Orchestration = LangGraph; UI = Chainlit; memory = Chroma index **derived from**
 - Keeping code in team-os grows the repo beyond docs; mitigated by scoping runtime under `automation/`.
 
 **Supersedes:** the "Auth" open item + §10 open decisions in `automation/aegis/PLAN.md`; refines the Auth section of `.claude/local-model-routines.md`.
+
+---
+
+### Update 2026-07-20 — model roles refined (runtime = MLX; resident generator = gemma4; Qwen retained as judge)
+
+Decision #1 and the "via Ollama" runtime assumption are **refined** (not reversed) after the model-cost + eval-lifecycle work. The locked *intent* — one MoE reasoning engine, ≤1 big model resident, <24 GB no-swap — stands; the specific bindings change:
+
+- **Runtime = MLX**, via **Ollama 0.19 on the MLX backend** (`OLLAMA_MAX_LOADED_MODELS=1`), not the llama.cpp path. Keeps native JSON `format`/`keep_alive`/`/v1`; `mlx-serve` is the fallback if the zero-swap gate shows allocator residue. See `automation/aegis/model-cost-map.md` §2.
+- **Resident generator = gemma4-26B-A4B MoE** (~3.8B active, ~18 GB, installed) — the day-to-day workhorse, with **gemma4-31B dense** as the swap-in for high-stakes synthesis.
+- **Qwen3-30B-A3B is retained — repurposed as the cross-family eval judge**, not the resident generator. Self-preference bias makes same-family judging unreliable (a model over-rates its own and same-family output), so the judge must differ in *family* from the generator; gemma output is judged by Qwen (or Claude for high-stakes). This is why "hosting many, using one at a time" is a first-class OS primitive, not just a RAM trick.
+
+The one-big-model-resident invariant is unchanged; a different judge loads **serially** (evict generator → load judge), never co-resident. Full mechanism + per-routine generator/judge table: `automation/aegis/model-lifecycle-and-eval.md`. Per-task model map: `automation/aegis/model-cost-map.md`.
