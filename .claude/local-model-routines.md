@@ -13,16 +13,19 @@ Claude-level *output* is not the same as a Claude-level *model*. For scheduled r
 - **B — Local LLM, scoped call:** summarize / classify / extract / tag / phrase over *provided* context. Always JSON-schema-constrained (Ollama `format`), validated, retried. ~90% of routine "intelligence" lives here.
 - **C — Local reasoning model, orchestrated pipeline:** multi-step synthesis / research / planning, reproduced as a **code-orchestrated** fan-out → extract → synthesize → verify — NOT a model-driven agent loop (small local models are weak agents).
 
-## Model roster (Ollama tiers)
-| Tier | Use | Model to pull |
+## Model roster (MLX; one big model resident at a time)
+Runtime is **MLX** (Ollama 0.19 MLX backend, `OLLAMA_MAX_LOADED_MODELS=1`). One big model resident; a different judge/synth model loads **serially** by evicting it. Authoritative per-task map: `automation/aegis/model-cost-map.md`; lifecycle + generator/judge assignment: `automation/aegis/model-lifecycle-and-eval.md`.
+
+| Tier | Use | Model |
 |---|---|---|
 | 0 | none — pure code | — |
-| 1 | extract / classify / phrase (high volume) | `gemma4` (installed) or `qwen2.5:7b-instruct` |
-| 2 | synthesis, memory events, jira/meeting, tool-use | `qwen2.5:32b-instruct` |
-| 3 | deep research, harness review (frontier) | `qwen2.5:72b` or a reasoning model (`qwq`, `deepseek-r1` distill) — hardware-permitting |
-| emb | RAG grounding over team-os | `bge-m3` or `nomic-embed-text` |
+| 1–2 | extract / classify / phrase / synthesis / memory / jira / meeting / tool-use | **gemma4-26B-A4B MoE** *(installed — resident generator)* |
+| 3 | long-chain / high-stakes synthesis | **gemma4-31B dense** *(swap-in)* |
+| judge | cross-family eval of gemma output (verify step 5) | **Qwen3-30B-A3B** *(different family — never gemma-judges-gemma)*; **Claude** for high-stakes |
+| frontier | deep-research synth residual, harness review, OS self-upgrade | **Claude + human checkpoint** |
+| emb | RAG grounding over team-os | `bge-m3` or `nomic-embed-text` *(small — co-resident, exempt)* |
 
-Route by task, not habit. **Small model + good harness > big model + no harness.**
+Route by task, not habit. **Small model + good harness > big model + no harness.** Judge family ≠ generator family, always.
 
 ## Parity checklist (apply to every routine)
 1. Push work to Engine A; call a model only for the irreducibly fuzzy step.
@@ -36,7 +39,7 @@ Route by task, not habit. **Small model + good harness > big model + no harness.
 
 ## Runtime substrate
 - **Orchestrator:** a shared Python framework (proposed `automation/` in this repo, or `~/.agentic-os/`): model-router, connectors (Google/Slack/Jira/Zoom/web), team-os memory+log writers, structured-output + verify helpers, per-routine golden-evals.
-- **Models:** Ollama (multi-model, `localhost:11434`, OpenAI-compatible `/v1`).
+- **Models:** MLX runtime (Ollama 0.19 MLX backend, `localhost:11434`, OpenAI-compatible `/v1`); **one big model resident at a time** (`OLLAMA_MAX_LOADED_MODELS=1`), serial evict-then-load to swap in a judge/synth model. Mechanism: `automation/aegis/model-lifecycle-and-eval.md`.
 - **Scheduler:** launchd (one job per routine; runs missed jobs on wake). The Mac must be awake near run time.
 - **Auth:** local MCP servers run as subprocesses with tokens injected at the **transport layer from the macOS Keychain** (the LLM never sees a token); initial 3-legged OAuth via a temporary local FastAPI redirect. Reusing claude.ai's remote connectors is a bootstrap/fallback only. Concrete Aegis model: `automation/aegis/PLAN.md` §4 + `decisions/2026-07-07-aegis-local-agentic-os.md`.
 - **Fallback (hybrid):** on local failure or low verify-confidence, escalate that single run to CCR/Claude, logged. Keeps reliability while local matures.
@@ -61,7 +64,7 @@ Every routine declares this frontmatter in its `.claude/commands/<name>.md` or `
 ```yaml
 engine: local           # local | ccr | hybrid
 tier: 1                 # 0 code | 1 small | 2 mid | 3 reasoning
-model: gemma4           # generator ollama model (omit if tier 0)
+model: gemma4-26b       # resident generator (omit if tier 0)
 schedule: "50 3 * * 1-5"   # cron, UTC
 output: ops/focus/tracker.md
 verify: judge           # none | judge | vote

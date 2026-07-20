@@ -1,6 +1,6 @@
 # Automation — Aegis local runtime
 
-Home for the local agentic Personal OS ("Aegis") that runs team-os routines on **local models** (Ollama) instead of CCR/Claude. team-os = memory/governance; **Aegis = the runtime** that reads/writes it.
+Home for the local agentic Personal OS ("Aegis") that runs team-os routines on **local models** (MLX runtime; gemma4-26B generator + Qwen judge, one big model resident at a time) instead of CCR/Claude. team-os = memory/governance; **Aegis = the runtime** that reads/writes it.
 
 ## What's here
 - `aegis/PLAN.md` — build plan (approved 2026-07-07).

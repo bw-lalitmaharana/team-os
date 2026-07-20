@@ -36,7 +36,7 @@ Either way the parity harness (§5) is unchanged. **Recommendation: Ollama-0.19-
 | **bge-m3** *(or `nomic-embed-text-v2`)* | Embeddings / RAG grounding | Yes, co-resident | ~2 GB | Chroma retrieval; serve via Ollama (GPU auto) — MLX-native embedding support is still immature |
 | **gemma4 31B dense** | Offline high-stakes synthesis | **No — swap in on demand** | ~19–22 GB | Tier-3 deep-research synthesis, harness review (latency-insensitive, max quality) |
 | **Claude + human** | Frontier checkpoint | n/a | — | PRD authorship, harness self-review, OS self-upgrade — until golden-eval proves parity |
-| *(alt, not required)* Qwen3-30B-A3B MoE | Candidate to A/B vs gemma4 | — | ~17–18 GB | Only pull to benchmark against gemma4 in the golden-eval; don't run both resident |
+| **Qwen3-30B-A3B MoE** | **Cross-family eval judge** (§5) | **No — swap in for eval** | ~17–18 GB | Judges gemma4 output (different family — self-judging is biased); also the A/B generator candidate. Never co-resident with gemma4 |
 
 **Speed on your box:** gemma4-26B-A4B at MLX 4-bit reports **~30–56 tok/s on M4 Pro 48 GB** (varies with context length and other apps) — the MoE activates only ~3.8B of 26B params per token, which is why a "26B" fits ~18 GB and runs fast. **Measure it on your machine** before setting expectations; treat published numbers as a range, not a promise.
 
@@ -55,10 +55,10 @@ Either way the parity harness (§5) is unchanged. **Recommendation: Ollama-0.19-
 
 The MoE buys speed **and** RAM by activating a slice of weights per token — which is exactly why it's the right always-on default. 31B dense spends its whole budget every token, so you pay the latency and sit at the top of the RAM ceiling for a gain that **only shows on the frontier residual** (deep-research synth, harness review) — not the Tier-1/2 work that is ~95% of the cost surface. Two big models can't co-reside, so 31B always means **evicting 26B first** (a cold-swap). Reserve it for latency-insensitive Tier-3 jobs, and even there let the golden-eval (§5) decide whether 31B beats **26B + a verify pass** before accepting the cost.
 
-### Reconciliation with the repo's older roster
-- `local-model-routines.md:20` files "gemma4 (installed)" as a **Tier-1 small** extract/classify model. **That's wrong** — the installed model is the **26B-A4B MoE**, a Tier-2-capable *synthesis* reasoner. It should be the resident workhorse, not a bulk-classify helper.
-- The ADR's dense-vs-MoE deliberation (`PLAN.md:56-64`) is **moot here**: gemma4-26B is *already* an MoE, so it satisfies the speed **and** RAM budgets simultaneously — the exact property the ADR chose Qwen3-30B-A3B for. You don't need to pull Qwen; gemma4-26B already fills that slot.
-- The old 7B/32B/72B ladder (`local-model-routines.md:16-24`) stays **superseded**: you can't hold multiple big models resident, and a separate 7B would just add ~5 GB + a cold-start for work the warm MoE does for free. Keep the *tiering idea* (route by difficulty), drop the *multi-big-model* implementation. The doc's own §11 (`PLAN.md:150`) already flags itself for this update.
+### Reconciliation with the repo's older roster *(now applied)*
+- `local-model-routines.md`'s roster **has been updated** (2026-07-20) to name gemma4-26B-A4B as the resident generator; it previously filed "gemma4 (installed)" as a Tier-1 small extract/classify model, which understated it — the installed model is the **26B-A4B MoE**, a Tier-2-capable *synthesis* reasoner and the resident workhorse.
+- The ADR's dense-vs-MoE deliberation (`PLAN.md:56-64`) is **moot for the generator slot**: gemma4-26B is *already* an MoE, so it satisfies the speed **and** RAM budgets simultaneously — the exact property the ADR chose Qwen3-30B-A3B for. Qwen isn't needed as the *generator* — but it **is** retained as the **cross-family eval judge** (§5): gemma can't reliably judge its own family's output, so Qwen swaps in to grade it. Pull Qwen for that role, not as a second generator. (ADR amended 2026-07-20 to record this.)
+- The old 7B/32B/72B ladder is now **superseded** in `local-model-routines.md`: you can't hold multiple big models resident, and a separate 7B would just add ~5 GB + a cold-start for work the warm MoE does for free. The *tiering idea* (route by difficulty) is kept; the *multi-big-model* implementation is dropped.
 
 ---
 
@@ -148,7 +148,7 @@ Model selection never relaxes these — they are hard guards (`automation/CLAUDE
 
 - **Run the model you already have.** `gemma4 26B-A4B` (MoE, ~18 GB, ~30–56 tok/s on your M4 Pro) is the resident workhorse for Tier-1 **and** Tier-2 — every routine routes to it at **zero marginal cost**. Add an **embedding model** (bge-m3/nomic via Ollama) and keep **gemma4 31B dense** on disk for on-demand frontier synthesis.
 - **Serve it via Ollama 0.19 on the MLX backend** (`OLLAMA_BACKEND=mlx`) — MLX speed while keeping the plan's `format`/`keep_alive`/`/v1` integration intact. Pure mlx-lm + Outlines is the alternative.
-- **Don't** pull the old 7B/32B/72B ladder, and **don't** feel obliged to pull Qwen3-30B-A3B — gemma4-26B already fills the MoE slot; benchmark Qwen only if you want to confirm the choice.
+- **Don't** pull the old 7B/32B/72B ladder — gemma4-26B fills the MoE *generator* slot. **Do** pull **Qwen3-30B-A3B as the cross-family eval judge** (§5): gemma can't reliably grade its own family's output, and the judge swaps in serially (never co-resident). Full lifecycle + assignment: `model-lifecycle-and-eval.md`.
 - The real cost win is **moving each routine CCR → local**, gated by a golden-eval, one at a time, with a Claude/human checkpoint retained only on the genuine frontier residual.
 
 ---
@@ -158,6 +158,6 @@ Model selection never relaxes these — they are hard guards (`automation/CLAUDE
 - Ollama 0.19 MLX backend: https://ollama.com/blog/mlx · https://andrew.ooo/posts/ollama-mlx-apple-silicon-review/
 - Gemma 4 lineup (26B-A4B MoE / 31B dense): https://ai.google.dev/gemma/docs/core · https://artificialanalysis.ai/articles/gemma-4-everything-you-need-to-know
 - gemma4-26B-A4B on M4 Pro (RAM / tok-s): https://gemma4-ai.com/blog/gemma4-mac-performance · https://gemma4-ai.com/blog/gemma4-hardware
-- Qwen3-30B-A3B MLX speed (for A/B comparison): https://willitrunai.com/blog/qwen-3-5-mlx-apple-silicon-guide · https://llmcheck.net/benchmarks
+- Qwen3-30B-A3B MLX speed (cross-family judge / A/B): https://willitrunai.com/blog/qwen-3-5-mlx-apple-silicon-guide · https://llmcheck.net/benchmarks
 - MLX structured output (Outlines): https://mbrenndoerfer.com/writing/constrained-decoding-structured-llm-output
 - Local embeddings on Apple Silicon: https://contracollective.com/blog/local-embeddings-apple-silicon-nomic-bge-qwen3-m5-max-2026

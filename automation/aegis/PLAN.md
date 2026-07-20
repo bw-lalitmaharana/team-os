@@ -1,13 +1,15 @@
 # Project Aegis — team-os rework plan (FOR REVIEW)
 
-**Status:** **APPROVED — decisions locked 2026-07-07** (see `decisions/2026-07-07-aegis-local-agentic-os.md`; supersedes the §10 open decisions below). Reconciles **Aegis PRD v1.0** with team-os and the concept doc `.claude/local-model-routines.md`. Locked: Qwen3-30B-A3B MoE · code in `automation/aegis/` · macOS Keychain · local SearXNG · Chainlit-only HITL · no direct writes without approval (Jira/Aha also refinement-gated). Next: Phase 0 (§8).
+**Status:** **APPROVED — decisions locked 2026-07-07** (see `decisions/2026-07-07-aegis-local-agentic-os.md`; supersedes the §10 open decisions below). Reconciles **Aegis PRD v1.0** with team-os and the concept doc `.claude/local-model-routines.md`. Locked: one MoE reasoning engine · code in `automation/aegis/` · macOS Keychain · local SearXNG · Chainlit-only HITL · no direct writes without approval (Jira/Aha also refinement-gated). Next: Phase 0 (§8).
+
+> **Refined 2026-07-20 — model roles + runtime (read before the model sections below).** The MoE-over-dense reasoning and the RAM math in §3 stand, but the specific bindings are now: **runtime = MLX** (Ollama 0.19 MLX backend, not llama.cpp); **resident generator = gemma4-26B-A4B MoE** (installed; gemma4-31B dense = high-stakes swap-in); **Qwen3-30B-A3B is retained as the cross-family eval judge, not the resident generator.** Where the sections below say "Qwen3-30B-A3B" / "30B-A3B" as the *reasoning engine* or "(Ollama, Q4_K_M)" as the *runtime*, read gemma4-26B-A4B on MLX. Authoritative: `automation/aegis/model-cost-map.md` (per-task map) + `automation/aegis/model-lifecycle-and-eval.md` (lifecycle + generator/judge assignment). ADR amended same date.
 
 ---
 
 ## 0. TL;DR — the one reconciliation that matters
 **team-os and Aegis are two layers of one system, not competitors:**
 - **team-os = long-term memory + governance** (git markdown: `signals/`, `decisions/`, `knowledge/`, `ops/`, auto-memory; the context-design principles; the refinement-write policy).
-- **Aegis = the local runtime** (LangGraph + Qwen on Ollama + Chainlit + local MCP) that *reads and writes* team-os. Aegis is the engine that operationalizes the concept already recorded in `.claude/local-model-routines.md`.
+- **Aegis = the local runtime** (LangGraph + a resident MoE generator on MLX + Chainlit + local MCP) that *reads and writes* team-os. Aegis is the engine that operationalizes the concept already recorded in `.claude/local-model-routines.md`.
 
 **Three flags before you build** (detail below): (1) the model/speed conflict — use the **MoE**, not a dense 27–32B; (2) Aegis **Jira/Aha writes must stay behind the existing refinement-call policy**, not just HITL; (3) the **vector DB is a derived index over team-os git markdown**, not a second source of truth.
 
@@ -25,9 +27,11 @@
                     └───▲───────────────▲──────────────────────▲────────────┘
              reason │             tools │                  memory │
                     ▼                   ▼                        ▼
-        Qwen3-30B-A3B (Ollama     local MCP servers        Chroma vector index
-        localhost:11434, Q4_K_M)  (Keychain-injected       (nomic-embed / bge-m3)
-        + JSON-constrained decode  tokens; stdio subproc)   built FROM team-os md
+        gemma4-26B-A4B MoE        local MCP servers        Chroma vector index
+        (MLX; localhost:11434)    (Keychain-injected       (nomic-embed / bge-m3)
+        one big model resident;   tokens; stdio subproc)   built FROM team-os md
+        Qwen3-30B-A3B swaps in
+        as judge; JSON-decode
                                           │                        ▲
                                           ▼                        │  rebuildable
                               Google / Slack / Jira / Zoom   team-os git (source of truth)
@@ -61,7 +65,7 @@ The PRD wants **~30B quality at 35–45 tok/s on an M4 Pro**. On 273 GB/s memory
 | Dense 32B Q4_K_M | ~12–15 | ~18–20 GB | Best raw quality; **misses speed target** |
 | 14B Q4 | ~25–35 | ~9 GB | Fast/cheap; weaker synthesis (Tier-1 only) |
 
-**Action:** adopt the **30B-A3B MoE** as the reasoning engine, and **verify the exact current Ollama tag** — "Qwen 3.6 27B" is not a standard release; the real candidates are `qwen3:30b-a3b` and (per mid-2026 reports) a `qwen3.5` 30B-A3B refresh. Keep dense-32B available for offline/high-stakes synthesis where latency doesn't matter.
+**Action:** adopt an **MoE** reasoning engine (the analysis above is architecture-level and holds for any ~30B-class MoE). **Refined 2026-07-20:** the resident generator is now **gemma4-26B-A4B MoE** (installed, ~18 GB, ~30–56 tok/s) with **gemma4-31B dense** as the high-stakes swap-in; **Qwen3-30B-A3B is retained but repurposed as the cross-family eval judge** (see banner + `model-lifecycle-and-eval.md`). Keep a dense model available for offline/high-stakes synthesis where latency doesn't matter. Runtime is MLX (Ollama 0.19 MLX backend) — confirm the model resolves on the MLX path, not llama.cpp.
 
 ### 3.2 RAM budget (<24 GB) — feasible with one rule
 30B-A3B (~18 GB) + 16k KV (~1–2 GB) + embed model (~0.5 GB) + Python/LangGraph/Chainlit/Chroma (~1–2 GB) ≈ **21–23 GB**. Fits — **but only if exactly one large model is resident at a time.** The rule forbids **co-residency** (two big models loaded simultaneously), **not** using a different model: a different judge/synth model is loaded **serially** by *evicting* the current one first (set `OLLAMA_MAX_LOADED_MODELS=1` so Ollama auto-evicts LRU before loading the next). Only the small embed model stays co-resident. Tune Ollama `keep_alive` / unload the reasoner when idle to protect the 24 GB ceiling during design-tool/browser multitasking. Zero-swap is achievable; make it a monitored metric, not an assumption. **Serial hot-swap + the cross-model eval it enables are specced in `automation/aegis/model-lifecycle-and-eval.md`.**
@@ -99,24 +103,25 @@ team-os house rule (root `CLAUDE.md`; `process_rules` memory): **no Jira/Aha wri
 ---
 
 ## 7. Per-routine mapping (your current personal-OS routines → Aegis)
-| Routine | Epic | Engine/Tier | Model | HITL | Governance | Output |
-|---|---|---|---|---|---|---|
-| Focus / block calendar | 3 | A+B / 1 | 30B-A3B | yes (create) | personal | `ops/focus/tracker.md` + events |
-| Slack DM sweep | 1 | A+B / 1 | 30B-A3B | no (read) | — | `ops/daily/<date>.md` |
-| Jira sweep | 1 | A+B / 1–2 | 30B-A3B | read-only | read-only | `ops/daily/<date>.md` |
-| Meeting-transcript fetch → synth | 1+2 | A+B/C / 2 | 30B-A3B | no | append-only | `signals/…`, `decisions/…`, Chroma |
-| Synthesis → memory events/logs | 2 | B/C / 2 | 30B-A3B | no | append-only | memory + Chroma |
-| Marking key events | 2 | A+B / 1 | 30B-A3B | no | append-only | `decisions/…` |
-| Task manager | 3 | A(+B) / 1 | 30B-A3B | on writes | personal | `ops/…` |
-| Deep research (internet) | 3 | C / 3 | 30B-A3B (+dense for synth) | no | local search | `product/**/research` |
-| Daily/weekly Slack delivery | 3 | A+B / 1 | 30B-A3B | no | — | Slack self-DM |
-| Harness review | 4 | C / 3 | dense-32B or +checkpoint | **PR = HITL** | propose-only | PR |
-| Upgrade agentic OS (meta) | 4 | C / 3 | +Claude/human checkpoint | **PR = HITL** | propose-only | PR |
+Model = **generator** (resident). Judge column added — judge family ≠ generator family; full assignment in `model-lifecycle-and-eval.md` §5.
+| Routine | Epic | Engine/Tier | Generator | Judge (≠ family) | HITL | Governance | Output |
+|---|---|---|---|---|---|---|---|
+| Focus / block calendar | 3 | A+B / 1 | gemma4-26B | Qwen (or vote) | yes (create) | personal | `ops/focus/tracker.md` + events |
+| Slack DM sweep | 1 | A+B / 1 | gemma4-26B | Qwen (or vote) | no (read) | — | `ops/daily/<date>.md` |
+| Jira sweep | 1 | A+B / 1–2 | gemma4-26B | Qwen | read-only | read-only | `ops/daily/<date>.md` |
+| Meeting-transcript fetch → synth | 1+2 | A+B/C / 2 | gemma4-26B | Qwen | no | append-only | `signals/…`, `decisions/…`, Chroma |
+| Synthesis → memory events/logs | 2 | B/C / 2 | gemma4-26B | Qwen | no | append-only | memory + Chroma |
+| Marking key events | 2 | A+B / 1 | gemma4-26B | vote (self-consistency) | no | append-only | `decisions/…` |
+| Task manager | 3 | A(+B) / 1 | gemma4-26B | Qwen | on writes | personal | `ops/…` |
+| Deep research (internet) | 3 | C / 3 | gemma4-26B (+gemma4-31B synth) | Qwen; Claude if high-stakes | no | local search | `product/**/research` |
+| Daily/weekly Slack delivery | 3 | A+B / 1 | gemma4-26B | Qwen | no | — | Slack self-DM |
+| Harness review | 4 | C / 3 | gemma4-31B / Claude | **Claude** + human | **PR = HITL** | propose-only | PR |
+| Upgrade agentic OS (meta) | 4 | C / 3 | Claude/human (frontier residual) | **Claude** + human | **PR = HITL** | propose-only | PR |
 
 ---
 
 ## 8. Phased build (lowest risk first; CCR twin stays fallback per routine)
-- **Phase 0 — Foundation:** Ollama + 30B-A3B; LangGraph skeleton + persistent state; Chainlit; Keychain + FastAPI OAuth for **one** connector (Google Calendar) as the **auth spike**; Chroma + embeddings; a golden-eval harness. *Exit:* one read routine end-to-end + **8h zero-swap** verified via `vm_stat`.
+- **Phase 0 — Foundation:** Ollama 0.19 (MLX backend) + gemma4-26B-A4B resident, `OLLAMA_MAX_LOADED_MODELS=1`, Qwen3-30B-A3B pullable as judge; the model-lifecycle switcher (`with_model` acquire→evict→load); LangGraph skeleton + persistent state; Chainlit; Keychain + FastAPI OAuth for **one** connector (Google Calendar) as the **auth spike**; Chroma + embeddings; a golden-eval harness. *Exit:* one read routine end-to-end + a clean generator→judge swap + **8h zero-swap** verified via `vm_stat`.
 - **Phase 1 — Read routines (Tier-1, no writes):** Slack DM sweep, Jira sweep, daily/weekly digest, calendar read. Run alongside CCR.
 - **Phase 2 — Execution + HITL:** calendar blocking (HITL) → port the focus routine; Jira/Aha *prepare* (HITL + refinement gate). Flip focus CCR→fallback after its golden-eval passes.
 - **Phase 3 — Memory & synthesis:** transcript fetch → JSON → git + Chroma; key-event marking; retrieval Q&A.
@@ -129,14 +134,14 @@ One routine flips CCR→local at a time; never both engines live for the same ro
 ## 9. Success metrics — with honest measurement
 | PRD metric | Target | How we prove it (don't assume) |
 |---|---|---|
-| Tool-calling accuracy | >95% first-pass | golden-eval suite per routine; JSON-grammar + 5-retry. Realistic with 30B-A3B, but **measure** — treat 95% as a gate, not a given. |
+| Tool-calling accuracy | >95% first-pass | golden-eval suite per routine; JSON-grammar + 5-retry. Realistic with gemma4-26B-A4B, but **measure** — treat 95% as a gate, not a given. |
 | Zero-swap | 8h workday | `vm_stat`/memory-pressure monitor; enforce one-big-model + keep-alive. |
 | Time saved | ≥5 h/week | routine run-logs + a manual weekly tally to start. |
 
 ---
 
 ## 10. Open decisions for you
-1. **Reasoning model:** Qwen3-30B-A3B MoE (recommended) / dense-32B (slower) / 14B (faster, weaker). Confirm the exact Ollama tag.
+1. **Reasoning model:** ~~Qwen3-30B-A3B MoE~~ **Resolved 2026-07-20 — resident generator = gemma4-26B-A4B MoE (installed); gemma4-31B dense = high-stakes swap-in; Qwen3-30B-A3B repurposed as the cross-family judge.** Runtime = MLX. See `model-cost-map.md` + `model-lifecycle-and-eval.md`.
 2. **Where the code lives:** `automation/aegis/` in *this* repo, or a sibling repo (team-os stays docs/state only).
 3. **Secrets:** macOS Keychain (simplest) vs Bitwarden CLI (`bw`).
 4. **Web search backend:** local **SearXNG** (max privacy) vs a hosted search API (faster, minor query leakage).
@@ -147,7 +152,7 @@ One routine flips CCR→local at a time; never both engines live for the same ro
 
 ## 11. What lands in team-os once you approve
 - Formalize the **`automation/`** area: `automation/CLAUDE.md` (≤40 lines) + a one-line pointer in root `CLAUDE.md`; `automation/aegis/` runtime + per-routine specs carrying the `engine/tier/model/verify` frontmatter from `.claude/local-model-routines.md`.
-- **Update `.claude/local-model-routines.md`:** fold in the Aegis stack (LangGraph/Chainlit/30B-A3B/Keychain), correct the **Auth** section to local-MCP-primary, and record the speed/model finding.
+- **Update `.claude/local-model-routines.md`:** fold in the Aegis stack (LangGraph/Chainlit/MLX + gemma4-26B generator + Qwen judge/Keychain), correct the **Auth** section to local-MCP-primary, and record the speed/model finding.
 - **Decision log:** `decisions/2026-07-07-aegis-local-agentic-os.md` (MoE-over-dense rationale, refinement-gated writes, Chroma-as-derived-index).
 - This `PLAN.md` is the reference until the area is formalized.
 
