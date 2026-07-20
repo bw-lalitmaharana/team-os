@@ -4,10 +4,10 @@ Auto-maintained by `.claude/hooks/index-signals.sh` (PostToolUse on signals/*.md
 
 | Feature | Last touched | Bytes |
 |---|---|---|
-| empdvt-90-perf-summary | 2026-07-20T13:36:01Z | 9150 |
-| ai-203-adaptive-learning | 2026-07-20T13:35:56Z | 45688 |
-| ai-201-meeting-transcripts | 2026-07-20T13:35:49Z | 75478 |
-| mcp-internal | 2026-07-20T13:31:24Z | 24658 |
-| dp-76-techwolf | 2026-07-17T02:37:31Z | 3675 |
-| _unfiled | 2026-07-17T02:37:31Z | 6940 |
+| _unfiled | 2026-07-20T15:10:06Z | 7907 |
+| empdvt-90-perf-summary | 2026-07-20T15:09:54Z | 10320 |
+| dp-76-techwolf | 2026-07-20T15:09:46Z | 4624 |
+| ai-201-meeting-transcripts | 2026-07-20T15:09:34Z | 76554 |
+| ai-203-adaptive-learning | 2026-07-20T15:09:14Z | 47423 |
+| mcp-internal | 2026-07-20T15:06:45Z | 24658 |
 | _low-signal | 2026-07-17T02:37:31Z | 1709 |

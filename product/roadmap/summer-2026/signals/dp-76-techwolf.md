@@ -48,3 +48,12 @@ Paul flagged from Synopsys conversations:
 - **Who:** Jason Sites
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1783383278612039)
 - **Summary:** Jason Sites rewrote requirements and shared an ERD for Talent profile skills visibility: group/dept-based access rules governing who sees talent_profile_skills (user self-view, manager view, admin view); explicitly notes skills exist in a globally available skill taxonomy (Lightcast, TechWolf) — signals ongoing engineering work on the skills display layer that DP-76 data feeds into.
+
+### 2026-07-20 — Webhook engine/TechWolf roadmap tracking follow-ups assigned to Lalit (zoom)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-07-20 (UUID B6EF1C50-F3E9-4118-92BC-BCCC98B81B35)
+**Type:** commitment
+**Owner-impact:** Lalit, Danish, JB, Rinku, Nellie
+
+Nellie asked Lalit to (1) check with the integrations team (Danish) that the global webhook engine is tracked in AHA and to request the TechWolf integration be added to that roadmap, and (2) arrange for Danish to walk JB and Ocon through the webhooks PR once JB is back next week. Lalit agreed to follow up with Rinku on getting the webhook project onto the integration roadmap and to coordinate the TechWolf integration timing for after summer.
+
+**Implication for ranking:** New explicit ask to get TechWolf integration formally represented on the integrations roadmap in AHA — currently undocumented outside this ledger; follow up with Rinku/Danish before next refinement pass.

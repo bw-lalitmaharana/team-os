@@ -802,3 +802,12 @@ Hemant, Lalit, and Sagar reorganized the Jira ticket structure for the meeting-t
 - **Who:** Lalit Maharana
 - **Where:** Group DM — Anuj Pancholi, Harshini Vijay, Lalit Maharana
 - **Summary:** Lalit asked Anuj whether the meeting UUID is the same across events when replicating the multiple-transcript-files scenario that was unresolved the previous week.
+
+### 2026-07-20 — UI nearly complete, working version targeted end of July; consent documentation and Brian review still open (zoom)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-07-20 (UUID B6EF1C50-F3E9-4118-92BC-BCCC98B81B35)
+**Type:** status + open-question
+**Owner-impact:** Lalit, Nellie, Brian
+
+Lalit reported the Zoom transcripts UI is nearly complete with a working version expected by end of July; the timeline slipped somewhat due to Sagar's laptop issues plus additional edge cases surfacing. Two items remain open: preparing a document for Brian covering the consent-implementation details and getting his review, and working with Nellie to clarify and document how consent works end-to-end (including the admin perspective when connecting to Zoom). Nellie also shared a PM template and scheduled a walkthrough with JB to fill out the relevant summer-release sections.
+
+**Implication for ranking:** Consent documentation (admin + end-user) is the remaining open item before the doc can go to Brian for review — worth timeboxing given the end-of-July target.

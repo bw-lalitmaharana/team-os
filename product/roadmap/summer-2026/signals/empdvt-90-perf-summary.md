@@ -110,3 +110,12 @@ Product-acceptance review confirmed the tokenizer fix for Gemma + Feedback Summa
 - **Who:** Nellie LeMonier (→ lalit.maharana@betterworks.com, bhavesh.vaviya@betterworks.com)
 - **Where:** Email thread 19f7e51a6228f40e — "Updated invitation: Sync on Pre-processing Performance & Feedback Summaries @ Mon Jul 20, 2026 10:30pm – 11pm (IST)"
 - **Summary:** Nellie invited Lalit and Bhavesh to align on what can be delivered for the summer release on pre-processing improvements for Performance and Feedback Summaries.
+
+### 2026-07-20 — Automatic year-rollover still broken in production for at least two customers; added manual/automatic controls, planning added friction before auto-close (zoom)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-07-20 (UUID B6EF1C50-F3E9-4118-92BC-BCCC98B81B35)
+**Type:** risk
+**Owner-impact:** Nellie, Bhavesh
+
+Nellie flagged that AI pre-processing/performance-summary rollover doesn't yet reliably auto-detect when the current year ends and transition data — she's added both automatic and manual year-closure controls, but the automatic path is not switching over correctly and two customers have already reported the issue in production. She's working with Bhavesh to find and fix the broken pre-processing spots. Lalit and Nellie agreed to add friction before any system closure — a notification ahead of automatic rollover so users can switch to manual mode if needed.
+
+**Implication for ranking:** Two live customer-reported failures on automatic rollover — worth confirming this is captured as a bug (not just the fiscal-year-filter UX item already tracked 2026-07-09) and prioritized against the Mon 7/20 pre-processing sync with Bhavesh.

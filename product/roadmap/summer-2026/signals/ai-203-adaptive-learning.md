@@ -380,3 +380,12 @@ Ten teams presented at the India Team Hackathon finale; Lalit's Skill Graph-base
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f7f5d9b6e92f53 — "Meeting assets for PDP Stand Up are ready!"
 - **Summary:** PDP standup Zoom assets delivered; AI summary notes team discussed goal creation and LMS integration progress.
+
+### 2026-07-20 — Course-recommendation search blocker escalating to JC; skill graph re-surfaced for mentor recommendations (zoom)
+**Source:** Zoom — "PDP Stand Up" 2026-07-20 (UUID 4A75B7AF-30B8-4837-8023-0871420745EF) + "Lalit / Nellie 1:1" 2026-07-20 (UUID B6EF1C50-F3E9-4118-92BC-BCCC98B81B35)
+**Type:** scope-decision + risk
+**Owner-impact:** Pankaj, Sriram, Nataliia, Nitish, Lalit, Nellie
+
+PDP standup: placeholder UI, goal-retrieval-for-talent-profile, and AI text recommendations can proceed now; the one live blocker is the course-recommendation/search approach — Pankaj is validating catalog-storage numbers (local vs. old, tested against a 20k-course catalog) with Nitish, then escalating directly to JC by call (preferred over Slack) rather than waiting for Thursday's LMS sign-off meeting. Separately, PDP settings changes are pending (Goldstein proposing unifying category/scope/type into one flexible labeled attribute) — team is blocked on Anuj/Varnika's final call before proceeding with goal-creation work. Skill graph (Neetesh Kaushik's hackathon build) was re-raised for mentor recommendations, tentatively winter release if it misses summer. In the Nellie 1:1 same day, Lalit confirmed Nitish/Natalia's LMS-course-recommendation POC works but has latency concerns to resolve, and reiterated the skill-graph-for-PDP reuse plan — consistent with the still-open architecture pause flagged in the 07-20 Slack signal above (40s latency blocking UX).
+
+**Implication for ranking:** Course-rec search approach and JC sign-off are now the critical path for the LMS piece of AI-203, ahead of Thursday's meeting; latency remains the common thread blocking both the recommendation engine and the skill-graph track.

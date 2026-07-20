@@ -57,3 +57,12 @@ Follow-on 1:1 between Lalit and Sharan on the same Manager Copilot capstone: agr
 Paul Agustin demoed BetterBrain, a Codex-scheduled pipeline that scrapes Aha, Confluence, and Slack (#product/#support/#engage-product) daily into versioned "product knowledge records" (JSON, with confidence scores and tracked contradictions/open questions), replacing an unconfigured Guru agent that had been giving wrong/bloated answers. Sweta asked whether a thumbs-up/down feedback loop could feed back into confidence scoring; Paul agreed it's wanted and referenced work Balram has been doing toward a native Slack agent front-end (dropping Guru as the UI). Paul is open to handing off/pairing on the repo and floated exposing BetterBrain via MCP as a future customer-facing support agent. Sweta is steering SE1/SE2 engineers toward this as an AI-impact project.
 
 **Implication for ranking:** Not a Summer 2026 roadmap item — internal tooling — but worth watching: an MCP-exposed BetterBrain-as-support-agent would sit adjacent to the MCP-internal work in [[mcp-internal]] if it ever gets customer-facing scope.
+
+### 2026-07-20 — Email-batching risk reconfirmed; Lalit to document Legacy batch notifications with Veronica before proceeding (zoom)
+**Source:** Zoom — "Lalit / Nellie 1:1" 2026-07-20 (UUID B6EF1C50-F3E9-4118-92BC-BCCC98B81B35)
+**Type:** risk + commitment
+**Owner-impact:** Lalit, Nellie, Veronica
+
+Nellie and Lalit identified email/notification batching as an at-risk item that needs addressing before end of July / code-complete in August. Nellie assigned Lalit to meet with Veronica to understand how Legacy batch notifications work (for parity) and document the requirements in a Confluence enablement draft to track progress. This reaffirms the 2026-07-08 entry above (notifications/batching deferred to August) — the Veronica walkthrough is the concrete next step toward that deferred scoping.
+
+**Implication for ranking:** Still no Aha/Jira item tracks this. Once the Veronica walkthrough lands, flag to Nellie whether it needs a formal backlog entry.
