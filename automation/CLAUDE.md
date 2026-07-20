@@ -4,6 +4,8 @@ Home for the local agentic Personal OS ("Aegis") that runs team-os routines on *
 
 ## What's here
 - `aegis/PLAN.md` — build plan (approved 2026-07-07).
+- `aegis/model-cost-map.md` — which local model per task (cost map).
+- `aegis/model-lifecycle-and-eval.md` — serial model hot-swap primitive + cross-model eval (judge ≠ generator family).
 - `aegis/` — runtime: LangGraph orchestrator, local MCP tool servers, Chainlit UI, per-routine specs. *(being built)*
 
 ## Rules
@@ -12,4 +14,4 @@ Home for the local agentic Personal OS ("Aegis") that runs team-os routines on *
 - **No direct writes without approval:** destructive/system actions are HITL-gated in Chainlit. **Jira/Aha writes ALSO stay refinement-call-gated** — Aegis prepares/drafts only, never writes live.
 - **Memory:** write structured synthesis to git markdown (`signals/`, `decisions/`) FIRST; Chroma is a derived, rebuildable index — never the source of truth.
 - **Secrets:** macOS Keychain; the model never sees tokens (transport-layer injection).
-- **Reasoning engine:** Qwen3-30B-A3B (MoE) via Ollama; keep one big model resident (RAM budget <24 GB, 16k ctx).
+- **Reasoning engine:** one big model resident at a time (RAM budget <24 GB, 16k ctx). A different judge/synth model loads **serially** by evicting the current one — co-residency is what's forbidden, not a 2nd model. See `aegis/model-lifecycle-and-eval.md`.

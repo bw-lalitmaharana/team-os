@@ -42,6 +42,8 @@ Either way the parity harness (§5) is unchanged. **Recommendation: Ollama-0.19-
 
 **Commit to one embedding model** — bge-m3 and nomic vectors live in different spaces and aren't comparable; switching means a full re-index.
 
+**Hosting many, one resident at a time.** These models don't co-reside — the OS keeps **one big model resident** and swaps as needed (evict, then load). That serial hot-swap is what lets a **different model judge the generator's output** (§5). Mechanism, literacy table, and per-routine generator/judge assignment: **`automation/aegis/model-lifecycle-and-eval.md`**.
+
 #### Why 26B-A4B MoE resident, not 31B dense
 | | **26B-A4B (MoE)** — installed | **31B dense** |
 |---|---|---|
@@ -122,7 +124,7 @@ Per the house rule *"never claim parity you haven't measured"* (`local-model-rou
 
 1. **Golden set.** Capture 5–10 recent real CCR outputs as references (from `ops/daily/`, `signals/`, `ops/meeting-notes/`, prior digests).
 2. **Structural gate.** Run the local candidate; require **JSON-schema valid + all required fields present** (Ollama `format`, or Outlines on pure mlx-lm; validate, 5-retry). Target ≥95% first-pass (`PLAN.md:132`) — treat as a gate, not a given.
-3. **Quality gate.** LLM-judge / rubric score of local output vs the golden reference on a held set; set a per-routine pass bar (e.g. judge-parity on ≥90%). For classification routines (marking key events), use a self-consistency **vote**. *(This is also where you A/B gemma4-26B vs Qwen3-30B-A3B if you want to confirm the resident-model choice.)*
+3. **Quality gate.** LLM-judge / rubric score of local output vs the golden reference on a held set; set a per-routine pass bar (e.g. judge-parity on ≥90%). **The judge must be a different family than the generator** — never let gemma4 grade gemma4 output (self-preference bias). Default judge = **Qwen3-30B-A3B** (cross-family), loaded by *evicting* the generator first (serial swap); **batch generation, then one swap to the judge** — don't ping-pong per item. High-stakes routines escalate the **judge** (not the generator) to **Claude** + a small human calibration set. Full mechanism + per-routine judge assignment: **`automation/aegis/model-lifecycle-and-eval.md`**. For classification routines (marking key events), use a self-consistency **vote**.
 4. **Resource gate.** Confirm **8h zero-swap** via `vm_stat` with the model resident (`PLAN.md:119,133`).
 5. **Flip one at a time.** Keep the CCR twin as **fallback** until the local golden-eval passes; then disable the CCR trigger. **Never run both engines for one routine** (double-posting). Hybrid escalation: on local failure or low verify-confidence, escalate that single run to CCR, logged (`local-model-routines.md:42,77`).
 

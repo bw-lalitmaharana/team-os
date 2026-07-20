@@ -29,7 +29,7 @@ Route by task, not habit. **Small model + good harness > big model + no harness.
 2. Constrain model output to a JSON schema/grammar; validate + retry on parse failure.
 3. Ground with retrieval (team-os `signals/`, transcripts, memory) — don't rely on model recall.
 4. Decompose: many small scoped calls beat one big call for a small model.
-5. Verify high-stakes output: a critic/judge pass (optionally a 2nd model); self-consistency vote for classification.
+5. Verify high-stakes output with a **different-family judge model — never self-judge** (a model over-rates its own, and same-family, generations). Load it by evicting the generator (serial swap; ≤1 big model resident); batch generation, one swap to the judge. Self-consistency vote for classification. Mechanism + per-routine judge assignment: `automation/aegis/model-lifecycle-and-eval.md`.
 6. Prefer code pipelines over model tool-loops.
 7. Keep a **golden-output eval** per routine; gate any model/prompt change on it.
 8. Log run + model + latency + confidence to `ops/…`; make failures loud, not silent.
@@ -61,10 +61,12 @@ Every routine declares this frontmatter in its `.claude/commands/<name>.md` or `
 ```yaml
 engine: local           # local | ccr | hybrid
 tier: 1                 # 0 code | 1 small | 2 mid | 3 reasoning
-model: gemma4           # ollama model (omit if tier 0)
+model: gemma4           # generator ollama model (omit if tier 0)
 schedule: "50 3 * * 1-5"   # cron, UTC
 output: ops/focus/tracker.md
 verify: judge           # none | judge | vote
+judge_model: qwen3-30b-a3b   # MUST be a different family than `model` (never self-judge)
+eval_stakes: low        # low | mid | high  (high ⇒ escalate judge to Claude + human calibration)
 fallback: ccr           # engine to escalate to on failure / low confidence
 golden_eval: automation/focus/eval.jsonl
 ```
