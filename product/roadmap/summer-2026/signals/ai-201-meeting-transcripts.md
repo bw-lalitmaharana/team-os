@@ -782,3 +782,23 @@ Hemant, Lalit, and Sagar reorganized the Jira ticket structure for the meeting-t
 - **Who:** Tanveer Farooq
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1783667099410749)
 - **Summary:** Full project status for Jul 10: Integrations finalizing repo PR deployment (needs App Platform review); Meetings team working on manual upload/copy-paste, transcript validation, speaker attribution, authn proxy event consumption, and user consent; AI team refining transcript processing requirements; UI/UX deferred until post-hackathon (Mahesh's workflow); non-happy-flow inference testing underway with prod data via Maher guidance.
+
+### 2026-07-20 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8)
+- **Summary:** Nellie asked Tanveer to share the latest prototype/design flow being implemented for the Summer release Meetings/transcript feature.
+
+### 2026-07-20 — slack
+- **Who:** Harshini Vijay
+- **Where:** DM — Harshini Vijay, Lalit Maharana
+- **Summary:** Harshini asked Lalit to consolidate Figma comments on multiple Zoom transcript scenarios for MVP, linking to the relevant Figma design node.
+
+### 2026-07-20 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8)
+- **Summary:** Lalit shared the Meetings AI/Zoom Figma design link (node-id=384-27303) in the channel.
+
+### 2026-07-20 — slack
+- **Who:** Lalit Maharana
+- **Where:** Group DM — Anuj Pancholi, Harshini Vijay, Lalit Maharana
+- **Summary:** Lalit asked Anuj whether the meeting UUID is the same across events when replicating the multiple-transcript-files scenario that was unresolved the previous week.

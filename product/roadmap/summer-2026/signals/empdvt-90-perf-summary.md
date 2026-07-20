@@ -100,3 +100,13 @@
 Product-acceptance review confirmed the tokenizer fix for Gemma + Feedback Summary integration is resolved (output token count now logged), and closed out embedding/norm-API decoupling and internal cluster-service URL migration (both verified on Rainforest, released/monitoring on Pluto). On the open Teacher Retirement System of Texas incident (ENG-84564): the pre-processing re-trigger from 7/7 is still pending completion of the long-running DAG (~11.5 days) before the fix (regenerate + cache new data) can land; Akansha/Bhavesh continuing investigation on the related US-East/EU preprocessing-timing bug. Separately, Nellie presented fiscal-year-filter UX options (banner/dropdown to flag stale-FY display with a switch-to-current-year action) which Tejas approved; the same fix is slated for Feedback Summary since it shares the same underlying logic.
 
 **Implication for ranking:** confirms the Teacher Retirement fix is still blocked on DAG completion, not yet resolved despite the 7/8 "fix in progress" entry — worth flagging to Nellie if it's not closed out by early next week.
+
+### 2026-07-20 — slack
+- **Who:** Tejas S
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT)
+- **Summary:** Tejas planned to deploy the ENG-84826 branch (performance summary incorrectly attributing a conversation to manager rather than direct reports) to llm-engine on Rainforest for testing by 2PM; flagged to Riya Malik in case it blocked her Rainforest testing.
+
+### 2026-07-20 — gmail
+- **Who:** Nellie LeMonier (→ lalit.maharana@betterworks.com, bhavesh.vaviya@betterworks.com)
+- **Where:** Email thread 19f7e51a6228f40e — "Updated invitation: Sync on Pre-processing Performance & Feedback Summaries @ Mon Jul 20, 2026 10:30pm – 11pm (IST)"
+- **Summary:** Nellie invited Lalit and Bhavesh to align on what can be delivered for the summer release on pre-processing improvements for Performance and Feedback Summaries.

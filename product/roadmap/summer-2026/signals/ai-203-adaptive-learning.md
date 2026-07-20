@@ -365,3 +365,18 @@ Team decided the analysis notebook will live inside the existing Talent API repo
 Ten teams presented at the India Team Hackathon finale; Lalit's Skill Graph-based Recommendations entry (built by the same team as the 07-15 demo recordings above) was called out by judges as one of the strong performers, behind winner Better Ask Cal (4.51) and runner-up Internal Mobility Matching (4.04). Sriram committed to a follow-up with Nataliya, Maher, and product/engineering leadership to evaluate and plan production paths for all 10 presented ideas, including Skill Graph. Doug is to share the full judge scoring spreadsheet with participants.
 
 **Implication for ranking:** First org-level signal that Skill Graph may get evaluated for a real production track outside the hackathon — worth flagging to Nellie ahead of the next AI-203 refinement pass, since a production commitment here would firm up the still-provisional Tier E / composite-34 scoring.
+
+### 2026-07-20 — slack
+- **Who:** Nataliia Savenko
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2)
+- **Summary:** Cross-posted architectural sync update: final architectural decision for AI-Powered Adaptive Learning is paused pending API capability validation; current ~40s latency (on-the-fly LLM queries) is blocking UX; team exploring semantic search/embeddings as a lower-latency alternative.
+
+### 2026-07-20 — slack
+- **Who:** Nataliia Savenko
+- **Where:** Group DM — Jason Zhang, Rinku Ravi, Pankaj Lohmor, Nataliya Kolb, Nitish Devadiga, Nataliia Savenko, Nellie LeMonier, Lalit Maharana
+- **Summary:** Moved PDP/adaptive-learning architectural discussion to the main #personalised-learning-development-feature channel for broader visibility.
+
+### 2026-07-20 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f7f5d9b6e92f53 — "Meeting assets for PDP Stand Up are ready!"
+- **Summary:** PDP standup Zoom assets delivered; AI summary notes team discussed goal creation and LMS integration progress.
