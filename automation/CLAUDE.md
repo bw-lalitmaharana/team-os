@@ -6,6 +6,8 @@ Home for the local agentic Personal OS ("Aegis") that runs team-os routines on *
 - `aegis/PLAN.md` — build plan (approved 2026-07-07).
 - `aegis/model-cost-map.md` — which local model per task (cost map).
 - `aegis/model-lifecycle-and-eval.md` — serial model hot-swap primitive + cross-model eval (judge ≠ generator family).
+- `aegis/local-mcp-setup.md` — Layer 2: stand up local MCP connectors (Keychain-injected tokens) for local Claude Code + headless routines.
+- `aegis/mcp/` — MCP wrapper scripts (`_lib.sh`, `gcal.sh`, `jira.sh`); each injects a Keychain secret at the transport layer then execs a vetted, pinned server.
 - `aegis/` — runtime: LangGraph orchestrator, local MCP tool servers, Chainlit UI, per-routine specs. *(being built)*
 
 ## Rules

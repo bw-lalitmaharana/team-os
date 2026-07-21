@@ -1,1 +1,8 @@
 .DS_Store
+
+# Aegis local MCP — never commit cached credentials / tokens.
+# (The real guard is the wrapper pattern + Keychain; this is belt-and-suspenders.)
+automation/aegis/mcp/.secrets/
+automation/aegis/mcp/**/credentials*.json
+automation/aegis/mcp/**/token*.json
+*.token
