@@ -2,8 +2,8 @@
   "model": "claude-opus",
   "defaultMode": "plan",
   "permissions": {
-    "allow": ["read", "ls", "glob", "grep", "webSearch"],
-    "ask": ["write", "bash"]
+    "allow": ["Read", "LS", "Glob", "Grep", "WebSearch"],
+    "ask": ["Write", "Bash"]
   },
   "env": {
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
