@@ -63,6 +63,7 @@ Convention: service name = `aegis/<connector>`. The wrappers here read exactly t
 - `_lib.sh` — `kc_get <service>`; fails loudly with the `add` command if the secret is missing; never echoes a secret.
 - `gcal.sh` — worked **OAuth** example (Google Calendar).
 - `jira.sh` — worked **static-token** example (a local alternative to the remote Atlassian entry, for headless use).
+- `slack.sh` — worked **static-token** example (bot token; a local alternative to the remote Slack entry, for headless use).
 
 Each wrapper has one line you must set — `MCP_<X>_CMD`, the actual MCP server command — left **empty on purpose** so the wrapper fails fast instead of running an unpinned package.
 
