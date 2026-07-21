@@ -811,3 +811,28 @@ Hemant, Lalit, and Sagar reorganized the Jira ticket structure for the meeting-t
 Lalit reported the Zoom transcripts UI is nearly complete with a working version expected by end of July; the timeline slipped somewhat due to Sagar's laptop issues plus additional edge cases surfacing. Two items remain open: preparing a document for Brian covering the consent-implementation details and getting his review, and working with Nellie to clarify and document how consent works end-to-end (including the admin perspective when connecting to Zoom). Nellie also shared a PM template and scheduled a walkthrough with JB to fill out the relevant summer-release sections.
 
 **Implication for ranking:** Consent documentation (admin + end-user) is the remaining open item before the doc can go to Brian for review — worth timeboxing given the end-of-July target.
+
+### 2026-07-21 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1784610216064229)
+- **Summary:** Sagar nudged Lalit for finalized decisions on the non-happy path flow (when at least one user hasn't consented to Zoom transcript processing) — these have been pending a while and are compressing the AI implementation timeline. Also asked for an update on production data.
+
+### 2026-07-21 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1784613235150309)
+- **Summary:** Lalit confirmed consent model in response to Nellie: Zoom doesn't require auth for sharing transcripts, but given sensitivity of performance conversations, default is opt-in with user opt-out option; applies to both Zoom and manually uploaded transcripts.
+
+### 2026-07-21 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1784614475041529)
+- **Summary:** Lalit shared a synthetic meeting data generator tool on GitHub (bw-lalitmaharana/meeting-transcript-generator) and asked Hemant and Sagar to run it to generate test data while awaiting production data.
+
+### 2026-07-21 — slack
+- **Who:** Lalit Maharana
+- **Where:** DM with Tejas S (https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1784614886863409)
+- **Summary:** Lalit asked Tejas to plan testing around meeting transcripts for coming weeks.
+
+### 2026-07-21 — slack
+- **Who:** Lalit Maharana
+- **Where:** Group DM (Lalit, Anuj Pancholi, Harshini Vijay) (https://betterworks.slack.com/archives/C0BH0B92ECQ/p1784615097822289)
+- **Summary:** Lalit shared the meeting-transcript-ai-scenarios.md Google doc and asked Harshini if she is covering those scenarios in her testing.

@@ -291,3 +291,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** GaggleAMP (member-noreply@gaggleamp.com → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f6e75d3b89adda — "You have New Messages to Share on betterworks"
 - **Summary:** GaggleAMP social-amplification request for a LinkedIn post announcing the Betterworks MCP Server publicly: "Today, we're introducing the Betterworks MCP Server, bringing Betterworks performance intelligence directly into ChatGPT, Claude, Microsoft Copilot, Gemini, and other MCP-compatible AI tools" — first confirmed external public announcement of the MCP product.
+
+### 2026-07-21 — slack
+- **Who:** Emerson Matthews
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1784579598067649)
+- **Summary:** Emerson shared PRs for a goals-api and public-api-mcp refactor (removing unit tools, using raw label instead) — see PR descriptions for pros/cons. goals-api PR#909, mcp PR#92.

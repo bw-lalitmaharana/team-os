@@ -119,3 +119,8 @@ Product-acceptance review confirmed the tokenizer fix for Gemma + Feedback Summa
 Nellie flagged that AI pre-processing/performance-summary rollover doesn't yet reliably auto-detect when the current year ends and transition data — she's added both automatic and manual year-closure controls, but the automatic path is not switching over correctly and two customers have already reported the issue in production. She's working with Bhavesh to find and fix the broken pre-processing spots. Lalit and Nellie agreed to add friction before any system closure — a notification ahead of automatic rollover so users can switch to manual mode if needed.
 
 **Implication for ranking:** Two live customer-reported failures on automatic rollover — worth confirming this is captured as a bug (not just the fiscal-year-filter UX item already tracked 2026-07-09) and prioritized against the Mon 7/20 pre-processing sync with Bhavesh.
+
+### 2026-07-21 — slack
+- **Who:** Tejas S
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1784626520743899)
+- **Summary:** Performance summary fix for incorrectly attributing manager conversation data is in; Nellie suggested keeping it in the internal environment for monitoring before broader rollout.
