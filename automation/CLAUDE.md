@@ -8,6 +8,8 @@ Home for the local agentic Personal OS ("Aegis") that runs team-os routines on *
 - `aegis/model-lifecycle-and-eval.md` — serial model hot-swap primitive + cross-model eval (judge ≠ generator family).
 - `aegis/local-mcp-setup.md` — Layer 2: stand up local MCP connectors (Keychain-injected tokens) for local Claude Code + headless routines.
 - `aegis/mcp/` — MCP wrapper scripts (`_lib.sh`, `gcal.sh`, `jira.sh`, `slack.sh`); each injects a Keychain secret at the transport layer then execs a vetted, pinned server.
+- `aegis/local-model-routing.md` — Layer 3: route the **interactive** Claude Code CLI to Ollama via claude-code-router (bulk→gemma, frontier residual→Claude). Headless routing stays in `model-cost-map.md` + `model-lifecycle-and-eval.md`.
+- `aegis/claude-code-router.config.template.json` — copy to `~/.claude-code-router/config.json`; placeholders only, no secrets.
 - `aegis/` — runtime: LangGraph orchestrator, local MCP tool servers, Chainlit UI, per-routine specs. *(being built)*
 
 ## Rules

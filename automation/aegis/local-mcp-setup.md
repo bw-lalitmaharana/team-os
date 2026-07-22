@@ -4,7 +4,7 @@
 
 - **Layer 1** — skills / commands / `CLAUDE.md` / subagents / hooks — already works the moment you launch `claude` from the repo root. It's client-side; the model backend is irrelevant.
 - **Layer 2 (this doc)** — the external connectors.
-- **Layer 3** — routing the model to Ollama (`model-cost-map.md`, `model-lifecycle-and-eval.md`).
+- **Layer 3** — routing the model to Ollama: `local-model-routing.md` (interactive Claude Code CLI) · `model-cost-map.md` + `model-lifecycle-and-eval.md` (headless Aegis runtime).
 
 Why Layer 2 is a real gap, not a setting: the Slack/Gmail/Jira connectors in the claude.ai-hosted session are **claude.ai-managed** — OAuth'd in the cloud and injected for you. A Claude Code process on your Mac has none of them; it must reach those services through **its own MCP servers with its own credentials.**
 
