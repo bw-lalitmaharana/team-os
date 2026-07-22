@@ -124,3 +124,8 @@ Nellie flagged that AI pre-processing/performance-summary rollover doesn't yet r
 - **Who:** Tejas S
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1784626520743899)
 - **Summary:** Performance summary fix for incorrectly attributing manager conversation data is in; Nellie suggested keeping it in the internal environment for monitoring before broader rollout.
+
+### 2026-07-22 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f85b546c8b13fe — "Meeting assets for Sync on Pre-processing Performance & Feedback Summaries are ready!"
+- **Summary:** Zoom delivered meeting summary for a sync on pre-processing performance & feedback summaries; meeting focused on refining tickets and planning.

@@ -296,3 +296,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Emerson Matthews
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1784579598067649)
 - **Summary:** Emerson shared PRs for a goals-api and public-api-mcp refactor (removing unit tools, using raw label instead) — see PR descriptions for pros/cons. goals-api PR#909, mcp PR#92.
+
+### 2026-07-22 — slack
+- **Who:** Emerson Matthews
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1784661765553469)
+- **Summary:** All original goal tools (ENG-83695, ENG-83383, ENG-84574–84579, ENG-84847) now at Ready for QA; goals-api endpoints released to prod. Flags: MCP+goals-api latency is fast but Claude Sonnet 5 (Low effort) is slow — worth testing other models; token usage unchecked but likely a concern; ambiguous prompts (e.g. "close out goals") need improved tool descriptions to prevent misinterpretation.
+
+### 2026-07-22 — slack
+- **Who:** Paul Agustin
+- **Where:** [#tmp_betterbrain](https://betterworks.slack.com/archives/C0B7VHX4Y73/p1784688469586489?thread_ts=1784688469.586489&cid=C0B7VHX4Y73)
+- **Summary:** Discovered goal weights not exposed via Betterworks MCP today; weights live in `report-weight` service area of goals-api (not wrapped as MCP tool) — would be a net-new tool request, not a config change. MCP still beta on internal envs only.
