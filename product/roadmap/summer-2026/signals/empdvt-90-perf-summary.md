@@ -129,3 +129,12 @@ Nellie flagged that AI pre-processing/performance-summary rollover doesn't yet r
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f85b546c8b13fe — "Meeting assets for Sync on Pre-processing Performance & Feedback Summaries are ready!"
 - **Summary:** Zoom delivered meeting summary for a sync on pre-processing performance & feedback summaries; meeting focused on refining tickets and planning.
+
+### 2026-07-21 — Word-limit retries dropped for accuracy+user notice; fiscal-year auto/manual rollover UI planned; new ticket to fix conversations-API filter bug feeding bad Perf Summary + Goal Assist data (zoom)
+**Source:** Zoom — "Sync on Pre-processing Performance & Feedback Summaries" 2026-07-21 (UUID 70A6DFDA-2186-4B31-BB98-E68BCB02E5EB)
+**Type:** scope-decision
+**Owner-impact:** Nellie, Bhavesh, Tejas, Jason Zhang, Lalit
+
+Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pre-processing will improve accuracy up to 50% over the limit and notify the user when input is too large; Lalit owns the notification wording/AC, Bhavesh owns implementation. Nellie confirmed one-on-one pre-processing/summary stays available while admin settings are off, but "prep recap" and other new pre-processing features are postponed to winter. On fiscal-year handling, Nellie proposed automatic FY conversion for data buckets with an optional manual-override/close control, scoped only to the features that implement it (not platform-wide); Bhavesh will investigate the current pre-processing FY implementation and report back. Tejas identified a conversations-API bug where owner-ID/peer-ID filters pull incorrect manager-reportee data into Performance Summary and Goal Assist — the team agreed to a new ticket to delete affected prior-FY records and let pre-processing repopulate correct data, with Tejas and Bhavesh syncing on the approach the next day. Nellie will also write up user stories for FY-transition/date-range-filter changes and is considering dropping skill filters in favor of a pre-processed ~180-day bucket for date-range search.
+
+**Implication for ranking:** Directly extends the 2026-07-20 automatic-rollover risk entry above — the pre-processing fix approach (delete + repopulate) and FY architecture are now scoped, and the conversations-API filter bug is a *new*, previously-uncaptured defect feeding bad Perf Summary/Goal Assist data that should get its own tracked ticket.

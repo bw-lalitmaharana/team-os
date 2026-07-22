@@ -394,3 +394,12 @@ PDP standup: placeholder UI, goal-retrieval-for-talent-profile, and AI text reco
 - **Who:** Nitish Devadiga
 - **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1784696775593959?thread_ts=1784644864.511339&cid=C0B54QF5GR2)
 - **Summary:** API capacity matrix in progress; notes that LMS providers' native elastic search + ML optimizations make plain semantic embedding performance close to direct API search — without vector re-rank, the differentiation between manual search and AI recommendations in the PDP flow is thin; re-rank is necessary to justify the AI-rec layer.
+
+### 2026-07-22 — PDP MVP scope narrowed to bare end-to-end flow under Aug 31 deadline pressure; goal permission model locked private + manager-override (zoom)
+**Source:** Zoom — "PDP Stand Up" 2026-07-22 (UUID 344FE22C-FD95-49CC-A938-CC58BE04CA6F)
+**Type:** scope-decision
+**Owner-impact:** Sriram, Pankaj, Nitish, Saurabh, Nataliia, Rinku, Lalit
+
+Sriram pressed the team to stop technical discussion and spikes given ~5 weeks to the Aug 31 deadline; the team agreed to ship one basic end-to-end goal-creation workflow first, without AI course recommendations, layering those in afterward. Saurabh and Nataliia locked the permission model for PDP goals as private-visibility by default with explicit manager view/edit access granted only through specific creation flows, and reviewed UI for the goals list, card layout, and skill-details panel. Pankaj is finalizing the vector-search-vs-AI-query approach with JV that night; Nitish is wrapping API-compatibility research and connecting with the AI team on the text-recommendation LLM engine.
+
+**Implication for ranking:** Confirms the Summer PDP MVP explicitly excludes AI course recommendations at launch (consistent with the courses/mentor-matching-only V1 scope already noted 2026-07-02) — recommendations remain a fast-follow, not part of the Aug 31 commit.
