@@ -841,3 +841,8 @@ Lalit reported the Zoom transcripts UI is nearly complete with a working version
 - **Who:** Hemant Kumar
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1784701363950959?thread_ts=1783505512.819199&cid=C0ACYVAG5A8)
 - **Summary:** No-transcript (non-happy) path eval results posted: 76 real + 6 low-signal synthetic meetings tested; blockers empty 62/76, decided empty 63/76, 28% had all 3 insight sections empty; groundedness 9.68/10 for real data but silent degradation risk (empty sections read as failure, not data gap); 4 hallucinations in one agenda-only meeting. Fixed output structure diverges from happy path — suggests separate schema for no-transcript flow. Cc: Jason Zhang, Sagar Bhat.
+
+### 2026-07-23 — gmail
+- **Who:** Tanveer Farooq (tanveer.farooq@betterworks.com)
+- **Where:** Email thread 19f8da22712e7133 — "Invitation: Demo | Meeting Transcript @ Weekly from 12:30pm to 1pm on Tuesday (IST)"
+- **Summary:** Tanveer Farooq created a recurring weekly Tuesday demo slot for the Meeting Transcript feature (12:30–1pm IST), with attendees including Lalit, Hemant, Harshini, Pankaj, Anuj, Prasanna, Sagar, Danish, and Hiten — signals a formal demo cadence is now established alongside the daily scrum.

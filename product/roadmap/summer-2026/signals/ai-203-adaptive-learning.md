@@ -403,3 +403,13 @@ PDP standup: placeholder UI, goal-retrieval-for-talent-profile, and AI text reco
 Sriram pressed the team to stop technical discussion and spikes given ~5 weeks to the Aug 31 deadline; the team agreed to ship one basic end-to-end goal-creation workflow first, without AI course recommendations, layering those in afterward. Saurabh and Nataliia locked the permission model for PDP goals as private-visibility by default with explicit manager view/edit access granted only through specific creation flows, and reviewed UI for the goals list, card layout, and skill-details panel. Pankaj is finalizing the vector-search-vs-AI-query approach with JV that night; Nitish is wrapping API-compatibility research and connecting with the AI team on the text-recommendation LLM engine.
 
 **Implication for ranking:** Confirms the Summer PDP MVP explicitly excludes AI course recommendations at launch (consistent with the courses/mentor-matching-only V1 scope already noted 2026-07-02) — recommendations remain a fast-follow, not part of the Aug 31 commit.
+
+### 2026-07-23 — slack
+- **Who:** Jason Zhang
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1784765346315289?thread_ts=1784644864.511339&cid=C0B54QF5GR2)
+- **Summary:** Jason Zhang posted a detailed technical rebuttal defending embedding-first course retrieval over LLM query generation: argues the 46% accuracy result in Nitish's notebook was a misconfiguration (wrong embedding model or missing asymmetric task prefixes for EmbeddingGemma-300m), not a valid comparison; notes local vector DB is already at 85% vs 81% for live API, confirming embeddings match or exceed provider APIs; proposes a lightweight cross-encoder rerank (~150ms) as sufficient, not a 20–30s LLM rerank; notes provider keyword-search APIs don't expose their internal ML. Requests two verification items before the architecture decision: (1) re-run the direct-embedding branch with full aspiration text as query and verified embedding config/prefixes, (2) share the pgvector notebook to confirm what the 46% branch actually embedded.
+
+### 2026-07-23 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19f8ecbf85190846 — "Meeting assets for PDP Stand Up are ready!"
+- **Summary:** PDP standup Zoom assets delivered; AI summary notes meeting focused on development of AI and non-AI solutions for search — directly relevant to the embedding vs. LLM architecture debate actively underway in the personalised-learning channel.
