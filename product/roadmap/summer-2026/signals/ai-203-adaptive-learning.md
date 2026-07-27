@@ -438,3 +438,12 @@ Sriram pressed the team to stop technical discussion and spikes given ~5 weeks t
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19fa374c7e0958d3 — "Meeting assets for PDP Stand Up are ready!"
 - **Summary:** PDP standup: Nitish working on AI agent vector embedding for text recommendations (Sagar-approved architecture, 3–5 days); Pankaj completing skill-detail page and course-selection testing (PR review by tomorrow); Saurabh implementing schema changes (ticket 84673) to differentiate PDP goals from normal goals including new table and skill-ID storage; team agreed to ship simple text recommendation as MVP while leaving AI course recommendations as an open item with unknown estimates.
+
+### 2026-07-27 — PDP standup: text-recommendation MVP scope reconfirmed; new PDP-goal schema work (ticket 84673) surfaced (zoom)
+**Source:** Zoom — "PDP Stand Up" 2026-07-27 (UUID 103D24A1-3796-49F4-9893-74EDE376613E)
+**Type:** scope-decision
+**Owner-impact:** Nitish, Pankaj, Saurabh, Nataliia, Rinku, Sriram, Lalit
+
+Nitish's vector-embedding text-recommendation work has Sagar's architecture approval and is 3–5 days from done; Pankaj is finishing skill-detail-page/course-selection testing with code review expected the next day. Saurabh is implementing schema changes (ticket 84673) to differentiate PDP goals from normal goals but flagged that filter-admin-view changes are out of current scope pending new UI tickets — the team confirmed backend schema work proceeds now while UI/filter-view tickets get created separately, with Saurabh recommending they wait for design input before building the UI. The team reconfirmed MVP scope: ship the simple text-recommendation path as the must-have for the summer release; AI-based course recommendations stay an open, unestimated stretch item, with aspirational features deprioritized to protect the must-haves.
+
+**Implication for ranking:** Reconfirms the text-rec-as-MVP / AI-course-rec-as-stretch split already tracked for AI-203; adds a new schema dependency (PDP goal differentiation, ticket 84673) not previously logged.

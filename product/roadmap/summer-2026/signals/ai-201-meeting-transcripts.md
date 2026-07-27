@@ -861,3 +861,12 @@ Lalit reported the Zoom transcripts UI is nearly complete with a working version
 - **Who:** Varnika Garg
 - **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B2L15AY2W/p1785159040601429)
 - **Summary:** Varnika asked Lalit for the expected production date for the Meetings transcripts feature — stakeholder timeline check from the Meetings pod PM.
+
+### 2026-07-27 — Meeting Prep/Recap/Suggestions refresh split into two levels; partial-failure handling locked as a hard requirement (zoom)
+**Source:** Zoom — "Zoom Meeting" 2026-07-27 (UUID 8CD33C63-052C-49AA-A1F4-3D1602F1C7F0)
+**Type:** architecture
+**Owner-impact:** Hiten, Lalit
+
+Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Prep, Recap, and Suggestions components: refresh will support two independent levels — Meeting Level and Prep Summary — rather than one blanket refresh, and admin settings will expose a feature flag for enabling/disconnecting the Zoom integration at the org level. They locked partial-failure handling as a hard requirement (the AI processing pipeline must degrade gracefully per-component rather than fail wholesale on a single service outage) and agreed a schema change is needed to track and let users acknowledge AI-generated recommendations. Hiten owns 7 implementation tickets (consent modal, component UI, admin settings, refresh logic, schema); Lalit owns keeping tickets current and refining the AI feature-flag settings (1:1 summaries, generative AI).
+
+**Implication for ranking:** Confirms per-component refresh + partial-failure handling as in-scope engineering work for ENG-79199; adds a schema item (recommendation-acknowledgment tracking) not previously logged here.
