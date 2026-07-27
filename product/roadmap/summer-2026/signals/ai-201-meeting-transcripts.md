@@ -846,3 +846,18 @@ Lalit reported the Zoom transcripts UI is nearly complete with a working version
 - **Who:** Tanveer Farooq (tanveer.farooq@betterworks.com)
 - **Where:** Email thread 19f8da22712e7133 — "Invitation: Demo | Meeting Transcript @ Weekly from 12:30pm to 1pm on Tuesday (IST)"
 - **Summary:** Tanveer Farooq created a recurring weekly Tuesday demo slot for the Meeting Transcript feature (12:30–1pm IST), with attendees including Lalit, Hemant, Harshini, Pankaj, Anuj, Prasanna, Sagar, Danish, and Hiten — signals a formal demo cadence is now established alongside the daily scrum.
+
+### 2026-07-27 — gmail
+- **Who:** Hiten Khuman, Lalit Maharana (via Zoom AI summary)
+- **Where:** Email thread 19fa28f2fdbcb7f1 — "Meeting assets for Zoom Meeting are ready!"
+- **Summary:** Hiten and Lalit held a last-mile UI implementation session covering Zoom consent modal/side panel, AI Prep/Recap/Suggestions component layout, admin settings for Zoom integration feature flag, refresh logic for Meeting Prep/Recap/Suggestions (independent refresh per component), partial-failure handling in AI processing pipeline, and schema changes needed to track AI recommendation acknowledgment — 7 action items logged to Hiten, 3 to Lalit.
+
+### 2026-07-27 — slack
+- **Who:** Tejas S
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1785144554741779)
+- **Summary:** Tejas asked Lalit whether the Figma designs exist for sys-admin and AI-admin module flags for AI signal extraction from meeting transcripts — open design gap surfaced by QA.
+
+### 2026-07-27 — slack
+- **Who:** Varnika Garg
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B2L15AY2W/p1785159040601429)
+- **Summary:** Varnika asked Lalit for the expected production date for the Meetings transcripts feature — stakeholder timeline check from the Meetings pod PM.

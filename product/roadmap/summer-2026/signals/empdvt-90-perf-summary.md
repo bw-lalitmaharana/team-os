@@ -130,6 +130,11 @@ Nellie flagged that AI pre-processing/performance-summary rollover doesn't yet r
 - **Where:** Email thread 19f85b546c8b13fe — "Meeting assets for Sync on Pre-processing Performance & Feedback Summaries are ready!"
 - **Summary:** Zoom delivered meeting summary for a sync on pre-processing performance & feedback summaries; meeting focused on refining tickets and planning.
 
+### 2026-07-27 — slack
+- **Who:** Aakansha Srivastava
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785137183546879)
+- **Summary:** Aakansha pinged the team for code reviews on 3 pending PRs in llm-engine: Performance Summary (PR#567), Skills (PR#563), and meetings summary (PR#557) — all still awaiting review.
+
 ### 2026-07-21 — Word-limit retries dropped for accuracy+user notice; fiscal-year auto/manual rollover UI planned; new ticket to fix conversations-API filter bug feeding bad Perf Summary + Goal Assist data (zoom)
 **Source:** Zoom — "Sync on Pre-processing Performance & Feedback Summaries" 2026-07-21 (UUID 70A6DFDA-2186-4B31-BB98-E68BCB02E5EB)
 **Type:** scope-decision

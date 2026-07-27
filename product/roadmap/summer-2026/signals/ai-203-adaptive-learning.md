@@ -413,3 +413,28 @@ Sriram pressed the team to stop technical discussion and spikes given ~5 weeks t
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19f8ecbf85190846 — "Meeting assets for PDP Stand Up are ready!"
 - **Summary:** PDP standup Zoom assets delivered; AI summary notes meeting focused on development of AI and non-AI solutions for search — directly relevant to the embedding vs. LLM architecture debate actively underway in the personalised-learning channel.
+
+### 2026-07-27 — slack
+- **Who:** Nitish Devadiga
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1785130625313759)
+- **Summary:** Nitish argued against the hybrid embedding + rerank approach: syncing catalogs and creating embeddings adds a month+ of dev time (Integrations team ownership), increases infra costs, and gains in latency/performance are marginal — recommends deferring until post-launch customer data validates the need. CC: Pankaj.
+
+### 2026-07-27 — slack
+- **Who:** Pankaj Lohmor
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1785133633417059)
+- **Summary:** Pankaj confirmed that spike results show vector DB search is less accurate than expected unless augmented with AI query rewrite; team has asked the AI team (Sagar) to review their spike notebooks and suggest improvements.
+
+### 2026-07-27 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1785152547044319)
+- **Summary:** Lalit followed up asking Pankaj whether the AI team had responded yet and who from AI was reviewing the spike.
+
+### 2026-07-27 — slack
+- **Who:** Pankaj Lohmor
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1785152601809689)
+- **Summary:** Pankaj confirmed Sagar is now helping review the vector embedding spike — architecture decision on embedding vs. LLM approach still open, now with Sagar's involvement.
+
+### 2026-07-27 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19fa374c7e0958d3 — "Meeting assets for PDP Stand Up are ready!"
+- **Summary:** PDP standup: Nitish working on AI agent vector embedding for text recommendations (Sagar-approved architecture, 3–5 days); Pankaj completing skill-detail page and course-selection testing (PR review by tomorrow); Saurabh implementing schema changes (ticket 84673) to differentiate PDP goals from normal goals including new table and skill-ID storage; team agreed to ship simple text recommendation as MVP while leaving AI course recommendations as an open item with unknown estimates.
