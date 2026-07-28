@@ -143,3 +143,18 @@ Nellie flagged that AI pre-processing/performance-summary rollover doesn't yet r
 Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pre-processing will improve accuracy up to 50% over the limit and notify the user when input is too large; Lalit owns the notification wording/AC, Bhavesh owns implementation. Nellie confirmed one-on-one pre-processing/summary stays available while admin settings are off, but "prep recap" and other new pre-processing features are postponed to winter. On fiscal-year handling, Nellie proposed automatic FY conversion for data buckets with an optional manual-override/close control, scoped only to the features that implement it (not platform-wide); Bhavesh will investigate the current pre-processing FY implementation and report back. Tejas identified a conversations-API bug where owner-ID/peer-ID filters pull incorrect manager-reportee data into Performance Summary and Goal Assist — the team agreed to a new ticket to delete affected prior-FY records and let pre-processing repopulate correct data, with Tejas and Bhavesh syncing on the approach the next day. Nellie will also write up user stories for FY-transition/date-range-filter changes and is considering dropping skill filters in favor of a pre-processed ~180-day bucket for date-range search.
 
 **Implication for ranking:** Directly extends the 2026-07-20 automatic-rollover risk entry above — the pre-processing fix approach (delete + repopulate) and FY architecture are now scoped, and the conversations-API filter bug is a *new*, previously-uncaptured defect feeding bad Perf Summary/Goal Assist data that should get its own tracked ticket.
+
+### 2026-07-28 — slack
+- **Who:** Bhavesh Vaviya
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785233297379679)
+- **Summary:** Asked Riya Malik and Tejas S to test two live fiscal-year issues on Rainforest: ENG-85150 (NYU Langone — AI Summaries not displaying for current and previous FY) and ENG-84564 (Teacher Retirement System of Texas — AI Performance Summary still showing last FY data under YTD); expected behavior defined by Nellie in the ticket comments.
+
+### 2026-07-28 — slack
+- **Who:** Tejas S
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785222300569699)
+- **Summary:** Confirmed performance summary fix is available on Champagne and suggested asking Tyler (customer contact) to verify the fix resolves the reported issue.
+
+### 2026-07-28 — slack
+- **Who:** Riya Malik
+- **Where:** [#pod-ai-quality](https://betterworks.slack.com/archives/C0B8QJE1BM2/p1785213732628119)
+- **Summary:** Deleted orphan performance summary records in the Rainforest environment — environment cleanup ahead of fiscal-year rollover testing.

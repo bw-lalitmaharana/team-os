@@ -306,3 +306,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Paul Agustin
 - **Where:** [#tmp_betterbrain](https://betterworks.slack.com/archives/C0B7VHX4Y73/p1784688469586489?thread_ts=1784688469.586489&cid=C0B7VHX4Y73)
 - **Summary:** Discovered goal weights not exposed via Betterworks MCP today; weights live in `report-weight` service area of goals-api (not wrapped as MCP tool) — would be a net-new tool request, not a config change. MCP still beta on internal envs only.
+
+### 2026-07-28 — slack
+- **Who:** Emad Ahmed (via Early Access Request bot)
+- **Where:** [#early-access-requests](https://betterworks.slack.com/archives/C0AS5U6HWBU/p1785234491488049)
+- **Summary:** Early Access request ENG-85247 submitted for NextGen Test Arcesium (Org ID 1607) to join the MCP Early Access Program; Nellie LeMonier invited this customer — they were the original driver for building MCP and had previously built a private/public-key workaround; timeline requested ASAP.
+
+### 2026-07-28 — slack
+- **Who:** Cheau-Long Ng
+- **Where:** [#pod-analytics](https://betterworks.slack.com/archives/C016U7X79UL/p1785210948021229)
+- **Summary:** Merged PRs adding foundation for analytics MCP tools: 4 new endpoints in data-api (/analytics/metrics, /analytics/recommendations, /analytics/search, /analytics/narratives), plus a new analytics schema migration (090_analytics) in warehouse-db; more changes expected over the next 2 sprints.

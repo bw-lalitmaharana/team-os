@@ -57,3 +57,8 @@ Paul flagged from Synopsys conversations:
 Nellie asked Lalit to (1) check with the integrations team (Danish) that the global webhook engine is tracked in AHA and to request the TechWolf integration be added to that roadmap, and (2) arrange for Danish to walk JB and Ocon through the webhooks PR once JB is back next week. Lalit agreed to follow up with Rinku on getting the webhook project onto the integration roadmap and to coordinate the TechWolf integration timing for after summer.
 
 **Implication for ranking:** New explicit ask to get TechWolf integration formally represented on the integrations roadmap in AHA — currently undocumented outside this ledger; follow up with Rinku/Danish before next refinement pass.
+
+### 2026-07-28 — slack
+- **Who:** BetterBrain (internal doc-review bot)
+- **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1785238597959409)
+- **Summary:** Automated Aha support-doc review flagged DP-76 (AI Skills | TechWolf Integration) for human triage — current help article matches are weak/generic; bot recommends either updating an existing article or generating a new draft as the feature approaches Summer 2026 ship.

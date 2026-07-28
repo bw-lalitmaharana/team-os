@@ -447,3 +447,8 @@ Sriram pressed the team to stop technical discussion and spikes given ~5 weeks t
 Nitish's vector-embedding text-recommendation work has Sagar's architecture approval and is 3–5 days from done; Pankaj is finishing skill-detail-page/course-selection testing with code review expected the next day. Saurabh is implementing schema changes (ticket 84673) to differentiate PDP goals from normal goals but flagged that filter-admin-view changes are out of current scope pending new UI tickets — the team confirmed backend schema work proceeds now while UI/filter-view tickets get created separately, with Saurabh recommending they wait for design input before building the UI. The team reconfirmed MVP scope: ship the simple text-recommendation path as the must-have for the summer release; AI-based course recommendations stay an open, unestimated stretch item, with aspirational features deprioritized to protect the must-haves.
 
 **Implication for ranking:** Reconfirms the text-rec-as-MVP / AI-course-rec-as-stretch split already tracked for AI-203; adds a new schema dependency (PDP goal differentiation, ticket 84673) not previously logged.
+
+### 2026-07-27 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19fa47c883b9324e — "Meeting assets for LMS Integrations Sync: Default Provider for AI Recommendations are ready!"
+- **Summary:** Zoom summary available for the LMS Integrations Sync on default provider for AI course recommendations; meeting focused on technical discussion of the provider selection decision (Docebo vs Udemy API capability matrix established 2026-07-13, deadline July 24).

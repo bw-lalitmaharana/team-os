@@ -870,3 +870,43 @@ Lalit reported the Zoom transcripts UI is nearly complete with a working version
 Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Prep, Recap, and Suggestions components: refresh will support two independent levels — Meeting Level and Prep Summary — rather than one blanket refresh, and admin settings will expose a feature flag for enabling/disconnecting the Zoom integration at the org level. They locked partial-failure handling as a hard requirement (the AI processing pipeline must degrade gracefully per-component rather than fail wholesale on a single service outage) and agreed a schema change is needed to track and let users acknowledge AI-generated recommendations. Hiten owns 7 implementation tickets (consent modal, component UI, admin settings, refresh logic, schema); Lalit owns keeping tickets current and refining the AI feature-flag settings (1:1 summaries, generative AI).
 
 **Implication for ranking:** Confirms per-component refresh + partial-failure handling as in-scope engineering work for ENG-79199; adds a schema item (recommendation-acknowledgment tracking) not previously logged here.
+
+### 2026-07-28 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1785241966137359)
+- **Summary:** Raised product question on AI prep suggestion scope: should only show for the immediate next upcoming meeting in a recurring series, not all future instances — each upcoming instance should get suggestions only once its preceding meeting has completed.
+
+### 2026-07-28 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM — Sagar Bhat, Hemant Kumar](https://betterworks.slack.com/archives/C0B7KG9AZQV/p1785236862773069)
+- **Summary:** Asked Sagar and Hemant to proactively align with Tejas before a hard QA pass on meeting transcript scenarios scheduled imminently.
+
+### 2026-07-28 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM — Varnika Garg](https://betterworks.slack.com/archives/D0B2L15AY2W/p1785220417988989)
+- **Summary:** Asked Varnika whether the goals side-modal spike is complete, with a view to loading the goal form in a modal directly within meeting transcript rather than redirecting.
+
+### 2026-07-28 — slack
+- **Who:** Harshini Vijay
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B58DS1W1K/p1785216074103159)
+- **Summary:** Flagged terminology conflict: Lalit's Figma comments suggest removing "AI" to just say "Transcripts", but Nataliya had previously specified "AI Transcripts" — asked whether to confirm with Paul or Nataliya before finalizing.
+
+### 2026-07-28 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1785209402239229)
+- **Summary:** Noted two P2 follow-through items: (1) notification to user when AI processing is ready, (2) department/group-level enablement control in admin settings for AI features.
+
+### 2026-07-27 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19fa4a2fadc289e1 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Zoom AI summary of Lalit/Nellie 1:1 now available; meeting covered AI development progress and project planning across active tracks.
+
+### 2026-07-27 — gmail
+- **Who:** Tejas S (tejas.s@betterworks.com → lalit.maharana@betterworks.com et al.)
+- **Where:** Email thread 19fa3c9d10df6a8e — "Invitation: AI Meetings transcript discussion @ Tue Jul 28, 2026 11am – 11:30am (IST)"
+- **Summary:** Tejas invited Lalit, Hemant, Sagar, and Riya to a 30-min "AI Meetings transcript discussion" at 11am IST Jul 28 — likely a pre-QA scenario alignment session.
+
+### 2026-07-27 — gmail
+- **Who:** Tejas S (tejas.s@betterworks.com → lalit.maharana@betterworks.com et al.)
+- **Where:** Email thread 19fa3e93a31c44a7 — "Updated invitation: AI Meetings transcript discussion @ Tue Jul 28, 2026 3pm – 3:30pm (IST)"
+- **Summary:** Tejas rescheduled the "AI Meetings transcript discussion" to 3pm IST Jul 28; same attendees (Lalit, Hemant, Sagar, Riya) — two discussion slots now calendared for the same day.
