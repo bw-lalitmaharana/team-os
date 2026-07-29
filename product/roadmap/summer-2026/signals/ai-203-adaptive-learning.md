@@ -452,3 +452,8 @@ Nitish's vector-embedding text-recommendation work has Sagar's architecture appr
 - **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
 - **Where:** Email thread 19fa47c883b9324e — "Meeting assets for LMS Integrations Sync: Default Provider for AI Recommendations are ready!"
 - **Summary:** Zoom summary available for the LMS Integrations Sync on default provider for AI course recommendations; meeting focused on technical discussion of the provider selection decision (Docebo vs Udemy API capability matrix established 2026-07-13, deadline July 24).
+
+### 2026-07-29 — slack
+- **Who:** Rinku Ravi
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1785323861579489)
+- **Summary:** Written recap of July 27 LMS Integrations Sync posted — team agreed to LLM-based query rewrite (no Vector DB) for MVP: sub-10s latency, ~70% accuracy across Udemy/LinkedIn/Docebo; Jason and Sagar to work in parallel on embedding fixes for future phases; Nataliya to schedule Monday demo to review latency and quality; Nitish owns MVP implementation targeting summer release.

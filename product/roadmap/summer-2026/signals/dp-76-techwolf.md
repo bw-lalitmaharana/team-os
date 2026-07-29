@@ -62,3 +62,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** BetterBrain (internal doc-review bot)
 - **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1785238597959409)
 - **Summary:** Automated Aha support-doc review flagged DP-76 (AI Skills | TechWolf Integration) for human triage — current help article matches are weak/generic; bot recommends either updating an existing article or generating a new draft as the feature approaches Summer 2026 ship.
+
+### 2026-07-29 — slack
+- **Who:** BetterBrain (bot)
+- **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1785325024739629)
+- **Summary:** Second BetterBrain doc-triage alert for DP-76 (AI Skills | TechWolf Integration) — current article candidates weak (best match 0.42 on generic Jira/Salesforce/UKG integration articles); bot requests human reply with `generate draft`, `update existing`, or `skip` to resolve the triage.
