@@ -158,3 +158,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Riya Malik
 - **Where:** [#pod-ai-quality](https://betterworks.slack.com/archives/C0B8QJE1BM2/p1785213732628119)
 - **Summary:** Deleted orphan performance summary records in the Rainforest environment — environment cleanup ahead of fiscal-year rollover testing.
+
+### 2026-07-30 — slack
+- **Who:** Riya Malik
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785401245267489)
+- **Summary:** Raised PR for ENG-85469 (Update AI Performance Summary E2E tests to handle short and long summaries) — PR #6527 in haven repo; tagging Tejas S for review.

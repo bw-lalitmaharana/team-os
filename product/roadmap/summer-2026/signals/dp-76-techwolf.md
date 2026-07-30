@@ -67,3 +67,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** BetterBrain (bot)
 - **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1785325024739629)
 - **Summary:** Second BetterBrain doc-triage alert for DP-76 (AI Skills | TechWolf Integration) — current article candidates weak (best match 0.42 on generic Jira/Salesforce/UKG integration articles); bot requests human reply with `generate draft`, `update existing`, or `skip` to resolve the triage.
+
+### 2026-07-30 — slack
+- **Who:** BetterBrain (bot)
+- **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1785378872885659)
+- **Summary:** Third consecutive daily BetterBrain doc-triage alert for DP-76 (AI Skills | TechWolf Integration) — best article match still 0.42 on generic integration articles; bot awaiting `generate draft`, `update existing`, or `skip` reply to close triage. Pattern indicates the triage has not been actioned for 3+ days.

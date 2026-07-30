@@ -910,3 +910,8 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Tejas S (tejas.s@betterworks.com → lalit.maharana@betterworks.com et al.)
 - **Where:** Email thread 19fa3e93a31c44a7 — "Updated invitation: AI Meetings transcript discussion @ Tue Jul 28, 2026 3pm – 3:30pm (IST)"
 - **Summary:** Tejas rescheduled the "AI Meetings transcript discussion" to 3pm IST Jul 28; same attendees (Lalit, Hemant, Sagar, Riya) — two discussion slots now calendared for the same day.
+
+### 2026-07-30 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1785394994511499?thread_ts=1785366298.655309&cid=C0ACYVAG5A8)
+- **Summary:** Hiten shared Meetings-side Authn Proxy dependency tickets and asked Danish Sharma to share the corresponding proxy tickets: ENG-83977 (Calendar Integration — return conferencing data in events APIs/webhooks for Google/Outlook), ENG-84414 (Meetings Transcripts — persist OAuth data for Zoom in meetings-api from authn-proxy), ENG-82994 (Connect Zoom UX — banner, status indicator & OAuth handoff), ENG-84026 (Meetings — map calendar conferencing data to meeting series).
