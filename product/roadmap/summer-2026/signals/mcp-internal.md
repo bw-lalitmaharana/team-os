@@ -316,3 +316,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Cheau-Long Ng
 - **Where:** [#pod-analytics](https://betterworks.slack.com/archives/C016U7X79UL/p1785210948021229)
 - **Summary:** Merged PRs adding foundation for analytics MCP tools: 4 new endpoints in data-api (/analytics/metrics, /analytics/recommendations, /analytics/search, /analytics/narratives), plus a new analytics schema migration (090_analytics) in warehouse-db; more changes expected over the next 2 sprints.
+
+### 2026-08-04 — slack
+- **Who:** Holly Wenneson
+- **Where:** [#early-access-requests](https://betterworks.slack.com/archives/C0AS5U6HWBU/p1785787760105469)
+- **Summary:** Early access request submitted for Sinclair (Org ID 1591) to verify MCP functionality in their NextGen test environment (ENG-85629 "Sinclair NextGen Test - MCP Enablement"); routed to AI Platform pod — second named customer after Arcesium (Jul 28) now in the MCP early access queue.

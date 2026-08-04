@@ -915,3 +915,23 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Hiten Khuman
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1785394994511499?thread_ts=1785366298.655309&cid=C0ACYVAG5A8)
 - **Summary:** Hiten shared Meetings-side Authn Proxy dependency tickets and asked Danish Sharma to share the corresponding proxy tickets: ENG-83977 (Calendar Integration — return conferencing data in events APIs/webhooks for Google/Outlook), ENG-84414 (Meetings Transcripts — persist OAuth data for Zoom in meetings-api from authn-proxy), ENG-82994 (Connect Zoom UX — banner, status indicator & OAuth handoff), ENG-84026 (Meetings — map calendar conferencing data to meeting series).
+
+### 2026-08-04 — slack
+- **Who:** Holly Wenneson
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1785782062541549)
+- **Summary:** Holly asked whether the transcript feature works only for 1:1s or for all meeting types; BetterBrain bot confirmed AI-201 (MEET-48) is scoped to 1:1s, with team meetings (MEET-52) tracked as a separate later item — signals external-facing scope ambiguity still circulating.
+
+### 2026-08-04 — slack
+- **Who:** Hiten Khuman / Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1785828880801309?thread_ts=1785414751.835999&cid=C0ACYVAG5A8)
+- **Summary:** Hiten confirmed admin setting scope (prep, recap, recommendations, transcript tab, Zoom consent drawer); Lalit clarified the setting covers AI inference only (prep/recap/recommendations/close suggestions) — transcript tab, Zoom connect, and calendar side panel show by default independent of the setting.
+
+### 2026-08-04 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM — Harshini Vijay, Lalit Maharana, Hiten Khuman](https://betterworks.slack.com/archives/C0BM2R0SM2B/p1785836135090559)
+- **Summary:** Lalit decided on accordion UI for AI settings (header: "1:1s: AI based Insights"; sysadmin flag name: meetings_insights); confirmed 1:1 AI Meeting Summary and AI-based Insights are mutually exclusive — both cannot be enabled simultaneously.
+
+### 2026-08-04 — slack
+- **Who:** Bhavesh Vaviya
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785822642766479)
+- **Summary:** PR review request (llm-engine PR #596) for NYU CS customer ticket fixing Meeting Summary issues; RCA documented in prior channel thread.
