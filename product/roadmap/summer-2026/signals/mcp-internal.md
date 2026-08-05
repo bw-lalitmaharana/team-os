@@ -321,3 +321,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Holly Wenneson
 - **Where:** [#early-access-requests](https://betterworks.slack.com/archives/C0AS5U6HWBU/p1785787760105469)
 - **Summary:** Early access request submitted for Sinclair (Org ID 1591) to verify MCP functionality in their NextGen test environment (ENG-85629 "Sinclair NextGen Test - MCP Enablement"); routed to AI Platform pod — second named customer after Arcesium (Jul 28) now in the MCP early access queue.
+
+### 2026-08-05 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1785879999259509)
+- **Summary:** Triggered deployment of Public MCP to version 0.72.0 in internal environments via PR #108 (github.com/BetterWorks/public-api-mcp/pull/108).
+
+### 2026-08-05 — slack
+- **Who:** Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1785880812706469)
+- **Summary:** Confirmed MCP 0.72.0 release complete across all internal environments; verified the new `talent_list_profile_skills` tool works correctly in champagne.

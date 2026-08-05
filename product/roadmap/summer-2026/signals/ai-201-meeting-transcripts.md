@@ -935,3 +935,28 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Bhavesh Vaviya
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785822642766479)
 - **Summary:** PR review request (llm-engine PR #596) for NYU CS customer ticket fixing Meeting Summary issues; RCA documented in prior channel thread.
+
+### 2026-08-05 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [DM: Nellie LeMonier / Lalit Maharana](https://betterworks.slack.com/archives/D0B1DFSV5SR/p1785898492553639)
+- **Summary:** Nellie asked Lalit for a walkthrough of all transcript-related Summer release updates (implemented or prototyped) to plan an upcoming IPP session; requested meeting Thu evening or Fri morning (Lalit's time) this week.
+
+### 2026-08-05 — slack
+- **Who:** Sriram CS
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1785903733430799)
+- **Summary:** Clarified to Nataliya Kolb that current implementation pushes transcript data to agenda items, action items, and goals only — feedback and recognition generation are not in scope; Zoom is the sole supported source for Summer release.
+
+### 2026-08-05 — slack
+- **Who:** Hemant Kumar
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785915449350189)
+- **Summary:** Hemant took a sick half-day; noted he released llmproxy to prod, attended the meeting transcript team call, and reviewed/refined meeting transcript PRs before signing off.
+
+### 2026-08-05 — slack
+- **Who:** Bhavesh Vaviya
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785922204476889)
+- **Summary:** Flagged llm-engine migration failures on Rainforest (main-branch deployment broken); suspected meeting transcript demo changes deployed to Rainforest as the cause — confirmed in-thread by Sagar.
+
+### 2026-08-05 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785922624652439)
+- **Summary:** Confirmed Rainforest llm-engine deployment failure is likely caused by AI meeting transcript demo changes previously deployed there.
