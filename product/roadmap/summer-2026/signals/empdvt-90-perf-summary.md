@@ -163,3 +163,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Riya Malik
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785401245267489)
 - **Summary:** Raised PR for ENG-85469 (Update AI Performance Summary E2E tests to handle short and long summaries) — PR #6527 in haven repo; tagging Tejas S for review.
+
+### 2026-08-06 — slack
+- **Who:** Michelle Wu (request) / Eden Owen (approval)
+- **Where:** [#early-access-requests](https://betterworks.slack.com/archives/C0AS5U6HWBU/p1785958836443889)
+- **Summary:** Crowe (Org #1449) early access to NextGen Print Performance Snapshot (ENG-85785, EMPDVT-133) approved for production — customer has been waiting since their March 7, 2026 upgrade; adjacent signal to EMPDVT-90.

@@ -960,3 +960,23 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Sagar Bhat
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785922624652439)
 - **Summary:** Confirmed Rainforest llm-engine deployment failure is likely caused by AI meeting transcript demo changes previously deployed there.
+
+### 2026-08-06 — slack
+- **Who:** Bhavesh Vaviya / Nellie LeMonier
+- **Where:** [#pod-ai-platform thread](https://betterworks.slack.com/archives/C04N1P7N1PT/p1785941304497349)
+- **Summary:** QA-verified fix for ENG-85446 (NYU AI Meeting Summary timing out) is release-ready on Rainforest; Nellie gated ship on NYU/Devon blessing — Bhavesh agreed to hold until Friday or Monday.
+
+### 2026-08-06 — slack
+- **Who:** Bhavesh Vaviya
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1786013337253499)
+- **Summary:** PR #603 (llm-engine) converts HTML rich content to plain Markdown for LLM input; Meeting Summary shared notes is the first use case; FS, PS, and Skills flagged as follow-on scope to optimize tokens and latency.
+
+### 2026-08-06 — slack
+- **Who:** Tanveer Farooq / Nataliya Kolb
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786020387847249)
+- **Summary:** Nataliya Kolb requested a review demo; Tanveer scheduled it for Friday Aug 8 at 9:00 AM Nataliya's time / 9:30 PM IST — first external-stakeholder demo of the transcripts feature.
+
+### 2026-08-06 — slack
+- **Who:** Danish Sharma
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786014359141329)
+- **Summary:** Danish Sharma on PTO Aug 7 (traveling); one transcripts engineer unavailable — noted for sprint coverage awareness.
