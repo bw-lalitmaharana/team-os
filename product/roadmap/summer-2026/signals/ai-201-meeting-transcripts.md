@@ -980,3 +980,28 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Danish Sharma
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786014359141329)
 - **Summary:** Danish Sharma on PTO Aug 7 (traveling); one transcripts engineer unavailable — noted for sprint coverage awareness.
+
+### 2026-08-07 — gmail
+- **Who:** Lalit Maharana + Nellie LeMonier (Zoom AI summary via no-reply@zoom.us)
+- **Where:** Email thread 19fd77e5419fea3b — "Meeting assets for Transcript Capabilities Walkthrough are ready!" (meeting 2026-08-06)
+- **Summary:** Lalit walked Nellie through Rainforest features in Rainforest: Zoom integration accordion, three-level consent system (meeting/series/instance), AI settings toggle (AI insights vs existing AI summary — mutually exclusive), prep/recap/recommendations content; Nellie flagged UX concern with disconnected toggles and requested a Confluence enablement doc; next steps include splitting the Zoom integration PR, revisiting toggle UX, adding a series-level transcript opt-out toggle, and a Monday follow-up meeting.
+
+### 2026-08-07 — gmail
+- **Who:** Hiten Khuman (Jira notification via jira@betterworks.atlassian.net)
+- **Where:** Email thread 19fd125fffed989f — [ENG-85171 Admin Setting for New Meetings AI Insights](https://betterworks.atlassian.net/browse/ENG-85171)
+- **Summary:** ENG-85171 ("Admin Setting for New Meetings AI Insights") moved from In Progress → Code Review today; feature flag ENG-85171_meetings_ai_insights_orgsetting set.
+
+### 2026-08-07 — gmail
+- **Who:** Hiten Khuman (Jira mention via jira@betterworks.atlassian.net)
+- **Where:** Email thread 19fdbc7a734c80bb — [ENG-82397 AI suggestions and completions - UI](https://betterworks.atlassian.net/browse/ENG-82397)
+- **Summary:** Hiten @-mentioned Lalit on ENG-82397: "We won't be able to cover the completion in this ticket. We'll need to create a separate ticket for that." — AI completions UI is being descoped from the current ticket; a new ticket is needed.
+
+### 2026-08-07 — gmail
+- **Who:** Nellie LeMonier (Jira comment, surfaced in weekly digest via jira@betterworks.atlassian.net)
+- **Where:** Email thread 19fd9aa8c9759872 — [ENG-85196](https://betterworks.atlassian.net/browse/ENG-85196) (Jira weekly update)
+- **Summary:** Nellie commented on ENG-85196: "We should add multiple iterations around testing. What happens when a user enters the meeting..." — flagging a testing edge-case gap for the meeting-entry flow.
+
+### 2026-08-07 — gmail
+- **Who:** Sagar Bhat (Jira updates via jira@betterworks.atlassian.net)
+- **Where:** Jira tickets ENG-83005 (Prep brief generation), ENG-83004 (Goal Signal Extraction), ENG-84147 (Infrastructure: Refresh), ENG-84148 (API contract & I/O endpoints)
+- **Summary:** Sagar Bhat reassigned himself on four transcripts subtasks (replacing Hemant Kumar) and moved ENG-84147 + ENG-84148 from Ready for Refinement → In Progress — indicates a sprint assignment reshuffle with Sagar taking direct ownership of core pipeline tasks.

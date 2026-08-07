@@ -457,3 +457,8 @@ Nitish's vector-embedding text-recommendation work has Sagar's architecture appr
 - **Who:** Rinku Ravi
 - **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2/p1785323861579489)
 - **Summary:** Written recap of July 27 LMS Integrations Sync posted — team agreed to LLM-based query rewrite (no Vector DB) for MVP: sub-10s latency, ~70% accuracy across Udemy/LinkedIn/Docebo; Jason and Sagar to work in parallel on embedding fixes for future phases; Nataliya to schedule Monday demo to review latency and quality; Nitish owns MVP implementation targeting summer release.
+
+### 2026-08-07 — gmail
+- **Who:** Nataliia Savenko (Jira mention via jira@betterworks.atlassian.net)
+- **Where:** Email thread 19fdbca36f0d8a5c — [ENG-84203 New default for skills generation](https://betterworks.atlassian.net/browse/ENG-84203)
+- **Summary:** Nataliia Savenko @-mentioned Lalit and Viktoriia Bondareva on ENG-84203 ("New default for skills generation"), asking Lalit to review Viktoriia's question — indicates an active open question on the skills-generation default behavior that needs Lalit's PM input.
