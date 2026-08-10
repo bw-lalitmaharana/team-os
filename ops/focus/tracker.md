@@ -11,6 +11,17 @@ Single source of truth for Lalit's 2h deep-work focus blocks, **Weekly plan + Da
 
 _Newest week first. Each new week block is inserted directly under this line._
 
+### Week of 2026-08-10
+| Day | Time (IST) | Track | Focus |
+|---|---|---|---|
+| Mon Aug 10 | 09:00–11:00 | T1 | Finalize recap/prep key data fields for Sagar (URGENT — gates his prompt-engineering) |
+| Mon Aug 10 | 14:30–16:30 | T2 | Write spike stories per component (skill graph, pre-processing, runtime generation) |
+| Tue Aug 11 | 09:00–11:00 | T1 | Write visibility-sharing decisions doc |
+| Wed Aug 12 | 14:30–16:30 | T1 | Decide transcript TTL policy w/ Anuj |
+| Thu Aug 13 | 14:30–16:30 | T2 | Escalate unassigned mentor-ranking dev owner (staffing risk) |
+| Fri Aug 14 | 09:00–11:00 | T3 | Verify ENG-69839 Jira link; transition ENG-76815 -> Done |
+| Fri Aug 14 | 14:30–16:30 | T4 | Decide MCP Slackbot v2 ownership + scope |
+
 ### Week of 2026-08-03
 | Day | Time (IST) | Track | Focus |
 |---|---|---|---|
