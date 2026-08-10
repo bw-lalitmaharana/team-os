@@ -1005,3 +1005,18 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Sagar Bhat (Jira updates via jira@betterworks.atlassian.net)
 - **Where:** Jira tickets ENG-83005 (Prep brief generation), ENG-83004 (Goal Signal Extraction), ENG-84147 (Infrastructure: Refresh), ENG-84148 (API contract & I/O endpoints)
 - **Summary:** Sagar Bhat reassigned himself on four transcripts subtasks (replacing Hemant Kumar) and moved ENG-84147 + ENG-84148 from Ready for Refinement → In Progress — indicates a sprint assignment reshuffle with Sagar taking direct ownership of core pipeline tasks.
+
+### 2026-08-10 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786343165059809)
+- **Summary:** Confirmed MVP scope — process one Zoom transcript per 1:1 meeting for now; multi-transcript handling deferred as agreed in team discussion.
+
+### 2026-08-10 — slack
+- **Who:** Harshini Vijay
+- **Where:** Group DM (Lalit Maharana, Hiten Khuman, Harshini Vijay)
+- **Summary:** Proposed final copy text for transcript UI states — Zoom-connected: "Your transcript will be available after the meeting ends. You can also upload or paste a transcript."; no-Zoom: "You can upload or paste a transcript after the meeting ends."
+
+### 2026-08-10 — slack
+- **Who:** Hiten Khuman
+- **Where:** Group DM (Lalit Maharana, Hiten Khuman, Harshini Vijay)
+- **Summary:** Raising PR with updated transcript copy text ("You can manage the transcripts once the meeting is over"); Zoom-connected vs. non-Zoom copy split deferred to a separate PR — PR in progress as of EOD.
