@@ -168,3 +168,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Michelle Wu (request) / Eden Owen (approval)
 - **Where:** [#early-access-requests](https://betterworks.slack.com/archives/C0AS5U6HWBU/p1785958836443889)
 - **Summary:** Crowe (Org #1449) early access to NextGen Print Performance Snapshot (ENG-85785, EMPDVT-133) approved for production — customer has been waiting since their March 7, 2026 upgrade; adjacent signal to EMPDVT-90.
+
+### 2026-08-11 — slack
+- **Who:** BetterBrain (bot, citing Product confirmation)
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1786454898706709)
+- **Summary:** BetterBrain confirmed that "Areas for Development" bullets in the AI Performance Summary are generated per-profile (not static onboarding copy), and the generator runs even when modules such as Feedback are disabled in the org — open question remains on whether wording adapts to the org's Goals-vs-OKR terminology setting; Nellie LeMonier tagged for verification.

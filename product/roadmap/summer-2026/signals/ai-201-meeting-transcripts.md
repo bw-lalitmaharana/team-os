@@ -1020,3 +1020,13 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Hiten Khuman
 - **Where:** Group DM (Lalit Maharana, Hiten Khuman, Harshini Vijay)
 - **Summary:** Raising PR with updated transcript copy text ("You can manage the transcripts once the meeting is over"); Zoom-connected vs. non-Zoom copy split deferred to a separate PR — PR in progress as of EOD.
+
+### 2026-08-11 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ff09d914b471fe — "Meeting assets for Meeting Transcripts - Jira Alignment are ready!"
+- **Summary:** Zoom delivered meeting assets for a "Meeting Transcripts - Jira Alignment" session; recap notes the meeting focused on reviewing architecture, schema, and endpoints for AI-driven transcript processing.
+
+### 2026-08-11 — gmail
+- **Who:** Hemant Kumar (via Jira, jira@betterworks.atlassian.net)
+- **Where:** Email thread 19fa4450180f5207 — "[JIRA] (ENG-82390) Meeting Recap Generation"
+- **Summary:** Hemant Kumar moved ENG-82390 (Meeting Recap Generation) from "Ready for Refinement" → "Ready for Development" and added himself as co-assignee alongside Sagar Bhat — signals recap generation subtask has entered active development.

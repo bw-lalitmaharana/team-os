@@ -331,3 +331,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Bilyeu
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1785880812706469)
 - **Summary:** Confirmed MCP 0.72.0 release complete across all internal environments; verified the new `talent_list_profile_skills` tool works correctly in champagne.
+
+### 2026-08-11 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#champagne-mcp-support](https://betterworks.slack.com/archives/C0B0Q5WBN0N/p1786399853474379)
+- **Summary:** Nellie announced a new ChatGPT connector "Betterworks Champagne Beta V2" including goal creation and update capabilities; a new app was required because ChatGPT failed to read the latest MCP tool definitions; Michelle Wu flagged the root issue.
