@@ -1,5 +1,7 @@
 # Meeting-Transcripts (ENG-79199) — Refinement Package, 2026-07-27
 
+> **🔄 Reconciled 2026-08-12 — read `RECONCILE-2026-08-12.md` first.** Since 7/27: meeting-state model (→ rollover-cron) and non-happy path (→ confidence judge) **resolved**; PII and canonical dates **still open** (now critical path); single AI admin setting + calendar-prerequisite added; feature now live on Rainforest; InfoSec doc ~34 days overdue. The `jira-ready-descriptions.md` and `confluence-ready-blocks.html` blocks below have been updated in place for the resolved items.
+
 Gap analysis + proposed updates to bring **Jira, Confluence, and the repo PRDs** in line with decisions since the 2026-06-07 build-out. **Nothing here has been written to Jira/Aha/Confluence** — per process rules, system-of-record writes happen in a refinement call.
 
 **Source of truth:** `../../signals/ai-201-meeting-transcripts.md` (current to 2026-07-27). Jira, all 4 Confluence PRDs, the repo PRD trio, and `../../jira-diff.md` (dated 2026-05-13) are all behind.

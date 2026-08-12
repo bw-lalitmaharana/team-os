@@ -4,6 +4,8 @@
 **Status:** DRAFT for InfoSec review — **not published.** Release gate: summer 2026 launch is blocked pending this review.
 **Related:** Jira ENG-79199 · Confluence Connect Layer 4282515524 / Zoom Connector 4282744869
 
+> **⚠️ Overdue & now urgent (as of 2026-08-12):** owed to InfoSec since ~7/9 (~34 days). The feature is **already deployed to Rainforest** (~Aug 3–5), so the review is no longer ahead of build — send this now. Content below is unchanged from 7/27 and still accurate; §6 (storage/TTL) and §7 (PII) remain the open items needing your steer.
+
 ---
 
 ## 1. What the feature does

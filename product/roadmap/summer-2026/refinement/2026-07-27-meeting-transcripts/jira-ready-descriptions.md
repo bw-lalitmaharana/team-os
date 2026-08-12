@@ -46,7 +46,7 @@ Format: paste each block into the Jira description editor (markdown paste render
 - Generation logic: upcoming meeting → **Prep + Recap + Recs**; past meeting with a new transcript → **Recap only** (refresh Prep/Recs if feasible) (7/1).
 - Refresh semantics: **Recap = persona-agnostic** (refreshes for all at once); **Prep + Recs = persona-specific** (refresh only requesting user) (7/2).
 
-**Inference.** Direct LM inference endpoint (LM Proxy can't do structured/function calling via LangChain); Gemma 4 by ~Aug 10; 64K context. *(Removes prior "Option B vs C — TBD in spike.")*
+**Inference.** Direct LM inference endpoint (LM Proxy can't do structured/function calling via LangChain); **Gemma 4** (deploy tracked — see new ticket ~ENG-85201 "Deploy Gemma 4 to Prod"); 64K context. *(Removes prior "Option B vs C — TBD in spike.")*
 
 **Reconciliation.** Routine task within extraction — **not a standalone capability/step** (7/7).
 
@@ -55,9 +55,9 @@ Format: paste each block into the Jira description editor (markdown paste render
 - **Horizontal scaling (HPA)** for ~1,600 concurrent participants / ~400 simultaneous transcripts (6/16).
 - Multi-segment: each recording segment = a separate transcript; pipeline reconciles segments per meeting (7/9).
 
-**PII.** ⚠️ OPEN — reconcile with eval gate ENG-83006 (recall ≥0.90) vs spike ENG-82135; resolve before AC is final.
+**PII.** 🔴 STILL OPEN (as of 8/12) — reconcile eval gate ENG-83006 (recall ≥0.90 / FP ≤0.05) vs spike ENG-82135, **which closed "Done" 7/27 without recording a mask-vs-ignore decision.** Feature is now live on Rainforest → this is a live compliance gap. Resolve before AC is final.
 
-**No-transcript (non-happy) flow.** ⚠️ OPEN — eval (7/22) shows the full 5-section output isn't reliably fillable (28% all-empty); dedicated schema vs confidence-bar/error-state fallback undecided.
+**No-transcript (non-happy) flow.** ✅ RESOLVED (8/6) — **confidence-judge fallback, not a separate schema.** A confidence-scoring judge (threshold ~0.85) suppresses low-quality prep/recap output and falls back to a defined error state. Add AC: judge confidence drives show-vs-fallback; no silent degradation. *(Follows the 7/22 eval: 28% of real meetings had all 3 insight sections empty.)*
 
 ---
 
@@ -66,16 +66,20 @@ Format: paste each block into the Jira description editor (markdown paste render
 Append / update:
 - **Ownership:** inbound webhook gateway is owned by the **India/AI team** (not Integrations, 7/8); built as a **shared platform component** (spike ENG-82678 → Done); **JB (App Platform) + JZ (AI/Data Platform) mandatory PR reviewers + InfoSec sign-off before merge.**
 - **Zoom auth:** admin-level **org OAuth, one-time per org — no per-user Zoom redirect** (6/16).
+- **Calendar prerequisite (8/6):** **Zoom connect is disabled until a Google/Outlook calendar is linked.** Open Q18 (Anuj): are transcripts associated to 1:1s via the calendar service only? If yes, connecting Zoom without a calendar must prompt calendar connect (gates ENG-82994 AC17).
 - **Ingestion ownership:** transcript ingestion/preprocessing + speaker resolution owned by **MeetingsPod** (6/10); speaker-ID accuracy target **90–95%** on email + employee-ID match.
-- **Timeline:** replace "Summer GA" with canonical dates (§0.4).
+- **Timeline:** replace "Summer GA" with canonical dates (§0.4 — still unlocked; feature deployed to Rainforest ~8/3–8/5).
+- **⚠️ Release risk:** the Zoom-integration / transcript webhook PR is **unmerged and "not approvable"** — needs rework + a confirmed owner; blocks end-to-end RF testing.
 
 ---
 
 ## EPIC — ENG-82991  (edit description)
 
-- **Meeting state model:** ⚠️ OPEN — reconcile with spike ENG-82992 ("no stored state field, no hardcoded 24h timer, hang generation off the rollover cron"). Remove the formal state-machine + 24h-timer mandate pending §0.2.
-- **Item-level notes phase:** ⚠️ align to §0.3 (parent lists as P2).
+- **Meeting state model:** ✅ RESOLVED (8/6) — **rollover-cron, no formal state machine.** Pipeline triggers on a rollover cron **2–5 min after a new meeting instance is created**; **one active upcoming meeting at a time** — prep suggestions surface only for the immediate next instance, and only after the preceding meeting completes (7/28). Remove the state-machine + 24h-timer mandate. Harshini adds a "pending meeting / insights available after the meeting" state tag.
+- **Item-level notes phase:** ✅ confirmed **P2** (deferred) — no promotion in-window.
 - **Surface schemas (locked 6/25):** 5 meeting-state tags (one shown at a time); recap = Summary / Blockers (≤3) / What-Happened / Follow-ups (≤5), duration-scaled; prep = ARC Synthesis + Attention Flags + Goal Signals; **"AI Suggested" header removed.**
+- **AI admin setting (locked 8/4):** a **single** setting, accordion UI, header **"1:1s: AI based Insights"**, sysadmin flag `meetings_insights` (org-setting flag `ENG-85171_meetings_ai_insights_orgsetting`, ENG-85171). Gates **AI inference only** (prep/recap/recs/close); **transcript tab, Zoom connect, calendar side panel always visible.** **"1:1 AI Meeting Summary" (legacy) and "AI-based Insights" are mutually exclusive.** *(AI completions descoped from ENG-82397 8/7 → needs a new ticket.)*
+- **Dismissed recommendations** re-surface up to **3×**, then suppressed (8/6).
 - **Transcript validation (add AC below).**
 
 ---
