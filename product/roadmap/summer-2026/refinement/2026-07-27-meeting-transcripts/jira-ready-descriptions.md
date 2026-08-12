@@ -46,7 +46,7 @@ Format: paste each block into the Jira description editor (markdown paste render
 - Generation logic: upcoming meeting → **Prep + Recap + Recs**; past meeting with a new transcript → **Recap only** (refresh Prep/Recs if feasible) (7/1).
 - Refresh semantics: **Recap = persona-agnostic** (refreshes for all at once); **Prep + Recs = persona-specific** (refresh only requesting user) (7/2).
 
-**Inference.** Direct LM inference endpoint (LM Proxy can't do structured/function calling via LangChain); **Gemma 4** (deploy tracked — see new ticket ~ENG-85201 "Deploy Gemma 4 to Prod"); 64K context. *(Removes prior "Option B vs C — TBD in spike.")*
+**Inference.** Direct LM inference endpoint (LM Proxy can't do structured/function calling via LangChain); **Gemma 4** (deploy tracked in **ENG-85195** "Deploy Gemma 4 to Prod", Draft); 64K context. *(Removes prior "Option B vs C — TBD in spike.")*
 
 **Reconciliation.** Routine task within extraction — **not a standalone capability/step** (7/7).
 
@@ -78,7 +78,7 @@ Append / update:
 - **Meeting state model:** ✅ RESOLVED (8/6) — **rollover-cron, no formal state machine.** Pipeline triggers on a rollover cron **2–5 min after a new meeting instance is created**; **one active upcoming meeting at a time** — prep suggestions surface only for the immediate next instance, and only after the preceding meeting completes (7/28). Remove the state-machine + 24h-timer mandate. Harshini adds a "pending meeting / insights available after the meeting" state tag.
 - **Item-level notes phase:** ✅ confirmed **P2** (deferred) — no promotion in-window.
 - **Surface schemas (locked 6/25):** 5 meeting-state tags (one shown at a time); recap = Summary / Blockers (≤3) / What-Happened / Follow-ups (≤5), duration-scaled; prep = ARC Synthesis + Attention Flags + Goal Signals; **"AI Suggested" header removed.**
-- **AI admin setting (locked 8/4):** a **single** setting, accordion UI, header **"1:1s: AI based Insights"**, sysadmin flag `meetings_insights` (org-setting flag `ENG-85171_meetings_ai_insights_orgsetting`, ENG-85171). Gates **AI inference only** (prep/recap/recs/close); **transcript tab, Zoom connect, calendar side panel always visible.** **"1:1 AI Meeting Summary" (legacy) and "AI-based Insights" are mutually exclusive.** *(AI completions descoped from ENG-82397 8/7 → needs a new ticket.)*
+- **AI admin setting (locked 8/4):** a **single** setting, accordion UI, header **"1:1s: AI based Insights"**, sysadmin flag `meetings_insights` (org-setting flag `ENG-85171_meetings_ai_insights_orgsetting`, ENG-85171). Gates **AI inference only** (prep/recap/recs/close); **transcript tab, Zoom connect, calendar side panel always visible.** **"1:1 AI Meeting Summary" (legacy) and "AI-based Insights" are mutually exclusive.** *(AI completions descoped from ENG-82397 8/7 → now tracked in ENG-86085 "AI Completions for Covered Items and Suggested Actions", In Progress.)*
 - **Dismissed recommendations** re-surface up to **3×**, then suppressed (8/6).
 - **Transcript validation (add AC below).**
 

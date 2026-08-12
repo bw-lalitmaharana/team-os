@@ -14,7 +14,7 @@ Updates the 2026-07-27 package with decisions since. **Nothing written to Jira/A
 | 0.5 | **Non-happy (no-transcript) path** | OPEN (separate schema vs fallback) | ✅ **RESOLVED = confidence-judge fallback** (not a separate schema). A confidence-scoring judge (**threshold ~0.85**) suppresses low-quality prep/recap output and falls back to a defined state (8/6 walkthrough). Follows Hemant's 7/22 eval (28% of real meetings had all 3 insight sections empty). |
 | 0.3 | **Coaching cards / item-notes phase** | OPEN (P1 vs P2) | ✅ **Settled as P2.** `status.md` still lists coaching cards under "Deferred to Phase 2"; no in-window entry promotes them. Downgrade from "blocking decision" to "confirmed P2." |
 | 0.1 | **PII handling** | OPEN (ignore vs mask) | 🔴 **STILL OPEN — and now higher-risk.** The conflicting spike **ENG-82135 closed "Done" (7/27) without recording a mask-vs-ignore decision.** Eval-gate reconciliation (recall ≥0.90 / FP ≤0.05 in ENG-83006) is unaddressed. Feature is now **live on Rainforest** → this is a compliance gap, not a paper one. **Still needs a call.** |
-| 0.4 | **Canonical release dates** | OPEN (3 conflicting sets) | 🟠 **STILL UNRECONCILED, but de-facto moving.** Feature **deployed to Rainforest ~Aug 3–5** (matches the ~Aug 7–10 RF target); flag on for the whole RF env (8/5, dev-stage/mock data). **No locked Champagne/prod date.** Ship gated by **Nellie on NYU/Devon blessing**, held to Fri/Mon (8/6). `status.md` still shows stale pre-prod Aug 15 / release Aug 29. **fixVersions still appear unset.** First external demo: **Fri Aug 8** (Nataliya). |
+| 0.4 | **Canonical release dates** | OPEN (3 conflicting sets) | 🟠 **STILL UNRECONCILED, but converging.** Most concrete signal: the live PRFAQ (4247257097, updated 8/11) now states **Code-Ready Aug 26 2026** — aligns with Tanveer's Aug 26 prod. Feature **deployed to Rainforest ~Aug 3–5** (matches the ~Aug 7–10 RF target); flag on for the whole RF env (8/5, dev-stage/mock data). Ship gated by **Nellie on NYU/Devon blessing** (8/6). `status.md` still shows stale pre-prod Aug 15 / release Aug 29. **fixVersions verified still empty across the whole tree (8/12).** First external demo: Aug 8 (Nataliya). |
 
 **Net:** 2 of 5 resolved (state model, non-happy path), 1 settled (coaching = P2). **2 still open — PII and canonical dates — and both are now the critical path.** PII is a live compliance risk; dates block fixVersion + external commitments.
 
@@ -52,16 +52,44 @@ Updates the 2026-07-27 package with decisions since. **Nothing written to Jira/A
 |---|---|---|
 | **ENG-82135** AI Recommendation Architecture (spike) | → **Done** (but PII decision not recorded — see 0.1) | 7/27 |
 | **ENG-85171** Admin Setting for New Meetings AI Insights | → **Code Review**; org-setting flag set | 8/7 |
-| **ENG-82397** AI suggestions & completions – UI | **AI completions descoped → needs a NEW ticket** | 8/7 |
+| **ENG-82397** AI suggestions & completions – UI | broadened to unified suggestions+completions; **AI completions split into new story ENG-86085** (In Progress); now Ready For QA | 8/7–8/10 |
 | **ENG-82390** Meeting Recap Generation | → **Ready for Development**; Hemant co-assignee w/ Sagar | 8/11 |
 | **ENG-84147** Infra: Refresh · **ENG-84148** API contract & I/O | → **In Progress** | 8/7 |
 | **ENG-83005** Prep · **ENG-83004** Goal Signal · +84147/84148 | **Sagar Bhat reassigned self, replacing Hemant** on core pipeline subtasks | 8/7 |
 | **ENG-82994** Connect Zoom UX | consent-flow commit **merged 8/3 (broke E2E)**; PR to be **split** | 8/3–8/7 |
-| New: **ENG-85201 / 85194 / 85195** (incl. "Deploy Gemma 4 to Prod"), **ENG-85196**, **ENG-85446** (NYU AI Meeting Summary timing out — QA-verified fix, release-ready) | created | 7/27–8/6 |
+| New build items: **ENG-85195** "Deploy Gemma 4 to Prod" (Draft), **ENG-86085** AI Completions (In Progress), **ENG-85841** Zoom Transcript Ingestion, **ENG-85691** Trigger AI Processing–Upload, **ENG-85716/85719** transcript formatting/HTML→text; new **ENG-85201** epic "Meeting Summary in Conversations" (+ ENG-85194); **ENG-85446** NYU timeout fix (Done) | created | 7/27–8/11 |
 
-Structural items from the 7/27 package that appear **still NOT done** (confirm on reconnect): ENG-79199 **rename** (still stale ~55d+), **fixVersions** (still unset), spike closures for **ENG-82987 / ENG-82992**, and the parent↔child-epic hierarchy link.
+Structural items from the 7/27 package **still NOT done** (verified live 8/12): ENG-79199 **rename** (title unchanged, epic body untouched since 6/10), **fixVersions** (empty on all 29 tree issues + parent), and the parent↔child-epic hierarchy link. Spike closures **PARTIAL**: ENG-82135 Done, ENG-82992 Done, ENG-82999 Done — **only ENG-82987 (Zoom Marketplace/API feasibility) is still In Progress** (unchanged since 6/23, 0 comments).
 
 ---
+
+## 3b. Live Jira/Confluence verification (8/12) — did the 7/27 proposals land?
+
+Atlassian reconnected; verified directly. **Of the eleven 7/27 proposed changes, only the spike closures partially landed. Everything else is still not done.**
+
+| 7/27 proposed change | Live status (8/12) |
+|---|---|
+| Rename ENG-79199 (drop "Pipeline") | ❌ NOT DONE — title unchanged; epic body untouched since 6/10 |
+| Set fixVersions across tree | ❌ NOT DONE — empty on all 29 changed issues + parent + every fetched key |
+| Close/verify the 3 spikes | ◐ PARTIAL — ENG-82135 ✅, ENG-82992 ✅, ENG-82999 ✅; **ENG-82987 still In Progress** |
+| Resolve PII conflict | ❌ NOT DONE — ENG-82393 still Ready-for-Refinement, unassigned, 0 comments since 6/22, still mandates full masking + legal sign-off; ENG-82135 (Done) body still says "ignore PII." Contradiction intact. |
+| Reconcile meeting-state model | ❌ NOT DONE in Jira — decision is rollover-cron, but **ENG-82991 epic body still says "formal state machine, cron-driven close"**; only post-7/27 note on ENG-82992 is Anuj "It's a spike" (7/28) |
+| New story: consent architecture | ❌ No new build story (only Xray test cases ENG-86018→86041); build sits on pre-existing **ENG-82994** (In QA) |
+| New story: no-transcript/confidence-judge | ❌ NONE created (decision made, not ticketed) |
+| New story: per-instance sensitive flag | ❌ NONE |
+| New story: AI-rec acknowledgment | ❌ No dedicated story (ENG-86085 adjacent) |
+| New story: InfoSec gate | ❌ NONE |
+| Update the 4 Confluence PRDs | ❌ All 4 untouched since June (see below) |
+
+**Landed anyway (not on the 7/27 list):** single AI admin setting **ENG-85171** (In QA), Gemma-4 deploy **ENG-85195** (Draft), AI-completions split **ENG-86085** (In Progress). The tree has moved hard into **QA** — ENG-83000/83001/82994/85171 In QA; 82996/82997/82397/84414/83003 Ready-for-QA.
+
+**Confluence — the living doc has MOVED off the 4 PRDs:**
+- The 4 canonical PRDs (4280614960 / 4281139203 / 4282515524 / 4282744869) are **all frozen since June** — none edited since 7/27.
+- The **live doc is PRFAQ `4247257097`** ("Zoom & Teams Transcripts Feature Documentation"), rewritten **2026-08-11 by Nataliya Kolb**: dual-path (Zoom API + manual), **Code-Ready target Aug 26 2026**, and it now carries the consent content (User Permission/Consent/Per-Meeting Exclusion + GDPR erasure cascade). New eng page **`4350935050` "AI Meeting Transcript: DB Schema"** (Sagar, ~8/11).
+- **Nellie's requested enablement/personalization doc → still NOT FOUND.** **InfoSec consent doc → still NOT FOUND** (PRDs list Security/Legal review as "[TBD]").
+- **Implication for the package:** the `confluence-redlines.md` / `confluence-ready-blocks.html` targeting the 4 PRDs are still valid, but the team's actual surface is now the **PRFAQ 4247257097** — redline that too, and note its **Aug 26 code-ready** as the most concrete date signal (aligns with Tanveer's Aug 26 prod).
+
+**Data-quality flags to raise:** ENG-84026 and ENG-85446 are marked **Done** but their latest comments (Satish Tripathi, 8/6) note unresolved follow-ups; **ENG-85171** has an 8/11 QA "needs attention" (PrepCard error-state may fire even with the org flag disabled).
 
 ## 4. New risks / gates (post-7/27)
 

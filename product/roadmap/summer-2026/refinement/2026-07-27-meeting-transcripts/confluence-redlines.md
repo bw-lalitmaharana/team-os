@@ -7,10 +7,13 @@
 
 ---
 
+> **🔄 8/12 update:** Verified live — the 4 PRDs below are **all still frozen since June**. Meanwhile the team's **living doc is now PRFAQ `4247257097`** ("Zoom & Teams Transcripts Feature Documentation," rewritten by Nataliya 8/11: dual-path, **Code-Ready Aug 26**, consent + GDPR-erasure content), and a new eng page **`4350935050` "AI Meeting Transcript: DB Schema"** (Sagar). Redline the **PRFAQ first** — it's what stakeholders read. Nellie's enablement doc and the InfoSec consent doc still don't exist.
+
 ## PAGE PRIORITY ORDER
 
 | Order | Page | pageId | Why first |
 |---|---|---|---|
+| 🔴 P0 | **PRFAQ (live doc)** | 4247257097 | **Now the surface stakeholders read** — reconcile it to the 8/12 decisions; it already has Aug-26 code-ready + consent |
 | 🔴 P0 | Connect Layer | 4282515524 | Owns consent/OAuth — the biggest July change; also unblocks the InfoSec doc |
 | 🔴 P0 | Zoom Connector | 4282744869 | Worst offender — overdue open decisions, storage still "persist vs discard" |
 | 🟠 P1 | Meetings AI Surfaces | 4281139203 | Persona/refresh model, finalized schemas, header removal |

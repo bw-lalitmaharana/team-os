@@ -1,6 +1,7 @@
 # Meeting-Transcripts (ENG-79199) — Refinement Package, 2026-07-27
 
-> **🔄 Reconciled 2026-08-12 — read `RECONCILE-2026-08-12.md` first.** Since 7/27: meeting-state model (→ rollover-cron) and non-happy path (→ confidence judge) **resolved**; PII and canonical dates **still open** (now critical path); single AI admin setting + calendar-prerequisite added; feature now live on Rainforest; InfoSec doc ~34 days overdue. The `jira-ready-descriptions.md` and `confluence-ready-blocks.html` blocks below have been updated in place for the resolved items.
+> **🔄 Reconciled 2026-08-12 — read `RECONCILE-2026-08-12.md` first.** Since 7/27: meeting-state model (→ rollover-cron) and non-happy path (→ confidence judge) **resolved**; PII and canonical dates **still open** (now critical path); single AI admin setting + calendar-prerequisite added; feature now live on Rainforest; InfoSec doc ~34 days overdue.
+> **Verified live against Jira/Confluence (8/12):** of the eleven 7/27 proposals, **only the spike closures partially landed** (ENG-82135/82992/82999 Done; ENG-82987 still open). Rename, fixVersions, PII resolution, state-model reconciliation, the 5 new stories, and the 4 PRD updates are **all still not done** — but the tree has moved hard into QA, and the **living doc is now PRFAQ 4247257097** (Code-Ready Aug 26), not the 4 PRDs. Full landed-vs-not table in `RECONCILE-2026-08-12.md` §3b.
 
 Gap analysis + proposed updates to bring **Jira, Confluence, and the repo PRDs** in line with decisions since the 2026-06-07 build-out. **Nothing here has been written to Jira/Aha/Confluence** — per process rules, system-of-record writes happen in a refinement call.
 
