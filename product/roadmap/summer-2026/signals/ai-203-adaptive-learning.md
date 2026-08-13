@@ -462,3 +462,12 @@ Nitish's vector-embedding text-recommendation work has Sagar's architecture appr
 - **Who:** Nataliia Savenko (Jira mention via jira@betterworks.atlassian.net)
 - **Where:** Email thread 19fdbca36f0d8a5c — [ENG-84203 New default for skills generation](https://betterworks.atlassian.net/browse/ENG-84203)
 - **Summary:** Nataliia Savenko @-mentioned Lalit and Viktoriia Bondareva on ENG-84203 ("New default for skills generation"), asking Lalit to review Viktoriia's question — indicates an active open question on the skills-generation default behavior that needs Lalit's PM input.
+
+### 2026-08-13 — PDP goal fields default to null pending edit flow; privacy config and feature-toggle both blocked on outside confirmation (zoom)
+**Source:** Zoom — "PDP Stand Up" 2026-08-13 (UUID 8F7C50BC-1027-4BAC-BA71-E51CB7EE97A3)
+**Type:** scope-decision + open-question
+**Owner-impact:** Saurabh Pandey, Nataliia Savenko, Pankaj Lohmor, Harikrishnan S
+
+Team aligned on keeping PDP goals editable with changeable ownership, and decided categories/types fields should default to null at creation and be populated later during the edit flow, rather than being required up front. Two items are blocked on confirmation from outside the standup: privacy-configuration requirements await final sign-off from Varnika and Nataliia before implementation proceeds, and the proposed feature-toggle/flag approach in the Talent API is blocked on Jason's reservations — Pankaj is setting up a separate call to resolve it. Saurabh separately owes Himanshu (Talent team) confirmation on how impersonation mode should behave for PDP goals. Team also agreed to add hyperlinks in both the goals UI and completion-notification emails directing users to update skill levels once a goal completes.
+
+**Implication for ranking:** Two open blockers (privacy config, feature-toggle) sit ahead of implementation on this track — worth checking status alongside the existing AI-203 opens (skill-graph vs. Talent API dependency) before the next PDP scoping decision.

@@ -1065,3 +1065,12 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Satish Tripathi
 - **Where:** [#claude-qa-execution](https://betterworks.slack.com/archives/C0AQJ6KQRK2/p1786622559475659)
 - **Summary:** QA Execution Complete for ENG-85691 (Meetings - Trigger AI Processing - Upload): CONDITIONAL PASS. Core upload + AI Recap pipeline works. Critical findings: (F2) file size enforcement ~1 MB vs. spec 20 MB / UI label 5 MB; (F5) AI suggested action items not rendering (blocks TC-008); Yellow findings: (F1) accepted formats mismatch (VTT/TXT only vs. spec VTT/SRT/DOCX/TXT); (F3) silent rejection of invalid types; (F4) paste field requires VTT only; (F6) no speaker mapping UI when speakers don't match participants.
+
+### 2026-08-12 — Meeting Intelligence internal demo; enablement-doc + refresh-button-placement commitments (zoom)
+**Source:** Zoom — "Meetings transcripts Demo" 2026-08-12 (UUID A4513217-6541-49B0-B050-E0641F4738FD)
+**Type:** commitment
+**Owner-impact:** Lalit, Nellie, Mary Makris, Hiten Khuman, Harshini Vijay, Tejas S
+
+Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI meeting-intelligence feature end to end — admin/Zoom-integration setup, transcript upload (manual or automatic), and the recap/prep/goal-recommendation surfaces, including empty-state handling when a meeting has insufficient data. Mary confirmed AI prep draws on the last four calls. Lalit committed to updating the Confluence enablement doc with Phase-1 detail and notifying Mary once done, sharing the demo recording, and sharing the Sigma prototype link with attendees. Tejas raised whether the insights-refresh button (currently only at meeting level) should also appear at the prep level — open item, not yet decided.
+
+**Implication for ranking:** No scope change; enablement-doc catch-up is a near-term dependency for GA readiness, and the refresh-button-placement question should be resolved before the UI work it touches (ENG-82996 AI Meeting Prep Card UI) is called done.

@@ -66,3 +66,12 @@ Paul Agustin demoed BetterBrain, a Codex-scheduled pipeline that scrapes Aha, Co
 Nellie and Lalit identified email/notification batching as an at-risk item that needs addressing before end of July / code-complete in August. Nellie assigned Lalit to meet with Veronica to understand how Legacy batch notifications work (for parity) and document the requirements in a Confluence enablement draft to track progress. This reaffirms the 2026-07-08 entry above (notifications/batching deferred to August) — the Veronica walkthrough is the concrete next step toward that deferred scoping.
 
 **Implication for ranking:** Still no Aha/Jira item tracks this. Once the Veronica walkthrough lands, flag to Nellie whether it needs a formal backlog entry.
+
+### 2026-08-12 — Custom-roles PR out for review; timezone/manager-sync scoping decisions; SAML moving to live customer call (zoom)
+**Source:** Zoom — "OKR Team - Daily Standup" 2026-08-12 (UUID 45912EB3-A271-411B-9C34-83AA66C130BE)
+**Type:** scope-decision + risk
+**Owner-impact:** Victor Chen, Hung Truong, Abhishek Punj, Aleksandr Riazanov, Nellie, Jason Bilyeu
+
+Victor's cross-repo PR adding custom-roles support to authorization + Haven admin UI (PR40 air business areas) is out for review. Team locked three scoping decisions: fix the long-standing timezone-update bug only for the impersonation scenario, leaving regular self-login behavior untouched (85092); treat manager fields as read-only during user sync, so manager-record changes must come through the manager's own update, not as a side effect of another user's; and any contract change to the `call` repo now requires a cache-version bump so the authorization service picks up the right version. SAML troubleshooting for the Spartanburg customer is moving from async to a live conference call, using a SAML Chrome extension to collect XML/JSON for diagnosis. Risk flagged: integration-test CI loads policies from `main` instead of the current branch (fix in progress, Aleksandr).
+
+**Implication for ranking:** No Aha/Jira item tracks the custom-roles PR itself here — cross-reference against `product/custom-roles/` (APP-369/APP-370) once that area's directory/CLAUDE.md exists, since PRD authorship there is verbal-only per top-level CLAUDE.md.
