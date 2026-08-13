@@ -1030,3 +1030,38 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 - **Who:** Hemant Kumar (via Jira, jira@betterworks.atlassian.net)
 - **Where:** Email thread 19fa4450180f5207 — "[JIRA] (ENG-82390) Meeting Recap Generation"
 - **Summary:** Hemant Kumar moved ENG-82390 (Meeting Recap Generation) from "Ready for Refinement" → "Ready for Development" and added himself as co-assignee alongside Sagar Bhat — signals recap generation subtask has entered active development.
+
+### 2026-08-12 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ff646824d49f32 — "Hiten Khuman has joined your meeting - Meetings transcripts Demo"
+- **Summary:** Hiten Khuman joined a live "Meetings transcripts Demo" session with Lalit on Aug 12 at 7:30 PM IST — active end-to-end demo of the feature ahead of QA and IPP.
+
+### 2026-08-12 — gmail
+- **Who:** Zoom (no-reply@zoom.us → lalit.maharana@betterworks.com)
+- **Where:** Email thread 19ff65d4c1e0ecff — "Meeting assets for Meetings transcripts Demo are ready!"
+- **Summary:** Zoom delivered meeting assets from the Aug 12 Meetings transcripts Demo session with Hiten Khuman (16m 27s); recording and action items available — likely the IPP walkthrough prep or internal sign-off demo.
+
+### 2026-08-13 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B1DFSV5SR/p1786590627844559)
+- **Summary:** Nellie requested copy update in the AI insights admin settings: title → "1:1 Meetings: AI Insights"; subtext → "Generates meeting preparation, recommendations, and recaps based on meeting data and transcripts from the past 4 meetings." Also questioned whether to mention that it replaces the legacy AI Summary module, leaning toward silent deprecation over time.
+
+### 2026-08-13 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [DM — Lalit Maharana](https://betterworks.slack.com/archives/D0B1DFSV5SR/p1786591603584119)
+- **Summary:** Nellie asked Lalit to send IPP discussion questions for meeting transcripts by early next week so they can be distributed to participants ahead of the session — IPP prep timeline is now active.
+
+### 2026-08-13 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM — Harshini Vijay, Lalit Maharana, Hiten Khuman](https://betterworks.slack.com/archives/C0BM2R0SM2B/p1786603140290949)
+- **Summary:** Lalit relayed Nellie's settings copy feedback to the UI team: title "1:1 Meetings: AI Insights" and updated subtext mentioning transcripts from past 4 meetings; thread has 2 replies indicating active pickup by Harshini/Hiten.
+
+### 2026-08-13 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1786597238146919)
+- **Summary:** 8 Meetings items stuck today: In Progress — ENG-85841 (Zoom Transcript Ingestion, 1d, Anuj Pancholi), ENG-83977 (Calendar Integration conferencing data, 51d, Anirudh Atole); Ready for QA — ENG-82997 (AI Recap card UI, 12d, Hiten), ENG-82996 (AI Meeting Prep Card UI, 14d, Hiten), ENG-82397 (AI suggestions and completions UI, 9d, Hiten), ENG-84722 (Identity Autocomplete API, 19d, Ryan Mulready), ENG-84414 (Meetings Transcripts OAuth data persist, 41d, Hiten), ENG-84724 (Autocomplete Component, 19d, Ryan Mulready).
+
+### 2026-08-13 — slack
+- **Who:** Satish Tripathi
+- **Where:** [#claude-qa-execution](https://betterworks.slack.com/archives/C0AQJ6KQRK2/p1786622559475659)
+- **Summary:** QA Execution Complete for ENG-85691 (Meetings - Trigger AI Processing - Upload): CONDITIONAL PASS. Core upload + AI Recap pipeline works. Critical findings: (F2) file size enforcement ~1 MB vs. spec 20 MB / UI label 5 MB; (F5) AI suggested action items not rendering (blocks TC-008); Yellow findings: (F1) accepted formats mismatch (VTT/TXT only vs. spec VTT/SRT/DOCX/TXT); (F3) silent rejection of invalid types; (F4) paste field requires VTT only; (F6) no speaker mapping UI when speakers don't match participants.

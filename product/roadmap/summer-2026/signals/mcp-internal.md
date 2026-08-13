@@ -341,3 +341,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Bilyeu
 - **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1786503011484569)
 - **Summary:** ENG-84586 "Core MCP Tool | List Team Members" shipped to production in Betterworks v1.290.1 (App Platform pod).
+
+### 2026-08-13 — slack
+- **Who:** Victor Chen
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1786571403475239)
+- **Summary:** Victor Chen updated the AC for goals-api-mcp and submitted a fix for ENG-84578: goals-api PR#930 and public-api-mcp PR#114 — active delivery on MCP V2 goals contract; Nellie LeMonier cc'd.
