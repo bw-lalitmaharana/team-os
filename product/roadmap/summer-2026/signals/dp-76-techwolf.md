@@ -72,3 +72,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** BetterBrain (bot)
 - **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1785378872885659)
 - **Summary:** Third consecutive daily BetterBrain doc-triage alert for DP-76 (AI Skills | TechWolf Integration) — best article match still 0.42 on generic integration articles; bot awaiting `generate draft`, `update existing`, or `skip` reply to close triage. Pattern indicates the triage has not been actioned for 3+ days.
+
+### 2026-08-13 — gmail
+- **Who:** Nellie LeMonier (via Confluence digest)
+- **Where:** Email thread 19ffb79318b98396 — "Daily digest: updates from Nellie LeMonier"
+- **Summary:** Nellie updated the Confluence page "Phase 2: Techwolf-Betterworks Sync" — activity in the daily digest signals active scope or planning work on Phase 2 of the TechWolf integration ahead of the Summer 2026 cutoff.

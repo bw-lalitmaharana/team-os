@@ -346,3 +346,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Victor Chen
 - **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1786571403475239)
 - **Summary:** Victor Chen updated the AC for goals-api-mcp and submitted a fix for ENG-84578: goals-api PR#930 and public-api-mcp PR#114 — active delivery on MCP V2 goals contract; Nellie LeMonier cc'd.
+
+### 2026-08-14 — slack
+- **Who:** Paul Agustin
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1786655573207919?thread_ts=1786655360.653929&cid=C033TEH2T)
+- **Summary:** Suggested PowerBI + Copilot as a potential Betterworks MCP use case — if PowerBI has an MCP connector through Copilot Studio, it could be tested to verify BW MCP accessibility via Microsoft Copilot, extending the reach of the MCP surface.

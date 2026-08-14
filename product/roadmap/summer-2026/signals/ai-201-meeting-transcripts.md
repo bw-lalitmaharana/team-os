@@ -1074,3 +1074,8 @@ Hiten and Lalit worked through last-mile UI/architecture decisions for the AI Pr
 Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI meeting-intelligence feature end to end — admin/Zoom-integration setup, transcript upload (manual or automatic), and the recap/prep/goal-recommendation surfaces, including empty-state handling when a meeting has insufficient data. Mary confirmed AI prep draws on the last four calls. Lalit committed to updating the Confluence enablement doc with Phase-1 detail and notifying Mary once done, sharing the demo recording, and sharing the Sigma prototype link with attendees. Tejas raised whether the insights-refresh button (currently only at meeting level) should also appear at the prep level — open item, not yet decided.
 
 **Implication for ranking:** No scope change; enablement-doc catch-up is a near-term dependency for GA readiness, and the refresh-button-placement question should be resolved before the UI work it touches (ENG-82996 AI Meeting Prep Card UI) is called done.
+
+### 2026-08-14 — slack
+- **Who:** JIRA Nudge Bot (automated sprint report)
+- **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1786683640551469)
+- **Summary:** Sprint stuck-items report: 12 Meetings items flagged — ENG-86043 (transcript content copy bug, PR open) and ENG-86085 (AI Completions for Covered Items, PR merged) in Code Review; 7 Ready for QA including AI Recap card UI (ENG-82997), Meeting Prep Card UI (ENG-82996), AI suggestions UI (ENG-82397), and Zoom OAuth persist (ENG-84414); ENG-83001 (copy/paste transcript) and ENG-83000 (manual transcript upload) In QA.
