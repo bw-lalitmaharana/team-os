@@ -471,3 +471,13 @@ Nitish's vector-embedding text-recommendation work has Sagar's architecture appr
 Team aligned on keeping PDP goals editable with changeable ownership, and decided categories/types fields should default to null at creation and be populated later during the edit flow, rather than being required up front. Two items are blocked on confirmation from outside the standup: privacy-configuration requirements await final sign-off from Varnika and Nataliia before implementation proceeds, and the proposed feature-toggle/flag approach in the Talent API is blocked on Jason's reservations — Pankaj is setting up a separate call to resolve it. Saurabh separately owes Himanshu (Talent team) confirmation on how impersonation mode should behave for PDP goals. Team also agreed to add hyperlinks in both the goals UI and completion-notification emails directing users to update skill levels once a goal completes.
 
 **Implication for ranking:** Two open blockers (privacy config, feature-toggle) sit ahead of implementation on this track — worth checking status alongside the existing AI-203 opens (skill-graph vs. Talent API dependency) before the next PDP scoping decision.
+
+### 2026-08-17 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#personalised-learning-development-feature](https://betterworks.slack.com/archives/C0B54QF5GR2)
+- **Summary:** Nellie asked Lalit and Rinku to confirm AI-203 is deferred to winter and to update Aha; Jira epic identified as ENG-78495 "Talent Profile | PDP | AI-Powered Adaptive Learning" — most items still in draft except the spike.
+
+### 2026-08-17 — gmail
+- **Who:** Zoom AI summary (Nataliia Savenko, Pankaj, Nitish, Saurabh, Rinku Ravi)
+- **Where:** PDP Stand Up — Zoom meeting rMlKalYmSwKKHqCRtmYSug (Email thread 1a00f8eb540a0c22)
+- **Summary:** PDP Stand Up: course recommendations moving to QA; AI text recs for goal creation not yet wired (Nitish/Pankaj gap); feature-flag approach (Talent API vs core) pending JB call; Nataliia flagged overlapping Aha tickets and offered to clarify winter vs future scope — scope-risk signal for AI-203.
