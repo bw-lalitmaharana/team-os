@@ -1079,3 +1079,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** JIRA Nudge Bot (automated sprint report)
 - **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1786683640551469)
 - **Summary:** Sprint stuck-items report: 12 Meetings items flagged — ENG-86043 (transcript content copy bug, PR open) and ENG-86085 (AI Completions for Covered Items, PR merged) in Code Review; 7 Ready for QA including AI Recap card UI (ENG-82997), Meeting Prep Card UI (ENG-82996), AI suggestions UI (ENG-82397), and Zoom OAuth persist (ENG-84414); ENG-83001 (copy/paste transcript) and ENG-83000 (manual transcript upload) In QA.
+
+### 2026-08-18 — slack
+- **Who:** Riya Malik
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1787055323331209)
+- **Summary:** QA filed 3 new bugs against meeting transcript: ENG-86467 (AI Recap still shown after transcript deleted), ENG-86474 (AI Prep & Recommendations persist after all transcripts deleted), ENG-86512 (AI Prep & Recommendations not generated from last 4 meeting instances); tagged Lalit and Tejas.
+
+### 2026-08-18 — slack
+- **Who:** Nataliya Kolb, Nellie LeMonier, Hemant Kumar
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786993641990539)
+- **Summary:** Adoption-friction thread: Nataliya and Nellie aligned on removing user-level Zoom consent for initial rollout (re-introduce only on client request); Nellie also flagged VTT-only manual upload as a usability blocker and asked engineering to expand to SRT, DOCX, TXT and copy-paste (20 MB limit per original Confluence spec); Hemant cautioned that summary-only input is lossy vs raw transcript and recommended a feasibility study before broadening input types; Nellie scoped AI guardrails / transcript-redaction to winter release — immediate priority is hardening current feature before Aug 29 ship.
+
+### 2026-08-18 — slack
+- **Who:** Lalit Maharana, Hiten Khuman
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787039722420379)
+- **Summary:** Consent-simplification design discussion: Lalit proposed mapping Zoom consent to org-level integration enablement (remove per-user Connect/Disconnect UI; always pass consent=true from backend) to reduce adoption friction; Hiten confirmed this is the lowest-effort path and noted the existing user-level consent tables become dead code — recommended removing them cleanly if user-level consent is not expected to return; Anuj and Tanveer cc'd.
