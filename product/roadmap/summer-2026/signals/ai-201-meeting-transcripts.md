@@ -1094,3 +1094,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Lalit Maharana, Hiten Khuman
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787039722420379)
 - **Summary:** Consent-simplification design discussion: Lalit proposed mapping Zoom consent to org-level integration enablement (remove per-user Connect/Disconnect UI; always pass consent=true from backend) to reduce adoption friction; Hiten confirmed this is the lowest-effort path and noted the existing user-level consent tables become dead code — recommended removing them cleanly if user-level consent is not expected to return; Anuj and Tanveer cc'd.
+
+### 2026-08-19 — slack
+- **Who:** Sriram CS / Tanveer Farooq
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787134927452199)
+- **Summary:** SCOPE RISK — Sriram flagged that Nellie and Anuj want user-level Zoom auth removed for the summer release; Tanveer responded that this is a full rework of already-implemented functionality, puts summer release at risk, and must not start until Lalit defines the approach to avoid rework; Lalit tagged to decide.
+
+### 2026-08-19 — slack
+- **Who:** Tanveer Farooq / Anuj Pancholi / Danish Sharma
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787139894471079)
+- **Summary:** Infosec security review (Brian Jacobs) booked for Friday; team shared zoom transcript ingestion pipeline architecture doc (GitHub) and Integrations Webhook Gateway HLD (Google Docs) to support the review.
+
+### 2026-08-19 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787137437496859)
+- **Summary:** Requested Maher Hanafi approval to add more users to the Zoom Pro dev account — 5 existing licenses are insufficient for team testing; Tanveer and Lalit cc'd.

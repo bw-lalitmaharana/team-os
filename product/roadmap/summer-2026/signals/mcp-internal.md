@@ -351,3 +351,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Paul Agustin
 - **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1786655573207919?thread_ts=1786655360.653929&cid=C033TEH2T)
 - **Summary:** Suggested PowerBI + Copilot as a potential Betterworks MCP use case — if PowerBI has an MCP connector through Copilot Studio, it could be tested to verify BW MCP accessibility via Microsoft Copilot, extending the reach of the MCP surface.
+
+### 2026-08-19 — slack
+- **Who:** Zapier MQL bot
+- **Where:** [#mql-ent-emea-3](https://betterworks.slack.com/archives/C09D015BG58/p1787124679324779)
+- **Summary:** Mirna Victor (Global Talent Manager, Aramex, ICP fit 7) converted to MQL via betterworks.com/magazine/betterworks-mcp-server — external inbound interest from a talent leader driven by the MCP server marketing content.

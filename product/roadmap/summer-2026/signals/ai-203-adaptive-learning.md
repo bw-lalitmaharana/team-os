@@ -481,3 +481,13 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Zoom AI summary (Nataliia Savenko, Pankaj, Nitish, Saurabh, Rinku Ravi)
 - **Where:** PDP Stand Up — Zoom meeting rMlKalYmSwKKHqCRtmYSug (Email thread 1a00f8eb540a0c22)
 - **Summary:** PDP Stand Up: course recommendations moving to QA; AI text recs for goal creation not yet wired (Nitish/Pankaj gap); feature-flag approach (Talent API vs core) pending JB call; Nataliia flagged overlapping Aha tickets and offered to clarify winter vs future scope — scope-risk signal for AI-203.
+
+### 2026-08-19 — slack
+- **Who:** JIRA Nudge Bot (prod deploy — Nitish Devadiga)
+- **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787107522983129)
+- **Summary:** Haven v1.3206.0 → v1.3252.0 deployed to production; includes ENG-84525 (BE: AI Engine | PDP | Text-based AI-Recommendation, phase 4 — feature flag `ENG_78495_ai_powered_adaptive_learning`).
+
+### 2026-08-19 — slack
+- **Who:** JIRA Nudge Bot (new story — Nitish Devadiga)
+- **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787107523010199)
+- **Summary:** New Jira story created: ENG-86344 — FE: Talent Profile | PDP | Dynamic Text to AI Recommendations Skeleton (Nitish Devadiga, feature flag `ENG_78495_ai_powered_adaptive_learning`); dev work continuing despite AI-203 winter deferral signal from 2026-08-17.
