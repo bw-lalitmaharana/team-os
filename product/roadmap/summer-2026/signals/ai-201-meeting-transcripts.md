@@ -1109,3 +1109,23 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Anuj Pancholi
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787137437496859)
 - **Summary:** Requested Maher Hanafi approval to add more users to the Zoom Pro dev account — 5 existing licenses are insufficient for team testing; Tanveer and Lalit cc'd.
+
+### 2026-08-20 — slack
+- **Who:** Lalit Maharana
+- **Where:** [DM → Nellie LeMonier](https://betterworks.slack.com/archives/D0B1DFSV5SR/p1787211817782069)
+- **Summary:** Daily status update to Nellie: spikes underway for VTT format support in manual upload (Meetings + AI), auto-trigger logic (Meetings), and ENG-86526 AI insights trigger logic approach (Meetings + AI); Zoom auth simplification deferred to post-Sept 1 release; customer call next week may shape follow-up patch.
+
+### 2026-08-20 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM → Mary Makris, Mollie Barz](https://betterworks.slack.com/archives/C0BR686MZ9R/p1787209690707589)
+- **Summary:** Detailed admin controls & consent scope review: MVP includes org-level Zoom toggle, manual upload for all users, user OAuth consent flow, participant-consent gate, and org-level revocation; follow-up patch covers user-group/meeting-type config and per-meeting exclusion; GDPR deletion and audit log on-request only (no FE).
+
+### 2026-08-20 — slack
+- **Who:** Harshini Vijay
+- **Where:** [Group DM → Lalit, Hiten](https://betterworks.slack.com/archives/C0BM2R0SM2B/p1787214770478699)
+- **Summary:** UX copy decisions for Transcripts tab empty states: past-meetings empty state ("No transcript available / You can upload or paste one"); Zoom-connected active state vs. no-Zoom state copy variants under discussion with Hiten.
+
+### 2026-08-20 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787205707699269)
+- **Summary:** ENG-86517 confirmed in progress (item #10 on the tracking sheet).

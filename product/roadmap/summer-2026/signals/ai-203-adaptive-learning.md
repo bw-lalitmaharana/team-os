@@ -491,3 +491,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** JIRA Nudge Bot (new story — Nitish Devadiga)
 - **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787107523010199)
 - **Summary:** New Jira story created: ENG-86344 — FE: Talent Profile | PDP | Dynamic Text to AI Recommendations Skeleton (Nitish Devadiga, feature flag `ENG_78495_ai_powered_adaptive_learning`); dev work continuing despite AI-203 winter deferral signal from 2026-08-17.
+
+### 2026-08-20 — slack
+- **Who:** Aha! bot (via Zapier)
+- **Where:** [#aha-updates](https://betterworks.slack.com/archives/C0BKR5AM9R7/p1787224466810819)
+- **Summary:** EMPDVT-126 "Adaptive Learning & Upskilling (AI Recommendations > PDP)" production date slipped from 2026-08-26 → 2026-09-15 in Aha.
