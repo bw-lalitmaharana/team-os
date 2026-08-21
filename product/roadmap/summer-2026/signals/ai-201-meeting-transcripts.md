@@ -1129,3 +1129,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787205707699269)
 - **Summary:** ENG-86517 confirmed in progress (item #10 on the tracking sheet).
+
+### 2026-08-21 — slack
+- **Who:** Jason Zhang, Nellie LeMonier
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1787264951280959?thread_ts=1787235679.134349&cid=C04N1P7N1PT)
+- **Summary:** Gemma 4 locale coverage confirmed for shared inference substrate: 31 of 33 locales covered OOTB (Malay and Khmer fall under 140+ pre-training scope and may need prompt tweaks); full locale testing planned (vs. only 8 languages validated for Llama); Nellie confirmed all 31 app-supported languages will work without English fallback — timing details to follow next week, not yet for customer communication.

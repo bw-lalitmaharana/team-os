@@ -496,3 +496,18 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Aha! bot (via Zapier)
 - **Where:** [#aha-updates](https://betterworks.slack.com/archives/C0BKR5AM9R7/p1787224466810819)
 - **Summary:** EMPDVT-126 "Adaptive Learning & Upskilling (AI Recommendations > PDP)" production date slipped from 2026-08-26 → 2026-09-15 in Aha.
+
+### 2026-08-20 — gmail
+- **Who:** Pankaj Lohmor, Nitish Devadiga, Nataliya Kolb, Kate, Nellie LeMonier (Zoom AI summary → lalit.maharana@betterworks.com)
+- **Where:** Email thread 1a01fe9456579a36 — "Meeting assets for Integrations/AI Cross Team Sync are ready!"
+- **Summary:** Demo of AI-recommended skills and PDP development goals on Rainforest: AI course recommendation is LLM re-ranking (by user skills + job title), NOT true skill gap analysis — skill gap deferred to winter; skills redesign changing from cards to pills/chips, target visible by Sep 1 (UI tickets due Aug 27); manager view still in development; Nitish to document exactly what AI components are and aren't in summer release.
+
+### 2026-08-21 — slack
+- **Who:** Jason Zhang, Nellie LeMonier
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1787264951280959?thread_ts=1787235679.134349&cid=C04N1P7N1PT)
+- **Summary:** Gemma 4 locale coverage confirmed for shared inference substrate: 31 of 33 locales covered OOTB (Malay and Khmer under broader 140+ pre-training scope, may need prompt tweaks); Nellie confirmed all 31 app-supported languages supported without English fallback — timing details next week, not for customers yet.
+
+### 2026-08-21 — gmail
+- **Who:** Nataliia Savenko, Nitish Devadiga, Pankaj Lohmor, Harikrishnan S, Saurabh Pandey, Sanchit (Zoom AI summary → lalit.maharana@betterworks.com)
+- **Where:** Email thread 1a0245259b779eda — "Meeting assets for PDP Stand Up are ready!"
+- **Summary:** SCHEDULE RISK — course recommendation PR (Nitish) may not be ready by Monday Aug 24; code freeze is Tuesday Aug 25; AI force recommendation and manager view both not yet in QA; Harikrishnan on leave Mon–Wed next week leaving Sanchit as sole QA; Nataliia to communicate today if completion is at risk; team to use external PDP Slack channel to expedite pending approvals.
