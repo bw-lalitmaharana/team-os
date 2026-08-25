@@ -511,3 +511,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Nataliia Savenko, Nitish Devadiga, Pankaj Lohmor, Harikrishnan S, Saurabh Pandey, Sanchit (Zoom AI summary → lalit.maharana@betterworks.com)
 - **Where:** Email thread 1a0245259b779eda — "Meeting assets for PDP Stand Up are ready!"
 - **Summary:** SCHEDULE RISK — course recommendation PR (Nitish) may not be ready by Monday Aug 24; code freeze is Tuesday Aug 25; AI force recommendation and manager view both not yet in QA; Harikrishnan on leave Mon–Wed next week leaving Sanchit as sole QA; Nataliia to communicate today if completion is at risk; team to use external PDP Slack channel to expedite pending approvals.
+
+### 2026-08-25 — slack
+- **Who:** Mollie Barz
+- **Where:** [#salesteam](https://betterworks.slack.com/archives/C04KBSK65/p1787597299477829)
+- **Summary:** Summer '26 Release internal e-learning (Betterworks University) now live; Adaptive Learning & Upskilling listed under Talent Intelligence alongside Individual Development Plans — GTM enablement sessions 8/27 + 9/2, PMs joining to demo live.

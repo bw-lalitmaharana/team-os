@@ -356,3 +356,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Zapier MQL bot
 - **Where:** [#mql-ent-emea-3](https://betterworks.slack.com/archives/C09D015BG58/p1787124679324779)
 - **Summary:** Mirna Victor (Global Talent Manager, Aramex, ICP fit 7) converted to MQL via betterworks.com/magazine/betterworks-mcp-server — external inbound interest from a talent leader driven by the MCP server marketing content.
+
+### 2026-08-25 — slack
+- **Who:** Mollie Barz
+- **Where:** [#salesteam](https://betterworks.slack.com/archives/C04KBSK65/p1787597299477829)
+- **Summary:** Summer '26 Release internal e-learning (Betterworks University) now live, covering MCP Server Beta under AI & Platform; GTM enablement sessions scheduled 8/27 + 9/2 — PMs to demo live and answer questions.

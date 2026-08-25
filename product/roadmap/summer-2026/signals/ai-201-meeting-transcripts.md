@@ -1134,3 +1134,33 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Jason Zhang, Nellie LeMonier
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1787264951280959?thread_ts=1787235679.134349&cid=C04N1P7N1PT)
 - **Summary:** Gemma 4 locale coverage confirmed for shared inference substrate: 31 of 33 locales covered OOTB (Malay and Khmer fall under 140+ pre-training scope and may need prompt tweaks); full locale testing planned (vs. only 8 languages validated for Llama); Nellie confirmed all 31 app-supported languages will work without English fallback — timing details to follow next week, not yet for customer communication.
+
+### 2026-08-25 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787644442874939)
+- **Summary:** Zoom transcripts not flowing into meetings — Lalit and Anuj tested and transcripts not reaching Kafka; Anuj Pancholi and Danish Sharma tagged to investigate.
+
+### 2026-08-25 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1787637048471099)
+- **Summary:** Nellie acknowledged the Kafka/transcript pipeline issue ("this must explain the issue I just posted about in the meeting transcripts channel"), signaling leadership awareness of the blockage.
+
+### 2026-08-25 — slack
+- **Who:** Anirudh Atole
+- **Where:** [DM → Lalit Maharana](https://betterworks.slack.com/archives/D0BSA2Q57TM/p1787638685496559)
+- **Summary:** ENG-86803 UI polish scope: transcript tab missing from 1:1 modal (Created 1:1 toast → View 1:1 flow), transcript tab icon update, remove stale "Selected transcript is used for AI Insights" copy after upload, upload/paste card spacing fixes.
+
+### 2026-08-25 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1787634015732679)
+- **Summary:** 7 stuck Meetings items flagged: ENG-85841 (Zoom Transcript Ingestion, 13d in Design Acceptance, Anuj), ENG-83000 (Manual Transcript Upload, 27d, Anuj), ENG-83001 (Copy/paste transcript, 20d, Anuj), ENG-85716 (Format Transcript Content on UI, 18d, Anirudh) — all aging, Anuj holds 3 of 4.
+
+### 2026-08-25 — gmail
+- **Who:** Ankit Sharma, Eden Owen (Jira → lalit.maharana@betterworks.com)
+- **Where:** Email thread 1a038e20588a8253 — [JIRA] ENG-86512
+- **Summary:** Bug: AI Prep and Recommendations not generated from transcripts in the last 4 meeting instances in all cases; Eden Owen assigned to sprint.
+
+### 2026-08-25 — gmail
+- **Who:** Hiten Khuman (Jira → lalit.maharana@betterworks.com)
+- **Where:** Email thread 1a019efff547e28b — [JIRA] ENG-86526
+- **Summary:** ENG-86526 (Logic for triggering AI insights in meetings based on transcripts) updated 2026-08-24: Hiten defined Event Automatic Action trigger rules; Harshini updated description with full event/condition matrix.
