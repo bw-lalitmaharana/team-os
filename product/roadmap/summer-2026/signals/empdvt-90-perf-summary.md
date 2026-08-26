@@ -173,3 +173,13 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** BetterBrain (bot, citing Product confirmation)
 - **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1786454898706709)
 - **Summary:** BetterBrain confirmed that "Areas for Development" bullets in the AI Performance Summary are generated per-profile (not static onboarding copy), and the generator runs even when modules such as Feedback are disabled in the org — open question remains on whether wording adapts to the org's Goals-vs-OKR terminology setting; Nellie LeMonier tagged for verification.
+
+### 2026-08-26 — slack
+- **Who:** Aha! (Zapier bot)
+- **Where:** [#aha-updates](https://betterworks.slack.com/archives/C0BKR5AM9R7/p1787722802793009)
+- **Summary:** AI-219 (Improve Date Range Filters: AI Performance Summary, Feedback Summary and Skills Phase 3 pre-processing) production date slipped from 2026-09-30 to 2027-01-12 — adjacent roadmap item, signals further delay on summary date-range enhancements.
+
+### 2026-08-26 — slack
+- **Who:** JIRA Nudge Bot (release deploy)
+- **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787711738227019)
+- **Summary:** ENG-84564 (AI Performance Summary showing last FY YTD data — Teacher Retirement System of Texas) shipped to production in v1.291.2.

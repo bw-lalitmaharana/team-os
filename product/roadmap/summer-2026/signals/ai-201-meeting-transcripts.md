@@ -1164,3 +1164,43 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman (Jira → lalit.maharana@betterworks.com)
 - **Where:** Email thread 1a019efff547e28b — [JIRA] ENG-86526
 - **Summary:** ENG-86526 (Logic for triggering AI insights in meetings based on transcripts) updated 2026-08-24: Hiten defined Event Automatic Action trigger rules; Harshini updated description with full event/condition matrix.
+
+### 2026-08-26 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787684162562239)
+- **Summary:** New consent design angle: capture/display AI meeting insights to the consenting individual only first; the other party gains access once they also consent.
+
+### 2026-08-26 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787723377303389)
+- **Summary:** Tested Zoom transcript flow on Rainforest — transcripts + recap + suggestion all visible; called with Lalit to discuss multiple transcript format support; will prepare format-shape list and implementation plan; follow-up with Satish Tripathi for edge-case testing.
+
+### 2026-08-26 — slack
+- **Who:** Sriram CS
+- **Where:** [#pod-integrations](https://betterworks.slack.com/archives/C04011PT0NQ/p1787722247446989)
+- **Summary:** Flagged that meeting transcript (INT-189 / ENG-84269 inbound webhook service) must go live this week; asked Danish Sharma if the inbound webhook is complete.
+
+### 2026-08-26 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1787737439633969)
+- **Summary:** Clarified recap/prep generation logic: each generation uses latest data at generation time; if meeting data/transcript changes, the nudge triggers the user to regenerate — recap is user-triggered, not automatic.
+
+### 2026-08-26 — gmail
+- **Who:** Nellie LeMonier (via Aha!)
+- **Where:** Email thread 1a03c91573266de8 — "[AHA] Nellie LeMonier renamed…"
+- **Summary:** Nellie renamed MEET-52 from "Meeting Intelligence Phase 2 - AI Processing" to "Conversational Intelligence Phase 2 - AI Processing" in Aha.
+
+### 2026-08-26 — gmail
+- **Who:** Lalit, Anirudh (Zoom AI summary)
+- **Where:** Email thread 1a03d087e411a5d7 — "Meeting assets for Lalit / Anirudh are ready!"
+- **Summary:** Meeting clarified product behavior and messaging for archived meetings in the transcript/AI surface.
+
+### 2026-08-26 — gmail
+- **Who:** Tejas, Lalit (Zoom AI summary)
+- **Where:** Email thread 1a03cb8e2e6f4f88 — "Meeting assets for Tejas / Lalit - MT Test are ready!"
+- **Summary:** Testing session covering Zoom/calendar/transcript integration flow on Rainforest.
+
+### 2026-08-26 — gmail
+- **Who:** Lalit, Nellie (Zoom AI summary)
+- **Where:** Email thread 1a039671384e6bea — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Lalit and Nellie discussed implementation and challenges of meeting transcript synchronization.

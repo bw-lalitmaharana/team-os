@@ -516,3 +516,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Mollie Barz
 - **Where:** [#salesteam](https://betterworks.slack.com/archives/C04KBSK65/p1787597299477829)
 - **Summary:** Summer '26 Release internal e-learning (Betterworks University) now live; Adaptive Learning & Upskilling listed under Talent Intelligence alongside Individual Development Plans — GTM enablement sessions 8/27 + 9/2, PMs joining to demo live.
+
+### 2026-08-26 — slack
+- **Who:** JIRA Nudge Bot (release deploy)
+- **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787712939095259)
+- **Summary:** Multiple AI-powered adaptive learning PDP stories shipped: ENG-86555 (Admin PDP text updates), ENG-84527 (Display text-based AI recommendation), ENG-86641 (Create milestone from AI text recommendation) — all under ENG_78495_ai_powered_adaptive_learning branch.
