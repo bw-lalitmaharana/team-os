@@ -521,3 +521,18 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** JIRA Nudge Bot (release deploy)
 - **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787712939095259)
 - **Summary:** Multiple AI-powered adaptive learning PDP stories shipped: ENG-86555 (Admin PDP text updates), ENG-84527 (Display text-based AI recommendation), ENG-86641 (Create milestone from AI text recommendation) — all under ENG_78495_ai_powered_adaptive_learning branch.
+
+### 2026-08-28 — slack
+- **Who:** Aha! bot (via Zapier)
+- **Where:** [#aha-updates](https://betterworks.slack.com/archives/C0BKR5AM9R7/p1787864021749779)
+- **Summary:** EMPDVT-126 "Employee Profile | Adaptive Learning & Upskilling (AI Recommendations > IDP)" workflow status changed In development → Shipped in Aha — feature marked shipped as of today.
+
+### 2026-08-28 — slack
+- **Who:** BetterBrain (bot)
+- **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1787917042804149)
+- **Summary:** AI-203 (AI-Powered Skill-to-Learning Matching Engine) flagged for support doc triage — current article matches are weak/generic (top score 0.344); human review needed to choose update-existing or generate-new-draft action.
+
+### 2026-08-28 — slack
+- **Who:** BetterBrain (bot)
+- **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1787917044322389)
+- **Summary:** EMPDVT-126 "Employee Profile | Adaptive Learning & Upskilling (AI Recommendations > IDP)" flagged for support doc triage — shipped feature needs doc coverage; current article candidates are weak/generic matches (top score 0.33); awaiting human reply command.
