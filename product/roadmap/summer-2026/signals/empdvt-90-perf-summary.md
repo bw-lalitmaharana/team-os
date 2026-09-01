@@ -183,3 +183,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** JIRA Nudge Bot (release deploy)
 - **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1787711738227019)
 - **Summary:** ENG-84564 (AI Performance Summary showing last FY YTD data — Teacher Retirement System of Texas) shipped to production in v1.291.2.
+
+### 2026-09-01 — gmail
+- **Who:** Zoom (meeting invite; attendee: Lalit)
+- **Where:** Zoom meeting email (thread 1a0584446fd71e9c) — "Meeting assets for Fiscal year filters for Performance Summary and Feedback Summary are ready!"
+- **Summary:** Meeting (pre-2026-09-01) covered fiscal year filter requirements for Performance Summary and Feedback Summary — likely scoping follow-on work to date-range filtering (adjacent to AI-219 slip flagged 2026-08-26).

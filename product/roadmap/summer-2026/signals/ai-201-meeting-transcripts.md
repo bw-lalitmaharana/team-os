@@ -1204,3 +1204,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Lalit, Nellie (Zoom AI summary)
 - **Where:** Email thread 1a039671384e6bea — "Meeting assets for Lalit / Nellie 1:1 are ready!"
 - **Summary:** Lalit and Nellie discussed implementation and challenges of meeting transcript synchronization.
+
+### 2026-09-01 — slack
+- **Who:** Tejas S
+- **Where:** [DM with Lalit](https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1788250386271409)
+- **Summary:** Tejas asked Lalit whether multiple transcripts can flow into the same meeting — active implementation/UX question for the transcripts ingestion flow.
+
+### 2026-09-01 — gmail
+- **Who:** Nataliya Kolb
+- **Where:** Calendar invite thread (1a059619e60f96b9) — "Meeting Transcripts Follow-up @ Tue Sep 1, 2026 8–8:30pm IST"
+- **Summary:** Nataliya flagged a critical UX gap: manual transcript upload needs improvement to elevate Conversational Intelligence from good to great; invited Nellie, Sriram, Tejas, Varnika, Anirudh, Danish, Hiten, Satish, Tanveer for a focused follow-up session.
+
+### 2026-09-01 — gmail
+- **Who:** Nellie LeMonier (via Jira)
+- **Where:** Jira ENG-86714 (thread 1a05932f37ee3564) — "AI Signal Extraction Phase 1.5 - Follow up items to phase 1 (Summer Patch)"
+- **Summary:** Nellie added a comment on ENG-86714 asking to add a ticket to the epic (mentioning Lalit); Jira automation subsequently story-pointed the item at 3 points — new Summer Patch scope for AI signal extraction follow-on work.

@@ -361,3 +361,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Mollie Barz
 - **Where:** [#salesteam](https://betterworks.slack.com/archives/C04KBSK65/p1787597299477829)
 - **Summary:** Summer '26 Release internal e-learning (Betterworks University) now live, covering MCP Server Beta under AI & Platform; GTM enablement sessions scheduled 8/27 + 9/2 — PMs to demo live and answer questions.
+
+### 2026-09-01 — slack
+- **Who:** Drew Diaz
+- **Where:** [#oppty_tungstenautomation](https://betterworks.slack.com/archives/C0BNCH06P47/p1788217028938079)
+- **Summary:** Tungsten Automation (2,200 employees, 32+ countries) uses Forge as their internal MCP connecting systems to Claude; after a second demo they want clarity on Forge↔Betterworks MCP interop, PII/sensitive-data protection, role-based access controls, and global data privacy — Drew tagged Nellie, Brian Jacobs, Paul Agustin seeking Product and InfoSec guidance before the next follow-up.
