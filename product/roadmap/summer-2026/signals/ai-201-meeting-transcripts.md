@@ -1219,3 +1219,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Nellie LeMonier (via Jira)
 - **Where:** Jira ENG-86714 (thread 1a05932f37ee3564) — "AI Signal Extraction Phase 1.5 - Follow up items to phase 1 (Summer Patch)"
 - **Summary:** Nellie added a comment on ENG-86714 asking to add a ticket to the epic (mentioning Lalit); Jira automation subsequently story-pointed the item at 3 points — new Summer Patch scope for AI signal extraction follow-on work.
+
+### 2026-09-01 — gmail
+- **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
+- **Where:** Email thread 1a05d6279eaa57ce — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Zoom transcript format testing confirmed both VTT variants uploadable (cloud recording with header + AI companion without); single-participant consent sysadmin setting to be refined and placed under Zoom integration; Zoom upload subtask ready for QA, then handoff to Champlain in 1–2 days.
+
+### 2026-09-02 — gmail
+- **Who:** Anirudh Atole (via Jira)
+- **Where:** Email thread 1a033a69858c0df6 — [JIRA] (ENG-86804) AI Meetings : Inactive / Archived view
+- **Summary:** ENG-86804 fix PR merged and deployed to Rainforest; AI insights description for Inactive/Archived view updated; QA re-verification by Satish Tripathi underway.

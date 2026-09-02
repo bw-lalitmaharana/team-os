@@ -536,3 +536,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** BetterBrain (bot)
 - **Where:** [#tmp_betterbrain_support_articles](https://betterworks.slack.com/archives/C0BC58PEQD9/p1787917044322389)
 - **Summary:** EMPDVT-126 "Employee Profile | Adaptive Learning & Upskilling (AI Recommendations > IDP)" flagged for support doc triage — shipped feature needs doc coverage; current article candidates are weak/generic matches (top score 0.33); awaiting human reply command.
+
+### 2026-09-01 — gmail
+- **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
+- **Where:** Email thread 1a05d6279eaa57ce — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Lalit tasked to review Natalia's skill gap analysis prototype and align on AI roadmap fit, potentially as a MCP tool in Performance Partner (AI221); PDP Phase 2 retro with Pankaj also planned.

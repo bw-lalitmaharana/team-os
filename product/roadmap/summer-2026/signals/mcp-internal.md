@@ -366,3 +366,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Drew Diaz
 - **Where:** [#oppty_tungstenautomation](https://betterworks.slack.com/archives/C0BNCH06P47/p1788217028938079)
 - **Summary:** Tungsten Automation (2,200 employees, 32+ countries) uses Forge as their internal MCP connecting systems to Claude; after a second demo they want clarity on Forge↔Betterworks MCP interop, PII/sensitive-data protection, role-based access controls, and global data privacy — Drew tagged Nellie, Brian Jacobs, Paul Agustin seeking Product and InfoSec guidance before the next follow-up.
+
+### 2026-09-01 — gmail
+- **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
+- **Where:** Email thread 1a05d6279eaa57ce — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Nellie assigned Lalit to own engineering of MCP tools and prompts for Performance Partner (AI221 GA); plan to inventory existing AI features and convert into context-aware MCP tools (feedback writing, goal writing, skill recommendations); skill gap analysis prototype also flagged as MCP tool candidate.
