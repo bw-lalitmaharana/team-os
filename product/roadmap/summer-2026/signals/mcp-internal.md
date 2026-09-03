@@ -371,3 +371,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
 - **Where:** Email thread 1a05d6279eaa57ce — "Meeting assets for Lalit / Nellie 1:1 are ready!"
 - **Summary:** Nellie assigned Lalit to own engineering of MCP tools and prompts for Performance Partner (AI221 GA); plan to inventory existing AI features and convert into context-aware MCP tools (feedback writing, goal writing, skill recommendations); skill gap analysis prototype also flagged as MCP tool candidate.
+
+### 2026-09-03 — slack
+- **Who:** Nellie LeMonier
+- **Where:** https://betterworks.slack.com/archives/C0BEMU079J7/p1788392014242119
+- **Summary:** Nellie proposed in #pod-ai-chat that Slack/Teams integration via Slack MCP belongs in Performance Partner's initial release — reasoning: shallow feedback context today (only Betterworks goals/feedback), Jason Zhang's POC proves it works, enterprise data governance story; suggested two-layer consent (super-admin enables → user opts in), and noted the pattern could extend to Gmail/Outlook/Aha/Monday/Asana MCP connectors.

@@ -1229,3 +1229,28 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Anirudh Atole (via Jira)
 - **Where:** Email thread 1a033a69858c0df6 — [JIRA] (ENG-86804) AI Meetings : Inactive / Archived view
 - **Summary:** ENG-86804 fix PR merged and deployed to Rainforest; AI insights description for Inactive/Archived view updated; QA re-verification by Satish Tripathi underway.
+
+### 2026-09-03 — slack
+- **Who:** Anuj Pancholi, Nellie LeMonier, Sriram CS
+- **Where:** https://betterworks.slack.com/archives/C0ACYVAG5A8/p1788423202511609?thread_ts=1788388643.313799&cid=C0ACYVAG5A8
+- **Summary:** Active design thread in #meeting-transcript-integration on calendar series linking/unlinking — Anuj clarified only the person who originally linked a series can unlink it; Nellie asked for step-by-step clarification; Sriram flagged that with 20+ 1:1s, bulk Google Calendar disconnect/reconnect is needed rather than per-event relink.
+
+### 2026-09-03 — slack
+- **Who:** Tejas S
+- **Where:** https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1788416936588689
+- **Summary:** Tejas S asked Lalit whether ENG-87333 (Conversational Intelligence - multi-language support) benchmarking should run against the lite or larger Gemma model; planning two datasets — English-only baseline and multi-language — golden dataset setup for meeting insights is complete.
+
+### 2026-09-03 — slack
+- **Who:** Harshini Vijay
+- **Where:** https://betterworks.slack.com/archives/D0B58DS1W1K/p1788415662488999
+- **Summary:** Harshini raised UX question on whether to show "meeting just ended, transcript on the way" messaging for the most recent past meeting with no transcript yet.
+
+### 2026-09-03 — slack
+- **Who:** Lalit Maharana
+- **Where:** https://betterworks.slack.com/archives/D0B90D9LQ74/p1788419904468759
+- **Summary:** Lalit messaged Tanveer (and separately Danish) that the next phase of work is picking up MS Teams and Google Meet integration spikes to understand transcript ingestion flow; Danish currently on Techwolf skills integration spike first.
+
+### 2026-09-03 — gmail
+- **Who:** Harshini Vijay, Lalit Maharana (Zoom AI summary)
+- **Where:** Email thread 1a065dde693b9b4d — "Meeting assets for Harshini / Lalit are ready!"
+- **Summary:** Zoom integration test session in Champaign: found missing Zoom icon bug, discussed single-participant consent flow (one connected participant → insights for both), consent modal and header/banner design options; decision to finalize UI with Natalia before broader team review; team focused on series-level + instance-level consent cleanup before Teams/Slack/Jira integrations.
