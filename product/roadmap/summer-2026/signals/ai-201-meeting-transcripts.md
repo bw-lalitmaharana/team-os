@@ -1254,3 +1254,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Harshini Vijay, Lalit Maharana (Zoom AI summary)
 - **Where:** Email thread 1a065dde693b9b4d — "Meeting assets for Harshini / Lalit are ready!"
 - **Summary:** Zoom integration test session in Champaign: found missing Zoom icon bug, discussed single-participant consent flow (one connected participant → insights for both), consent modal and header/banner design options; decision to finalize UI with Natalia before broader team review; team focused on series-level + instance-level consent cleanup before Teams/Slack/Jira integrations.
+
+### 2026-09-04 — gmail
+- **Who:** Satish Tripathi (via Jira)
+- **Where:** Jira ENG-87271 — "Zoom cloud recording format support as txt files"
+- **Summary:** ENG-87271 (story points 3, Anuj Pancholi) moved to In QA on 2026-09-03; automated QA verdict: FAIL — Satish Tripathi added screen-recording evidence; ticket needs re-work before release.
+
+### 2026-09-04 — gmail
+- **Who:** Tejas S (via Jira)
+- **Where:** Jira ENG-87333 — "Conversational Intelligence - Language support beyond english"
+- **Summary:** Tejas S shared detailed meeting-insights evaluation table in ENG-87333 Jira comment: golden dataset complete; benchmarked 211 close_action_item marks plus other action types across multi-language dataset — evaluation phase in progress.
