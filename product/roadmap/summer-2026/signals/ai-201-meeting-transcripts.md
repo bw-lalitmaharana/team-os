@@ -1264,3 +1264,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tejas S (via Jira)
 - **Where:** Jira ENG-87333 — "Conversational Intelligence - Language support beyond english"
 - **Summary:** Tejas S shared detailed meeting-insights evaluation table in ENG-87333 Jira comment: golden dataset complete; benchmarked 211 close_action_item marks plus other action types across multi-language dataset — evaluation phase in progress.
+
+### 2026-09-07 — slack
+- **Who:** JIRA Nudge Bot (automated digest)
+- **Where:** https://betterworks.slack.com/archives/C03QFQF5589/p1788753651118769
+- **Summary:** #1-1s-devs Meetings sprint digest: 7 items need attention — In Progress: ENG-86315 (extended transcript upload support, Anuj, 3wd) and ENG-87274 (Org Setting gate before LLM calls, Hiten, 3wd); Code Review: ENG-86526 (AI insights nudge logic, Hiten, 7wd); Product Acceptance: ENG-84724 + ENG-84722 (Autocomplete, Ryan), ENG-87046 (Bug: transcript upload fails >973 KB, Anuj), ENG-85310 (UEFA sync stuck).
+
+### 2026-09-07 — slack
+- **Who:** Lalit Maharana, Harshini Vijay
+- **Where:** https://betterworks.slack.com/archives/D0B58DS1W1K/p1788767251248369
+- **Summary:** Lalit and Harshini discussed transcript-arrival → meeting-state transition design: when a transcript arrives or is uploaded for an upcoming meeting, the system should end that instance and move it to past, then create the next meeting instance; if transcript is later deleted and end time is still in the future, revert back to upcoming.
+
+### 2026-09-07 — slack
+- **Who:** Hiten Khuman
+- **Where:** https://betterworks.slack.com/archives/D0BGD1M4RL5/p1788768930554909
+- **Summary:** Hiten raised two engineering questions on the transcript-upload-triggered state transition: (1) what meeting time window to assign when the instance is immediately treated as past? (2) how can end time still be future if the meeting is considered past? — notes first point is doable but flags need to verify with Anuj to avoid conflict with auto-create instance logic.
