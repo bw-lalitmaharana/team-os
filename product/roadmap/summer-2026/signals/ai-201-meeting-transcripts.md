@@ -1279,3 +1279,23 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman
 - **Where:** https://betterworks.slack.com/archives/D0BGD1M4RL5/p1788768930554909
 - **Summary:** Hiten raised two engineering questions on the transcript-upload-triggered state transition: (1) what meeting time window to assign when the instance is immediately treated as past? (2) how can end time still be future if the meeting is considered past? — notes first point is doable but flags need to verify with Anuj to avoid conflict with auto-create instance logic.
+
+### 2026-09-08 — gmail
+- **Who:** Lalit Maharana, Nellie LeMonier (Zoom AI summary)
+- **Where:** Email thread 1a08170d37a6eb24 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Zoom assets for Lalit / Nellie 1:1 (2026-09-08); meeting focused on updates and issues related to the integration of AI and calendar features — likely includes MT status discussion.
+
+### 2026-09-09 — slack
+- **Who:** Rinku Ravi
+- **Where:** https://betterworks.slack.com/archives/C01DLC66UU9/p1788938530807479
+- **Summary:** Rinku gave recognition to Danish Sharma for completing the meeting transcripts and webhook feature end-to-end with ownership and precision.
+
+### 2026-09-09 — slack
+- **Who:** Lalit Maharana
+- **Where:** https://betterworks.slack.com/archives/D0B2C9ECV4Y/p1788935519986239
+- **Summary:** Lalit shared a Meeting Transcripts Observations spreadsheet (Google Sheets) with Tejas S.
+
+### 2026-09-09 — gmail
+- **Who:** Tejas S, Lalit Maharana (Zoom AI summary)
+- **Where:** Email thread 1a084df10a7c12d3 — "Meeting assets for Tejas / Lalit - MT Test are ready!"
+- **Summary:** Zoom MT Test session (2026-09-09); meeting quick recap focused on meeting transcripts, consent features, and related discussions.
