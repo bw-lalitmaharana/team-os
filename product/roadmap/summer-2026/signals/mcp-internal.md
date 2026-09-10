@@ -376,3 +376,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Nellie LeMonier
 - **Where:** https://betterworks.slack.com/archives/C0BEMU079J7/p1788392014242119
 - **Summary:** Nellie proposed in #pod-ai-chat that Slack/Teams integration via Slack MCP belongs in Performance Partner's initial release — reasoning: shallow feedback context today (only Betterworks goals/feedback), Jason Zhang's POC proves it works, enterprise data governance story; suggested two-layer consent (super-admin enables → user opts in), and noted the pattern could extend to Gmail/Outlook/Aha/Monday/Asana MCP connectors.
+
+### 2026-09-09 — gmail
+- **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
+- **Where:** Email thread 1a087871a0ab0e69 — "Meeting assets for Performance Partner tools for winter are ready!"
+- **Summary:** Zoom session (2026-09-09): Nellie and Lalit discussed MCP development in the context of Performance Partner tools for winter; full meeting assets now available for review.

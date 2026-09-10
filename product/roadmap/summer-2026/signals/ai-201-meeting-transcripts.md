@@ -1299,3 +1299,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tejas S, Lalit Maharana (Zoom AI summary)
 - **Where:** Email thread 1a084df10a7c12d3 — "Meeting assets for Tejas / Lalit - MT Test are ready!"
 - **Summary:** Zoom MT Test session (2026-09-09); meeting quick recap focused on meeting transcripts, consent features, and related discussions.
+
+### 2026-09-09 — gmail
+- **Who:** (Zoom AI summary — participants unlisted in preview)
+- **Where:** Email thread 1a08735a31ad4360 — "Meeting assets for Zoom Meeting are ready!"
+- **Summary:** Zoom session recap (2026-09-09); meeting focused on understanding how the AI Companion and transcript features work — likely a discovery or orientation call on transcript functionality.
+
+### 2026-09-10 — gmail
+- **Who:** Harshini Vijay
+- **Where:** Email thread 1a08982aa4017ec3 — calendar acceptance
+- **Summary:** Harshini Vijay accepted "Meeting Transcripts - Phase 2 planning" for Fri Sep 11 12:30–1:00pm IST, confirming Phase 2 planning is on calendar with cross-functional attendance.
