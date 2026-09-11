@@ -1309,3 +1309,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Harshini Vijay
 - **Where:** Email thread 1a08982aa4017ec3 — calendar acceptance
 - **Summary:** Harshini Vijay accepted "Meeting Transcripts - Phase 2 planning" for Fri Sep 11 12:30–1:00pm IST, confirming Phase 2 planning is on calendar with cross-functional attendance.
+
+### 2026-09-11 — gmail
+- **Who:** Lalit Maharana + Harshini Vijay
+- **Where:** Zoom AI meeting summary email (thread 1a08f0495bb1387a) — Harshini / Lalit meeting 2026-09-11
+- **Summary:** UX sync on Zoom AI transcript onboarding: agreed to add dismissible banners (host must enable Zoom AI, latest transcript link), improve past→upcoming meeting transition messaging, and add fallback manual Zoom Meeting ID entry; Lalit to create an onboarding-enhancements epic.
