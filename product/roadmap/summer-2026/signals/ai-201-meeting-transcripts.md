@@ -1314,3 +1314,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Lalit Maharana + Harshini Vijay
 - **Where:** Zoom AI meeting summary email (thread 1a08f0495bb1387a) — Harshini / Lalit meeting 2026-09-11
 - **Summary:** UX sync on Zoom AI transcript onboarding: agreed to add dismissible banners (host must enable Zoom AI, latest transcript link), improve past→upcoming meeting transition messaging, and add fallback manual Zoom Meeting ID entry; Lalit to create an onboarding-enhancements epic.
+
+### 2026-09-15 — slack
+- **Who:** JIRA Nudge Bot (release bot)
+- **Where:** [#eng-releasemgmt](https://betterworks.slack.com/archives/C43EBBLCV/p1789468811166209)
+- **Summary:** Haven v1.3446.0 deployed to production today — Meetings section includes ENG-86315 (extended transcript upload support, Anuj Pancholi), ENG-87480 (auto-sync calendar on Zoom connect, Anirudh Atole), ENG-87562 (consent modal UI + zoom connection status, Hiten Khuman), and ENG-87746 (bug: SRT transcript upload fails trigger-inference API, Anuj Pancholi).
+
+### 2026-09-15 — slack
+- **Who:** JIRA Nudge Bot (meetings board digest)
+- **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1789444846736459)
+- **Summary:** 10 Meetings items flagged today: 4 AI Notes/speaker-label bugs (ENG-87705, ENG-87704, ENG-87710, ENG-87707) merged in meetings-api PR#437 (Anuj Pancholi); 5 items in Product Acceptance including ENG-87274 (org-setting gate before LLM calls), ENG-86526 (nudge logic), ENG-87427 (calendar sync error); ENG-86315 pending Design Acceptance.
