@@ -1324,3 +1324,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** JIRA Nudge Bot (meetings board digest)
 - **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1789444846736459)
 - **Summary:** 10 Meetings items flagged today: 4 AI Notes/speaker-label bugs (ENG-87705, ENG-87704, ENG-87710, ENG-87707) merged in meetings-api PR#437 (Anuj Pancholi); 5 items in Product Acceptance including ENG-87274 (org-setting gate before LLM calls), ENG-86526 (nudge logic), ENG-87427 (calendar sync error); ENG-86315 pending Design Acceptance.
+
+### 2026-09-15 — gmail
+- **Who:** Lalit Maharana, Nellie LeMonier (Zoom AI summary)
+- **Where:** Gmail thread 1a0a57b008d4da30 — "Meeting assets for Lalit / Nellie 1:1 are ready!"
+- **Summary:** Zoom AI summary for Lalit/Nellie 1:1; recap covers UX improvements around meeting transcripts and Zoom integration.
+
+### 2026-09-16 — gmail
+- **Who:** Lalit Maharana, Tejas (Zoom AI summary)
+- **Where:** Gmail thread 1a0a8d5445d475fb — "Meeting assets for Tejas / Lalit - MT Test are ready!"
+- **Summary:** Post-release sync on Meeting Transcripts feature: Lalit and Tejas discussed tracking metrics for AI features following a recent broad release.
+
+### 2026-09-16 — gmail
+- **Who:** Zoom AI summary (meeting participants not identified in snippet)
+- **Where:** Gmail thread 1a0a92915c011cf0 — "Meeting assets for Zoom Meeting are ready!"
+- **Summary:** Zoom AI summary for unnamed meeting; recap focuses on UI improvements and messaging for meeting integration features.

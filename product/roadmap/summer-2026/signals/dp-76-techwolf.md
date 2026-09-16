@@ -82,3 +82,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** Danish Sharma
 - **Where:** https://betterworks.slack.com/archives/D0BEV4QP7GC/p1788419760045959
 - **Summary:** Danish confirmed to Lalit he is actively working the Phase 2 Techwolf-Betterworks Sync spike (Confluence page linked) before picking up transcript integration work; confirms in-flight execution on DP-76 Phase 2.
+
+### 2026-09-16 — gmail
+- **Who:** Nitish (and team, Zoom AI summary)
+- **Where:** Gmail thread 1a0aa0783ddccd0a — "Meeting assets for PDP Stand Up are ready!"
+- **Summary:** PDP standup Zoom summary matched TechWolf keyword; Nitish shared ongoing project priorities — full body likely references DP-76/TechWolf phase 2 progress.
