@@ -1339,3 +1339,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Zoom AI summary (meeting participants not identified in snippet)
 - **Where:** Gmail thread 1a0a92915c011cf0 — "Meeting assets for Zoom Meeting are ready!"
 - **Summary:** Zoom AI summary for unnamed meeting; recap focuses on UI improvements and messaging for meeting integration features.
+
+### 2026-09-18 — gmail
+- **Who:** Lalit Maharana, Harshini Vijay
+- **Where:** Gmail thread 1a0b3665cf988184 — "Meeting assets for Harshini / Lalit are ready!" (Zoom AI summary)
+- **Summary:** UX sync on transcript error handling — agreed to show which name didn't match in manual-upload error messages (skip complex mapping flow), keep post-meeting transcript availability messaging generic with manual upload/paste fallback, and explore a "transcript available" indicator; Lalit to scope valid UI scenarios and align with Arno Jones, Harshini to update Figma for Phase 2.
+
+### 2026-09-18 — gmail
+- **Who:** Nellie LeMonier
+- **Where:** Jira ENG-86512 — AI Prep and Recommendations not generated from transcripts (last 4 meeting instances)
+- **Summary:** Nellie made a sponsor-level update to ENG-86512 (01:15 AM PT); ticket has been actively worked since Aug 25 across Ankit Sharma, Eden Owen, Hemant Kumar, Sagar Bhat, and Riya Malik — Nellie's engagement today signals active priority attention on this production regression.
