@@ -1349,3 +1349,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Nellie LeMonier
 - **Where:** Jira ENG-86512 — AI Prep and Recommendations not generated from transcripts (last 4 meeting instances)
 - **Summary:** Nellie made a sponsor-level update to ENG-86512 (01:15 AM PT); ticket has been actively worked since Aug 25 across Ankit Sharma, Eden Owen, Hemant Kumar, Sagar Bhat, and Riya Malik — Nellie's engagement today signals active priority attention on this production regression.
+
+### 2026-09-21 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/) — 2026-09-21 13:09 IST
+- **Summary:** Lalit shared a CS/Sales reference artifact on transcript upload support across all tools (Zoom, Teams, Google Meet, Granola, Fireflies, Webex, etc.), tagging Anuj Pancholi and Tanveer Farooq for review.
+
+### 2026-09-21 — slack
+- **Who:** Hiten Khuman
+- **Where:** DM: Lalit Maharana, Hiten Khuman — 2026-09-21 12:28 IST
+- **Summary:** Hiten flagged that ENG-87562 (consent modal text changes and Zoom connection status) has a backend dependency on his tickets and the feature flag will not be turned on yet; will coordinate with Anuj for deployment. ENG-86526 (nudge for AI insights in meetings) also referenced as a dependency.
