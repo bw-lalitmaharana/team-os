@@ -1359,3 +1359,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman
 - **Where:** DM: Lalit Maharana, Hiten Khuman — 2026-09-21 12:28 IST
 - **Summary:** Hiten flagged that ENG-87562 (consent modal text changes and Zoom connection status) has a backend dependency on his tickets and the feature flag will not be turned on yet; will coordinate with Anuj for deployment. ENG-86526 (nudge for AI insights in meetings) also referenced as a dependency.
+
+### 2026-09-23 — gmail
+- **Who:** Lalit Maharana, Tanveer Farooq (Zoom meeting)
+- **Where:** [Zoom email — "Meeting assets for Tanveer / Lalit are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877099694673228734)
+- **Summary:** Tanveer/Lalit Zoom session — roadmap for integrating Teams and Google Meet support as additional meeting transcript sources discussed.

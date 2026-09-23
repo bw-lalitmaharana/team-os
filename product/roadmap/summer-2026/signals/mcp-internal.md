@@ -381,3 +381,28 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
 - **Where:** Email thread 1a087871a0ab0e69 — "Meeting assets for Performance Partner tools for winter are ready!"
 - **Summary:** Zoom session (2026-09-09): Nellie and Lalit discussed MCP development in the context of Performance Partner tools for winter; full meeting assets now available for review.
+
+### 2026-09-22 — gmail
+- **Who:** Nellie LeMonier (session host), Betterworks engineering org
+- **Where:** [Zoom email — "Meeting assets for MCP Tool & Prompt Training Session 1 are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877055024060937019)
+- **Summary:** Zoom AI summary and action items ready for MCP Tool & Prompt Training Session 1 led by Nellie.
+
+### 2026-09-22 — gmail
+- **Who:** Nellie LeMonier
+- **Where:** [Email — "MCP Tool & Prompt Training Session 1" recording](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877059661641110622)
+- **Summary:** Nellie distributed the recording link for MCP Tool & Prompt Training Session 1 to broad engineering org (~90 recipients).
+
+### 2026-09-22 — gmail
+- **Who:** Nellie LeMonier, Lalit Maharana (Zoom meeting)
+- **Where:** [Zoom email — "Meeting assets for Lalit / Nellie 1:1 are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877042996754450410)
+- **Summary:** Lalit/Nellie 1:1 covered MCP training session status and Phase 1.5 updates.
+
+### 2026-09-23 — gmail
+- **Who:** Nellie LeMonier
+- **Where:** [Calendar invite — "Lalit/Nellie TB on MCP Tools & Prompts"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877100612583603268)
+- **Summary:** Nellie scheduled follow-up touchbase on MCP Tools & Prompts for Wed Sep 23 7–7:30pm IST.
+
+### 2026-09-23 — gmail
+- **Who:** Jason Bilyeu (Confluence author)
+- **Where:** [Confluence weekly digest](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877100444805315211)
+- **Summary:** Confluence weekly digest surfaced JB's "LLM-friendly JSON Format Spec + Examples" and "REST endpoint pattern guide" — relevant to MCP tool authoring standards.
