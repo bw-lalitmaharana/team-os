@@ -87,3 +87,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** Nitish (and team, Zoom AI summary)
 - **Where:** Gmail thread 1a0aa0783ddccd0a — "Meeting assets for PDP Stand Up are ready!"
 - **Summary:** PDP standup Zoom summary matched TechWolf keyword; Nitish shared ongoing project priorities — full body likely references DP-76/TechWolf phase 2 progress.
+
+### 2026-09-24 — slack
+- **Who:** Katie Murphy
+- **Where:** [#oppty_publicis_upsell](https://betterworks.slack.com/archives/C0C0HAT4VTM/p1790256340475809)
+- **Summary:** Publicis skills pilot launched for 10 Production users (~6 weeks); success criteria include whether skills surfaced from performance data are relevant, whether manager validation builds confidence in data quality, and how skills feed into Succession — target to launch skills & succession in January; external validation of skills surface relevant to DP-76 taxonomy quality.

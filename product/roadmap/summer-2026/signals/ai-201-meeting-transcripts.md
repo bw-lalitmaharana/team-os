@@ -1364,3 +1364,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Lalit Maharana, Tanveer Farooq (Zoom meeting)
 - **Where:** [Zoom email — "Meeting assets for Tanveer / Lalit are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877099694673228734)
 - **Summary:** Tanveer/Lalit Zoom session — roadmap for integrating Teams and Google Meet support as additional meeting transcript sources discussed.
+
+### 2026-09-24 — slack
+- **Who:** Brahadeesh Kishore
+- **Where:** [#1-1s-devs](https://betterworks.slack.com/archives/C03QFQF5589/p1790247673451789)
+- **Summary:** Brahadeesh flagged that the meeting series list API returns action item counts per participant separately, while the UI combines them; cross-checking against the detail page API which does show per-assignee action items — potential display inconsistency to watch.
+
+### 2026-09-24 — gmail
+- **Who:** Aakansha Srivastava (mentioned Lalit)
+- **Where:** [Jira ENG-87328](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877210784034181230)
+- **Summary:** Spike ENG-87328 opened — Gemma to generate AI content in the user's locale instead of falling back to English; Aakansha Srivastava mentioned Lalit on the ticket, signaling PM input needed on locale requirements for meeting recap/prep output.

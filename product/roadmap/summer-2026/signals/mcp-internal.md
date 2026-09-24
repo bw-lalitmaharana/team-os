@@ -406,3 +406,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Bilyeu (Confluence author)
 - **Where:** [Confluence weekly digest](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877100444805315211)
 - **Summary:** Confluence weekly digest surfaced JB's "LLM-friendly JSON Format Spec + Examples" and "REST endpoint pattern guide" — relevant to MCP tool authoring standards.
+
+### 2026-09-23 — gmail
+- **Who:** Lalit Maharana, Nellie LeMonier (Zoom meeting)
+- **Where:** [Zoom email — "Meeting assets for Lalit/Nellie TB on MCP Tools & Prompts are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877129782136183879)
+- **Summary:** Zoom meeting assets delivered for the Lalit/Nellie MCP Tools & Prompts touchbase; summary indicates the meeting focused on the approach for MCP prompts.
+
+### 2026-09-24 — slack
+- **Who:** Jason Zhang, Ryan Mulready, Jason Bilyeu
+- **Where:** [#pod-ai-chat](https://betterworks.slack.com/archives/C0BEMU079J7/p1790196026390699)
+- **Summary:** Jason Zhang built out the MCP prompt endpoint (prompts/list and prompts/get via public-api-mcp server); JB confirmed prompts should be independently listable/executable from Claude or ChatGPT; design decision to not mirror MCP spec 1:1 to prevent system API exploitation via prompt introspection.
