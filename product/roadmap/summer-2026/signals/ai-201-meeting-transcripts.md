@@ -1374,3 +1374,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Aakansha Srivastava (mentioned Lalit)
 - **Where:** [Jira ENG-87328](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1877210784034181230)
 - **Summary:** Spike ENG-87328 opened — Gemma to generate AI content in the user's locale instead of falling back to English; Aakansha Srivastava mentioned Lalit on the ticket, signaling PM input needed on locale requirements for meeting recap/prep output.
+
+### 2026-09-25 — slack
+- **Who:** Lalit Maharana
+- **Where:** Group DM with Mollie Barz, Nellie LeMonier, Lalit Maharana — 2026-09-25 11:56 IST
+- **Summary:** Lalit (OOO) confirmed to Mollie that old meeting AI summary is live in the conversations page between manager and employee, requires meeting AI summary enabled in both sysadmin and program management settings.
+
+### 2026-09-25 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [#pod-meetings](https://betterworks.slack.com/archives/) — 2026-09-25 10:12 IST
+- **Summary:** Scrum update: spike output being added for auto-trigger inference spike; meetings series optimization PR and policy engine integration in meetings discussed; goals PR for insights env deployment (goals-api/pull/938) sent for review to Ajeet Maurya and Saurabh Pandey.
+
+### 2026-09-25 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#pod-meetings](https://betterworks.slack.com/archives/) — 2026-09-25 16:11 IST
+- **Summary:** Critical performance optimization shipped for meetings series listing screen (ENG-88209_meeting_list_optimization); QA in progress on Rainforest; feature flag available to disable if blocking work is observed.
