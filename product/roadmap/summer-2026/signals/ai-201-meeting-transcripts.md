@@ -1389,3 +1389,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman
 - **Where:** [#pod-meetings](https://betterworks.slack.com/archives/) — 2026-09-25 16:11 IST
 - **Summary:** Critical performance optimization shipped for meetings series listing screen (ENG-88209_meeting_list_optimization); QA in progress on Rainforest; feature flag available to disable if blocking work is observed.
+
+### 2026-09-28 — slack
+- **Who:** Sagar Bhat
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1790600580990079)
+- **Summary:** Merged AI Meeting Transcript multi-format processing changes; synced with AI Meeting Transcript team and Lalit on next-phase items and spike tasks; raised PRs to decouple llm-engine from embedding-api (talent-api/pull/712) and grant talent-api access to embedding schema (warehouse-db/pull/167).
