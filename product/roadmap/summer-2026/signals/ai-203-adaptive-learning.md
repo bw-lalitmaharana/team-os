@@ -541,3 +541,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Nellie LeMonier, Lalit Maharana (Zoom AI summary)
 - **Where:** Email thread 1a05d6279eaa57ce — "Meeting assets for Lalit / Nellie 1:1 are ready!"
 - **Summary:** Lalit tasked to review Natalia's skill gap analysis prototype and align on AI roadmap fit, potentially as a MCP tool in Performance Partner (AI221); PDP Phase 2 retro with Pankaj also planned.
+
+### 2026-09-30 — slack
+- **Who:** Akhil Desai
+- **Where:** [#temp_accelerator_program_leads](https://betterworks.slack.com/archives/) — 2026-09-30 12:49 IST
+- **Summary:** Engineering Arch and Product walkthrough scheduled for Oct 1, 9–9:45 AM IST; "Skill Graph based recommendation" is one of three topics (alongside BetterAskCal and Internal Mobility), with 15 min per team; leads tagged include Aakansha Srivastava, Pankaj Lohmor, Prasanna Poojary, Sriram CS.

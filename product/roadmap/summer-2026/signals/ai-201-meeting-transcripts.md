@@ -1394,3 +1394,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Sagar Bhat
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1790600580990079)
 - **Summary:** Merged AI Meeting Transcript multi-format processing changes; synced with AI Meeting Transcript team and Lalit on next-phase items and spike tasks; raised PRs to decouple llm-engine from embedding-api (talent-api/pull/712) and grant talent-api access to embedding schema (warehouse-db/pull/167).
+
+### 2026-09-30 — slack
+- **Who:** Lalit Maharana, Hiten Khuman, Harshini Vijay
+- **Where:** Group DM (Harshini Vijay, Lalit Maharana, Hiten Khuman) — 2026-09-30 12:48–15:22 IST
+- **Summary:** Active UX/implementation thread: Lalit asked for transcript-state icons in meeting accordions (pending/available/not-available variants for Zoom vs manual-upload), Hiten clarified on-demand transcript fetch is feasible for ended meetings but meeting-time-change scenarios need a separate spike; Harshini shared Figma designs for error component reuse; open question on whether transcript-arrival should auto-convert meeting to past-state or nudge user to reload.

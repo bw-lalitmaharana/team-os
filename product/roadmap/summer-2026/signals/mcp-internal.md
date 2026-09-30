@@ -416,3 +416,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Zhang, Ryan Mulready, Jason Bilyeu
 - **Where:** [#pod-ai-chat](https://betterworks.slack.com/archives/C0BEMU079J7/p1790196026390699)
 - **Summary:** Jason Zhang built out the MCP prompt endpoint (prompts/list and prompts/get via public-api-mcp server); JB confirmed prompts should be independently listable/executable from Claude or ChatGPT; design decision to not mirror MCP spec 1:1 to prevent system API exploitation via prompt introspection.
+
+### 2026-09-30 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#eng-mcp](https://betterworks.slack.com/archives/) — 2026-09-30 18:33–18:35 IST
+- **Summary:** Nellie shared recording from 2nd MCP training workshop (passcode shared in channel) and announced a technical deep-dive call with JB for Thursday Oct 1 at 7 AM PST / 8:30 PM IST (recorded for those who can't attend).
+
+### 2026-09-30 — slack
+- **Who:** Aditya Maliyan
+- **Where:** [#pod-feedback](https://betterworks.slack.com/archives/) — 2026-09-30 16:57 IST
+- **Summary:** PR review requests for feedback-api/pull/775 and public-api-mcp/pull/125 shared with team for review.
