@@ -1,6 +1,6 @@
 # Open Actions — Meetings Transcripts Feature
 
-Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-08** — the May week-1 onboarding items were completed and archived; current owed items below reflect the May 27–30 recalibration + 2026-06-07 Jira decomposition + the June 1–5 daily-catchup / UX-Sync / roadmap signal. **Backfilled 2026-10-11** with July–Aug meeting-notes signal (#26–45 unverified; #46–49 from 9/17 Zoom summary; #50–109 from Aug–Oct Zoom summaries, unverified). **Backfilled 2026-06-30** with June 9–30 Zoom-summary signal — new items #13–25 below; #4 and #5 resolved.
+Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-08** — the May week-1 onboarding items were completed and archived; current owed items below reflect the May 27–30 recalibration + 2026-06-07 Jira decomposition + the June 1–5 daily-catchup / UX-Sync / roadmap signal. **Backfilled 2026-10-11** with July–Aug meeting-notes signal (#26–45 unverified; #46–49 from 9/17 Zoom summary; #50–109 from Aug–Oct Zoom summaries, unverified; #110–117 from AI Companion transcripts 8/14–10/11, unverified). **Backfilled 2026-06-30** with June 9–30 Zoom-summary signal — new items #13–25 below; #4 and #5 resolved.
 
 ## Lalit's open items (current)
 
@@ -101,7 +101,7 @@ Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-0
 
 ## Lalit's open items — Aug–Oct Zoom summaries, batch 2 (2026-10-11)
 
-> From ~45 further meetings 8/17–10/8 (Zoom AI summaries; grouped/deduped, **unverified**). Not read: PDP stand-ups, App Platform QA 9/9–10/8, OKR stand-ups. Transcript pass pending.
+> From ~45 further meetings 8/17–10/8 (Zoom AI summaries; grouped/deduped, **unverified**). Not read: PDP stand-ups, App Platform QA 9/9–10/8, OKR stand-ups. Transcript pass done — see #110–117.
 
 | # | Action | From | Deadline | Status |
 |---|--------|------|----------|--------|
@@ -122,14 +122,14 @@ Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-0
 | 86 | **AI Platform, Phase 2 & MCP:** Triage/prioritize transcript bugs; log P1–P3 blockers from doc review; update prep-generation docs to single-pass architecture | Acceptance 8/19, 9/9 | — | 🟡 Open |
 | 87 | **AI Platform, Phase 2 & MCP:** Prioritize Phase 2 scope, get estimates, present roadmap; plan/limitations/status summary incl. Tanveer; communicate slipping items proactively; dog-food end to end | 1:1 8/18, 8/25 | — | 🟡 Open |
 | 88 | **AI Platform, Phase 2 & MCP:** Department-level AI enablement controls as P1; tooltip ticket for agenda vs action recommendations | 1:1 8/25 | — | 🟡 Open |
-| 89 | **AI Platform, Phase 2 & MCP:** Size Google Meet + Teams integration for winter; proceed with MS Teams connector POC; Confluence Phase 2 page (Winter MCP tools, Teams/Meet/WebEx) | 1:1 8/25, 10/6 | Winter | 🟡 Open |
+| 89 | **AI Platform, Phase 2 & MCP:** Size Google Meet + Teams integration for winter; proceed with MS Teams connector POC via a developer account, then Google Meet (Nellie also asked for a WebEx spike, 10/6); Confluence Phase 2 page (Winter MCP tools, Teams/Meet/WebEx) | 1:1 8/25, 10/6 | Winter | 🟡 Open |
 | 90 | **AI Platform, Phase 2 & MCP:** Move 'additional file types' to Phase 1.5 in Aha; share enablement doc with Tejas + Nellie; add archived-meeting AI Prep behavior to ticket | Acceptance 8/26; Anirudh 8/26 | — | 🟡 Open |
 | 91 | **AI Platform, Phase 2 & MCP:** Update ticket with AI-update label scenarios; add meeting-data details (CRUD, calendar events) to sheet | Nudge 8/21 | — | 🟡 Open |
 | 92 | **AI Platform, Phase 2 & MCP:** Own prompt + MCP-tool engineering; add 'extend language support w/ new Gemma model' roadmap item; review Natalia's skill-gap prototype as MCP tool; coordinate PDP Phase 2 retro with Pankaj | 1:1 9/1 | — | 🟡 Open |
 | 93 | **AI Platform, Phase 2 & MCP:** Share evaluation sheet + Phase 2 epic doc with Tejas (tell Satish); highlight 2–3 priority transcript items; sign off production acceptance tickets | Tejas 9/9, 9/16; Acceptance 9/16 | — | 🟡 Open |
 | 94 | **AI Platform, Phase 2 & MCP:** Draft MCP tool stories (prep, recap, feedback summary); restructure MCP training doc to MVP + monthly cadence; coordinate weekly demos of completed MCP tools; add MCP Inspector to Rainforest | Acceptance 9/16; 1:1 9/22, 9/30 | — | 🟡 Open |
 | 95 | **AI Platform, Phase 2 & MCP:** Connect with Tanvir on Phase 2 stories/spikes | 1:1 9/22 | 9/23 | 🟡 Open |
-| 96 | **AI Platform, Phase 2 & MCP:** Update Aha with done/not-done; post to Molly + Mary what shipped; Jira release notes for Sept tickets; respond to Molly on goals-recommendation UI | 1:1 9/22, 9/30 | — | 🟡 Open |
+| 96 | **AI Platform, Phase 2 & MCP:** Update Aha with done/not-done; post to Molly + Mary what shipped; Jira release notes for Sept tickets (toggle = Yes, due Monday of the new sprint per 9/30 1:1); respond to Molly on goals-recommendation UI | 1:1 9/22, 9/30 | — | 🟡 Open |
 | 97 | **AI Platform, Phase 2 & MCP:** Raise cross-team meeting on Phase 2.0 scope; own recurring AI team refinement call; refine app platform refinement + check support-ticket backlog | Acceptance 9/30; 1:1 9/30 | ~10/5 | 🟡 Open |
 | 98 | **AI Platform, Phase 2 & MCP:** Add Ankit to chat sync call; connect with Paul on MCP tools for meetings (possibly own MCP roadmap) | 1:1 10/6 | — | 🟡 Open |
 | 99 | **AI Platform, Phase 2 & MCP:** Mixpanel: create/fill event-tracking tickets (conversational intelligence, PDP), run event list by Jay-Z; follow up w/ Neetesh on 2 PDP AI items | Sagar 10/6 | — | 🟡 Open |
@@ -143,6 +143,21 @@ Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-0
 | 107 | **Design, UI & misc:** Share 'skills' context with Harshini; developer walkthrough once feedback/recognition designs final | Harshini 10/1 | ~10/8 | 🟡 Open |
 | 108 | **Design, UI & misc:** Share popular-questions video via Drive | 1:1 8/18 | — | 🟡 Open |
 | 109 | **Design, UI & misc:** Prototyping initiative (low confidence — Sriram PMR, date uncertain): freeze scope w/ Sharan, sessions w/ Mahesh + Gauri, Aha prioritization tool check, end-of-quarter write-up for Sriram | Sriram PMR 9/4 | Monday | 🟡 Open |
+
+## Lalit's open items — AI Companion transcripts (2026-10-11)
+
+> Mined from 100 Zoom AI Companion transcripts 8/14–10/11 (136 meetings listed; 5 had no transcript; ~35 PDP/OKR stand-ups sampled only — Lalit made no commitments in any sample). Of ~43 candidate items, **31 were already covered by #46–109** (transcript confirmed them; details appended to #89 and #96) — only the genuinely new ones are below. Transcript-backed but **unverified against Jira/Aha** (Slack/Jira unreachable).
+
+| # | Action | From | Deadline | Status |
+|---|--------|------|----------|--------|
+| 110 | **Refinement:** Pull a ticket into the current sprint (Tejas asked) | AI Platform Refinement 10/8 | Current sprint | 🟡 Open (transcript) |
+| 111 | **Phase 2 / Tejas:** Share the consent + transcript-formats tickets with Tejas | Tejas/Lalit 9/9 | — | 🟡 Open (transcript) |
+| 112 | **Prompt eng / Sagar:** Give Sagar a sample transcript; send Sagar (+ Hemant) the task | Sagar/Lalit 9/8; Sagar+Hemant 10/6 | — | 🟡 Open (transcript) |
+| 113 | **Release:** Update the conversational-intelligence ticket with the Jira ticket pointers so it can still release | Product Acceptance 8/26 | Pre-release — likely passed, confirm | 🟡 Open (transcript) |
+| 114 | **Zoom / Champaign:** Re-authenticate Zoom with ASA for Champaign after the release | Nellie 1:1 8/25 | After release ("maybe Friday") — likely passed, confirm | 🟡 Open (transcript) |
+| 115 | **Recommendations:** Re-investigate the time-zone action-item recommendation | Meetings AI Inputs nudge 8/21 | — | 🟡 Open (transcript) |
+| 116 | **Phase 2 / Tejas:** Share the Claude recommendation doc with Tejas | Lalit/Tejas 8/21 | — | 🟡 Open (transcript) |
+| 117 | **Minor / possibly stale:** Ask for a status update on a code review (9/8); consolidate + upload a transcript and mark tickets ready, per Hiten (8/20); text/email Danish about the last video (8/19); call out ceremonies that aren't enforced — Jason Zhang asked (10/8) | Various | — | 🟢 Low (transcript, low confidence) |
 
 ## Cross-pod commitments to track
 
@@ -182,6 +197,14 @@ Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-0
 | Sagar / Hemant | Share Hemant's number + Slack copy; implement approved Mixpanel events | — | 🟡 Pending (9/8, 10/6) |
 | Tanveer | Capture Teams + Zoom/Meet signals; check existing feedback; Teams customer commitments | — | 🟡 Pending (10/5) |
 | Kate / Paul Agustin | Help Nellie with Aha; locate Performance Snapshot policy | — | 🟡 Pending (8/17) |
+| Nellie | CS training for the transcript release; ping Ankit for the MCP-tasks sync call | — | 🟡 Pending (8/25, 10/6) |
+| Tejas | Impact-threshold answer (8/21); Satish to analyze the Phase 1.5 doc; test remaining consent scenarios; 10/8 refinement follow-ups: QA agent setup, Gemma embedding migration, Hema's spike review, test cases | — | 🟡 Pending (8/21–10/8) |
+| Nitish | Present the career-path AI spike (fit / skill-gap) in the PDP review + demo call | — | 🟡 Pending (9/30) |
+| Nataliia / Nataliya | Rewrite the Aha ticket scope; test the recap (verbal commitments) | — | 🟡 Pending (verbal) |
+| Sarah | Feedback + enabling the integration (verbal) | — | 🟡 Pending (verbal) |
+| Pankaj | Skill-recommendation PR + STLC demo (verbal) | — | 🟡 Pending (verbal) |
+| Anuj | Relink payload ticket for Anirudh | — | 🟡 Pending (8/25) |
+| Hiten | "I'll send you the ticket" (low confidence) | — | 🟢 Pending (10/9) |
 
 ## Adjacent ownerships (from Nellie roadmap 6/4 — outside ENG-79199, tracked here for visibility)
 - **Preview epic** for custom-content-by-tenant notifications (+ spike this sprint; blocked on E2E QA by PM Eden).
