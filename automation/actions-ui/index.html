@@ -2,72 +2,159 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Team OS Actions</title>
 <style>
-:root{--bg:#f7f7f5;--fg:#1c1c1a;--mut:#6b6b66;--card:#fff;--bd:#e2e2dc;--acc:#2f5fd0}
-@media(prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e9e9e6;--mut:#9a9a94;--card:#202020;--bd:#333;--acc:#7da2ff}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif}
-header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--bd);padding:12px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;z-index:2}
-h1{font-size:16px;margin:0 8px 0 0}input,select,textarea,button{font:inherit;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:5px 8px}
-button{cursor:pointer}button:hover{border-color:var(--acc)}main{padding:16px;max-width:1200px;margin:auto}
-section{margin-bottom:28px}h2{font-size:14px;margin:0 0 8px;color:var(--mut)}
-.row{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;margin-bottom:8px;display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:start}
-.row.done{opacity:.55}.row.done .t{text-decoration:line-through}
-.num{color:var(--mut);font-variant-numeric:tabular-nums}.t b{font-weight:600}.meta{color:var(--mut);font-size:12px;margin-top:3px}
-.pill{display:inline-block;border:1px solid var(--bd);border-radius:99px;padding:0 8px;font-size:12px;margin-right:6px}
-.btns{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.btns button{padding:2px 7px;font-size:12px}
-.edit{grid-column:1/-1;display:grid;gap:6px}.edit label{font-size:12px;color:var(--mut)}.edit textarea{width:100%;min-height:50px}.edit input{width:100%}
-#msg{color:#c33;font-size:12px}
-@media(max-width:600px){.row{grid-template-columns:1fr}.btns{justify-content:flex-start}}
+:root{--bg:#f4f5f7;--fg:#171a21;--mut:#667085;--card:#fff;--bd:#e4e7ec;--acc:#3b5bdb;--accbg:#eef2ff;
+ --red:#d92d20;--redbg:#fef3f2;--amb:#b54708;--ambbg:#fffaeb;--grn:#067647;--grnbg:#ecfdf3;--gry:#667085;--grybg:#f2f4f7;--blu:#175cd3;--blubg:#eff8ff;
+ --sh:0 1px 2px rgba(16,24,40,.06);--sh2:0 12px 32px rgba(16,24,40,.18)}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1115;--fg:#e8eaed;--mut:#98a2b3;--card:#171a21;--bd:#2a2f3a;--acc:#8ea2ff;--accbg:#1c2140;
+ --red:#f97066;--redbg:#2a1614;--amb:#fdb022;--ambbg:#2a2010;--grn:#47cd89;--grnbg:#10261b;--gry:#98a2b3;--grybg:#20242d;--blu:#84caff;--blubg:#12233a;
+ --sh:none;--sh2:0 12px 32px rgba(0,0,0,.6)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif}
+button,input,select,textarea{font:inherit;color:inherit}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
+.bar{max-width:1100px;margin:auto;padding:12px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+h1{font-size:17px;margin:0;font-weight:650;letter-spacing:-.01em}
+.sp{flex:1}
+.search{position:relative;min-width:220px;flex:0 1 320px}
+.search input{width:100%;padding:7px 34px 7px 12px;border:1px solid var(--bd);border-radius:8px;background:var(--card);outline:none}
+.search input:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--accbg)}
+.search kbd{position:absolute;right:8px;top:7px;font-size:11px;color:var(--mut);border:1px solid var(--bd);border-radius:4px;padding:0 5px}
+.ic{border:1px solid var(--bd);background:var(--card);border-radius:8px;padding:6px 10px;cursor:pointer}
+.ic:hover{border-color:var(--acc)}
+.chips{max-width:1100px;margin:auto;padding:0 20px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--bd);background:var(--card);border-radius:99px;padding:3px 12px;cursor:pointer;font-size:13px;color:var(--mut);display:inline-flex;gap:6px;align-items:center}
+.chip b{color:var(--fg);font-weight:600}
+.chip:hover{border-color:var(--acc)}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}.chip.on b{color:#fff}
+.chip.sec{border-style:dashed}
+main{max-width:1100px;margin:auto;padding:20px}
+section{margin-bottom:26px}
+.sh{display:flex;align-items:center;gap:8px;margin:0 0 10px;cursor:pointer;user-select:none}
+.sh h2{font-size:13px;font-weight:650;margin:0;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.sh .cnt{font-size:12px;background:var(--grybg);color:var(--mut);border-radius:99px;padding:0 8px}
+.sh .car{color:var(--mut);transition:transform .15s}.sec-closed .car{transform:rotate(-90deg)}
+.sec-closed .list{display:none}
+.add{margin-left:auto;border:1px dashed var(--bd);background:transparent;border-radius:8px;padding:2px 10px;cursor:pointer;color:var(--mut);font-size:12px}
+.add:hover{border-color:var(--acc);color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--gry);border-radius:10px;padding:12px 14px;margin-bottom:8px;box-shadow:var(--sh);display:grid;grid-template-columns:38px 1fr auto;gap:12px;align-items:start;transition:border-color .15s,box-shadow .15s}
+.card:hover{border-color:var(--acc);box-shadow:0 2px 8px rgba(16,24,40,.08)}
+.card.s-red{border-left-color:var(--red)}.card.s-amb{border-left-color:var(--amb)}.card.s-grn{border-left-color:var(--grn)}.card.s-blu{border-left-color:var(--blu)}
+.card.closed{opacity:.6}.card.closed .t{text-decoration:line-through;text-decoration-color:var(--mut)}
+.num{color:var(--mut);font-size:12px;font-variant-numeric:tabular-nums;padding-top:2px}
+.t{font-size:14.5px;font-weight:500}.t b{font-weight:650}
+.t code{background:var(--grybg);border-radius:4px;padding:0 4px;font-size:12.5px}
+.meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
+.tag{font-size:12px;color:var(--mut);background:var(--grybg);border-radius:6px;padding:1px 8px}
+.tag i{font-style:normal;opacity:.7;margin-right:4px}
+.badge{font-size:12px;font-weight:600;border-radius:99px;padding:1px 10px;color:var(--gry);background:var(--grybg)}
+.badge.red{color:var(--red);background:var(--redbg)}.badge.amb{color:var(--amb);background:var(--ambbg)}
+.badge.grn{color:var(--grn);background:var(--grnbg)}.badge.blu{color:var(--blu);background:var(--blubg)}
+.acts{display:flex;gap:6px;align-items:center}
+.btn{border:1px solid var(--bd);background:var(--card);border-radius:7px;padding:3px 10px;font-size:12.5px;cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--acc);color:var(--acc)}
+.btn.ok{background:var(--grnbg);color:var(--grn);border-color:transparent;font-weight:600}.btn.ok:hover{border-color:var(--grn)}
+.btn.pri{background:var(--acc);color:#fff;border-color:var(--acc)}.btn.pri:hover{color:#fff;opacity:.9}
+.menu{position:relative}
+.pop{position:absolute;right:0;top:calc(100% + 4px);background:var(--card);border:1px solid var(--bd);border-radius:10px;box-shadow:var(--sh2);padding:4px;min-width:170px;z-index:4;display:none}
+.menu.open .pop{display:block}
+.pop button{display:block;width:100%;text-align:left;border:0;background:none;padding:6px 10px;border-radius:6px;cursor:pointer}
+.pop button:hover{background:var(--grybg)}
+.empty{color:var(--mut);text-align:center;padding:40px 0}
+dialog{border:1px solid var(--bd);border-radius:14px;background:var(--card);color:var(--fg);padding:0;width:min(640px,94vw);box-shadow:var(--sh2)}
+dialog::backdrop{background:rgba(10,12,18,.5)}
+.dh{padding:14px 18px;border-bottom:1px solid var(--bd);font-weight:650}
+.db{padding:14px 18px;display:grid;gap:12px;max-height:68vh;overflow:auto}
+.db label{display:grid;gap:4px;font-size:12px;color:var(--mut);font-weight:600}
+.db input,.db textarea{border:1px solid var(--bd);border-radius:8px;padding:7px 10px;background:var(--bg);font-weight:400;color:var(--fg);outline:none;font-size:14px}
+.db input:focus,.db textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--accbg)}
+.db textarea{min-height:80px;resize:vertical}
+.df{padding:12px 18px;border-top:1px solid var(--bd);display:flex;gap:8px;justify-content:flex-end}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10}
+#toast.show{opacity:1}#toast.err{background:var(--red);color:#fff}
+@media(max-width:640px){.card{grid-template-columns:1fr}.num{display:none}.acts{flex-wrap:wrap}.search{flex-basis:100%}}
 </style></head><body>
-<header><h1>Team OS Actions</h1>
-<input id="q" placeholder="Search…" size="22">
-<select id="f"><option value="open">Open only</option><option value="all">All</option><option value="done">Done</option></select>
-<button id="reload">Reload</button><span id="msg"></span></header>
+<header>
+ <div class="bar"><h1>Team OS Actions</h1><span class="sp"></span>
+  <div class="search"><input id="q" placeholder="Search actions, people, sources…" autocomplete="off"><kbd>/</kbd></div>
+  <button class="ic" id="reload" title="Reload from file">↻</button></div>
+ <div class="chips" id="chips"></div>
+</header>
 <main id="app"></main>
+<dialog id="dlg"><div class="dh" id="dt"></div><div class="db" id="db"></div>
+ <div class="df"><button class="btn" id="dno">Cancel</button><button class="btn pri" id="dok">Save</button></div></dialog>
+<div id="toast"></div>
 <script>
-const $=s=>document.querySelector(s);let T=[];
+const $=s=>document.querySelector(s);
+let T=[],filter='open',collapsed={};
+try{filter=localStorage.getItem('af')||'open';collapsed=JSON.parse(localStorage.getItem('ac')||'{}')}catch(e){}
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`(.+?)`/g,'<code>$1</code>');
-const isDone=c=>c.join(' ').includes('✅')&&!/open|urgent/i.test(c[c.length-1].replace('✅',''))||c[c.length-1].includes('✅');
-const msg=t=>{$('#msg').textContent=t||''};
-async function load(){const r=await fetch('/api/tables');T=await r.json();render()}
-async function api(method,body){const r=await fetch('/api/row',{method,body:JSON.stringify(body)});
- if(!r.ok){msg((await r.json()).error||'Error');return false}msg();await load();return true}
-function actionCol(t){const i=t.header.findIndex(h=>/action|dependency/i.test(h));return i<0?0:i}
+const today=()=>new Date().toISOString().slice(0,10);
+const last=c=>c[c.length-1]||'';
+const kind=st=>/✅/.test(st)?'done':/⛔/.test(st)?'nn':/🔴/.test(st)?'red':/🟡|🟦|blocked|pending|progress/i.test(st)?'amb':/🟢/.test(st)?'low':'amb';
+const isClosed=c=>{const k=kind(last(c));return k==='done'||k==='nn'};
+const cls={done:'grn',nn:'',red:'red',amb:'amb',low:'blu'},bar={done:'s-grn',nn:'',red:'s-red',amb:'s-amb',low:'s-blu'};
+function toast(t,err){const e=$('#toast');e.textContent=t;e.className='show'+(err?' err':'');clearTimeout(toast.t);toast.t=setTimeout(()=>e.className='',err?4000:1800)}
+async function load(){try{const r=await fetch('/api/tables');T=await r.json();render()}catch(e){toast('Cannot reach server',1)}}
+async function api(method,body,ok){const r=await fetch('/api/row',{method,body:JSON.stringify(body)});
+ if(!r.ok){toast((await r.json()).error||'Error — reload and retry',1);return false}toast(ok||'Saved');await load();return true}
+const actionCol=t=>{const i=t.header.findIndex(h=>/action|dependency/i.test(h));return i<0?0:i};
+const counts=()=>{const c={open:0,red:0,done:0,nn:0,all:0};T.forEach(t=>t.rows.forEach(r=>{const k=kind(last(r.cells));c.all++;
+ if(k==='done')c.done++;else if(k==='nn')c.nn++;else{c.open++;if(k==='red')c.red++}}));return c};
+const match=(r,f)=>{const k=kind(last(r.cells));return f==='all'||(f==='open'&&k!=='done'&&k!=='nn')||(f==='red'&&k==='red')||(f==='done'&&k==='done')||(f==='nn'&&k==='nn')};
+function chips(){const c=counts();const defs=[['open','Open'],['red','🔴 Urgent'],['done','Done'],['nn','Not needed'],['all','All']];
+ $('#chips').innerHTML=defs.map(([k,l])=>`<button class="chip ${filter===k?'on':''}" data-f="${k}">${l} <b>${c[k]}</b></button>`).join('')
+  +`<button class="chip sec" id="tog">${Object.values(collapsed).some(v=>v)?'Expand all':'Collapse all'}</button>`;
+ $('#chips').querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;try{localStorage.setItem('af',filter)}catch(e){}render()});
+ $('#tog').onclick=()=>{const any=Object.values(collapsed).some(v=>v);T.forEach((t,i)=>collapsed[i]=!any);save();render()}}
+const save=()=>{try{localStorage.setItem('ac',JSON.stringify(collapsed))}catch(e){}};
 function render(){
- const q=$('#q').value.toLowerCase(),f=$('#f').value,app=$('#app');app.innerHTML='';
+ chips();const q=$('#q').value.toLowerCase(),app=$('#app');app.innerHTML='';let shown=0;
  T.forEach((t,ti)=>{
-  const sc=t.header.length-1,ac=actionCol(t);
-  const rows=t.rows.filter(r=>{const d=isDone(r.cells);
-   return (f==='all'||(f==='done')===d)&&(!q||r.cells.join(' ').toLowerCase().includes(q))});
-  const s=document.createElement('section');
-  s.innerHTML=`<h2>${esc(t.section)} <button data-add="${ti}" style="float:right">+ Add</button></h2>`;
+  const sc=t.header.length-1,ac=actionCol(t),hasNum=/^#$/.test(t.header[0]);
+  const rows=t.rows.filter(r=>match(r,filter)&&(!q||r.cells.join(' ').toLowerCase().includes(q)));
+  if(!rows.length&&(filter!=='open'||q))return;
+  shown+=rows.length;
+  const s=document.createElement('section');if(collapsed[ti]&&!q)s.className='sec-closed';
+  s.innerHTML=`<div class="sh"><span class="car">▾</span><h2>${esc(t.section)}</h2><span class="cnt">${rows.length}</span><button class="add">+ Add</button></div><div class="list"></div>`;
+  s.querySelector('.sh').onclick=e=>{if(e.target.closest('.add'))return;collapsed[ti]=!collapsed[ti];save();render()};
+  s.querySelector('.add').onclick=()=>openForm(t,null);
+  const list=s.querySelector('.list');
   rows.forEach(r=>{
-   const d=isDone(r.cells),el=document.createElement('div');el.className='row'+(d?' done':'');
-   const hasNum=/^#$/.test(t.header[0]);
-   const meta=t.header.map((h,i)=>({h,v:r.cells[i]})).filter((x,i)=>i!==ac&&!(hasNum&&i===0)&&i!==sc&&x.v);
+   const k=kind(last(r.cells)),closed=k==='done'||k==='nn',el=document.createElement('div');
+   el.className=`card ${bar[k]} ${closed?'closed':''}`;
+   const meta=t.header.map((h,i)=>({h,v:r.cells[i]})).filter((x,i)=>i!==ac&&!(hasNum&&i===0)&&i!==sc&&x.v&&x.v!=='—');
    el.innerHTML=`<div class="num">${hasNum?esc(r.cells[0]):''}</div>
     <div><div class="t">${md(r.cells[ac]||'')}</div>
-     <div class="meta">${meta.map(x=>`<span class="pill">${esc(x.h)}: ${md(x.v)}</span>`).join('')}<span class="pill">${md(r.cells[sc]||'')}</span></div></div>
-    <div class="btns"><button data-s="✅ Done ${new Date().toISOString().slice(0,10)}">Done</button>
-     <button data-s="🔴 Open">🔴</button><button data-s="🟡 Open">🟡</button><button data-s="🟡 Blocked">Blocked</button><button data-e="1">Edit</button></div>`;
-   el.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const c=[...r.cells];c[sc]=b.dataset.s;api('PUT',{line:r.line,raw:r.raw,cells:c})});
-   el.querySelector('[data-e]').onclick=()=>edit(el,t,r);
-   s.appendChild(el)});
-  s.querySelector('[data-add]').onclick=()=>addRow(s,t);
+     <div class="meta"><span class="badge ${cls[k]}">${md(last(r.cells))}</span>${meta.map(x=>`<span class="tag"><i>${esc(x.h)}</i>${md(x.v)}</span>`).join('')}</div></div>
+    <div class="acts">${closed?'<button class="btn" data-s="🔴 Open">Reopen</button>':'<button class="btn ok" data-s="DONE">✓ Done</button>'}
+     <div class="menu"><button class="btn" data-m>⋯</button><div class="pop">
+      <button data-s="🔴 Open">🔴 Urgent / open</button><button data-s="🟡 Open">🟡 Open</button><button data-s="🟡 Blocked">🟡 Blocked</button><button data-s="NN">⛔ Not needed</button><button data-e>✎ Edit…</button></div></div></div>`;
+   el.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{let v=b.dataset.s;
+    if(v==='DONE')v='✅ Done '+today();if(v==='NN')v='⛔ Not needed '+today();
+    const c=[...r.cells];c[sc]=v;api('PUT',{line:r.line,raw:r.raw,cells:c},'Updated')});
+   el.querySelector('[data-m]').onclick=e=>{e.stopPropagation();const m=el.querySelector('.menu'),o=m.classList.contains('open');
+    document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'));if(!o)m.classList.add('open')};
+   el.querySelector('[data-e]').onclick=()=>openForm(t,r);
+   list.appendChild(el)});
   app.appendChild(s)});
+ if(!shown)app.innerHTML='<div class="empty">Nothing here 🎉</div>';
 }
-function form(t,cells,onSave,host){
- const f=document.createElement('div');f.className='edit';
- t.header.forEach((h,i)=>{const l=document.createElement('label');l.textContent=h;
-  const x=document.createElement(i===actionCol(t)?'textarea':'input');x.value=cells[i]||'';l.appendChild(x);f.appendChild(l)});
- const b=document.createElement('div');b.className='btns';
- b.innerHTML='<button data-ok>Save</button><button data-no>Cancel</button>';
- b.querySelector('[data-ok]').onclick=()=>onSave([...f.querySelectorAll('textarea,input')].map(x=>x.value));
- b.querySelector('[data-no]').onclick=()=>f.remove();f.appendChild(b);host.appendChild(f);return f}
-function edit(el,t,r){if(el.querySelector('.edit'))return;form(t,r.cells,c=>api('PUT',{line:r.line,raw:r.raw,cells:c}),el)}
-function addRow(s,t){if(s.querySelector('.edit'))return;
- const hasNum=/^#$/.test(t.header[0]);const nums=t.rows.map(r=>parseInt(r.cells[0])).filter(n=>!isNaN(n));
- const init=t.header.map((h,i)=>hasNum&&i===0?String((nums.length?Math.max(...nums):0)+1):i===t.header.length-1?'🔴 Open':'');
- const f=form(t,init,c=>api('POST',{header_line:t.header_line,header_raw:t.header_raw,cells:c}),s);s.insertBefore(f,s.children[1])}
-$('#q').oninput=render;$('#f').onchange=render;$('#reload').onclick=load;load();
+let cur=null;
+function openForm(t,r){
+ const ac=actionCol(t),hasNum=/^#$/.test(t.header[0]);let cells;
+ if(r)cells=r.cells;else{const nums=t.rows.map(x=>parseInt(x.cells[0])).filter(n=>!isNaN(n));
+  cells=t.header.map((h,i)=>hasNum&&i===0?String((nums.length?Math.max(...nums):0)+1):i===t.header.length-1?'🔴 Open':'')}
+ $('#dt').textContent=(r?'Edit ':'Add to ')+t.section;
+ $('#db').innerHTML=t.header.map((h,i)=>`<label>${esc(h)}${i===ac?`<textarea>${esc(cells[i]||'')}</textarea>`:`<input value="${esc(cells[i]||'')}">`}</label>`).join('');
+ cur={t,r};$('#dlg').showModal();
+}
+$('#dno').onclick=()=>$('#dlg').close();
+$('#dok').onclick=async()=>{const {t,r}=cur;const c=[...$('#db').querySelectorAll('textarea,input')].map(x=>x.value.replace(/\n/g,' ').replace(/\|/g,'/'));
+ const ok=r?await api('PUT',{line:r.line,raw:r.raw,cells:c}):await api('POST',{header_line:t.header_line,header_raw:t.header_raw,cells:c},'Added');
+ if(ok)$('#dlg').close()};
+document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'))});
+document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();$('#q').focus()}
+ if(e.key==='Escape'){$('#q').blur();document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'))}});
+$('#q').oninput=render;$('#reload').onclick=()=>{load();toast('Reloaded')};load();
 </script></body></html>
