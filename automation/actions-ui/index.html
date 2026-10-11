@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Team OS Actions</title>
+<style>
+:root{--bg:#f7f7f5;--fg:#1c1c1a;--mut:#6b6b66;--card:#fff;--bd:#e2e2dc;--acc:#2f5fd0}
+@media(prefers-color-scheme:dark){:root{--bg:#161616;--fg:#e9e9e6;--mut:#9a9a94;--card:#202020;--bd:#333;--acc:#7da2ff}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif}
+header{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--bd);padding:12px 16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;z-index:2}
+h1{font-size:16px;margin:0 8px 0 0}input,select,textarea,button{font:inherit;color:inherit;background:var(--card);border:1px solid var(--bd);border-radius:6px;padding:5px 8px}
+button{cursor:pointer}button:hover{border-color:var(--acc)}main{padding:16px;max-width:1200px;margin:auto}
+section{margin-bottom:28px}h2{font-size:14px;margin:0 0 8px;color:var(--mut)}
+.row{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;margin-bottom:8px;display:grid;grid-template-columns:44px 1fr auto;gap:10px;align-items:start}
+.row.done{opacity:.55}.row.done .t{text-decoration:line-through}
+.num{color:var(--mut);font-variant-numeric:tabular-nums}.t b{font-weight:600}.meta{color:var(--mut);font-size:12px;margin-top:3px}
+.pill{display:inline-block;border:1px solid var(--bd);border-radius:99px;padding:0 8px;font-size:12px;margin-right:6px}
+.btns{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}.btns button{padding:2px 7px;font-size:12px}
+.edit{grid-column:1/-1;display:grid;gap:6px}.edit label{font-size:12px;color:var(--mut)}.edit textarea{width:100%;min-height:50px}.edit input{width:100%}
+#msg{color:#c33;font-size:12px}
+@media(max-width:600px){.row{grid-template-columns:1fr}.btns{justify-content:flex-start}}
+</style></head><body>
+<header><h1>Team OS Actions</h1>
+<input id="q" placeholder="Search…" size="22">
+<select id="f"><option value="open">Open only</option><option value="all">All</option><option value="done">Done</option></select>
+<button id="reload">Reload</button><span id="msg"></span></header>
+<main id="app"></main>
+<script>
+const $=s=>document.querySelector(s);let T=[];
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`(.+?)`/g,'<code>$1</code>');
+const isDone=c=>c.join(' ').includes('✅')&&!/open|urgent/i.test(c[c.length-1].replace('✅',''))||c[c.length-1].includes('✅');
+const msg=t=>{$('#msg').textContent=t||''};
+async function load(){const r=await fetch('/api/tables');T=await r.json();render()}
+async function api(method,body){const r=await fetch('/api/row',{method,body:JSON.stringify(body)});
+ if(!r.ok){msg((await r.json()).error||'Error');return false}msg();await load();return true}
+function actionCol(t){const i=t.header.findIndex(h=>/action|dependency/i.test(h));return i<0?0:i}
+function render(){
+ const q=$('#q').value.toLowerCase(),f=$('#f').value,app=$('#app');app.innerHTML='';
+ T.forEach((t,ti)=>{
+  const sc=t.header.length-1,ac=actionCol(t);
+  const rows=t.rows.filter(r=>{const d=isDone(r.cells);
+   return (f==='all'||(f==='done')===d)&&(!q||r.cells.join(' ').toLowerCase().includes(q))});
+  const s=document.createElement('section');
+  s.innerHTML=`<h2>${esc(t.section)} <button data-add="${ti}" style="float:right">+ Add</button></h2>`;
+  rows.forEach(r=>{
+   const d=isDone(r.cells),el=document.createElement('div');el.className='row'+(d?' done':'');
+   const hasNum=/^#$/.test(t.header[0]);
+   const meta=t.header.map((h,i)=>({h,v:r.cells[i]})).filter((x,i)=>i!==ac&&!(hasNum&&i===0)&&i!==sc&&x.v);
+   el.innerHTML=`<div class="num">${hasNum?esc(r.cells[0]):''}</div>
+    <div><div class="t">${md(r.cells[ac]||'')}</div>
+     <div class="meta">${meta.map(x=>`<span class="pill">${esc(x.h)}: ${md(x.v)}</span>`).join('')}<span class="pill">${md(r.cells[sc]||'')}</span></div></div>
+    <div class="btns"><button data-s="✅ Done ${new Date().toISOString().slice(0,10)}">Done</button>
+     <button data-s="🔴 Open">🔴</button><button data-s="🟡 Open">🟡</button><button data-s="🟡 Blocked">Blocked</button><button data-e="1">Edit</button></div>`;
+   el.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{const c=[...r.cells];c[sc]=b.dataset.s;api('PUT',{line:r.line,raw:r.raw,cells:c})});
+   el.querySelector('[data-e]').onclick=()=>edit(el,t,r);
+   s.appendChild(el)});
+  s.querySelector('[data-add]').onclick=()=>addRow(s,t);
+  app.appendChild(s)});
+}
+function form(t,cells,onSave,host){
+ const f=document.createElement('div');f.className='edit';
+ t.header.forEach((h,i)=>{const l=document.createElement('label');l.textContent=h;
+  const x=document.createElement(i===actionCol(t)?'textarea':'input');x.value=cells[i]||'';l.appendChild(x);f.appendChild(l)});
+ const b=document.createElement('div');b.className='btns';
+ b.innerHTML='<button data-ok>Save</button><button data-no>Cancel</button>';
+ b.querySelector('[data-ok]').onclick=()=>onSave([...f.querySelectorAll('textarea,input')].map(x=>x.value));
+ b.querySelector('[data-no]').onclick=()=>f.remove();f.appendChild(b);host.appendChild(f);return f}
+function edit(el,t,r){if(el.querySelector('.edit'))return;form(t,r.cells,c=>api('PUT',{line:r.line,raw:r.raw,cells:c}),el)}
+function addRow(s,t){if(s.querySelector('.edit'))return;
+ const hasNum=/^#$/.test(t.header[0]);const nums=t.rows.map(r=>parseInt(r.cells[0])).filter(n=>!isNaN(n));
+ const init=t.header.map((h,i)=>hasNum&&i===0?String((nums.length?Math.max(...nums):0)+1):i===t.header.length-1?'🔴 Open':'');
+ const f=form(t,init,c=>api('POST',{header_line:t.header_line,header_raw:t.header_raw,cells:c}),s);s.insertBefore(f,s.children[1])}
+$('#q').oninput=render;$('#f').onchange=render;$('#reload').onclick=load;load();
+</script></body></html>
