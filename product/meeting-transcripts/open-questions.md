@@ -61,3 +61,4 @@
 | Q15 | Does prod GA require Zoom Marketplace app approval, or does OAuth redirect suffice? | Anuj | Open (Project Plan 6/16) |
 | Q16 | Module disable doesn't reliably suppress AI feature flags (sys-admin save restores them) | AI team + Eden UI | Open — **GA-blocking** quality item (6/18) |
 | Q17 | How is an AI recommendation persisted into a development goal without information loss? | AI team + Varnica | Open — deferred from MVP (PDP 6/23); V2 design hole |
+| Q18 | Are meeting transcripts associated to 1:1s via the **calendar service only** (i.e. meeting detection depends on a connected calendar)? | Anuj | Open (2026-07-28) — working assumption per Lalit; **confirm with Anuj**. Gates the "Connect Zoom when calendar not connected" variant (ENG-82994 AC17): if true, connecting Zoom without a calendar must prompt the user to connect a calendar. |

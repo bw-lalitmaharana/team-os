@@ -1399,3 +1399,28 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Lalit Maharana, Hiten Khuman, Harshini Vijay
 - **Where:** Group DM (Harshini Vijay, Lalit Maharana, Hiten Khuman) — 2026-09-30 12:48–15:22 IST
 - **Summary:** Active UX/implementation thread: Lalit asked for transcript-state icons in meeting accordions (pending/available/not-available variants for Zoom vs manual-upload), Hiten clarified on-demand transcript fetch is feasible for ended meetings but meeting-time-change scenarios need a separate spike; Harshini shared Figma designs for error component reuse; open question on whether transcript-arrival should auto-convert meeting to past-state or nudge user to reload.
+
+### 2026-08-11 — meeting
+- **Who:** Lalit Maharana, Sagar Bhat, Hemant Kumar
+- **Where:** Zoom — "Meeting Transcripts - Jira Alignment" (16:02 IST, 1h05m); assets thread 19ff09d914b471fe
+- **Summary:** Full architecture/schema/endpoint review. **DB schema** covers three areas — pipeline setup (task ID, instance ID, user), prep & recap data, recommendations; detail in new Confluence page 4350935050 (Sagar). **Endpoints** reviewed: trigger processing, get status, bulk accept, bulk decline, meeting recommendation, recap; **bulk ops handle 4 items per call**; trigger endpoint to add `stages` and `force_regeneration` params. **UI caps:** max 3 recommendations, 2 goal signals (Hemant) — Sagar argued 2 rather than 3 for attention flags and recap items, unresolved. **Reconciliation runs at meeting level and needs to move to user level** to stop duplicate recommendations for the same goal across meeting instances; Sagar to assess splitting goal extraction and reconciliation into separate tickets. **Turn IDs** — Sagar reopened the earlier decision to drop them. **Speaker attribution** confirmed single-pass only; multi-pass to be tested. Sagar proposed summary/blocker sizing key off *processed* transcript length rather than raw. Carry-forward criteria for recurring recap items raised but not defined. Actions: Hemant → share endpoint contracts; Sagar → attach schema/infra detail to ticket, implement bulk accept/decline business logic, implement reconciliation; Lalit → update documentation.
+
+### 2026-08-11 — slack
+- **Who:** Hiten Khuman, Lalit Maharana, Sagar Bhat
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786435918603179?thread_ts=1786435918.603179&cid=C0ACYVAG5A8)
+- **Summary:** **Manual transcript upload proceeds regardless of Zoom consent status.** Hiten asked whether AI insights should generate from a manually uploaded transcript when Zoom consent is absent; Lalit confirmed yes (14:17 IST). Sagar noted `transcript_enabled` is the consent flag and must be true for both users, and that differentiating manual vs automated would require a new param on the triggering API — otherwise both paths pass `transcript_enabled = true` plus the S3 URL. Sagar framed the implication directly ("does that mean a manual transcript upload override the user's personal consent?") and asked that the decision be **recorded somewhere for QA security testing** (14:58 IST). Sagar also asked (15:04 IST) whether the **source (manual/automated) should be persisted** for future use — **no reply in thread as of 8/12.**
+
+### 2026-08-11 — slack
+- **Who:** Tanveer Farooq, Danish Sharma, Asa Denton
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786431628264999?thread_ts=1786431628.264999&cid=C0ACYVAG5A8)
+- **Summary:** **Zoom App Marketplace publication raised as a release dependency.** Tanveer flagged that approaching release means the Zoom app likely needs listing on the Zoom App Marketplace, requiring third-party approval from Zoom with a long lead time — must start immediately. Danish shared Zoom's review-process/prerequisites doc and requested admin-level permission to create the production app in the Betterworks Zoom account and submit it for review. Asa Denton granted Danish the "Zoom for Developers" role (21:00 IST). Reactivates ENG-82987 (Zoom Marketplace/API feasibility spike, In Progress since 6/23) and makes Jira Q15 a live gate.
+
+### 2026-08-11 — slack
+- **Who:** Lalit Maharana
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786433417524009?thread_ts=1784884825.161829&cid=C0ACYVAG5A8)
+- **Summary:** P3 items logged below the P2 line — skill recommendations; Slack / Jira / Teams connections.
+
+### 2026-08-11 — slack
+- **Who:** Nataliya Kolb, Tanveer Farooq, Nellie LeMonier
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786402255030289?thread_ts=1786402255.030289&cid=C0ACYVAG5A8)
+- **Summary:** Nataliya requested a demo to see feature progress; scheduling friction across IST/PST (Friday off in India, US slots booked). Nellie offered 7am PST Thursday for 30 minutes with Natalia — stakeholder demand for a demo cadence continues alongside the existing Tuesday slot.
