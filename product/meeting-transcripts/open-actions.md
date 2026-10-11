@@ -1,6 +1,6 @@
 # Open Actions — Meetings Transcripts Feature
 
-Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-08** — the May week-1 onboarding items were completed and archived; current owed items below reflect the May 27–30 recalibration + 2026-06-07 Jira decomposition + the June 1–5 daily-catchup / UX-Sync / roadmap signal. **Backfilled 2026-10-11** with July–Aug meeting-notes signal (#26–45 unverified; #46–49 from 9/17 Zoom summary). **Backfilled 2026-06-30** with June 9–30 Zoom-summary signal — new items #13–25 below; #4 and #5 resolved.
+Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-08** — the May week-1 onboarding items were completed and archived; current owed items below reflect the May 27–30 recalibration + 2026-06-07 Jira decomposition + the June 1–5 daily-catchup / UX-Sync / roadmap signal. **Backfilled 2026-10-11** with July–Aug meeting-notes signal (#26–45 unverified; #46–49 from 9/17 Zoom summary; #50–71 from Aug–Oct Zoom summaries, unverified). **Backfilled 2026-06-30** with June 9–30 Zoom-summary signal — new items #13–25 below; #4 and #5 resolved.
 
 ## Lalit's open items (current)
 
@@ -70,6 +70,35 @@ Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-0
 | 48 | **Refine Feedback Summary Tool requirements** — default args (current FY, business quarters), custom date ranges, self/team-member/manager/super-admin scope | AI Platform Refinement 9/17 | Near-term | 🟡 Open |
 | 49 | **Sequence winter MCP work:** Feedback Summary → Draft Feedback → Draft Conversations (Goal Assist = MCP prompt, not sequencing) | AI Platform Refinement 9/17 | Near-term | 🟡 Open |
 
+## Lalit's open items — Aug–Oct Zoom summaries backfill (2026-10-11)
+
+> From Zoom AI summaries of 30 meetings 8/31–10/9 (5 pages scanned; **pagination incomplete**; ~134 meetings had no summary/permission, not read). All unverified; Slack/Jira unreachable for cross-check.
+
+| # | Action | From | Deadline | Status |
+|---|--------|------|----------|--------|
+| 50 | **MCP Tools & Prompts:** Reach out to Mary and Molly to update user docs: enabling Zoom AI for ZoomMate | Perf Partner tools 9/9 | — | 🟡 Open |
+| 51 | **MCP Tools & Prompts:** Cross-reference MCP tool inventory spreadsheet vs codebase; second pass (standardize naming, elaborate definitions) | Perf Partner tools 9/9 | — | 🟡 Open |
+| 52 | **MCP Tools & Prompts:** Write user stories for AI team: meeting prep/recap, feedback summary, draft feedback → MCP tools + prompts | Perf Partner tools 9/9 | — | 🔴 Open |
+| 53 | **MCP Tools & Prompts:** With Nellie: propose monthly MCP tools/prompts release schedule | MCP Session 1 9/21 | — | 🟡 Open |
+| 54 | **MCP Tools & Prompts:** Review Nellie's updated doc (MCP prompts approach + tool list) once added | Lalit/Nellie TB 9/23 | — | 🟡 Open |
+| 55 | **MCP Meetings tools:** Add comments (API permission gaps, missing update-agenda-item tool) to shared Meetings MCP feature doc | Paul/Lalit 10/7 | — | 🔴 Open |
+| 56 | **MCP Meetings tools:** Commit MCP Meetings tools code to GitHub, linked to Paul's Jira tickets; coordinate code review (Varnika, Dhanuj, Anuj) | Paul/Lalit 10/7 | — | 🟡 Open |
+| 57 | **MCP Meetings tools:** Give Paul feedback on PM workflow tools; set up recurring meeting with Paul Agustin | Paul/Lalit 10/7 | — | 🟢 Low |
+| 58 | **Meetings / transcripts:** Notify Anuj if Nataliya replies with series ID + Zoom meeting ID; ping Nellie re transcript issue/refresh | Meetings Troubleshooting 10/7; 10/7 06:41 | — | 🟡 Open |
+| 59 | **Meetings / transcripts:** 10/7 transcript-flow debug follow-ups (call Sagar back; test record upload; prep-call status check) | Sagar/Hemant 10/7 | — | Same day — likely done, confirm |
+| 60 | **Meetings / transcripts:** Check alternatives to calendar link/unlink (sync-now, bulk link); keep log of deployment issues | Nellie/Lalit 9/3 | — | 🟡 Open |
+| 61 | **Meetings / transcripts:** Ticket: review/rename "Bulk Create 1:1s" (alt "Link Meetings"), with Anika's input | Harshini/Lalit 9/7 | — | 🟡 Open |
+| 62 | **Meetings / transcripts:** Ticket: link meeting from series page; convert archived-series ticket to story + add messaging requirement | Harshini/Hiten 9/16 | — | 🟡 Open |
+| 63 | **Meetings / transcripts:** Ask Asa who can enable AI Companion / transcripts (users/roles) | Zoom mtg 9/9 | — | 🟡 Open |
+| 64 | **Meetings / transcripts:** Assign Harshini as designer in Phase 2; scope all valid transcript UI scenarios → Harshini; speak with Arno Jones | Harshini/Lalit 9/18 | — | 🟡 Open |
+| 65 | **Meetings / transcripts:** Manual-upload name-mismatch error should show which name mismatched | Harshini/Lalit 9/18 | — | 🟡 Open |
+| 66 | **Meetings / transcripts:** Ticket/epic: onboarding enhancements (activity log, tips, Zoom AI host requirement); evaluate fallback fetch by Zoom Meeting ID with Harshini | Harshini/Lalit 9/25 | — | 🟡 Open |
+| 67 | **Meetings / transcripts:** Clarify Teams/Meet spike scope; usability improvements in parallel | Tanveer/Lalit 9/23 | — | Mon 9/28 — likely passed, confirm |
+| 68 | **Career Path / AI:** Review Nataliia's prototype, Figma pages and spikes | Career Path/AI vision 9/17 | — | Follow-up was Mon 9/21 — confirm |
+| 69 | **Career Path / AI:** Assign AI team member to AI position-skill-recommendation spike; pick up first spike | Career Path AI Engine 9/22 | — | 🟡 Open |
+| 70 | **Custom Roles (APP-369/370):** Define per-permission expected behavior/UI (view/list/create/update/delete) for each App Platform page; share in Slack + Confluence | Limited Access UX 9/4 | — | 🔴 Open |
+| 71 | **Custom Roles (APP-369/370):** Create recurring weekly review meeting | Limited Access UX 9/4 | — | 🟢 Low |
+
 ## Cross-pod commitments to track
 
 | Dependency | They owe us | Deadline | Status |
@@ -92,6 +121,14 @@ Updated after each `/meeting-debrief`. Sorted by priority. **Refreshed 2026-06-0
 | Saurabh | PDP scope-alignment PRs, merge by Monday | Wk of 8/17 | 🟡 Pending (8/13) |
 | Varnika | Mixpanel event tracking for NextGen | — | 🟡 Pending (7/3) |
 | Ankit (+ Bhavesh) | **Feedback Summary Tool spike** — can summaries be generated end-to-end in one MCP tool call vs. current multi-call/pre-processed API flow | Next sprint | 🟡 Pending (9/17) |
+| Nellie | Log calendar sync error bug (status 0) in Meetings pod → Anuj; create limited-permission test role in Rainforest; update MCP tool list doc + share with JB | — | 🟡 Pending (9/3–9/23) |
+| Sarah / Eden | Permission-mapping ticket review; static Figma per page state; read-only field states | — | 🟡 Pending (9/4) |
+| Harshini / Hiten | Zoom connection-status UI text, consent modal, banner/tag designs, Figma per scoped scenarios; hide header for archived meetings | — | 🟡 Pending (9/7–9/25) |
+| Nataliia | Share spikes/Figma prototype; add Lalit as admin to "Talent only" org; spike quality notes; reschedule scope meeting (Winter vs Spring) | — | 🟡 Pending (9/17–9/22) |
+| Tanveer | Teams API change answer + integration-team call for Teams/Meet estimates | Mon 9/28 | 🟡 Pending (9/23) |
+| Sagar / Anuj | Transcript trigger investigation (container restart); conferencing-data ticket; review MCP meeting tools; AuthenProxy debug | — | 🟡 Pending (10/7) |
+| Paul Agustin | Flesh out Meetings MCP doc; Jira issues for phases/tools assigned to Lalit; share PM workflow tools | — | 🟡 Pending (10/7) |
+| Cheau-Long / Jason Bilyeu | Analytics MCP walkthrough; goals/conversation PR links | — | 🟡 Pending (9/24, 10/1) |
 
 ## Adjacent ownerships (from Nellie roadmap 6/4 — outside ENG-79199, tracked here for visibility)
 - **Preview epic** for custom-content-by-tenant notifications (+ spike this sprint; blocked on E2E QA by PM Eden).
