@@ -4,13 +4,39 @@
 Run:  python3 automation/actions-ui/server.py   ->  http://127.0.0.1:8765
 The markdown file stays the source of truth: the UI rewrites only the table rows you edit.
 """
-import json, os, sys, tempfile
+import datetime, json, os, re, sys, tempfile
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 MD = os.environ.get("ACTIONS_MD", os.path.join(ROOT, "product/meeting-transcripts/open-actions.md"))
 HTML = os.path.join(os.path.dirname(__file__), "index.html")
 PORT = int(os.environ.get("PORT", 8765))
+HERE = os.path.dirname(__file__)
+
+
+def load_json(name):
+    try:
+        with open(os.path.join(HERE, name), encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return []
+
+
+# Derived, read-only fields. The markdown stays the source of truth; edit people.json / tracks.json to tune them.
+PEOPLE, TRACKS = load_json("people.json"), load_json("tracks.json")
+ALIAS = {a: p["name"] for p in PEOPLE for a in p.get("aliases", [p["name"]])}
+PEOPLE_RE = re.compile(r"(?<![\w])(" + "|".join(re.escape(a) for a in sorted(ALIAS, key=len, reverse=True)) + r")(?![\w])") if ALIAS else None
+ISO_RE = re.compile(r"(?<![\d-])(20\d\d)-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])(?![\d-])")
+MD_RE = re.compile(r"(?<![\d/.-])(1[0-2]|[1-9])/(3[01]|[12]\d|0?[1-9])(?![\d/])")
+PREFIX_RE = re.compile(r"^((?:🔥|🟦)\s*)?\*\*([^*]+?):\*\*\s*")
+
+
+def col(header, *pats):
+    for p in pats:
+        for i, h in enumerate(header):
+            if re.search(p, h, re.I):
+                return i
+    return None
 
 
 def split_row(line):
@@ -27,6 +53,44 @@ def read_lines():
         return f.read().split("\n")
 
 
+def derive(header, cells, today=None):
+    """raised date, stakeholders, track and display title for one row."""
+    today = today or datetime.date.today()
+    main = col(header, r"action", r"owe", r"dependency") or 0
+    text = cells[main] if main < len(cells) else ""
+    m = PREFIX_RE.match(text)
+    prefix = m.group(2).strip() if m else ""
+    title = (m.group(1) or "") + text[m.end():] if m else text
+    # raised = earliest date in the From cell (cross-pod table: dates in the status, e.g. "Pending (7/20)")
+    fi = col(header, r"\bfrom\b")
+    src = cells[fi] if fi is not None and fi < len(cells) else ISO_RE.sub("", cells[-1] if cells else "")
+    found = []
+    for y, mo, d in ISO_RE.findall(src) if fi is not None else []:
+        found.append(datetime.date(int(y), int(mo), int(d)))
+    for mo, d in MD_RE.findall(src):
+        try:
+            c = datetime.date(today.year, int(mo), int(d))
+        except ValueError:
+            continue
+        found.append(c if c <= today + datetime.timedelta(days=14) else c.replace(year=c.year - 1))
+    # stakeholders: counterparties named in the action / dependency first, then who raised it
+    order = [i for i in (col(header, r"action|dependency"), col(header, r"owe")) if i is not None]
+    order += [i for i in (col(header, r"\bfrom\b"),) if i is not None]
+    who = []
+    for i in dict.fromkeys(order):
+        for a in PEOPLE_RE.findall(cells[i]) if PEOPLE_RE and i < len(cells) else []:
+            if ALIAS[a] not in who:
+                who.append(ALIAS[a])
+    # track: an exact track-name prefix wins, then rules on the prefix, then rules on the whole row
+    track = next((t["name"] for t in TRACKS if t["name"].lower() == prefix.lower()), None)
+    for blob in ([prefix] if prefix else []) + [" ".join(cells[:main + 1])]:
+        for t in TRACKS:
+            if track is None and re.search(t["match"], blob, re.I):
+                track = t["name"]
+    return {"raised": min(found).isoformat() if found else None, "people": who,
+            "track": track or "Other", "title": title, "prefix": prefix}
+
+
 def parse(lines):
     """Return tables: [{section, header, header_line, rows:[{line, cells}]}]"""
     tables, section, i = [], "", 0
@@ -35,10 +99,14 @@ def parse(lines):
         if ln.startswith("#"):
             section = ln.lstrip("#").strip()
         if ln.strip().startswith("|") and i + 1 < len(lines) and is_sep(lines[i + 1]):
-            t = {"section": section, "header": split_row(ln), "header_line": i, "header_raw": ln, "rows": []}
+            hdr = split_row(ln)
+            t = {"section": section, "header": hdr, "header_line": i, "header_raw": ln, "rows": [],
+                 "kind": "wait" if col(hdr, r"owe") is not None else "mine",
+                 "main": col(hdr, r"action", r"owe", r"dependency") or 0}
             j = i + 2
             while j < len(lines) and lines[j].strip().startswith("|"):
-                t["rows"].append({"line": j, "cells": split_row(lines[j]), "raw": lines[j]})
+                cells = split_row(lines[j])
+                t["rows"].append({"line": j, "cells": cells, "raw": lines[j], **derive(hdr, cells)})
                 j += 1
             tables.append(t)
             i = j
@@ -77,6 +145,8 @@ class H(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == "/api/tables":
             return self._send(200, json.dumps(parse(read_lines())))
+        if self.path == "/api/meta":
+            return self._send(200, json.dumps({"tracks": TRACKS, "people": {p["name"]: p.get("role", "") for p in PEOPLE}}))
         if self.path in ("/", "/index.html"):
             with open(HTML, "rb") as f:
                 return self._send(200, f.read(), "text/html")

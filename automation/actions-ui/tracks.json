@@ -1,0 +1,12 @@
+[
+  {"name": "Custom Roles", "color": "#7a5af8", "match": "custom roles|APP-3[67]\\d"},
+  {"name": "Zoom, consent & ingestion", "color": "#2e90fa", "match": "zoom|consent|infosec|retention|\\bTTL\\b|webhook|calendar|ingest|marketplace|champaign|rescheduled|conferencing|multi-org|transcript[- ](trigger|format|paste|mapping)"},
+  {"name": "Recommendations & learning", "color": "#ee46bc", "match": "career[- ]path|skill|recommend|\\bPDP\\b|course|talent|docebo|udemy|\\bLMS\\b|learning"},
+  {"name": "Research & discovery", "color": "#f79009", "match": "JTBD|interview|cohort|hypothes"},
+  {"name": "Notifications & legacy", "color": "#d92d20", "match": "legacy|notification|batching"},
+  {"name": "AI platform & Phase 2", "color": "#0ba5ec", "match": "AI platform|phase[- ]?(1\\.5|2)|feedback summary|slackbot|gemma|\\bLLM\\b|golden dataset|embedding|inference|agentic|AI[- ]initiatives|prompt[- ]eng|app platform|permission|admin roles?|\\bPOC\\b|spike|schema|chunking|conversations?"},
+  {"name": "MCP tools", "color": "#12b76a", "match": "\\bMCP\\b|prompts?\\b|tool registration"},
+  {"name": "Release, docs & enablement", "color": "#06aed4", "match": "release|refinement|enablement|notes|\\baha\\b|confluence|CS training|roadmap|epic|LaunchDarkly|documentation|user docs"},
+  {"name": "Team & ways of working", "color": "#667085", "match": "recurring|catch-?ups?|india pm|meetup|hackathon|capstone|prototyp|\\bPMR\\b|courses|delivery-manager|1:1 with|mixpanel"},
+  {"name": "Meetings AI surfaces", "color": "#3b5bdb", "match": "recap|prep\\b|surface|visibility|tag[- ]state|key fields|1:1|agenda|bulk create|link meetings|design|figma|\\bUI\\b|banner|modal|walkthrough|must-have|usability|meeting|transcript|teams|golden|acceptance|stor(y|ies)"}
+]

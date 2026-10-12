@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Team OS Actions</title>
+<title>Team OS Actions</title><link rel="icon" href="data:,">
 <style>
 :root{--bg:#f4f5f7;--fg:#171a21;--mut:#667085;--card:#fff;--bd:#e4e7ec;--acc:#3b5bdb;--accbg:#eef2ff;
  --red:#d92d20;--redbg:#fef3f2;--amb:#b54708;--ambbg:#fffaeb;--grn:#067647;--grnbg:#ecfdf3;--gry:#667085;--grybg:#f2f4f7;--blu:#175cd3;--blubg:#eff8ff;
@@ -11,8 +11,8 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,system-ui,sans-serif}
 button,input,select,textarea{font:inherit;color:inherit}
-header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
-.bar{max-width:1100px;margin:auto;padding:12px 20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd)}
+.bar{max-width:1100px;margin:auto;padding:12px 20px 8px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 h1{font-size:17px;margin:0;font-weight:650;letter-spacing:-.01em}
 .sp{flex:1}
 .search{position:relative;min-width:220px;flex:0 1 320px}
@@ -21,18 +21,33 @@ h1{font-size:17px;margin:0;font-weight:650;letter-spacing:-.01em}
 .search kbd{position:absolute;right:8px;top:7px;font-size:11px;color:var(--mut);border:1px solid var(--bd);border-radius:4px;padding:0 5px}
 .ic{border:1px solid var(--bd);background:var(--card);border-radius:8px;padding:6px 10px;cursor:pointer}
 .ic:hover{border-color:var(--acc)}
-.chips{max-width:1100px;margin:auto;padding:0 20px 12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chips,.ctl{max-width:1100px;margin:auto;padding:0 20px 8px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.ctl{padding-bottom:12px}
 .chip{border:1px solid var(--bd);background:var(--card);border-radius:99px;padding:3px 12px;cursor:pointer;font-size:13px;color:var(--mut);display:inline-flex;gap:6px;align-items:center}
 .chip b{color:var(--fg);font-weight:600}
 .chip:hover{border-color:var(--acc)}
 .chip.on{background:var(--acc);border-color:var(--acc);color:#fff}.chip.on b{color:#fff}
 .chip.sec{border-style:dashed}
+.sum{margin-left:auto;font-size:12px;color:var(--mut)}
+.seg{display:inline-flex;align-items:center;border:1px solid var(--bd);border-radius:8px;background:var(--card);overflow:hidden}
+.seg span{font-size:11px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.04em;padding:0 8px}
+.seg button{border:0;border-left:1px solid var(--bd);background:transparent;padding:4px 11px;cursor:pointer;font-size:13px;color:var(--mut)}
+.seg button:hover{color:var(--acc)}
+.seg button.on{background:var(--acc);color:#fff}
+.sel{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--bd);border-radius:8px;background:var(--card);padding:0 4px 0 8px;font-size:12px;color:var(--mut)}
+.sel.on{border-color:var(--acc);background:var(--accbg)}
+.sel select{border:0;background:transparent;padding:4px 2px;font-size:13px;max-width:190px;cursor:pointer;outline:none}
+.sel select option{background:var(--card);color:var(--fg)}
 main{max-width:1100px;margin:auto;padding:20px}
+.hint{font-size:12px;color:var(--mut);margin:-6px 0 14px}
 section{margin-bottom:26px}
-.sh{display:flex;align-items:center;gap:8px;margin:0 0 10px;cursor:pointer;user-select:none}
-.sh h2{font-size:13px;font-weight:650;margin:0;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.sh{display:flex;align-items:center;gap:8px;margin:0 0 10px;cursor:pointer;user-select:none;flex-wrap:wrap}
+.sh h2{font-size:13px;font-weight:650;margin:0;text-transform:uppercase;letter-spacing:.04em;color:var(--fg)}
 .sh .cnt{font-size:12px;background:var(--grybg);color:var(--mut);border-radius:99px;padding:0 8px}
+.sh .cnt.red{background:var(--redbg);color:var(--red)}
+.sh .sub{font-size:12px;color:var(--mut)}
 .sh .car{color:var(--mut);transition:transform .15s}.sec-closed .car{transform:rotate(-90deg)}
+.sh .dot{width:10px;height:10px;border-radius:50%}
 .sec-closed .list{display:none}
 .add{margin-left:auto;border:1px dashed var(--bd);background:transparent;border-radius:8px;padding:2px 10px;cursor:pointer;color:var(--mut);font-size:12px}
 .add:hover{border-color:var(--acc);color:var(--acc)}
@@ -46,9 +61,16 @@ section{margin-bottom:26px}
 .meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;align-items:center}
 .tag{font-size:12px;color:var(--mut);background:var(--grybg);border-radius:6px;padding:1px 8px}
 .tag i{font-style:normal;opacity:.7;margin-right:4px}
+.tag.old{color:var(--amb);background:var(--ambbg)}.tag.older{color:var(--red);background:var(--redbg)}
 .badge{font-size:12px;font-weight:600;border-radius:99px;padding:1px 10px;color:var(--gry);background:var(--grybg)}
 .badge.red{color:var(--red);background:var(--redbg)}.badge.amb{color:var(--amb);background:var(--ambbg)}
 .badge.grn{color:var(--grn);background:var(--grnbg)}.badge.blu{color:var(--blu);background:var(--blubg)}
+.pp{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--bd);background:var(--card);border-radius:99px;padding:0 9px 0 2px;font-size:12px;cursor:pointer;color:var(--fg)}
+.pp:hover{border-color:var(--acc)}
+.av{width:18px;height:18px;border-radius:50%;color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.sh .av{width:22px;height:22px;font-size:10px}
+.tk{border:1px solid color-mix(in srgb,var(--c) 40%,transparent);background:color-mix(in srgb,var(--c) 12%,transparent);color:var(--c);border-radius:6px;padding:0 8px;font-size:12px;cursor:pointer}
+.tk:hover{background:color-mix(in srgb,var(--c) 22%,transparent)}
 .acts{display:flex;gap:6px;align-items:center}
 .btn{border:1px solid var(--bd);background:var(--card);border-radius:7px;padding:3px 10px;font-size:12.5px;cursor:pointer;white-space:nowrap}
 .btn:hover{border-color:var(--acc);color:var(--acc)}
@@ -65,19 +87,22 @@ dialog::backdrop{background:rgba(10,12,18,.5)}
 .dh{padding:14px 18px;border-bottom:1px solid var(--bd);font-weight:650}
 .db{padding:14px 18px;display:grid;gap:12px;max-height:68vh;overflow:auto}
 .db label{display:grid;gap:4px;font-size:12px;color:var(--mut);font-weight:600}
-.db input,.db textarea{border:1px solid var(--bd);border-radius:8px;padding:7px 10px;background:var(--bg);font-weight:400;color:var(--fg);outline:none;font-size:14px}
-.db input:focus,.db textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--accbg)}
+.db input,.db textarea,.db select{border:1px solid var(--bd);border-radius:8px;padding:7px 10px;background:var(--bg);font-weight:400;color:var(--fg);outline:none;font-size:14px}
+.db input:focus,.db textarea:focus,.db select:focus{border-color:var(--acc);box-shadow:0 0 0 3px var(--accbg)}
 .db textarea{min-height:80px;resize:vertical}
+.db .note{font-size:12px;color:var(--mut);font-weight:400;margin:0}
 .df{padding:12px 18px;border-top:1px solid var(--bd);display:flex;gap:8px;justify-content:flex-end}
 #toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:8px 16px;border-radius:99px;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:10}
 #toast.show{opacity:1}#toast.err{background:var(--red);color:#fff}
-@media(max-width:640px){.card{grid-template-columns:1fr}.num{display:none}.acts{flex-wrap:wrap}.search{flex-basis:100%}}
+@media(max-width:640px){header{position:static}.card{grid-template-columns:1fr}.num{display:none}.acts{flex-wrap:wrap}.search{flex-basis:100%}.sum{margin-left:0}}
 </style></head><body>
 <header>
  <div class="bar"><h1>Team OS Actions</h1><span class="sp"></span>
   <div class="search"><input id="q" placeholder="Search actions, people, sources…" autocomplete="off"><kbd>/</kbd></div>
+  <button class="btn pri" id="new" title="Add an action (n)">+ New</button>
   <button class="ic" id="reload" title="Reload from file">↻</button></div>
  <div class="chips" id="chips"></div>
+ <div class="ctl" id="ctl"></div>
 </header>
 <main id="app"></main>
 <dialog id="dlg"><div class="dh" id="dt"></div><div class="db" id="db"></div>
@@ -85,76 +110,180 @@ dialog::backdrop{background:rgba(10,12,18,.5)}
 <div id="toast"></div>
 <script>
 const $=s=>document.querySelector(s);
-let T=[],filter='open',collapsed={};
-try{filter=localStorage.getItem('af')||'open';collapsed=JSON.parse(localStorage.getItem('ac')||'{}')}catch(e){}
+const DEF={group:'track',status:'open',type:'',track:'',who:'',raised:'',sort:'urgency'},NONE='__none';
+let T=[],META={tracks:[],people:{}},R=[],S={...DEF},collapsed={};
+try{const o=localStorage.getItem('af2');
+ if(o)S={...DEF,...JSON.parse(o)};else{const old=localStorage.getItem('af');if(old)S.status=old}
+ collapsed=JSON.parse(localStorage.getItem('ac2')||'{}')}catch(e){}
+const persist=()=>{try{localStorage.setItem('af2',JSON.stringify(S))}catch(e){}};
+const saveC=()=>{try{localStorage.setItem('ac2',JSON.stringify(collapsed))}catch(e){}};
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const md=s=>esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').replace(/`(.+?)`/g,'<code>$1</code>');
 const today=()=>new Date().toISOString().slice(0,10);
 const last=c=>c[c.length-1]||'';
+const hasNum=t=>/^#$/.test(t.header[0]);
 const kind=st=>/✅/.test(st)?'done':/⛔/.test(st)?'nn':/🔴/.test(st)?'red':/🟡|🟦|blocked|pending|progress/i.test(st)?'amb':/🟢/.test(st)?'low':'amb';
-const isClosed=c=>{const k=kind(last(c));return k==='done'||k==='nn'};
 const cls={done:'grn',nn:'',red:'red',amb:'amb',low:'blu'},bar={done:'s-grn',nn:'',red:'s-red',amb:'s-amb',low:'s-blu'};
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const ymd=iso=>iso.split('-').map(Number);
+const fmtD=iso=>{const [y,m,d]=ymd(iso);return d+' '+MON[m-1]+(y!==new Date().getFullYear()?' '+y:'')};
+const ageOf=iso=>{const [y,m,d]=ymd(iso),n=new Date();n.setHours(0,0,0,0);return Math.round((n-new Date(y,m-1,d))/864e5)};
+const trackColor=n=>(META.tracks.find(t=>t.name===n)||{}).color||'#98a2b3';
+const hue=s=>{let h=0;for(const c of s)h=(h*31+c.charCodeAt(0))%360;return h};
+const ini=n=>{const p=n.split(/[\s-]+/);return p.length>1?(p[0][0]+p[1][0]).toUpperCase():n===n.toUpperCase()?n:n[0].toUpperCase()};
+const av=n=>`<span class="av" style="background:hsl(${hue(n)} 50% 42%)">${esc(ini(n))}</span>`;
+const person=n=>`<button class="pp" data-who="${esc(n)}" title="${esc(n+(META.people[n]?' — '+META.people[n]:''))} · click to filter">${av(n)}${esc(n)}</button>`;
 function toast(t,err){const e=$('#toast');e.textContent=t;e.className='show'+(err?' err':'');clearTimeout(toast.t);toast.t=setTimeout(()=>e.className='',err?4000:1800)}
-async function load(){try{const r=await fetch('/api/tables');T=await r.json();render()}catch(e){toast('Cannot reach server',1)}}
+
+async function load(){try{T=await (await fetch('/api/tables')).json();build();render()}catch(e){toast('Cannot reach server',1)}}
 async function api(method,body,ok){const r=await fetch('/api/row',{method,body:JSON.stringify(body)});
  if(!r.ok){toast((await r.json()).error||'Error — reload and retry',1);return false}toast(ok||'Saved');await load();return true}
-const actionCol=t=>{const i=t.header.findIndex(h=>/action|dependency/i.test(h));return i<0?0:i};
-const counts=()=>{const c={open:0,red:0,done:0,nn:0,all:0};T.forEach(t=>t.rows.forEach(r=>{const k=kind(last(r.cells));c.all++;
- if(k==='done')c.done++;else if(k==='nn')c.nn++;else{c.open++;if(k==='red')c.red++}}));return c};
-const match=(r,f)=>{const k=kind(last(r.cells));return f==='all'||(f==='open'&&k!=='done'&&k!=='nn')||(f==='red'&&k==='red')||(f==='done'&&k==='done')||(f==='nn'&&k==='nn')};
-function chips(){const c=counts();const defs=[['open','Open'],['red','🔴 Urgent'],['done','Done'],['nn','Not needed'],['all','All']];
- $('#chips').innerHTML=defs.map(([k,l])=>`<button class="chip ${filter===k?'on':''}" data-f="${k}">${l} <b>${c[k]}</b></button>`).join('')
-  +`<button class="chip sec" id="tog">${Object.values(collapsed).some(v=>v)?'Expand all':'Collapse all'}</button>`;
- $('#chips').querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{filter=b.dataset.f;try{localStorage.setItem('af',filter)}catch(e){}render()});
- $('#tog').onclick=()=>{const any=Object.values(collapsed).some(v=>v);T.forEach((t,i)=>collapsed[i]=!any);save();render()}}
-const save=()=>{try{localStorage.setItem('ac',JSON.stringify(collapsed))}catch(e){}};
+
+function build(){R=[];T.forEach((t,ti)=>t.rows.forEach(r=>{const st=last(r.cells),k=kind(st);
+ R.push({t,ti,r,k,st,closed:k==='done'||k==='nn',wait:t.kind==='wait',age:r.raised?ageOf(r.raised):null,
+  blob:(r.cells.join(' ')+' '+r.people.join(' ')+' '+r.track).toLowerCase()})}))}
+
+function rpass(x){const a=x.age,v=S.raised;if(v==='none')return a===null;if(a===null)return false;
+ return v==='7'?a<=7:v==='30'?a<=30:v==='o30'?a>30:v==='o90'?a>90:true}
+// skip = the filter to ignore (so its own dropdown / chip can show counts of what you'd get by switching)
+function pass(x,skip,q){
+ if(skip!=='status'&&!(S.status==='all'||(S.status==='open'&&!x.closed)||S.status===x.k))return false;
+ if(skip!=='type'&&S.type&&(S.type==='wait')!==x.wait)return false;
+ if(skip!=='track'&&S.track&&x.r.track!==S.track)return false;
+ if(skip!=='who'&&S.who&&(S.who===NONE?x.r.people.length:!x.r.people.includes(S.who)))return false;
+ if(skip!=='raised'&&S.raised&&!rpass(x))return false;
+ if(skip!=='q'&&q&&!x.blob.includes(q))return false;
+ return true}
+
+const rk={red:0,amb:1,low:2,done:3,nn:3};
+const fileOrd=(a,b)=>(a.ti-b.ti)||(a.r.line-b.r.line);
+const byDate=(a,b,dir)=>a.age===b.age?0:a.age===null?1:b.age===null?-1:dir*(b.age-a.age); // dir 1 = oldest first; undated always last
+const CMP={urgency:(a,b)=>rk[a.k]-rk[b.k]||byDate(a,b,1)||fileOrd(a,b),oldest:(a,b)=>byDate(a,b,1)||fileOrd(a,b),
+ newest:(a,b)=>byDate(a,b,-1)||fileOrd(a,b),file:fileOrd};
+
+function groups(vis){
+ const g=new Map(),add=(key,meta,x)=>{if(!g.has(key))g.set(key,{key,rows:[],...meta});g.get(key).rows.push(x)};
+ vis.forEach(x=>{
+  if(S.group==='track')add(x.r.track,{label:x.r.track,color:trackColor(x.r.track),track:x.r.track},x);
+  else if(S.group==='who'){(x.r.people.length?x.r.people:[NONE]).forEach(p=>add(p,p===NONE?{label:'No named stakeholder'}:{label:p,who:p,sub:META.people[p]||''},x))}
+  else if(S.group==='raised'){const k=x.r.raised?x.r.raised.slice(0,7):'~';
+   add(k,{label:k==='~'?'Undated':MON[ymd(k+'-01')[1]-1]+' '+ymd(k+'-01')[0]},x)}
+  else add(x.ti,{label:x.t.section||'Table',t:x.t},x)});
+ let out=[...g.values()];
+ if(S.group==='track'){const o=n=>{const i=META.tracks.findIndex(t=>t.name===n);return i<0?99:i};out.sort((a,b)=>o(a.key)-o(b.key))}
+ else if(S.group==='who')out.sort((a,b)=>(a.key===NONE)-(b.key===NONE)||b.rows.length-a.rows.length||a.label.localeCompare(b.label));
+ else if(S.group==='raised'){out.sort((a,b)=>(a.key==='~')-(b.key==='~')||(a.key<b.key?1:-1));if(S.sort==='oldest')out=[...out.filter(x=>x.key!=='~').reverse(),...out.filter(x=>x.key==='~')]}
+ else out.sort((a,b)=>a.key-b.key);
+ out.forEach(x=>x.rows.sort(CMP[S.sort]||CMP.urgency));
+ return out}
+
+const anyFilter=q=>!!(S.type||S.track||S.who||S.raised||q);
+function chips(q,shown){
+ const c={open:0,red:0,done:0,nn:0,all:0};
+ R.forEach(x=>{if(!pass(x,'status',q))return;c.all++;if(x.k==='done')c.done++;else if(x.k==='nn')c.nn++;else{c.open++;if(x.k==='red')c.red++}});
+ const defs=[['open','Open'],['red','🔴 Urgent'],['done','Done'],['nn','Not needed'],['all','All']];
+ $('#chips').innerHTML=defs.map(([k,l])=>`<button class="chip ${S.status===k?'on':''}" data-f="${k}">${l} <b>${c[k]}</b></button>`).join('')+`<span class="sum">${shown} shown</span>`;
+ $('#chips').querySelectorAll('[data-f]').forEach(b=>b.onclick=()=>{S.status=b.dataset.f;persist();render()})}
+
+function ctl(q,gs){
+ const count=(key,fn)=>{const m=new Map();R.forEach(x=>{if(pass(x,key,q))fn(x).forEach(v=>m.set(v,(m.get(v)||0)+1))});return m};
+ const tc=count('track',x=>[x.r.track]),wc=count('who',x=>x.r.people.length?x.r.people:[NONE]);
+ const trackNames=[...META.tracks.map(t=>t.name),...[...tc.keys()].filter(n=>!META.tracks.some(t=>t.name===n))];
+ const tOpts=[['','All tracks'],...trackNames.filter(n=>tc.get(n)||n===S.track).map(n=>[n,`${n} (${tc.get(n)||0})`])];
+ const people=[...wc.keys()].filter(n=>n!==NONE).sort((a,b)=>wc.get(b)-wc.get(a)||a.localeCompare(b));
+ if(S.who&&S.who!==NONE&&!people.includes(S.who))people.push(S.who);
+ const wOpts=[['','Anyone'],...people.map(n=>[n,`${n} (${wc.get(n)||0})`]),...(wc.get(NONE)||S.who===NONE?[[NONE,`No named stakeholder (${wc.get(NONE)||0})`]]:[])];
+ const sel=(id,label,opts,val,def='')=>`<label class="sel ${val!==def?'on':''}"><span>${label}</span><select id="${id}">${opts.map(([v,l])=>`<option value="${esc(v)}" ${v===val?'selected':''}>${esc(l)}</option>`).join('')}</select></label>`;
+ const seg=[['track','Track'],['who','Stakeholder'],['raised','Raised'],['file','File section']];
+ const keys=gs.map(g=>S.group+':'+g.key),anyClosed=keys.some(k=>collapsed[k]);
+ $('#ctl').innerHTML=`<div class="seg"><span>Group</span>${seg.map(([k,l])=>`<button data-g="${k}" class="${S.group===k?'on':''}">${l}</button>`).join('')}</div>`
+  +sel('sT','Type',[['','All'],['mine','Mine'],['wait','Waiting on others']],S.type)
+  +sel('sK','Track',tOpts,S.track)+sel('sW','Who',wOpts,S.who)
+  +sel('sR','Raised',[['','Any time'],['7','Last 7 days'],['30','Last 30 days'],['o30','Older than 30 days'],['o90','Older than 90 days'],['none','Undated']],S.raised)
+  +sel('sS','Sort',[['urgency','Urgency, oldest first'],['oldest','Oldest raised'],['newest','Newest raised'],['file','File order']],S.sort,'urgency')
+  +(anyFilter(q)?'<button class="chip sec" id="clr">Clear filters</button>':'')
+  +(gs.length>1?`<button class="chip sec" id="tog">${anyClosed?'Expand all':'Collapse all'}</button>`:'');
+ $('#ctl').querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>{S.group=b.dataset.g;persist();render()});
+ [['sT','type'],['sK','track'],['sW','who'],['sR','raised'],['sS','sort']].forEach(([id,k])=>$('#'+id).onchange=e=>{S[k]=e.target.value;persist();render()});
+ if($('#clr'))$('#clr').onclick=clearF;
+ if($('#tog'))$('#tog').onclick=()=>{keys.forEach(k=>{if(anyClosed)delete collapsed[k];else collapsed[k]=true});saveC();render()}}
+function clearF(){S.type=S.track=S.who=S.raised='';$('#q').value='';persist();render()}
+
+function card(x,q){
+ const {t,r,k,closed,wait}=x,sc=r.cells.length-1,el=document.createElement('div');
+ el.className=`card ${bar[k]} ${closed?'closed':''}`;
+ const dep=wait&&r.cells[0]&&!r.people.some(p=>p.toLowerCase()===r.cells[0].trim().toLowerCase());
+ const meta=t.header.map((h,i)=>({h,v:r.cells[i],i})).filter(m=>m.i!==t.main&&!(hasNum(t)&&m.i===0)&&m.i!==sc&&!(wait&&m.i===0)&&m.v&&m.v!=='—');
+ const a=x.age,ageCls=closed||a===null?'':a>90?'older':a>45?'old':'';
+ const raised=r.raised?`<span class="tag ${ageCls}" title="Earliest date found in the From column"><i>Raised</i>${fmtD(r.raised)}${closed?'':' · '+a+'d'}</span>`:'';
+ const who=r.people.slice(0,3).map(person).join('')+(r.people.length>3?`<span class="tag" title="${esc(r.people.slice(3).join(', '))}">+${r.people.length-3}</span>`:'');
+ const tk=S.group!=='track'?`<button class="tk" data-track="${esc(r.track)}" style="--c:${trackColor(r.track)}" title="${esc(r.prefix?'Label in the file: '+r.prefix:'Auto-assigned from the text')} · click to filter">${esc(r.track)}</button>`:'';
+ el.innerHTML=`<div class="num">${hasNum(t)?esc(r.cells[0]):''}</div>
+  <div><div class="t">${md(r.title||'')}</div>
+   <div class="meta"><span class="badge ${cls[k]}">${md(last(r.cells))}</span>${raised}${who}${tk}${dep?`<span class="tag"><i>${esc(t.header[0])}</i>${md(r.cells[0])}</span>`:''}${meta.map(m=>`<span class="tag"><i>${esc(m.h)}</i>${md(m.v)}</span>`).join('')}</div></div>
+  <div class="acts">${closed?'<button class="btn" data-s="🔴 Open">Reopen</button>':'<button class="btn ok" data-s="DONE">✓ Done</button>'}
+   <div class="menu"><button class="btn" data-m>⋯</button><div class="pop">
+    <button data-s="🔴 Open">🔴 Urgent / open</button><button data-s="🟡 Open">🟡 Open</button><button data-s="🟡 Blocked">🟡 Blocked</button><button data-s="NN">⛔ Not needed</button><button data-e>✎ Edit…</button></div></div></div>`;
+ el.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{let v=b.dataset.s;
+  if(v==='DONE')v='✅ Done '+today();if(v==='NN')v='⛔ Not needed '+today();
+  const c=[...r.cells];c[sc]=v;api('PUT',{line:r.line,raw:r.raw,cells:c},'Updated')});
+ el.querySelector('[data-m]').onclick=e=>{e.stopPropagation();const m=el.querySelector('.menu'),o=m.classList.contains('open');
+  document.querySelectorAll('.menu.open').forEach(y=>y.classList.remove('open'));if(!o)m.classList.add('open')};
+ el.querySelector('[data-e]').onclick=()=>openForm(t,r);
+ return el}
+
 function render(){
- chips();const q=$('#q').value.toLowerCase(),app=$('#app');app.innerHTML='';let shown=0;
- T.forEach((t,ti)=>{
-  const sc=t.header.length-1,ac=actionCol(t),hasNum=/^#$/.test(t.header[0]);
-  const rows=t.rows.filter(r=>match(r,filter)&&(!q||r.cells.join(' ').toLowerCase().includes(q)));
-  if(!rows.length&&(filter!=='open'||q))return;
-  shown+=rows.length;
-  const s=document.createElement('section');if(collapsed[ti]&&!q)s.className='sec-closed';
-  s.innerHTML=`<div class="sh"><span class="car">▾</span><h2>${esc(t.section)}</h2><span class="cnt">${rows.length}</span><button class="add">+ Add</button></div><div class="list"></div>`;
-  s.querySelector('.sh').onclick=e=>{if(e.target.closest('.add'))return;collapsed[ti]=!collapsed[ti];save();render()};
-  s.querySelector('.add').onclick=()=>openForm(t,null);
-  const list=s.querySelector('.list');
-  rows.forEach(r=>{
-   const k=kind(last(r.cells)),closed=k==='done'||k==='nn',el=document.createElement('div');
-   el.className=`card ${bar[k]} ${closed?'closed':''}`;
-   const meta=t.header.map((h,i)=>({h,v:r.cells[i]})).filter((x,i)=>i!==ac&&!(hasNum&&i===0)&&i!==sc&&x.v&&x.v!=='—');
-   el.innerHTML=`<div class="num">${hasNum?esc(r.cells[0]):''}</div>
-    <div><div class="t">${md(r.cells[ac]||'')}</div>
-     <div class="meta"><span class="badge ${cls[k]}">${md(last(r.cells))}</span>${meta.map(x=>`<span class="tag"><i>${esc(x.h)}</i>${md(x.v)}</span>`).join('')}</div></div>
-    <div class="acts">${closed?'<button class="btn" data-s="🔴 Open">Reopen</button>':'<button class="btn ok" data-s="DONE">✓ Done</button>'}
-     <div class="menu"><button class="btn" data-m>⋯</button><div class="pop">
-      <button data-s="🔴 Open">🔴 Urgent / open</button><button data-s="🟡 Open">🟡 Open</button><button data-s="🟡 Blocked">🟡 Blocked</button><button data-s="NN">⛔ Not needed</button><button data-e>✎ Edit…</button></div></div></div>`;
-   el.querySelectorAll('[data-s]').forEach(b=>b.onclick=()=>{let v=b.dataset.s;
-    if(v==='DONE')v='✅ Done '+today();if(v==='NN')v='⛔ Not needed '+today();
-    const c=[...r.cells];c[sc]=v;api('PUT',{line:r.line,raw:r.raw,cells:c},'Updated')});
-   el.querySelector('[data-m]').onclick=e=>{e.stopPropagation();const m=el.querySelector('.menu'),o=m.classList.contains('open');
-    document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'));if(!o)m.classList.add('open')};
-   el.querySelector('[data-e]').onclick=()=>openForm(t,r);
-   list.appendChild(el)});
-  app.appendChild(s)});
- if(!shown)app.innerHTML='<div class="empty">Nothing here 🎉</div>';
-}
+ const q=$('#q').value.trim().toLowerCase(),app=$('#app');
+ const vis=R.filter(x=>pass(x,null,q)),gs=groups(vis);
+ chips(q,vis.length);ctl(q,gs);app.innerHTML='';
+ if(!vis.length){app.innerHTML=`<div class="empty">${anyFilter(q)||S.status!=='open'?'No actions match these filters. <button class="btn" id="clr2">Clear filters</button>':'Nothing here 🎉'}</div>`;
+  if($('#clr2'))$('#clr2').onclick=()=>{clearF();S.status='open';persist();render()};return}
+ if(S.group==='who')app.insertAdjacentHTML('beforeend','<div class="hint">An action is listed under every stakeholder it involves, so group totals can add up to more than the number of actions.</div>');
+ gs.forEach(gr=>{
+  const ck=S.group+':'+gr.key,urgent=gr.rows.filter(x=>x.k==='red').length,s=document.createElement('section');
+  if(collapsed[ck]&&!q)s.className='sec-closed';
+  const lead=gr.color?`<span class="dot" style="background:${gr.color}"></span>`:gr.who?av(gr.who):'';
+  const canAdd=S.group==='track'||S.group==='file';
+  s.innerHTML=`<div class="sh"><span class="car">▾</span>${lead}<h2>${esc(gr.label)}</h2><span class="cnt">${gr.rows.length}</span>${urgent?`<span class="cnt red">${urgent} urgent</span>`:''}${gr.sub?`<span class="sub">${esc(gr.sub)}</span>`:''}${canAdd?'<button class="add">+ Add</button>':''}</div><div class="list"></div>`;
+  s.querySelector('.sh').onclick=e=>{if(e.target.closest('.add'))return;collapsed[ck]=!collapsed[ck];saveC();render()};
+  if(canAdd)s.querySelector('.add').onclick=()=>S.group==='track'?openForm(null,null,{track:gr.track}):openForm(gr.t,null);
+  const list=s.querySelector('.list');gr.rows.forEach(x=>list.appendChild(card(x,q)));app.appendChild(s)})}
+
+$('#app').addEventListener('click',e=>{const b=e.target.closest('[data-who],[data-track]');if(!b)return;
+ if(b.dataset.who)S.who=b.dataset.who;else S.track=b.dataset.track;persist();render();window.scrollTo({top:0})});
+
+// ---- add / edit dialog ----
+const PFX=/^((?:🔥|🟦)\s*)?(?:\*\*([^*]+?):\*\*\s*)?/;
 let cur=null;
-function openForm(t,r){
- const ac=actionCol(t),hasNum=/^#$/.test(t.header[0]);let cells;
- if(r)cells=r.cells;else{const nums=t.rows.map(x=>parseInt(x.cells[0])).filter(n=>!isNaN(n));
-  cells=t.header.map((h,i)=>hasNum&&i===0?String((nums.length?Math.max(...nums):0)+1):i===t.header.length-1?'🔴 Open':'')}
- $('#dt').textContent=(r?'Edit ':'Add to ')+t.section;
- $('#db').innerHTML=t.header.map((h,i)=>`<label>${esc(h)}${i===ac?`<textarea>${esc(cells[i]||'')}</textarea>`:`<input value="${esc(cells[i]||'')}">`}</label>`).join('');
- cur={t,r};$('#dlg').showModal();
-}
+function openForm(t,r,opt={}){
+ const numbered=T.filter(hasNum);
+ if(!t)t=T.find(x=>x.kind==='mine'&&hasNum(x))||T[0];
+ if(!t){toast('No table found in the file',1);return}
+ const sc=t.header.length-1,from=t.header.findIndex(h=>/\bfrom\b/i.test(h));let cells;
+ if(r)cells=[...r.cells];else{
+  const nums=numbered.flatMap(x=>x.rows.map(y=>parseInt(y.cells[0]))).filter(n=>!isNaN(n));
+  cells=t.header.map((h,i)=>hasNum(t)&&i===0?String((nums.length?Math.max(...nums):0)+1):i===sc?'🔴 Open':i===from?'Added '+today():'')}
+ $('#dt').textContent=(r?'Edit action':'Add action')+(r?'':' — '+(t.section||'table'));
+ const tr=(r&&r.track)||opt.track||'';
+ const names=META.tracks.map(x=>x.name);
+ $('#db').innerHTML=t.header.map((h,i)=>`<label>${esc(h)}${i===t.main?`<textarea class="f">${esc(cells[i]||'')}</textarea>`:`<input class="f" value="${esc(cells[i]||'')}">`}</label>`).join('')
+  +`<label>Track<select id="ftrack"><option value="">${r?'Keep as is — '+esc(tr):'Auto-detect from the text'}</option>${names.map(n=>`<option ${!r&&opt.track===n?'selected':''}>${esc(n)}</option>`).join('')}</select></label>
+   <p class="note">Picking a track writes a <code>**Track:**</code> label at the start of the action. Raised date and stakeholders are read from the From column and the action text, so edit those to change them.</p>`;
+ cur={t,r};$('#dlg').showModal()}
 $('#dno').onclick=()=>$('#dlg').close();
-$('#dok').onclick=async()=>{const {t,r}=cur;const c=[...$('#db').querySelectorAll('textarea,input')].map(x=>x.value.replace(/\n/g,' ').replace(/\|/g,'/'));
+$('#dok').onclick=async()=>{const {t,r}=cur;
+ const c=[...$('#db').querySelectorAll('.f')].map(x=>x.value.replace(/\n/g,' ').replace(/\|/g,'/'));
+ const tk=$('#ftrack').value,m=c[t.main].match(PFX);
+ if(!c[t.main].slice(m[0].length).trim()){toast('Action text is required',1);return}
+ if(tk)c[t.main]=(m[1]||'')+`**${tk}:** `+c[t.main].slice(m[0].length);
  const ok=r?await api('PUT',{line:r.line,raw:r.raw,cells:c}):await api('POST',{header_line:t.header_line,header_raw:t.header_raw,cells:c},'Added');
  if(ok)$('#dlg').close()};
+
 document.addEventListener('click',e=>{if(!e.target.closest('.menu'))document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'))});
-document.addEventListener('keydown',e=>{if(e.key==='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();$('#q').focus()}
+document.addEventListener('keydown',e=>{const typing=/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)||$('#dlg').open;
+ if(e.key==='/'&&!typing){e.preventDefault();$('#q').focus()}
+ if(e.key==='n'&&!typing&&!e.metaKey&&!e.ctrlKey){e.preventDefault();openForm(null,null)}
  if(e.key==='Escape'){$('#q').blur();document.querySelectorAll('.menu.open').forEach(x=>x.classList.remove('open'))}});
-$('#q').oninput=render;$('#reload').onclick=()=>{load();toast('Reloaded')};load();
+$('#q').oninput=render;$('#new').onclick=()=>openForm(null,null);$('#reload').onclick=async()=>{await load();toast('Reloaded')};
+(async()=>{try{META=await (await fetch('/api/meta')).json()}catch(e){}load()})();
 </script></body></html>
