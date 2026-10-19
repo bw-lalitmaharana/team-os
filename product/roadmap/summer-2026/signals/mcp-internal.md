@@ -426,3 +426,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Aditya Maliyan
 - **Where:** [#pod-feedback](https://betterworks.slack.com/archives/) — 2026-09-30 16:57 IST
 - **Summary:** PR review requests for feedback-api/pull/775 and public-api-mcp/pull/125 shared with team for review.
+
+### 2026-10-19 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [DM Nellie ↔ Lalit](https://betterworks.slack.com/archives/D0B1DFSV5SR/p1792377487005029)
+- **Summary:** Nellie asked Lalit to scope ENG-89357 to Conversations only, create separate Feedback and Recognition MCP epics and move tickets, and add "create recognition" tool as a story under the new Recognition epic (update/delete recognition low priority).
+
+### 2026-10-19 — gmail
+- **Who:** Paul, Lalit Maharana (Zoom meeting)
+- **Where:** [Zoom email — "Meeting assets for Paul / Lalit are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879484731278654734)
+- **Summary:** Zoom recap of Paul/Lalit sync focused on status of MCP tools and the PM workflow guide.
