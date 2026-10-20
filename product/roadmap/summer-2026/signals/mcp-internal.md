@@ -436,3 +436,38 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Paul, Lalit Maharana (Zoom meeting)
 - **Where:** [Zoom email — "Meeting assets for Paul / Lalit are ready!"](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879484731278654734)
 - **Summary:** Zoom recap of Paul/Lalit sync focused on status of MCP tools and the PM workflow guide.
+
+### 2026-10-20 — slack
+- **Who:** Nellie LeMonier, Jason Bilyeu
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1792428266681249?thread_ts=1792428266.681249&cid=C01GYVBME90)
+- **Summary:** Nellie asked whether the Betterworks MCP can be added to Copilot; JB replied that it's just an MCP config entry pointing at the Rainforest `mcp-beta` endpoint.
+
+### 2026-10-20 — slack
+- **Who:** Hung Truong
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1792445776067209)
+- **Summary:** Hung offered to also pick up ENG-88893 (spike: make MCP tools work with org-customized module names).
+
+### 2026-10-20 — slack
+- **Who:** Nellie LeMonier (to Eden Owen, Lalit)
+- **Where:** [Group DM Eden/Nellie/Lalit](https://betterworks.slack.com/archives/C0BMJA3T796/p1792423283865009)
+- **Summary:** Nellie wants a reusable Jira template (or Confluence page / Rovo skill) for MCP tool and MCP prompt tickets.
+
+### 2026-10-20 — slack
+- **Who:** Ryan Mulready
+- **Where:** [#pod-app-platform](https://betterworks.slack.com/archives/C01GYVBME90/p1792417690091259)
+- **Summary:** public-api-mcp PR #134 refactors MCP index.ts into reusable functions; requested a deep review.
+
+### 2026-10-20 — slack
+- **Who:** Ryan Mulready (to Jason Zhang)
+- **Where:** [#pod-ai-chat](https://betterworks.slack.com/archives/C0BEMU079J7/p1792440865866149)
+- **Summary:** agent-runtime PR #154 passes the real MCP tool error response back to the LLM so it can self-correct.
+
+### 2026-10-20 — gmail
+- **Who:** Nellie LeMonier (via Aha)
+- **Where:** [Aha update — AI-233](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879532791811908827)
+- **Summary:** Nellie updated Aha feature AI-233 "AI Modules - MCP Tools & Prompts" (status Pre-Planning).
+
+### 2026-10-20 — gmail
+- **Who:** Eden Owen (via Jira)
+- **Where:** [ENG-88948 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
+- **Summary:** ENG-88948 (Feedback summary tool for MCP) rolled from Sprint 296 into Sprint 297.

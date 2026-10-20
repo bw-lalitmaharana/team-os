@@ -1424,3 +1424,28 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Nataliya Kolb, Tanveer Farooq, Nellie LeMonier
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1786402255030289?thread_ts=1786402255.030289&cid=C0ACYVAG5A8)
 - **Summary:** Nataliya requested a demo to see feature progress; scheduling friction across IST/PST (Friday off in India, US slots booked). Nellie offered 7am PST Thursday for 30 minutes with Natalia — stakeholder demand for a demo cadence continues alongside the existing Tuesday slot.
+
+### 2026-10-20 — gmail
+- **Who:** Eden Owen (via Jira)
+- **Where:** [Jira mention — ENG-89631](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879523680891708781)
+- **Summary:** Eden mentioned Lalit/Sarah Brose on ENG-89631 (additional logs + alerts for failures in event-based transcripts) asking for confirmation on the ticket — needs a PM reply.
+
+### 2026-10-20 — gmail
+- **Who:** Eden Owen (via Jira)
+- **Where:** [Jira mention — ENG-89633](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879523669017010288)
+- **Summary:** Same ask from Eden on ENG-89633 (reconcile meetings to available transcripts for edge cases) — Lalit or Sarah Brose to confirm.
+
+### 2026-10-20 — gmail
+- **Who:** Eden Owen (via Jira)
+- **Where:** [ENG-86306 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1875946699957757649)
+- **Summary:** Native MS Teams transcript retrieval spike (Graph API) sprint field updated to Sprint 295 + 296 — carried over again.
+
+### 2026-10-20 — gmail
+- **Who:** Eden Owen (via Jira)
+- **Where:** [ENG-88232 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696)
+- **Summary:** Google Meet transcript support spike rolled from Sprint 296 into Sprint 297.
+
+### 2026-10-20 — gmail
+- **Who:** Eden Owen (via Jira)
+- **Where:** [ENG-86326 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879522551980134499)
+- **Summary:** "Extract Developmental Signals from Meeting Transcripts" rolled from Sprint 296 into Sprint 297.
