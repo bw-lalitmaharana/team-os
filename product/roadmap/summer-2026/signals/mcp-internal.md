@@ -471,3 +471,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Eden Owen (via Jira)
 - **Where:** [ENG-88948 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
 - **Summary:** ENG-88948 (Feedback summary tool for MCP) rolled from Sprint 296 into Sprint 297.
+
+### 2026-10-21 — slack
+- **Who:** Ryan Mulready
+- **Where:** [#pod-app-platform](https://github.com/BetterWorks/public-api-mcp/pull/143) — 2026-10-20 22:45 IST
+- **Summary:** Opened public-api-mcp PR #143, which adds structuredOutput to LLM tool responses, and asked for review.
+
+### 2026-10-21 — slack
+- **Who:** Justine OConnell (reactions from Allie Collins, Cassie Fulton Flores)
+- **Where:** #general — 2026-10-21 18:22 IST
+- **Summary:** At UNLEASH Paris, Rhys Kirby's session drew 180+ attendees to an overflowing room and the MCP visuals and videos were a highlight (12 meetings booked onsite). This is external market interest in Betterworks MCP.

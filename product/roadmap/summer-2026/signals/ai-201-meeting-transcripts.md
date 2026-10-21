@@ -1449,3 +1449,23 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Eden Owen (via Jira)
 - **Where:** [ENG-86326 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879522551980134499)
 - **Summary:** "Extract Developmental Signals from Meeting Transcripts" rolled from Sprint 296 into Sprint 297.
+
+### 2026-10-21 — slack
+- **Who:** Anuj Pancholi
+- **Where:** #meeting-transcript-integration — 2026-10-21 12:04 IST
+- **Summary:** Anuj shared a write-up, "meetings-transcripts-instance-matching-issues.md", on problems matching transcripts to meeting instances.
+
+### 2026-10-21 — slack
+- **Who:** Anirudh Atole, Lalit Maharana (to Asa Denton)
+- **Where:** Group DM (Asa Denton, Lalit, Anirudh) — 2026-10-21 17:08–19:01 IST
+- **Summary:** For the ENG-88232 Google Meet transcript spike, Anirudh and Lalit asked Asa for a non-production test Google Workspace domain (Business Standard or higher, transcripts on, 2–3 test users) with domain-wide delegation for the read-only `meetings.space.readonly` scope. Lalit framed it as winter-roadmap work that follows Zoom transcripts.
+
+### 2026-10-21 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** #1-1s-devs — 2026-10-21 09:30 IST
+- **Summary:** The Meetings bot lists 6 items needing attention: ENG-88232 (Google Meet transcript spike, Anirudh) has been In Progress for 3 working days, and 4 items are in Code Review, including bug ENG-89048 ("Calendar and zoom…").
+
+### 2026-10-21 — gmail
+- **Who:** Tanveer Farooq
+- **Where:** [Updated invitation thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879652823617999565)
+- **Summary:** The "Demo | Meeting Transcript" recurring meeting moved to every 2 weeks, Wednesdays 7:30–8 PM IST. Invitees include Nellie, Sagar, Hemant, Anuj, Anirudh and Jason Z, with Varnika and Sriram CS on cc.
