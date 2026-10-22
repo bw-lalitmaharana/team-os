@@ -481,3 +481,38 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Justine OConnell (reactions from Allie Collins, Cassie Fulton Flores)
 - **Where:** #general — 2026-10-21 18:22 IST
 - **Summary:** At UNLEASH Paris, Rhys Kirby's session drew 180+ attendees to an overflowing room and the MCP visuals and videos were a highlight (12 meetings booked onsite). This is external market interest in Betterworks MCP.
+
+### 2026-10-22 — slack
+- **Who:** Jason Bilyeu
+- **Where:** #pod-app-platform / #pod-ai-chat — 2026-10-21 19:29–23:34 IST
+- **Summary:** MCP PRs up: new @api_mcp decorator in Core (ENG-89758, BW #28910), generated tools from updated docs (public-api-mcp #149), outputSchema support (ENG-89771, #151), tool-list pagination (ENG-86537, #152) — needs agent verification before merge.
+
+### 2026-10-22 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #prod-squad, #eng-mcp — 2026-10-22 04:52 IST
+- **Summary:** Published MCP Tools user-story template (Confluence) as the new standard for all teams ahead of Winter MCP GA; retrofits of existing tools will follow.
+
+### 2026-10-22 — slack
+- **Who:** Nellie LeMonier
+- **Where:** Group DM (Kate Malcolm, Viktoriia Bondareva, Nataliia Savenko, Nellie, Lalit) — 2026-10-21 19:25 IST
+- **Summary:** Added Lalit as the person tracking MCP tools being added across modules.
+
+### 2026-10-22 — slack
+- **Who:** Jason Zhang, Ryan Mulready
+- **Where:** #pod-ai-chat — 2026-10-22 05:00–18:40 IST
+- **Summary:** Chat page-context design: Haven to export accepted routes (haven PR #7146); MCP server serves them as a resource (/resources/haven-routes.md) plus new tools so agent-runtime can fetch the record the user is viewing.
+
+### 2026-10-22 — slack
+- **Who:** Hemant Kumar (to Lalit)
+- **Where:** DM Hemant/Lalit — 2026-10-22 10:54 IST
+- **Summary:** Hemant is involved in Engage MCP tools but only has development status, no visibility into wider plan.
+
+### 2026-10-22 — gmail
+- **Who:** Ankit Sharma (via Jira)
+- **Where:** [ENG-89918 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879738329699004110)
+- **Summary:** SPIKE ENG-89918 (Permissions and MCP patterns for AI features) moved Draft → Ready for Refinement; Part A write-up compares how services expose MCP tools and how permissions work.
+
+### 2026-10-22 — gmail
+- **Who:** Ankit Sharma (via Jira)
+- **Where:** [ENG-88948 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
+- **Summary:** ENG-88948 (Feedback summary tool for MCP) moved In Progress → On Hold.

@@ -1469,3 +1469,33 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tanveer Farooq
 - **Where:** [Updated invitation thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879652823617999565)
 - **Summary:** The "Demo | Meeting Transcript" recurring meeting moved to every 2 weeks, Wednesdays 7:30–8 PM IST. Invitees include Nellie, Sagar, Hemant, Anuj, Anirudh and Jason Z, with Varnika and Sriram CS on cc.
+
+### 2026-10-22 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #meeting-transcript-integration — 2026-10-21 19:59 IST
+- **Summary:** Feedback on Anuj's instance-matching doc: wants weekly volume per case and transcript coverage share before choosing a case to prioritise; recommends storing unmatched events in an "unmatched" table instead of dropping them.
+
+### 2026-10-22 — slack
+- **Who:** Lalit Maharana (to Holly Wenneson, Nellie)
+- **Where:** Group DM Holly/Nellie/Lalit — 2026-10-21 22:15 IST
+- **Summary:** Confirmed MS Teams transcript integration for conversational intelligence is planned for Winter.
+
+### 2026-10-22 — slack
+- **Who:** Anirudh Atole, Lalit Maharana (to Eden Owen)
+- **Where:** Group DM Eden/Lalit/Anirudh — 2026-10-22 18:27–18:40 IST
+- **Summary:** Asked who can approve a Google Workspace test setup (Business Standard, 1 domain, 3 users) for the Google Meet transcript spike ENG-88232 (Winter Google Meet integration); routed to Eden by Asa.
+
+### 2026-10-22 — slack
+- **Who:** Lalit Maharana, Harshini Vijay
+- **Where:** #meeting-transcript-integration — 2026-10-22 12:31–14:07 IST
+- **Summary:** Lalit clarified draft feedback applies only to pending recommendations (user is redirected to the draft form next time); Harshini deferred tech handling details to Eng.
+
+### 2026-10-22 — slack
+- **Who:** Hiten Khuman, Pankaj Lohmor
+- **Where:** #pod-recognition / #pod-homepage — 2026-10-22 09:03–16:12 IST
+- **Summary:** New shared Give Recognition component built for Meetings AI Suggestions (haven PR #7179), also replacing the homepage variant; Recognition pod approved.
+
+### 2026-10-22 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** #1-1s-devs — 2026-10-22 09:30 IST
+- **Summary:** ENG-88232 Google Meet transcript spike now 4 working days In Progress (Anirudh); ENG-89048 calendar/zoom bug in Code Review.
