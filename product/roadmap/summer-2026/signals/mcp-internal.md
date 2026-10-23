@@ -516,3 +516,33 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma (via Jira)
 - **Where:** [ENG-88948 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
 - **Summary:** ENG-88948 (Feedback summary tool for MCP) moved In Progress → On Hold.
+
+### 2026-10-23 — slack
+- **Who:** Jason Bilyeu
+- **Where:** #pod-app-platform — 2026-10-22 22:33 – 2026-10-23 03:01 IST
+- **Summary:** public-api-mcp PRs up: remove deprecated MCP tools (ENG-89957, #154), security library upgrades (ENG-89962, #160), MCP system instructions (ENG-89915, #161).
+
+### 2026-10-23 — slack
+- **Who:** Ryan Mulready
+- **Where:** #pod-ai-chat — 2026-10-23 01:03 IST
+- **Summary:** ENG-89361 PR stack to add Haven route tools to public-api-mcp (SDK dep + GitHub Packages auth #155, local tool support #156, ...); nothing live until PR #3.
+
+### 2026-10-23 — slack
+- **Who:** Martha Rankins
+- **Where:** #pod-app-platform — 2026-10-23 19:04 IST
+- **Summary:** Updating core tool descriptions for MCP GA (ENG-89629, ENG-89649) — BetterWorks PR #28913.
+
+### 2026-10-23 — slack
+- **Who:** Viktoriia Bondareva
+- **Where:** Group DM (Kate Malcolm, Viktoriia, Nataliia Savenko, Nellie, Lalit) — 2026-10-22 20:25 IST
+- **Summary:** Shared light draft for Talent MCP (succession) defining AI tools to find best-fit successors; requested comments in doc.
+
+### 2026-10-23 — slack
+- **Who:** Ankit Sharma
+- **Where:** #pod-ai-platform — 2026-10-22 20:25 IST
+- **Summary:** ENG-89918 permissions findings posted to ticket (how tools are exposed over MCP, current permissions, proposed path for feedback summary); now drafting MCP building-block (tools/prompts/tasks/skills) recommendations per AI use case.
+
+### 2026-10-23 — gmail
+- **Who:** Martha Rankins (via Jira)
+- **Where:** [ENG-88105 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1876553198002044755)
+- **Summary:** ENG-88105 (AI Modules - MCP Tools & Prompts) moved Draft → In Progress.

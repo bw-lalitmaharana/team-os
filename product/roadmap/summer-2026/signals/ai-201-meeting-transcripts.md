@@ -1499,3 +1499,33 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** JIRA Nudge Bot
 - **Where:** #1-1s-devs — 2026-10-22 09:30 IST
 - **Summary:** ENG-88232 Google Meet transcript spike now 4 working days In Progress (Anirudh); ENG-89048 calendar/zoom bug in Code Review.
+
+### 2026-10-23 — slack
+- **Who:** Nellie LeMonier, Anuj Pancholi
+- **Where:** #meeting-transcript-integration — 2026-10-22 21:29–21:32 IST
+- **Summary:** Nellie asked whether the 3-hour instance-matching window explains skipped transcripts and proposed widening it to the full week (rescheduled meetings); Anuj confirmed backend uses UTC and ENG-89640 (recurrence-based matching window) recently passed QA.
+
+### 2026-10-23 — slack
+- **Who:** Anuj Pancholi
+- **Where:** #meeting-transcript-integration — 2026-10-23 11:06 IST
+- **Summary:** Transcript logging-changes PR in review (Hiten, Anirudh); pre-prod release planned today for the recurrence-based instance-matching window change.
+
+### 2026-10-23 — slack
+- **Who:** Sagar Bhat
+- **Where:** #pod-ai-platform — 2026-10-22 20:53 IST
+- **Summary:** Explored the feedback API for Meeting Transcripts; also hotfixed Gemma embeddings to prod and released latest llm-engine tag to internal + prod.
+
+### 2026-10-23 — slack
+- **Who:** Anirudh Atole
+- **Where:** Group DM Maher/Lalit/Anirudh — 2026-10-23 13:41 IST
+- **Summary:** Escalated Google Workspace test-tenant approval (Business Standard, 1 domain, 3 users) for Google Meet transcript spike ENG-88232 to Maher, per Eden.
+
+### 2026-10-23 — slack
+- **Who:** Tanveer Farooq
+- **Where:** #meeting-transcript-integration — 2026-10-23 18:02 IST
+- **Summary:** Team update: ENG-89048 awaiting product clarification; ENG-88232 blocked on workspace account; ENG-89662 in code review; spikes underway for Feedback and Recognition suggestions.
+
+### 2026-10-23 — gmail
+- **Who:** Anirudh Atole (via Jira)
+- **Where:** [ENG-88232 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696)
+- **Summary:** Google Meet transcript spike ENG-88232 moved In Progress → On Hold; research + offline POC done but not validated pending a Workspace test tenant.

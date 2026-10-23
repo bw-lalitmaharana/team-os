@@ -546,3 +546,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Akhil Desai
 - **Where:** [#temp_accelerator_program_leads](https://betterworks.slack.com/archives/) — 2026-09-30 12:49 IST
 - **Summary:** Engineering Arch and Product walkthrough scheduled for Oct 1, 9–9:45 AM IST; "Skill Graph based recommendation" is one of three topics (alongside BetterAskCal and Internal Mobility), with 15 min per team; leads tagged include Aakansha Srivastava, Pankaj Lohmor, Prasanna Poojary, Sriram CS.
+
+### 2026-10-23 — slack
+- **Who:** Lalit Maharana
+- **Where:** DM Nataliia Savenko/Lalit — 2026-10-23 18:30 IST
+- **Summary:** Lalit added ENG-88995 (Mixpanel events for PDP/Adaptive Learning) and asked Nataliia to review.

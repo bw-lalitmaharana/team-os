@@ -203,3 +203,18 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Neeraj Mohan (via #bot-eng-support-incidents)
 - **Where:** #bot-eng-support-incidents — 2026-10-22 10:28 IST
 - **Summary:** ENG-89648 moved Unreviewed → In Review, assignee Tejas S.
+
+### 2026-10-23 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #pod-ai-platform — 2026-10-23 05:57 IST
+- **Summary:** Created ENG-89981 (Super Admin gets no Conversations data in AI Performance Summary — llm-engine conversations query) as the fix for the AMC escalation; asked Bhavesh or Ankit to pick it up.
+
+### 2026-10-23 — slack
+- **Who:** Ankit Sharma
+- **Where:** #pod-ai-platform — 2026-10-23 19:09 IST
+- **Summary:** Open question to Nellie: should confidential conversation answers be included in AI Performance Summary, and for which viewers (employee, manager, Super Admin/HR Admin)?
+
+### 2026-10-23 — slack
+- **Who:** Amanda Iles
+- **Where:** #tmp-amc-issues — 2026-10-23 01:14 IST
+- **Summary:** AMC call prep: 8 support incidents since AMC's Sept 18 NextGen upgrade (7 Done, 1 In Review), including the Performance Summary/Conversations escalation.
