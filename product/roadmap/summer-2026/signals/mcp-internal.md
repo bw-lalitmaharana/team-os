@@ -546,3 +546,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Martha Rankins (via Jira)
 - **Where:** [ENG-88105 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1876553198002044755)
 - **Summary:** ENG-88105 (AI Modules - MCP Tools & Prompts) moved Draft → In Progress.
+
+### 2026-10-26 — gmail
+- **Who:** Ankit Sharma (Jira notification)
+- **Where:** [ENG-89918 SPIKE: Permissions and MCP patterns](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879738329699004110)
+- **Summary:** Ankit posted Part B of the MCP permissions/patterns spike ("MCP building blocks" — tools, prompts, tasks, skills), following Part A on how services expose MCP tools and how permissions work.

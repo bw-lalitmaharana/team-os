@@ -218,3 +218,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Amanda Iles
 - **Where:** #tmp-amc-issues — 2026-10-23 01:14 IST
 - **Summary:** AMC call prep: 8 support incidents since AMC's Sept 18 NextGen upgrade (7 Done, 1 In Review), including the Performance Summary/Conversations escalation.
+
+### 2026-10-26 — slack
+- **Who:** Ankit Sharma
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1793016592092989?thread_ts=1792704838.933389&cid=C04N1P7N1PT)
+- **Summary:** ENG-89981 fix (adding filter[user_id]) solves Super Admin case but would make AI Performance Summary error (404 → llm-engine failure) for new managers in orgs hiding past-manager conversations; asking Sudin Maharjan whether listing vs. requester permission check mismatch is intended.

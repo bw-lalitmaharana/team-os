@@ -1529,3 +1529,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Anirudh Atole (via Jira)
 - **Where:** [ENG-88232 thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696)
 - **Summary:** Google Meet transcript spike ENG-88232 moved In Progress → On Hold; research + offline POC done but not validated pending a Workspace test tenant.
+
+### 2026-10-26 — slack
+- **Who:** Nellie LeMonier (via Confluence comment notification)
+- **Where:** [DM from Confluence bot](https://betterworks.slack.com/archives/D0B4QGQB0NL/p1792968754133289) — comment on "Meeting Intelligence Expansion: Phase 2 Roadmap Summary"
+- **Summary:** Nellie challenged Phase 2 scope — asks whether Slack huddles/Jira "transcripts" belong in meeting intelligence at all; thinks they belong in a different layer (tags Lalit, cc Paul Agustin).
+
+### 2026-10-26 — gmail
+- **Who:** Tanveer Farooq / Lalit Maharana (Zoom AI summary)
+- **Where:** [Meeting assets for Tanveer / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880105166062286348)
+- **Summary:** App must be live for testing by November to clear Apple/Google store reviews before ~Dec 20 holiday shutdown; Google Meet tested, Teams not; feedback callback framework still required for discovery; Zoom intake sync stalled (Anuj cancelled Friday call).
