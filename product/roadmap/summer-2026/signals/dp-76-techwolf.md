@@ -92,3 +92,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** Katie Murphy
 - **Where:** [#oppty_publicis_upsell](https://betterworks.slack.com/archives/C0C0HAT4VTM/p1790256340475809)
 - **Summary:** Publicis skills pilot launched for 10 Production users (~6 weeks); success criteria include whether skills surfaced from performance data are relevant, whether manager validation builds confidence in data quality, and how skills feed into Succession — target to launch skills & succession in January; external validation of skills surface relevant to DP-76 taxonomy quality.
+
+### 2026-10-27 — slack
+- **Who:** Kate Malcolm
+- **Where:** #oppty_publicis_upsell — 2026-10-26 21:00 IST
+- **Summary:** First Public API iteration for skills is GET-only (profile skill list / profile skill); full skill-list GET still undecided (now vs. Spring skills-library work); importing approved skills is separate, customer-by-customer work (as done for Synopsys/TechWolf).

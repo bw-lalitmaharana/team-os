@@ -1539,3 +1539,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tanveer Farooq / Lalit Maharana (Zoom AI summary)
 - **Where:** [Meeting assets for Tanveer / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880105166062286348)
 - **Summary:** App must be live for testing by November to clear Apple/Google store reviews before ~Dec 20 holiday shutdown; Google Meet tested, Teams not; feedback callback framework still required for discovery; Zoom intake sync stalled (Anuj cancelled Friday call).
+
+### 2026-10-27 — gmail
+- **Who:** Sagar Bhat / Lalit Maharana (Zoom AI summary)
+- **Where:** [Meeting assets for Sagar / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880188548543723814)
+- **Summary:** Confirmed transcript ingestion across Zoom, Teams and Google Meet should accept SRT/TXT/VTT/JSON/MD (issues mainly on Zoom; manual upload for Zoom clients); no apps live yet, backend work and demos in progress.
+
+### 2026-10-27 — gmail
+- **Who:** Anirudh Atole (Jira notification)
+- **Where:** [ENG-88232 SPIKE: Google Meet Transcript Support](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696)
+- **Summary:** ENG-88232 moved On Hold → In Progress again.

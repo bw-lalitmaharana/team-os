@@ -551,3 +551,23 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma (Jira notification)
 - **Where:** [ENG-89918 SPIKE: Permissions and MCP patterns](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879738329699004110)
 - **Summary:** Ankit posted Part B of the MCP permissions/patterns spike ("MCP building blocks" — tools, prompts, tasks, skills), following Part A on how services expose MCP tools and how permissions work.
+
+### 2026-10-27 — slack
+- **Who:** Ankit Sharma
+- **Where:** #pod-ai-platform — 2026-10-27 11:25 IST
+- **Summary:** Shared artifacts from today's call on exposing AI services via MCP: (1) exposing tools and LLM services such as feedback summary through MCP, (2) MCP building blocks — tools vs. prompts vs. skills vs. tasks and client support.
+
+### 2026-10-27 — slack
+- **Who:** Viktoriia Bondareva
+- **Where:** Group DM (Kate Malcolm, Viktoriia, Nataliia Savenko, Nellie, Lalit) — 2026-10-26 22:07 IST
+- **Summary:** Defined Talent MCP v1 scope in ENG-89859 (Talent | MCP Tools & Prompts v1 – Succession), updated the ideas doc, and drafted stories starting with talent_get_job_profile_skills.
+
+### 2026-10-27 — gmail
+- **Who:** Viktoriia Bondareva
+- **Where:** [Invitation: Talent MCP tool sync](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880209968751435653)
+- **Summary:** Talent MCP tool sync scheduled Fri Oct 30, 8–8:30 PM IST with Lalit, Nellie, Kate Malcolm (cc Nataliia).
+
+### 2026-10-27 — gmail
+- **Who:** Jason Zhang
+- **Where:** [Invitation: Performance Summary MCP tools Discussion](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880177822946551676)
+- **Summary:** Performance Summary MCP tools discussion held Oct 27 10:30–11:15 IST (Aakansha, Ankit, Hemant, Okan; cc Lalit, Cheau, Sagar, Nellie).

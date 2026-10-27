@@ -551,3 +551,18 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Lalit Maharana
 - **Where:** DM Nataliia Savenko/Lalit — 2026-10-23 18:30 IST
 - **Summary:** Lalit added ENG-88995 (Mixpanel events for PDP/Adaptive Learning) and asked Nataliia to review.
+
+### 2026-10-27 — gmail
+- **Who:** Sagar Bhat / Lalit Maharana (Zoom AI summary)
+- **Where:** [Meeting assets for Sagar / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880188548543723814)
+- **Summary:** Feedback-driven recommendation EDA: EDA test next week (pending feedback-event spec + Hemant's pipeline), LLM Engine integration ~mid/end-Nov (60–70% confidence), prod ~mid-Dec; new "draft" recommendation stage and WebSocket need raised; Lalit to review dev-goal/recommendation logic docs.
+
+### 2026-10-27 — gmail
+- **Who:** Rinku, Nitish Devadiga, Pankaj Lohmor, Sujith Kharvi, Sriram CS (Zoom AI summary)
+- **Where:** [Meeting assets for PDP + Career Path Stand Up](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880121752983006831)
+- **Summary:** Nitish finished skill-enrichment architecture (precursor to recommendations) for review with parent + AI teams; Pankaj started backend stories without final Jason/talent approval, frontend on Claude designs (no Figma); ~4 sprints left in quarter, KT to Danish/Yogendra before Diwali PTOs.
+
+### 2026-10-27 — gmail
+- **Who:** Nellie LeMonier (Aha digest)
+- **Where:** [[AHA] Recent changes to AI](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880129575126696235)
+- **Summary:** AI-238 PDP AI Services – Phase 2 re-ranked 17 → 8 and moved from AI-R-28 Winter 2026 to AI-R-29 Spring 2027.

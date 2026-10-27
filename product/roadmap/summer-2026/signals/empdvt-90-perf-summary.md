@@ -223,3 +223,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Ankit Sharma
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1793016592092989?thread_ts=1792704838.933389&cid=C04N1P7N1PT)
 - **Summary:** ENG-89981 fix (adding filter[user_id]) solves Super Admin case but would make AI Performance Summary error (404 → llm-engine failure) for new managers in orgs hiding past-manager conversations; asking Sudin Maharjan whether listing vs. requester permission check mismatch is intended.
+
+### 2026-10-27 — gmail
+- **Who:** Jason Zhang
+- **Where:** [Invitation: Performance Summary MCP tools Discussion](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880177822946551676)
+- **Summary:** Performance Summary MCP tools discussion held Oct 27 10:30–11:15 IST with Aakansha, Ankit, Hemant, Okan (cc Lalit, Cheau, Sagar, Nellie) — Perf Summary is being scoped as an MCP-exposed service.
