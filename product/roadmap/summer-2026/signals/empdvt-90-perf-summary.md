@@ -228,3 +228,23 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Jason Zhang
 - **Where:** [Invitation: Performance Summary MCP tools Discussion](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880177822946551676)
 - **Summary:** Performance Summary MCP tools discussion held Oct 27 10:30–11:15 IST with Aakansha, Ankit, Hemant, Okan (cc Lalit, Cheau, Sagar, Nellie) — Perf Summary is being scoped as an MCP-exposed service.
+
+### 2026-10-28 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #pod-ai-platform — 2026-10-28 09:29 IST
+- **Summary:** Proposed excluding confidential responses entirely from AI Performance Summary to avoid leaks (data stays in the API), asked Neeraj for input.
+
+### 2026-10-28 — gmail
+- **Who:** Ankit Sharma (Jira mention)
+- **Where:** [ENG-90145 AI Performance Summary cache serves one viewer's summary to another viewer](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880275235472848319)
+- **Summary:** New bug ENG-90145: Perf Summary cache can serve one viewer's summary to another, so confidential answers can leak; Lalit mentioned.
+
+### 2026-10-28 — slack
+- **Who:** Zendesk (Holly Wenneson, AMC Theatres)
+- **Where:** #customerfeedback — 2026-10-27 22:48 IST (ticket 43471)
+- **Summary:** AMC Theatres super-admin visibility issue: Conversations not pulling into Performance Summary; root cause found, fix timeline pending.
+
+### 2026-10-28 — slack
+- **Who:** Tejas S
+- **Where:** Group DM (Jason Zhang, Tejas, Maher Hanafi, Nellie, Lalit) — 2026-10-28 16:27 IST
+- **Summary:** Shared Sept token-usage breakdown for rainforest + prod; TEXT_SUMMARISER (feedback/perf summary, goal assist) is the shared prompt; MEETING_INSIGHTS and PDP_COURSE_RECOMMENDATIONS show no prod rows.

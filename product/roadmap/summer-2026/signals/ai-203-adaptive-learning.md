@@ -566,3 +566,13 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Nellie LeMonier (Aha digest)
 - **Where:** [[AHA] Recent changes to AI](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880129575126696235)
 - **Summary:** AI-238 PDP AI Services – Phase 2 re-ranked 17 → 8 and moved from AI-R-28 Winter 2026 to AI-R-29 Spring 2027.
+
+### 2026-10-28 — gmail
+- **Who:** Rinku, Nitish Devadiga, Pankaj Lohmor, Sujith Kharvi (Zoom AI summary)
+- **Where:** [Meeting assets for PDP + Career Path Stand Up](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880212144040896590)
+- **Summary:** Skill-enrichment architecture awaits Sagar's alignment with the Talent team (1–2 days) before finalizing; Pankaj flagged a data-storage discrepancy needing Talent input; tech-doc review in progress.
+
+### 2026-10-28 — gmail
+- **Who:** Hemant Kumar (Jira notification)
+- **Where:** [ENG-88995 Mixpanel Events for PDP/Adaptive Learning](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880216871748043552)
+- **Summary:** Hemant self-assigned ENG-88995 and moved it Draft → Ready for Refinement.

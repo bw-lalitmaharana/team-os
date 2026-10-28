@@ -1549,3 +1549,38 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Anirudh Atole (Jira notification)
 - **Where:** [ENG-88232 SPIKE: Google Meet Transcript Support](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696)
 - **Summary:** ENG-88232 moved On Hold → In Progress again.
+
+### 2026-10-28 — slack
+- **Who:** Lalit Maharana
+- **Where:** #cs-team — 2026-10-27 20:53–20:58 IST
+- **Summary:** Told CS that MS Teams + Google Meet transcript integrations are planned for winter; manual transcript/notes upload works today (Teams/Meet formats supported) and drives Recap/Prep/Recommendations; Zoom flows automatically once a participant connects.
+
+### 2026-10-28 — slack
+- **Who:** Hemant Kumar
+- **Where:** #meeting-transcript-integration — 2026-10-28 12:00 IST
+- **Summary:** EDA test setup for llm-engine done (running on rainforest); agreed with Rupesh that feedback-side event publisher needs 2 events (all status changes + separate delete), tracked in ENG-90049.
+
+### 2026-10-28 — slack
+- **Who:** Aakansha Srivastava
+- **Where:** #pod-ai-platform — 2026-10-28 14:51 IST
+- **Summary:** Meeting-transcript prompt is being touched for user_locale changes; asked Sagar/Hemant to review.
+
+### 2026-10-28 — slack
+- **Who:** Lalit Maharana → Tanveer Farooq
+- **Where:** DM with Tanveer Farooq — 2026-10-28 11:52 IST
+- **Summary:** Proposed a weekly "Meetings AI — Winter Release Update" format (overall RAG + per-source status for Google Meet ENG-88232 / MS Teams).
+
+### 2026-10-28 — gmail
+- **Who:** Lalit Maharana / Nellie LeMonier (Zoom AI summary)
+- **Where:** [Meeting assets for Lalit / Nellie 1:1](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880215666751548542)
+- **Summary:** Nellie wants winter scope frozen by end of week for marketing; Lalit to update meeting-transcripts Confluence (above/below line + Jira links), freeze conversation use cases with Neeraj, and position the product as usable without Zoom via manual notes upload.
+
+### 2026-10-28 — gmail
+- **Who:** Lalit Maharana / Tejas S (Zoom AI summary)
+- **Where:** [Meeting assets for Tejas / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880274104302946721)
+- **Summary:** Recognition spike done and in UI QA; request feedback next, give feedback blocked on event-processor spike, dev goals last; Teams/Meet spikes nearing close with testing via developer accounts (Teams org in Rainforest, Meet in Champagne), timeline to end of Nov.
+
+### 2026-10-28 — gmail
+- **Who:** Hemant Kumar (Jira notification)
+- **Where:** [ENG-86326 Extract Developmental Signals from Meeting Transcripts](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879522551980134499)
+- **Summary:** ENG-86326 sprint field updated (Sprint 296/297) and marked Ready to Pull Into Sprint.

@@ -571,3 +571,38 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Zhang
 - **Where:** [Invitation: Performance Summary MCP tools Discussion](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880177822946551676)
 - **Summary:** Performance Summary MCP tools discussion held Oct 27 10:30–11:15 IST (Aakansha, Ankit, Hemant, Okan; cc Lalit, Cheau, Sagar, Nellie).
+
+### 2026-10-28 — slack
+- **Who:** Jason Bilyeu
+- **Where:** #pod-app-platform — 2026-10-27 23:46 IST
+- **Summary:** PRs up for MCP OAuth scope support (ENG-90003, ENG-90004) in Core and public-api-mcp.
+
+### 2026-10-28 — slack
+- **Who:** Nellie LeMonier / Martha Rankins
+- **Where:** #eng-mcp / #pod-app-platform — 2026-10-28 01:29–05:20 IST
+- **Summary:** MCP GA work in sprint: module icons for Core MCP tools (ENG-90009, PR open; Nellie pushing Gauri to confirm material-symbols icons) and Core tool description updates (ENG-89629/89649).
+
+### 2026-10-28 — slack
+- **Who:** Ryan Mulready
+- **Where:** #pod-ai-chat — 2026-10-28 18:31 IST
+- **Summary:** New MCP prompt "Draft Conversation Responses" is the first requiring arguments; BetterAI Chat needs a new input UX for argument prompts.
+
+### 2026-10-28 — slack
+- **Who:** Jason Zhang
+- **Where:** #pod-ai-chat — 2026-10-28 04:47 IST
+- **Summary:** agent-runtime connects to rainforest public-api-mcp via public endpoint (services/mcp-beta/mcp); asked JB to confirm same pattern for orchard/pluto/champagne.
+
+### 2026-10-28 — slack
+- **Who:** Emad Ahmed / Nellie LeMonier; Rhys Kirby
+- **Where:** #signaturesupport — 2026-10-27 20:31–21:02 IST; #product — 2026-10-27 23:40 IST
+- **Summary:** HelloFresh wants a native Gemini MCP connection path (docs only cover Claude/ChatGPT/CLI; Nellie: any MCP-capable AI works); EMEA sales asked whether MCP actions have an audit log.
+
+### 2026-10-28 — slack
+- **Who:** Ankit Sharma
+- **Where:** DM with Ankit Sharma — 2026-10-28 10:37 IST
+- **Summary:** Asked Lalit to review the MCP artifacts, then set up a discussion to finalize implementation.
+
+### 2026-10-28 — gmail
+- **Who:** Ankit Sharma / Automation for Jira (Jira notifications)
+- **Where:** [ENG-89918 SPIKE: Permissions and MCP patterns](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879738329699004110) · [ENG-88105 AI Modules - MCP Tools & Prompts](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1876553198002044755)
+- **Summary:** ENG-89918 pointed at 2 SP; ENG-88105 rolled-up points grew 11 → 14.
