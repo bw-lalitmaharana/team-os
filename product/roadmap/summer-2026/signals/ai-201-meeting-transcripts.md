@@ -1584,3 +1584,38 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hemant Kumar (Jira notification)
 - **Where:** [ENG-86326 Extract Developmental Signals from Meeting Transcripts](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879522551980134499)
 - **Summary:** ENG-86326 sprint field updated (Sprint 296/297) and marked Ready to Pull Into Sprint.
+
+### 2026-10-29 — slack
+- **Who:** Hemant Kumar
+- **Where:** #meeting-transcript-integration — 2026-10-28 19:27 IST
+- **Summary:** Today's demo was cancelled because of an intermittent deployment issue on rainforest: recognition recommendations were not showing on meeting transcripts. A fix is in progress.
+
+### 2026-10-29 — slack
+- **Who:** Holly Wenneson / Maher Hanafi
+- **Where:** #pluto_support — 2026-10-29 00:17–02:48 IST; DM with Holly — 2026-10-28 20:33 IST
+- **Summary:** 1:1 Insights are not generating in the Pluto demo environment after a transcript upload. The error persists after fixing participant names (Maher asked whether the names match exactly). Holly asked Lalit for sample transcripts for demos.
+
+### 2026-10-29 — slack
+- **Who:** Holly Wenneson / Lalit Maharana
+- **Where:** #product — 2026-10-29 03:09 IST (Lalit replied 12:05 IST)
+- **Summary:** Lalit confirmed automated transcripts need the 1:1s calendar integration. The calendar event must carry the Zoom link, because the Zoom meeting ID is used to fetch the transcript.
+
+### 2026-10-29 — slack
+- **Who:** Lalit Maharana
+- **Where:** #meeting-transcript-integration — 2026-10-29 12:46 IST
+- **Summary:** Shared the specs for development-goal recommendations in meetings, including the UI story ENG-86328 (dev-goal rows in the Action Items AI suggestion card). Asked Hemant, Sagar, Anuj, Hiten and Anirudh to align on the approach in Monday's call.
+
+### 2026-10-29 — gmail
+- **Who:** Nellie LeMonier / Tejas S (Jira notifications)
+- **Where:** [ENG-89277 Scope recap and recommendations endpoint to meeting participants only](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878852837922124593)
+- **Summary:** ENG-89277 passed QA and Product Acceptance and was resolved Done. It is a backend-only change, so it is excluded from release notes.
+
+### 2026-10-29 — gmail
+- **Who:** Lalit Maharana / Harshini Vijay (Zoom AI summary)
+- **Where:** [Meeting assets for Harshini / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880362131060317457)
+- **Summary:** Proposed "develop skill" as the single entry point for development goals: it opens the create drawer and the backend adds the skill to the profile. Feedback and recognition are done and dev goals are the last item. The email preview is OK apart from removing the plain-text preview. The Teams/Meet settings pages wait on Anirudh's spike.
+
+### 2026-10-29 — gmail
+- **Who:** Tanveer Farooq (calendar)
+- **Where:** [Updated invitation: Demo | Meeting Transcript](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880301658093449739)
+- **Summary:** The Meeting Transcript demo was rescheduled to Tue Nov 3, 7:30–8:00 PM IST for the cross-pod team, including Nellie.

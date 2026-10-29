@@ -606,3 +606,33 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma / Automation for Jira (Jira notifications)
 - **Where:** [ENG-89918 SPIKE: Permissions and MCP patterns](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879738329699004110) · [ENG-88105 AI Modules - MCP Tools & Prompts](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1876553198002044755)
 - **Summary:** ENG-89918 pointed at 2 SP; ENG-88105 rolled-up points grew 11 → 14.
+
+### 2026-10-29 — gmail
+- **Who:** Lalit, Nellie, Ankit Sharma, Jason Zhang (Zoom AI summary) + Jira
+- **Where:** [Meeting assets for AI Platform - Refinement](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880357373642414589) · [ENG-88948 Implement Feedback summary tool for mcp](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
+- **Summary:** The team decided Feedback Summary ships as an MCP prompt (a slash command taking user, date range and additional instructions), not a long-running tool, to avoid timeout and polling problems. Permissions are scoped through the existing feedback tools. ENG-88948 moved On Hold → In Progress.
+
+### 2026-10-29 — gmail
+- **Who:** Ankit Sharma (Jira notification)
+- **Where:** [ENG-89918 SPIKE: Permissions and MCP patterns](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879738329699004110)
+- **Summary:** ENG-89918 moved In Progress → Code Review. In a Slack DM (12:57 IST), Ankit asked Lalit whether to move it to Product Acceptance.
+
+### 2026-10-29 — slack
+- **Who:** Jason Bilyeu / Martha Rankins
+- **Where:** #pod-app-platform — 2026-10-29 00:46–02:00 IST
+- **Summary:** PR #168 adds the MCP Tool Developer Guide and Skill (ENG-90005); Lalit shared it with Varnika. Martha re-requested review on PR #153 (Core tool icons and descriptions: ENG-90009/89629/89649).
+
+### 2026-10-29 — slack
+- **Who:** Jason Bilyeu / Jason Zhang / Sudin Maharjan
+- **Where:** #pod-ai-chat — 2026-10-28 23:11 – 2026-10-29 02:30 IST; #pod-ai-platform — 2026-10-29 02:32 IST
+- **Summary:** New stories ENG-90220/90222 cover the upgrade to MCP 2.x, kept backward-compatible with agent-runtime. MCP pen testing is Orchard-only. agent-runtime PRs #183/#184 configure the internal MCP endpoint. Champagne MCP is still returning "Server not initialized".
+
+### 2026-10-29 — gmail
+- **Who:** Jason Bilyeu, Nellie, Martha Rankins (Zoom AI summary)
+- **Where:** [Meeting assets for App Platform - Daily Standup (Oct 28)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880308163904004790)
+- **Summary:** OAuth scope stories are finalized behind an MCP env flag that defaults to off. The icon story should use material-symbols via Iconify. Custom roles phase 1 was pushed to spring; Lalit is to review the custom-roles UI.
+
+### 2026-10-29 — gmail
+- **Who:** Lalit Maharana / Varnika Garg (Zoom AI summary)
+- **Where:** [Meeting assets for Varnika / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880381744483345015)
+- **Summary:** Goals MCP plan: Varnika will review the tool developer guide and explore wrapping the progress-update/comment API as a goals check-in tool. She will define goals custom-role permissions by Monday. Goal suggestions may slip to spring because of the Dec 15 shutdown.

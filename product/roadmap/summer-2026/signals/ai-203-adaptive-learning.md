@@ -576,3 +576,13 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Hemant Kumar (Jira notification)
 - **Where:** [ENG-88995 Mixpanel Events for PDP/Adaptive Learning](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880216871748043552)
 - **Summary:** Hemant self-assigned ENG-88995 and moved it Draft → Ready for Refinement.
+
+### 2026-10-29 — gmail
+- **Who:** Rinku, Sriram CS, Nataliia Savenko, Pankaj Lohmor, Sujith Kharvi, Nitish Devadiga (Zoom AI summary)
+- **Where:** [Meeting assets for PDP + Career Path Stand Up (Oct 28)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880303797540164792)
+- **Summary:** Career path moved from position hierarchy to jobs. The Dec 15 winter release is at risk and may ship manual position selection without AI; AI skills-for-position is now targeted at Jan 18–23. Sriram flagged the risk of shipping a non-AI marquee feature, and Pankaj will document the cross-pod blockers for Maher.
+
+### 2026-10-29 — gmail
+- **Who:** Rinku (calendar)
+- **Where:** [Canceled: PDP + Career Path Review + Demo](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880381991495551397)
+- **Summary:** The Oct 29 PDP + Career Path review/demo was cancelled ("no updates for tonight").

@@ -248,3 +248,13 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Tejas S
 - **Where:** Group DM (Jason Zhang, Tejas, Maher Hanafi, Nellie, Lalit) — 2026-10-28 16:27 IST
 - **Summary:** Shared Sept token-usage breakdown for rainforest + prod; TEXT_SUMMARISER (feedback/perf summary, goal assist) is the shared prompt; MEETING_INSIGHTS and PDP_COURSE_RECOMMENDATIONS show no prod rows.
+
+### 2026-10-29 — gmail
+- **Who:** Lalit, Nellie, Ankit Sharma, Jason Zhang, Sagar, Tejas (Zoom AI summary)
+- **Where:** [Meeting assets for AI Platform - Refinement](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880357373642414589)
+- **Summary:** Performance Summary and Goal Assist will likely follow the same MCP prompt-based pattern as Feedback Summary but need more tools. Lalit owes refined Perf Summary and Goal Assist requirements. Tejas is closing out the Llama vs Gemma token/latency metrics ticket.
+
+### 2026-10-29 — slack
+- **Who:** Lalit Maharana / Ankit Sharma
+- **Where:** DM with Ankit Sharma — 2026-10-29 12:58 IST
+- **Summary:** Lalit confirmed there are recommendations to bring Performance Summary and Goal Assist onto the MCP pattern. Ankit noted MCP tasks could be supported later, once clients support them.
