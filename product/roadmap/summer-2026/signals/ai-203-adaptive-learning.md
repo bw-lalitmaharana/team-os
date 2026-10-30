@@ -586,3 +586,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Rinku (calendar)
 - **Where:** [Canceled: PDP + Career Path Review + Demo](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880381991495551397)
 - **Summary:** The Oct 29 PDP + Career Path review/demo was cancelled ("no updates for tonight").
+
+### 2026-10-30 — gmail
+- **Who:** Rinku, Sriram CS, Nataliia Savenko, Pankaj Lohmor, Nitish Devadiga, Sujith Kharvi (Zoom AI summary)
+- **Where:** [Meeting assets for PDP + Career Path Stand Up](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880395240958729200)
+- **Summary:** Sriram called the December AI MVP non-negotiable (Dec 15 winter release, no January option) and said the project is at risk. Rinku's plan has critical milestones on Nov 2–6 (dev planning, architecture sign-off, schema finalization). Position recommendations and match score still need product clarity. Two developers from Integrations are joining next week.

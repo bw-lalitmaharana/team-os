@@ -636,3 +636,18 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Lalit Maharana / Varnika Garg (Zoom AI summary)
 - **Where:** [Meeting assets for Varnika / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880381744483345015)
 - **Summary:** Goals MCP plan: Varnika will review the tool developer guide and explore wrapping the progress-update/comment API as a goals check-in tool. She will define goals custom-role permissions by Monday. Goal suggestions may slip to spring because of the Dec 15 shutdown.
+
+### 2026-10-30 — gmail
+- **Who:** Victor Chen (Jira notification)
+- **Where:** [ENG-89357 NextGen Conversation | MCP Tools & Prompts for Conversation](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879865210523196639)
+- **Summary:** ENG-89357 moved Draft → In Progress, and its story points went from 5 to 6.
+
+### 2026-10-30 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #product — 2026-10-30 04:17 IST (reply to Rhys Kirby)
+- **Summary:** The Gemma 4 model, due by Nov 15, will support all 31 platform languages. MCP tool calls are logged in New Relic with 30-day retention. Winter adds observability and traceability for MCP tool calls from BetterAI chat.
+
+### 2026-10-30 — slack
+- **Who:** Jason Bilyeu
+- **Where:** #pod-app-platform — 2026-10-30 03:29 IST
+- **Summary:** JB opened PR #247 in quality-automation-services for ENG-90291. It adds schema validation test support and schema tests for all core tools.

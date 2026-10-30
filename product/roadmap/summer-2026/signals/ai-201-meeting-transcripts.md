@@ -1619,3 +1619,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tanveer Farooq (calendar)
 - **Where:** [Updated invitation: Demo | Meeting Transcript](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880301658093449739)
 - **Summary:** The Meeting Transcript demo was rescheduled to Tue Nov 3, 7:30–8:00 PM IST for the cross-pod team, including Nellie.
+
+### 2026-10-30 — gmail
+- **Who:** Anirudh Atole (Jira mention; cc Lalit, Tanveer, Anuj)
+- **Where:** [ENG-88232 SPIKE: Google Meet Transcript Support](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879750875528337277)
+- **Summary:** The Google Meet spike is now unblocked. It ran on a real Workspace test tenant (bw-meet-test.com), and a Meet transcript reached the local 1:1 Transcripts tab end to end with the existing WebVTT validator. Open questions need Product and Legal: merge or keep separate when a meeting has multiple transcripts, which auth model to use (delegation, Marketplace, calendar sign-in, or per-user OAuth), polling vs. Pub/Sub, how many customers use Meet, and Legal review of Google's user-data policy.
+
+### 2026-10-30 — slack
+- **Who:** Holly Wenneson
+- **Where:** #pluto_support — 2026-10-29 19:31 IST
+- **Summary:** 1:1 Insights in the Pluto demo environment now say "not enough data" instead of erroring, which is progress. Only one transcript has been uploaded so far.
+
+### 2026-10-30 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** #meetings-nudges — 2026-10-30 09:30 IST
+- **Summary:** ENG-86356 (Spike: auto-triggering inference in meetings, Anuj Pancholi) has been in Code Review for 16 working days (meetings-api PR #450 still open). Two Meetings items are also waiting on Product Acceptance.

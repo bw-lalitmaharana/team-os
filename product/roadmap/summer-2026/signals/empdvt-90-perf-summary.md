@@ -258,3 +258,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Lalit Maharana / Ankit Sharma
 - **Where:** DM with Ankit Sharma — 2026-10-29 12:58 IST
 - **Summary:** Lalit confirmed there are recommendations to bring Performance Summary and Goal Assist onto the MCP pattern. Ankit noted MCP tasks could be supported later, once clients support them.
+
+### 2026-10-30 — slack
+- **Who:** Ankit Sharma
+- **Where:** #pod-ai-platform — 2026-10-29 19:33 IST
+- **Summary:** In his DSU update, Ankit said he connected with Tejas about testing ENG-89981 (Super Admin gets no Conversations data in AI Performance Summary). No blockers.
