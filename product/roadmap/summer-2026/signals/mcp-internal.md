@@ -651,3 +651,13 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Bilyeu
 - **Where:** #pod-app-platform — 2026-10-30 03:29 IST
 - **Summary:** JB opened PR #247 in quality-automation-services for ENG-90291. It adds schema validation test support and schema tests for all core tools.
+
+### 2026-11-02 — gmail
+- **Who:** Ankit Sharma (via Jira)
+- **Where:** [ENG-88948 mention thread](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878468820025391906)
+- **Summary:** ENG-88948 (Feedback summary tool for MCP) back In Progress; Ankit confirms implementation will proceed on the architecture proposed in the shared Claude artifact.
+
+### 2026-11-02 — gmail
+- **Who:** Zoom AI summary — Lalit, Neeraj Mohan
+- **Where:** [Meeting assets: Neeraj / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880750286337113866)
+- **Summary:** MCP now GA with monthly tool rollouts independent of seasonal releases; pods own their tools via the MCP Tool Developer Guide; Neeraj to draft conversations + feedback tools within ~2 days and update the tracking sheet, Paul to review.

@@ -263,3 +263,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Ankit Sharma
 - **Where:** #pod-ai-platform — 2026-10-29 19:33 IST
 - **Summary:** In his DSU update, Ankit said he connected with Tejas about testing ENG-89981 (Super Admin gets no Conversations data in AI Performance Summary). No blockers.
+
+### 2026-11-02 — slack
+- **Who:** Zendesk (requester Holly Wenneson, assignee Rachel Scoffield)
+- **Where:** [#customerfeedback](https://betterworks.slack.com/archives/C03QDA82H/p1793629811352769?thread_ts=1792072694.027919&cid=C03QDA82H)
+- **Summary:** AMC Theatres ticket #43471 (super-admin visibility to performance summary) — fix ENG-89981 passed QA on Rainforest; ticket on-hold pending release.

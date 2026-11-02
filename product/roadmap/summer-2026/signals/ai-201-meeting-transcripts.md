@@ -1634,3 +1634,23 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** JIRA Nudge Bot
 - **Where:** #meetings-nudges — 2026-10-30 09:30 IST
 - **Summary:** ENG-86356 (Spike: auto-triggering inference in meetings, Anuj Pancholi) has been in Code Review for 16 working days (meetings-api PR #450 still open). Two Meetings items are also waiting on Product Acceptance.
+
+### 2026-11-02 — slack
+- **Who:** Hemant Kumar
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1793613862416459)
+- **Summary:** Meetings-transcript open branch deployed to Rainforest for tomorrow's demo; Meetings team building UI against that BE — asks not to merge or revert without notice.
+
+### 2026-11-02 — slack
+- **Who:** Hiten Khuman
+- **Where:** [DM Lalit/Hiten](https://betterworks.slack.com/archives/D0BGD1M4RL5/p1793596548392789)
+- **Summary:** Requests ENG-89280 (Fetching On Demand Transcript) be split into separate FE and BE tickets so reports stay unaffected (agreed with Tanveer) — needs Lalit's action.
+
+### 2026-11-02 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** [#meetings-nudges](https://betterworks.slack.com/archives/C0CB72D60Q2/p1793592043369219)
+- **Summary:** ENG-89001 (Meetings Transcripts duplicate error when transcript not visible) waiting 5wd on Product Acceptance; ENG-86356 spike (auto-triggering inference in meetings, meetings-api #450) 17wd in code review.
+
+### 2026-11-02 — gmail
+- **Who:** Zoom AI summary — Lalit, Anirudh Atole, Anuj Pancholi, Danish Sharma
+- **Where:** [Meeting assets: Google Meet POC & Next steps](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880747821462297026)
+- **Summary:** Google Meet transcript POC: marketplace-app admin flow preferred; per-user PubSub subscriptions (7-day lifecycle) judged unscalable → short polling / hybrid CDC + scheduler refresh under review with Pankaj/IEC; OAuth via Authent Proxy; Lalit to schedule follow-up with Pankaj.
