@@ -1654,3 +1654,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Zoom AI summary — Lalit, Anirudh Atole, Anuj Pancholi, Danish Sharma
 - **Where:** [Meeting assets: Google Meet POC & Next steps](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880747821462297026)
 - **Summary:** Google Meet transcript POC: marketplace-app admin flow preferred; per-user PubSub subscriptions (7-day lifecycle) judged unscalable → short polling / hybrid CDC + scheduler refresh under review with Pankaj/IEC; OAuth via Authent Proxy; Lalit to schedule follow-up with Pankaj.
+
+### 2026-11-09 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** [#meetings-nudges](https://betterworks.slack.com/archives/C0CB72D60Q2/p1794196836455789)
+- **Summary:** ENG-86356 auto-trigger inference spike (Anuj, meetings-api #450) still in code review at 22wd (was 17wd); ENG-88232 Google Meet transcript spike (Anirudh) waiting on product acceptance at 7wd.
