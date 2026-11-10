@@ -661,3 +661,43 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Zoom AI summary — Lalit, Neeraj Mohan
 - **Where:** [Meeting assets: Neeraj / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880750286337113866)
 - **Summary:** MCP now GA with monthly tool rollouts independent of seasonal releases; pods own their tools via the MCP Tool Developer Guide; Neeraj to draft conversations + feedback tools within ~2 days and update the tracking sheet, Paul to review.
+
+### 2026-11-10 — slack
+- **Who:** Kari Yamin (with replies from Suzanne Valdez, Cassie Fulton Flores, BetterBrain)
+- **Where:** #product — 2026-11-10 03:45 IST
+- **Summary:** Customer asked for an MCP one-pager and pricing. Cassie confirmed GA comes in Winter, the current beta stays free in the Foundation and Talent Intelligence packages, and a 3rd advanced-AI package (MCP+, BetterAI Assistant, coaching) is still being defined. BetterBrain said it could not verify status or pricing from its sources.
+
+### 2026-11-10 — slack
+- **Who:** Ankit Sharma
+- **Where:** #pod-ai-platform — 2026-11-10 15:06 IST
+- **Summary:** PR to add the feedback summary prompt to MCP (public-api-mcp #140) is up for review.
+
+### 2026-11-10 — slack
+- **Who:** Ryan Mulready
+- **Where:** #pod-app-platform — 2026-11-09 19:54 IST
+- **Summary:** PR to improve MCP completion performance and handling of filters and pagination (public-api-mcp #186) is up for review.
+
+### 2026-11-10 — slack
+- **Who:** Jason Zhang
+- **Where:** #pod-ai-chat — 2026-11-10 00:30 IST
+- **Summary:** Praised Ryan's server-defined prompt-args form and proposed changing the final send step (Haven render → agent-runtime prompts/get flow) before more MCP prompts adopt it.
+
+### 2026-11-10 — slack
+- **Who:** Nellie LeMonier (approver, via early-access bot)
+- **Where:** #early-access-requests — 2026-11-10 05:51 IST
+- **Summary:** MCP EAP request for Exeltis (ENG-90729) approved.
+
+### 2026-11-10 — slack
+- **Who:** Lalit Maharana
+- **Where:** DM with Varnika Garg — 2026-11-10 09:32 IST
+- **Summary:** Lalit asked Varnika to block time with Nellie on MCP tools on Nov 11.
+
+### 2026-11-10 — gmail
+- **Who:** Nellie LeMonier (Confluence)
+- **Where:** [Connected Intelligence (MCP GA Release) | Feature Documentation](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881439025274380753)
+- **Summary:** Nellie mentioned Lalit in the Winter 2026 MCP GA feature documentation page.
+
+### 2026-11-10 — gmail
+- **Who:** Nellie LeMonier (Jira)
+- **Where:** [ENG-89996 NextGen Recognition | MCP](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881431467129610564)
+- **Summary:** Nellie updated ENG-89996 and added a comment; the summary moved between the "Write recognition tool" and "Manage recognition tool" titles.

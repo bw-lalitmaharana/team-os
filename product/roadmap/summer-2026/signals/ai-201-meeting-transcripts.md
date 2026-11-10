@@ -1654,3 +1654,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Zoom AI summary — Lalit, Anirudh Atole, Anuj Pancholi, Danish Sharma
 - **Where:** [Meeting assets: Google Meet POC & Next steps](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880747821462297026)
 - **Summary:** Google Meet transcript POC: marketplace-app admin flow preferred; per-user PubSub subscriptions (7-day lifecycle) judged unscalable → short polling / hybrid CDC + scheduler refresh under review with Pankaj/IEC; OAuth via Authent Proxy; Lalit to schedule follow-up with Pankaj.
+
+### 2026-11-10 — gmail
+- **Who:** Tanveer Farooq
+- **Where:** [Updated invitation: Demo | Meeting Transcript](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881450878986000296)
+- **Summary:** Meeting Transcript demo scheduled Wed Nov 11, 8:30–9:00 PM IST with the full pipeline team (Sagar, Hemant, Anuj, Danish, Pankaj, Tejas, Jason Z, Nellie; Varnika cc'd).
