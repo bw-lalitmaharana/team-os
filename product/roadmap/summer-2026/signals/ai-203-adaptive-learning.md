@@ -591,3 +591,18 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Rinku, Sriram CS, Nataliia Savenko, Pankaj Lohmor, Nitish Devadiga, Sujith Kharvi (Zoom AI summary)
 - **Where:** [Meeting assets for PDP + Career Path Stand Up](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880395240958729200)
 - **Summary:** Sriram called the December AI MVP non-negotiable (Dec 15 winter release, no January option) and said the project is at risk. Rinku's plan has critical milestones on Nov 2–6 (dev planning, architecture sign-off, schema finalization). Position recommendations and match score still need product clarity. Two developers from Integrations are joining next week.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Rinku, Nataliia Savenko, Danish Sharma, Sujith Kharvi, Pankaj Lohmor
+- **Where:** [Meeting assets: PDP + Career Path Stand Up (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881480601557944579)
+- **Summary:** Team aligned on Jason's architecture proposal. The Winter MVP uses a deterministic fit score and skips semantic matching. Sujith's Jobs PR is awaiting Jason's review.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Rinku, Pankaj Lohmor, Jason Sites, Nataliia Savenko, Nataliya Kolb, Danish Sharma, Nellie LeMonier, Sriram CS, Donnie Ellstrom, others
+- **Where:** [Meeting assets: Career Path + PDP Cross Sync Call (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881495394449538806)
+- **Summary:** MVP scope locked: skill recommendation, deterministic match score (~60–75% threshold), AI role recommendations, and same-job-family job recommendations by rank/level. Moving from position skills to job skills, with embeddings for skill matching. Targets: demo in 1–2 weeks, ship before ~Dec 22, Dec 9 preview, Jan 12 GA. Pankaj owes a plan by Friday plus a job-recommendation architecture doc.
+
+### 2026-11-11 — gmail
+- **Who:** Hemant Kumar (Jira)
+- **Where:** [ENG-88995 Mixpanel Events for PDP/Adaptive Learning](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880216871748043552)
+- **Summary:** ENG-88995 moved Code Review → Ready For QA, release version v1.3728.0.

@@ -268,3 +268,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Zendesk (requester Holly Wenneson, assignee Rachel Scoffield)
 - **Where:** [#customerfeedback](https://betterworks.slack.com/archives/C03QDA82H/p1793629811352769?thread_ts=1792072694.027919&cid=C03QDA82H)
 - **Summary:** AMC Theatres ticket #43471 (super-admin visibility to performance summary) — fix ENG-89981 passed QA on Rainforest; ticket on-hold pending release.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Nellie LeMonier, Jason Bilyeu, Jason Zhang, Ryan Mulready, Cheau-Long Ng
+- **Where:** [Meeting assets: Cross team sync on AI Chat (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881499729976073095)
+- **Summary:** JB argued that performance summary and feedback summary should not be public MCP tools and should be agent-runtime sub-agents instead. Nellie will run a separate review to classify each tool as public, internal, or sub-agent.

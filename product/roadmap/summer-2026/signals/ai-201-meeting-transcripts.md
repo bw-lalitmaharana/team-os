@@ -1659,3 +1659,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tanveer Farooq
 - **Where:** [Updated invitation: Demo | Meeting Transcript](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881450878986000296)
 - **Summary:** Meeting Transcript demo scheduled Wed Nov 11, 8:30–9:00 PM IST with the full pipeline team (Sagar, Hemant, Anuj, Danish, Pankaj, Tejas, Jason Z, Nellie; Varnika cc'd).
+
+### 2026-11-11 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** #meetings-nudges — 2026-11-11 09:30 IST
+- **Summary:** 9 Meetings items need attention; ENG-86356 spike (auto-triggering inference in meetings, meetings-api #450, Anuj Pancholi) is now 24 working days in code review.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Lalit, Nellie LeMonier
+- **Where:** [Meeting assets: Lalit / Nellie 1:1 (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881487659958468488)
+- **Summary:** Transcript docs done; Mary and Molly emailed CSMs about the manual-upload path and training was updated. Lalit will ask them to pitch it again at the next monthly enablement session. Teams and Google Meet positioning updates are coming.

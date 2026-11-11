@@ -701,3 +701,38 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Nellie LeMonier (Jira)
 - **Where:** [ENG-89996 NextGen Recognition | MCP](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881431467129610564)
 - **Summary:** Nellie updated ENG-89996 and added a comment; the summary moved between the "Write recognition tool" and "Manage recognition tool" titles.
+
+### 2026-11-11 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [#champagne-mcp-support](https://betterworks.slack.com/archives/C0B0Q5WBN0N/p1794319207659429?thread_ts=1793823472.208849&cid=C0B0Q5WBN0N) — 2026-11-10 19:30 IST
+- **Summary:** Nellie shared the updated Winter MCP GA plan with Mary Makris: shipped items, above-the-line items, and stretch goals. Winter preview is Dec 9 and official release is Jan 12. She asked whether what is on Champagne now could ship as GA in November. Mary will review with Cassie and Mollie.
+
+### 2026-11-11 — slack
+- **Who:** Paul Agustin
+- **Where:** [Group DM with Varnika, Nellie, Lalit](https://betterworks.slack.com/archives/C0CGUU7MPLH/p1794399414959009) — 2026-11-11 17:46 IST
+- **Summary:** All 7 Meetings MCP tools and 5 prompts are built and tested, but only enabled on Rainforest. Production is blocked by: (1) Phase 0 participation checks (ENG-89242–89245, needs Meetings Pod; write tools could hit other users' 1:1s, which Lalit flagged), (2) Rainforest, Champagne, and QA validation (not started), and (3) 1:1 editing-rules decisions for Varnika.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Nellie LeMonier, Jason Bilyeu, Jason Zhang, Ryan Mulready, Cheau-Long Ng
+- **Where:** [Meeting assets: Cross team sync on AI Chat (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881499729976073095)
+- **Summary:** JB is worried about the December deadline for MCP tool changes; the December shutdown leaves about 3 sprints. He pushed back on tool sprawl in the GA list. Nellie will check with Neeraj on capacity and hold a per-tool public/internal/sub-agent review. Separately, Gemma is losing context across tool calls in Rainforest, and JZ will test a reasoning model.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Lalit, Nellie LeMonier
+- **Where:** [Meeting assets: Lalit / Nellie 1:1 (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881487659958468488)
+- **Summary:** Reviewed MCP GA tiering. Conversation tools, goals, and performance summary are in focus, and Nellie will mark "get summary"/"generate summary" as tier-1 prompts. Lalit will review the GA doc and meet Neeraj on CFR tools.
+
+### 2026-11-11 — gmail
+- **Who:** Zoom AI summary — Lalit, Neeraj Mohan
+- **Where:** [Meeting assets: Neeraj / Lalit (Nov 11)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881554905896154391)
+- **Summary:** Winter MCP order is employee use cases, then manager, then admin later. Plan is 5–10 tools per quarter with monthly rollouts of 1–3. CRUD operations will be combined into single use-case tools. Conversation tool is done, feedback tool is pending with Aditya, and the recognition tool has no owner yet (Neeraj to ask Pankaj). A Better AI orchestrator/sub-agent model depends on Ankit's feedback-summary POC.
+
+### 2026-11-11 — gmail
+- **Who:** Neeraj Mohan, Pankaj Lohmor (Jira)
+- **Where:** [ENG-89996 NextGen Recognition | MCP | Manage recognition tool](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881431467129610564) · [ENG-88118 Conversation Prompt mention](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881554999192178443)
+- **Summary:** Neeraj asked Pankaj in ENG-89996 whether he has bandwidth for the recognition tool, and Pankaj replied. Neeraj also @-mentioned Lalit on ENG-88118 ("Draft my answers for this conversation" prompt) asking him to check it.
+
+### 2026-11-11 — gmail
+- **Who:** Ankit Sharma (Jira); Nellie LeMonier and Neeraj Mohan (calendar)
+- **Where:** [ENG-88948 Implement Feedback summary tool for mcp](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501) · [Accepted: CFR MCP Winter Release](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881543873146165546)
+- **Summary:** ENG-88948 (feedback summary MCP tool) moved In Progress → On Hold, in line with the sub-agent refactor discussion. Nellie and Neeraj accepted Lalit's CFR MCP Winter Release call (Nov 11, 21:00 IST).
