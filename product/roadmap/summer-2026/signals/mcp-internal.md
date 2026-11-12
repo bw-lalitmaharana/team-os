@@ -736,3 +736,38 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma (Jira); Nellie LeMonier and Neeraj Mohan (calendar)
 - **Where:** [ENG-88948 Implement Feedback summary tool for mcp](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501) · [Accepted: CFR MCP Winter Release](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881543873146165546)
 - **Summary:** ENG-88948 (feedback summary MCP tool) moved In Progress → On Hold, in line with the sub-agent refactor discussion. Nellie and Neeraj accepted Lalit's CFR MCP Winter Release call (Nov 11, 21:00 IST).
+
+### 2026-11-12 — slack
+- **Who:** Varnika Garg
+- **Where:** [DM with Lalit](https://betterworks.slack.com/archives/D0B2L15AY2W/p1794416218587789)
+- **Summary:** Varnika's exploration of new Goals MCP tools is paused. The dev she needed was on PTO and she is now out herself, so it resumes when she is back (Nellie's email says Nov 21).
+
+### 2026-11-12 — slack
+- **Who:** Ankit Sharma
+- **Where:** [#pod-recognition thread](https://betterworks.slack.com/archives/C0BHQA9EJSU/p1794482872464929?thread_ts=1794482872.464929&cid=C0BHQA9EJSU)
+- **Summary:** While building the recognition MCP response (ENG-90226), Ankit found that hashtag names can contain `;`, which collides with the `;`-joined flattened output. He asked whether that is intentional before adding escaping (5 replies in thread).
+
+### 2026-11-12 — gmail
+- **Who:** Zoom AI summary — Lalit, Neeraj Mohan, Nellie LeMonier
+- **Where:** [Meeting assets: CFR MCP Winter Release (Nov 11)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881577478450865410)
+- **Summary:** The conversations spike is done, but Better AI is not saving data, and Nellie will follow up with Ryan on whether it is really "done-done". Feedback goes to Aditya next sprint (Neeraj to confirm the timeline). Recognition moves from Pankaj to Ankit for time sensitivity.
+
+### 2026-11-12 — gmail
+- **Who:** Nellie LeMonier (Jira)
+- **Where:** [ENG-89996 MCP | Recognition | recognition_manage_recognition](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881431467129610564) · [description update](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881579486470092016)
+- **Summary:** Nellie assigned ENG-89996 to Ankit Sharma, added it to the sprint, renamed it to `recognition_manage_recognition` and rewrote the description around the MCP tool build path.
+
+### 2026-11-12 — gmail
+- **Who:** Nellie LeMonier, Neeraj Mohan (Jira)
+- **Where:** [ENG-88118 MCP | Conversation Prompt | Draft my answers](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878852146740977160)
+- **Summary:** Nellie asked Neeraj whether the spike ticket covers this prompt. Neeraj said he believes so, but added that things have changed since then.
+
+### 2026-11-12 — gmail
+- **Who:** Ankit Sharma (Jira)
+- **Where:** [ENG-89650 Implement feedback summary generation prompt for MCP](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881625966013755501)
+- **Summary:** Ankit @-mentioned Lalit to say the feedback-summary prompt may no longer be needed, given the decision to move such prompts into Agent Runtime and out of the public MCP.
+
+### 2026-11-12 — gmail
+- **Who:** Nellie LeMonier (invite) + Zoom AI summary — Nellie, Lalit, Arnav Garg, Tanveer Farooq, Ajeet Maurya, Anuj Pancholi
+- **Where:** [Invite: Goals MCP Tickets](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881619292918115703) · [Meeting assets: Goals MCP Tickets (Nov 12)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881637698701112019)
+- **Summary:** With Varnika out until Nov 21, Nellie took Goals MCP to Arnav and Tanveer (Early Access Dec 9, GA Jan 12). `create goal` and `update goal` will merge into one tool before Early Access to cut tool count (32 today), and the old tools are deprecated right away. Six beta customers are on test environments, and admin and utility tools will get separate MCP servers. Tanveer owes estimates and due dates for the 3 tickets plus confirmation of delivery by Dec 9/15.

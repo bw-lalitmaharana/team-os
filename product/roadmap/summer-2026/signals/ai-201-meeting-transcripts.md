@@ -1669,3 +1669,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Zoom AI summary — Lalit, Nellie LeMonier
 - **Where:** [Meeting assets: Lalit / Nellie 1:1 (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881487659958468488)
 - **Summary:** Transcript docs done; Mary and Molly emailed CSMs about the manual-upload path and training was updated. Lalit will ask them to pitch it again at the next monthly enablement session. Teams and Google Meet positioning updates are coming.
+
+### 2026-11-12 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [Group DM (Nellie, Tanveer, Sriram, Lalit)](https://betterworks.slack.com/archives/C0CHT48TJRE/p1794450600689299?thread_ts=1794450600.689299&cid=C0CHT48TJRE)
+- **Summary:** Transcript sync was cancelled. Nellie reviewed Lalit's Winter scope Confluence page and asked Tanveer for the target sprint of each remaining feature and any risk to the Dec 9 code freeze (descoping may need a change request). She also asked for a weekly Friday status post in #meeting-transcript-integration.
+
+### 2026-11-12 — slack
+- **Who:** Tanveer Farooq
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1794477398465949)
+- **Summary:** Winter status: Google Meet and Teams POCs are done, and Teams architecture comes first, with a task breakdown and estimates due next week. Recognition is done and Give Feedback is on track. Development goals have not started and might be at risk while Hiten is on leave this week.
