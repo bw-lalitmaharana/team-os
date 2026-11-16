@@ -771,3 +771,18 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Nellie LeMonier (invite) + Zoom AI summary — Nellie, Lalit, Arnav Garg, Tanveer Farooq, Ajeet Maurya, Anuj Pancholi
 - **Where:** [Invite: Goals MCP Tickets](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881619292918115703) · [Meeting assets: Goals MCP Tickets (Nov 12)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881637698701112019)
 - **Summary:** With Varnika out until Nov 21, Nellie took Goals MCP to Arnav and Tanveer (Early Access Dec 9, GA Jan 12). `create goal` and `update goal` will merge into one tool before Early Access to cut tool count (32 today), and the old tools are deprecated right away. Six beta customers are on test environments, and admin and utility tools will get separate MCP servers. Tanveer owes estimates and due dates for the 3 tickets plus confirmation of delivery by Dec 9/15.
+
+### 2026-11-16 — slack
+- **Who:** Ankit Sharma
+- **Where:** [DM with Lalit](https://betterworks.slack.com/archives/D0B34TJAHT5/p1794816995103249)
+- **Summary:** Ankit asked Lalit to confirm that deleting recognitions will not be allowed through the MCP. This is still open, and Lalit needs to answer.
+
+### 2026-11-16 — gmail
+- **Who:** Ankit Sharma (Jira)
+- **Where:** [ENG-89996 MCP | Recognition | recognition_manage_recognition](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882003151842693351)
+- **Summary:** Ankit pointed out that the ticket expects hashtag support, but no current tool lists the org's hashtags. He proposed a new `recognition_list_hashtags` tool and tagged Lalit, Neeraj and Nellie. Separately, he moved ENG-89996 from Draft to Ready for Refinement.
+
+### 2026-11-16 — slack
+- **Who:** Aha → Zapier bot
+- **Where:** [#aha-updates](https://betterworks.slack.com/archives/C0BKR5AM9R7/p1794835003016399)
+- **Summary:** The Production Date for CFRM-429 (Conversations: MCP Tools & Prompts, a customer-shared feature) was set to 2026-12-02.

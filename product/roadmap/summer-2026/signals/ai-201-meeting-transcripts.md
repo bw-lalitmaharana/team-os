@@ -1679,3 +1679,13 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tanveer Farooq
 - **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1794477398465949)
 - **Summary:** Winter status: Google Meet and Teams POCs are done, and Teams architecture comes first, with a task breakdown and estimates due next week. Recognition is done and Give Feedback is on track. Development goals have not started and might be at risk while Hiten is on leave this week.
+
+### 2026-11-16 — slack
+- **Who:** Anuj Pancholi (follow-up from Lalit Maharana)
+- **Where:** [Group DM — JB, Tanveer, Anuj, Lalit, Hiten, Anirudh](https://betterworks.slack.com/archives/C0CHK205LBZ/p1794810334448939)
+- **Summary:** Anuj asked JB who in App Platform owns webhook-gw. The MS Teams provider integration needs architectural changes there. He also asked whether to change the current webhook-gw or wait for the new Bento-based service. Lalit added the topic to today's weekly demo call, for about 10 minutes after the demos.
+
+### 2026-11-16 — gmail
+- **Who:** Hemant Kumar (GitHub)
+- **Where:** [llm-engine PR #695 — feedback/recognition signals as recommendation cards with transcript evidence](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880729878336481537)
+- **Summary:** Hemant pushed a lint fix and merged main into PR #695 (ENG-83324/ENG-83325). Sagar approved it earlier, pending the merge-conflict fixes, so the PR is close to merging.

@@ -606,3 +606,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Hemant Kumar (Jira)
 - **Where:** [ENG-88995 Mixpanel Events for PDP/Adaptive Learning](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880216871748043552)
 - **Summary:** ENG-88995 moved Code Review → Ready For QA, release version v1.3728.0.
+
+### 2026-11-16 — slack
+- **Who:** Rishikesh R
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1794817779244599)
+- **Summary:** embedding-api v0.0.12 is deployed to Rainforest with a new sync_skills step (ENG-90099). It pulls the latest talent skills, translates and registers new ones, and fills in Gemma and OpenAI embeddings for all 8 languages. This is the embedding substrate for skill matching.
