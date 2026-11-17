@@ -786,3 +786,18 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Aha → Zapier bot
 - **Where:** [#aha-updates](https://betterworks.slack.com/archives/C0BKR5AM9R7/p1794835003016399)
 - **Summary:** The Production Date for CFRM-429 (Conversations: MCP Tools & Prompts, a customer-shared feature) was set to 2026-12-02.
+
+### 2026-11-17 — slack
+- **Who:** Cheau-Long Ng
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1794865155960459)
+- **Summary:** Cheau-Long opened PRs to update the analytics LLM tools: data-api#399 and public-api-mcp#212.
+
+### 2026-11-17 — gmail
+- **Who:** Automation for Jira
+- **Where:** [ENG-89357 NextGen Conversation | MCP Tools & Prompts for Conversation](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879865210523196639)
+- **Summary:** ENG-89357's story points rose from 6 to 10, so the Conversations MCP scope grew. The Aha production date for the matching CFRM-429 is 2026-12-02.
+
+### 2026-11-17 — gmail
+- **Who:** Paul Agustin (Jira)
+- **Where:** [ENG-88948 Feedback summary tool for MCP](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501) · [ENG-89996 MCP | Recognition | recognition_manage_recognition](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881579486470092016)
+- **Summary:** In sprint housekeeping, Paul carried ENG-88948 (now in its 4th sprint, 296–299) and ENG-89996 (298→299) over into Sprint 299.

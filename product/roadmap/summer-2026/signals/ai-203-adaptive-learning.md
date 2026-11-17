@@ -611,3 +611,13 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Rishikesh R
 - **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1794817779244599)
 - **Summary:** embedding-api v0.0.12 is deployed to Rainforest with a new sync_skills step (ENG-90099). It pulls the latest talent skills, translates and registers new ones, and fills in Gemma and OpenAI embeddings for all 8 languages. This is the embedding substrate for skill matching.
+
+### 2026-11-17 — slack
+- **Who:** Dori Tucker / BetterBrain / Kate Malcolm
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1794858248749539?thread_ts=1794858248.749539&cid=C033TEH2T)
+- **Summary:** Dori asked whether Udemy will get AI-recommended courses in IDPs. BetterBrain (PKR-000713) and Kate confirmed that NextGen already supports Udemy Business alongside LinkedIn Learning and Docebo: up to five AI recommendations in Browse Courses, which can be added to a Development Goal. Support in Classic is unconfirmed.
+
+### 2026-11-17 — slack
+- **Who:** Rinku Ravi
+- **Where:** [#pod-integrations](https://betterworks.slack.com/archives/C04011PT0NQ/p1794842556717549)
+- **Summary:** The Udemy sandbox is now active and its credentials are in Keeper for Harikrishnan, so the Udemy LMS path can be tested.

@@ -1689,3 +1689,43 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hemant Kumar (GitHub)
 - **Where:** [llm-engine PR #695 — feedback/recognition signals as recommendation cards with transcript evidence](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880729878336481537)
 - **Summary:** Hemant pushed a lint fix and merged main into PR #695 (ENG-83324/ENG-83325). Sagar approved it earlier, pending the merge-conflict fixes, so the PR is close to merging.
+
+### 2026-11-17 — slack
+- **Who:** Lalit Maharana
+- **Where:** [Group DM "temp-MSTeams-Webhook-gw" — JB, Tanveer, Aleksandr, Anuj, Nellie, Lalit, Hiten, Anirudh](https://betterworks.slack.com/archives/C0CHK205LBZ/p1794839825577099)
+- **Summary:** Lalit moved the webhook-gw discussion to a call on 17 Nov. He said the spike was done and that Anirudh had drafted the required changes under ENG-86306 (Native MS Teams transcript retrieval via Graph API).
+
+### 2026-11-17 — slack
+- **Who:** Anirudh Atole
+- **Where:** [Group DM "temp-MSTeams-Webhook-gw"](https://betterworks.slack.com/archives/C0CHK205LBZ/p1794841456846359)
+- **Summary:** Anirudh shared two artifacts. One sets out who should own webhook subscription management, and the other proposes changes to webhook-gw.
+
+### 2026-11-17 — slack
+- **Who:** Aleksandr Riazanov
+- **Where:** [Group DM "temp-MSTeams-Webhook-gw"](https://betterworks.slack.com/archives/C0CHK205LBZ/p1794847759959249)
+- **Summary:** Aleksandr noted that the 13 Oct spike chose short polling for Teams (meetings-api polls Graph via authn-proxy, plus a nightly sweep), so webhook-gw isn't needed. If polling stays, the Bento migration question goes away and the App Platform call may not be needed.
+
+### 2026-11-17 — slack
+- **Who:** Nellie LeMonier
+- **Where:** [Group DM "temp-MSTeams-Webhook-gw"](https://betterworks.slack.com/archives/C0CHK205LBZ/p1794851397882409)
+- **Summary:** Nellie said App Platform is building a Bento-based webhook engine in Spring, led by Alex, and would rather not grow today's webhook-gw for one integration. She asked the team to settle whether Teams uses polling (13 Oct POC) or webhooks (13 Nov doc), whether Google Meet is in Winter scope, and exactly what they need from App Platform and by when.
+
+### 2026-11-17 — slack
+- **Who:** Anuj Pancholi
+- **Where:** [Group DM "temp-MSTeams-Webhook-gw"](https://betterworks.slack.com/archives/C0CHK205LBZ/p1794893857098759)
+- **Summary:** The team prefers webhooks over polling for both MS Teams and Google Meet, because polling means many API calls and edge-case bugs. Anuj listed three open questions for App Platform: (1) change the current webhook-gw now, or wait for the Bento engine and risk being blocked? (2) who owns adding OIDC auth to inbound webhooks? (3) should Teams/Meet subscriptions, which expire, be created and renewed in meetings-api or in the webhook engine?
+
+### 2026-11-17 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#meeting-transcript-integration — Phase 2 feature-flag thread](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1794893703163369?thread_ts=1794840650.116639&cid=C0ACYVAG5A8)
+- **Summary:** In reply to Lalit's request under ENG-83323, Hiten listed the Phase 2 feature flags: give/request feedback suggestions, recognition recommendation, transcript error alerts, calendar relink, meeting list optimization and meetings home. Two Phase 1.5 flags are still off in production: ENG-87562_zoom_connection and ENG-86526_meetings_ai_insights_trigger_updates.
+
+### 2026-11-17 — gmail
+- **Who:** Anirudh Atole (Jira)
+- **Where:** [ENG-88232 SPIKE: Google Meet Transcript Support](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879750875528337277)
+- **Summary:** Anirudh mentioned Lalit on the Google Meet transcript spike and linked a Claude artifact, probably the Meet approach write-up that goes with the webhook-gw discussion.
+
+### 2026-11-17 — gmail
+- **Who:** Paul Agustin (Jira)
+- **Where:** [ENG-88232](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696) · [ENG-89633 Reconciliation of meetings to match available transcripts](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880791610923687514)
+- **Summary:** In sprint housekeeping, Paul carried ENG-88232 (Google Meet spike, now in its 4th sprint, 296–299) and ENG-89633 (transcript reconciliation edge cases) over into Sprint 299.
