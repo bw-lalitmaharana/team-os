@@ -1729,3 +1729,28 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Paul Agustin (Jira)
 - **Where:** [ENG-88232](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1879110609880643696) · [ENG-89633 Reconciliation of meetings to match available transcripts](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880791610923687514)
 - **Summary:** In sprint housekeeping, Paul carried ENG-88232 (Google Meet spike, now in its 4th sprint, 296–299) and ENG-89633 (transcript reconciliation edge cases) over into Sprint 299.
+
+### 2026-11-18 — slack
+- **Who:** Cristina Madrigal (with Holly Wenneson, Nellie LeMonier)
+- **Where:** [#product — DFA transcription opt-out thread](https://betterworks.slack.com/archives/C033TEH2T/p1794929794531329?thread_ts=1794929794.531329&cid=C033TEH2T)
+- **Summary:** DFA calls transcripts high risk: their policy turns transcription off, and stored transcripts become discoverable records. CS asked whether 1:1 transcription can be turned off for one org. Holly said the transcript section shows even without AI 1:1 Insights. Nellie said transcripts only switch on with opt-in, suspects a flag is on by mistake, and asked for a screenshot.
+
+### 2026-11-18 — slack
+- **Who:** Paul Agustin
+- **Where:** [#product — DFA thread follow-up](https://betterworks.slack.com/archives/C033TEH2T/p1794957057353019?thread_ts=1794929794.531329&cid=C033TEH2T)
+- **Summary:** No admin setting exists. Two levers: the ENG-83000_meetings_transcript_manual_upload flag hides the Transcripts tab (UI only; the upload API ignores it), and Zoom transcripts only arrive if the org connects Zoom. Still open: can the flag be set for DFA alone, and what happens to stored transcripts? Paul asked Nellie to confirm. This is a gap in Phase 1 governance controls.
+
+### 2026-11-18 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1794987926103749?thread_ts=1794986360.429829&cid=C0ACYVAG5A8)
+- **Summary:** Hiten commented on the "Create Developmental Goal without Skill" recommendation, because the spike only covered "Define Own Learning Commitment". He needs clarity on how "Choose a Course from Learning Source" should work if it is in scope.
+
+### 2026-11-18 — gmail
+- **Who:** Zoom AI summary (Lalit, Tanveer, Hiten, Anuj, Anirudh, JB, Aleksandr)
+- **Where:** [Meeting assets — MS Teams <> Webhook-gw (17 Nov)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882123043635082323)
+- **Summary:** Decision: as a stopgap, the Teams/Meet subscription handler goes in meetings-api, with only small webhook-gw changes reviewed by Integrations or Danish. Everything moves to App Platform's new webhook engine in Spring. Anuj owns the PRs. Lalit owes a check on whether MS Teams can leave the Winter commit and whether CS/business can accept a delay.
+
+### 2026-11-18 — gmail
+- **Who:** Anirudh Atole (Jira)
+- **Where:** [ENG-86306 Spike: Native MS Teams transcript retrieval via Graph API](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1875946699957757649)
+- **Summary:** Anirudh posted the Teams transcript flow diagram on the spike ticket ahead of the webhook-gw call.

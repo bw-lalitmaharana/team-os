@@ -97,3 +97,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** Kate Malcolm
 - **Where:** #oppty_publicis_upsell — 2026-10-26 21:00 IST
 - **Summary:** First Public API iteration for skills is GET-only (profile skill list / profile skill); full skill-list GET still undecided (now vs. Spring skills-library work); importing approved skills is separate, customer-by-customer work (as done for Synopsys/TechWolf).
+
+### 2026-11-18 — slack
+- **Who:** Aim (Profound competitor bot)
+- **Where:** [#profound-factcheck](https://betterworks.slack.com/archives/C0CJ30KAGBX/p1794938677433959)
+- **Summary:** SAP closed its TechWolf acquisition on 16 Nov. That puts the vendor's independence and roadmap into question for the DP-76 integration and the Synopsys TechWolf ask, so confirm the integration strategy with Nellie and Cheryl.

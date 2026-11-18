@@ -801,3 +801,28 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Paul Agustin (Jira)
 - **Where:** [ENG-88948 Feedback summary tool for MCP](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501) · [ENG-89996 MCP | Recognition | recognition_manage_recognition](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881579486470092016)
 - **Summary:** In sprint housekeeping, Paul carried ENG-88948 (now in its 4th sprint, 296–299) and ENG-89996 (298→299) over into Sprint 299.
+
+### 2026-11-18 — slack
+- **Who:** Paul Agustin
+- **Where:** [#pod-meetings](https://betterworks.slack.com/archives/C035AAZ5P6H/p1794932193060479)
+- **Summary:** Paul asked for code review of the stacked Meetings MCP PRs (epic ENG-89241): 7 meetings-api PRs (#460–#476) plus the public-api-mcp chain. JB and Ryan have already approved the tool design. #471 (meetings_manage_meeting_item, the only write tool) needs the closest look.
+
+### 2026-11-18 — slack
+- **Who:** Ankit Sharma
+- **Where:** [DM with Lalit](https://betterworks.slack.com/archives/D0B34TJAHT5/p1794979571046829)
+- **Summary:** Ankit raised hashtag handling in the recognition_manage_recognition tool (ENG-89996): the chat needs a hashtag list to add hashtags. Lalit chose to add a "List recognition hashtags" tool, despite wanting to limit the tool count, and filed it as ENG-91443.
+
+### 2026-11-18 — slack
+- **Who:** Aditya Maliyan
+- **Where:** [#pod-feedback](https://betterworks.slack.com/archives/C08HR9851PS/p1795002953586929)
+- **Summary:** Aditya asked for review of the Feedback MCP PRs: public-api-mcp #215 and feedback-api #824.
+
+### 2026-11-18 — gmail
+- **Who:** Aaryan Dewan (Jira)
+- **Where:** [ENG-89993 NextGen Feedback | MCP Tools & Prompts for Feedback](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882186934336462049)
+- **Summary:** ENG-89993 moved from Draft to In Progress. ENG-89994 (Recognition MCP tools and prompts) was re-pointed from 2 to 5 story points.
+
+### 2026-11-18 — slack
+- **Who:** Aim (Profound competitor bot)
+- **Where:** [#profound-factcheck](https://betterworks.slack.com/archives/C0CJ30KAGBX/p1794938677433959)
+- **Summary:** Lattice made MCP, Meetings and Auto-Updates free for all customers on 12 Nov and launched "Pace" for AI agents. That puts competitive pressure on how the MCP GA tier and pricing are positioned.
