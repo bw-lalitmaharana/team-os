@@ -1754,3 +1754,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Anirudh Atole (Jira)
 - **Where:** [ENG-86306 Spike: Native MS Teams transcript retrieval via Graph API](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1875946699957757649)
 - **Summary:** Anirudh posted the Teams transcript flow diagram on the spike ticket ahead of the webhook-gw call.
+
+### 2026-11-19 — slack
+- **Who:** Anirudh Atole
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1795074336962629)
+- **Summary:** As agreed on the webhook-gw call, Anirudh shared the flow diagram and a comparison of the short-polling approach for the MS Teams transcript flow.
+
+### 2026-11-19 — gmail
+- **Who:** Rinku Ravi (Jira)
+- **Where:** [ENG-89529 Integration changes for on-demand meeting transcript from Zoom](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882274859979909380)
+- **Summary:** Rinku told Lalit that Danish is busy with Career Path work for the Winter release and may not have time for ENG-89529. The on-demand Zoom transcript integration work needs another owner.
+
+### 2026-11-19 — gmail
+- **Who:** Hemant Kumar / Tejas S (GitHub)
+- **Where:** [llm-engine PR #695 — feedback/recognition signals as recommendation cards with transcript evidence](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880729878336481537)
+- **Summary:** Tejas approved PR #695 (ENG-83324/ENG-83325) and it was merged into main. Feedback and recognition recommendation cards with transcript evidence are now in llm-engine.

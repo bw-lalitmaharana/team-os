@@ -621,3 +621,8 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Rinku Ravi
 - **Where:** [#pod-integrations](https://betterworks.slack.com/archives/C04011PT0NQ/p1794842556717549)
 - **Summary:** The Udemy sandbox is now active and its credentials are in Keeper for Harikrishnan, so the Udemy LMS path can be tested.
+
+### 2026-11-19 — slack
+- **Who:** Harikrishnan S (group DM with Tanveer, Nitish, Hiten, Lalit)
+- **Where:** Group DM — 2026-11-19 14:11 IST
+- **Summary:** Harikrishnan pointed the team to the test org Github_Nextgen21June2026 (33537), which has the LinkedIn Learning LMS enabled, for testing learning recommendations.

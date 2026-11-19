@@ -826,3 +826,28 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Aim (Profound competitor bot)
 - **Where:** [#profound-factcheck](https://betterworks.slack.com/archives/C0CJ30KAGBX/p1794938677433959)
 - **Summary:** Lattice made MCP, Meetings and Auto-Updates free for all customers on 12 Nov and launched "Pace" for AI agents. That puts competitive pressure on how the MCP GA tier and pricing are positioned.
+
+### 2026-11-19 — slack
+- **Who:** Jason Zhang / Jason Bilyeu
+- **Where:** [#pod-ai-chat](https://betterworks.slack.com/archives/C0BEMU079J7/p1795051259642859?thread_ts=1795021205.251509&cid=C0BEMU079J7)
+- **Summary:** Agent-runtime will pass impersonator_id and impersonator_uuid from the signed gateway JWT to public-api-mcp, which passes them to core's /api/llm-tools. JZ flagged an audit risk: core should trust these headers only on impersonation-tagged tokens, or any employee could fake them.
+
+### 2026-11-19 — slack
+- **Who:** Ryan Mulready / Jason Zhang
+- **Where:** [#pod-ai-chat](https://betterworks.slack.com/archives/C0BEMU079J7/p1795041453299199?thread_ts=1794946255.395089&cid=C0BEMU079J7)
+- **Summary:** Ryan objected to agent-runtime copying Haven routes, prompt names and service rules. JZ agreed to use bare {kind, id} references plus MCP resource templates owned by public-api-mcp, and to close PRs #221, #222, #223 and #225. public-api-mcp still needs get-by-id templates for conversation, feedback_request and goal.
+
+### 2026-11-19 — slack
+- **Who:** Kari Yamin (early-access bot)
+- **Where:** [#early-access-requests](https://betterworks.slack.com/archives/C0AS5U6HWBU/p1795029396072599)
+- **Summary:** Kari asked to enable MCP Beta for the Test_Coveo org (ENG-91459), with a production request likely after testing. This is a new early-adopter customer for MCP.
+
+### 2026-11-19 — gmail
+- **Who:** Zoom AI summary (Nellie LeMonier, Tejas S)
+- **Where:** [Meeting assets — AI Platform Product Acceptance](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882255995501668221)
+- **Summary:** Tejas is taking over analytics, MCP and BetterAI chat. Nellie will work with Paul to remove the "submit responses" tool from the MCP GA scope and keep drafting separate from submitting. She will also have Neeraj fix the list-questions tool so it only returns questions the user is allowed to see.
+
+### 2026-11-19 — gmail
+- **Who:** Ankit Sharma / Automation for Jira
+- **Where:** [ENG-91443 MCP | Recognition | recognition_list_hashtags](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882206151225053918)
+- **Summary:** ENG-91443 (list hashtags tool) is now Ready for Refinement and in Sprint 299, and Ankit linked it on ENG-89996. ENG-89357 (Conversations MCP epic) went from 10 to 12 story points.

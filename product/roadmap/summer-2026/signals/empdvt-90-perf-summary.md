@@ -273,3 +273,18 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Zoom AI summary — Nellie LeMonier, Jason Bilyeu, Jason Zhang, Ryan Mulready, Cheau-Long Ng
 - **Where:** [Meeting assets: Cross team sync on AI Chat (Nov 10)](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881499729976073095)
 - **Summary:** JB argued that performance summary and feedback summary should not be public MCP tools and should be agent-runtime sub-agents instead. Nellie will run a separate review to classify each tool as public, internal, or sub-agent.
+
+### 2026-11-19 — slack
+- **Who:** Hemant Kumar
+- **Where:** [#pod-ai-platform](https://betterworks.slack.com/archives/C04N1P7N1PT/p1795058212664249)
+- **Summary:** Hemant asked for reviews of two AI Performance Summary bug PRs. ENG-90744 (feedback from the last day of the period is left out) is llm-engine #753. ENG-90743 (NextGen goals over their numeric target are left out of Key Achievements) is llm-engine #752.
+
+### 2026-11-19 — slack
+- **Who:** Jira bot (Lalit changed status; creator Rachel Scoffield, assignee Nellie)
+- **Where:** [#bot-eng-support-incidents](https://betterworks.slack.com/archives/CAXJ20Y6M/p1795062250916499)
+- **Summary:** ENG-90746, AMC Theatres' date error when regenerating an AI Performance Summary, moved from Unreviewed to Waiting For Response.
+
+### 2026-11-19 — slack
+- **Who:** Zendesk (Grace Cunningham, AMC; Rachel Scoffield)
+- **Where:** [#customerfeedback](https://betterworks.slack.com/archives/C03QDA82H/p1795041132824759?thread_ts=1792072694.027919&cid=C03QDA82H)
+- **Summary:** AMC confirmed that the Performance Summary now includes Conversations data for Super Admins. The ENG-89981 fix is working in production and ticket #43471 is pending closure.
