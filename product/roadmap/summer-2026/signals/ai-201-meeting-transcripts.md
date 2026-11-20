@@ -1769,3 +1769,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hemant Kumar / Tejas S (GitHub)
 - **Where:** [llm-engine PR #695 — feedback/recognition signals as recommendation cards with transcript evidence](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1880729878336481537)
 - **Summary:** Tejas approved PR #695 (ENG-83324/ENG-83325) and it was merged into main. Feedback and recognition recommendation cards with transcript evidence are now in llm-engine.
+
+### 2026-11-20 — gmail
+- **Who:** Zoom AI summary (Lalit, Paul Agustin)
+- **Where:** [Meeting assets — Paul / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882383804339849334)
+- **Summary:** Lalit said the conversation-intelligence recognition and feedback recommendations are in QA and will reach Rainforest soon. Ankit (AI pod) is slated to pick up recaps, but that work has not started.

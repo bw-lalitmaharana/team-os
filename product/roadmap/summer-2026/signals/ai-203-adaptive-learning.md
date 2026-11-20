@@ -626,3 +626,13 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Harikrishnan S (group DM with Tanveer, Nitish, Hiten, Lalit)
 - **Where:** Group DM — 2026-11-19 14:11 IST
 - **Summary:** Harikrishnan pointed the team to the test org Github_Nextgen21June2026 (33537), which has the LinkedIn Learning LMS enabled, for testing learning recommendations.
+
+### 2026-11-20 — slack
+- **Who:** Jason Zhang (group DM with Nellie, Lalit)
+- **Where:** Group DM — 2026-11-20 10:30 IST
+- **Summary:** Jason asked Lalit for the app URLs of the Conversational Intelligence and IDP / Adaptive Learning features (beyond conversations, feedback and goals).
+
+### 2026-11-20 — slack
+- **Who:** Andrea Lagan / Nova Devasia
+- **Where:** #general (2026-11-19 22:28 IST) · #betterworks_india (2026-11-20 09:42 IST)
+- **Summary:** LinkedIn Learning is live internally, and employees can link courses to Development Goal milestones in Champagne. This gives the team a live internal dogfood of the LMS integration.

@@ -851,3 +851,33 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma / Automation for Jira
 - **Where:** [ENG-91443 MCP | Recognition | recognition_list_hashtags](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882206151225053918)
 - **Summary:** ENG-91443 (list hashtags tool) is now Ready for Refinement and in Sprint 299, and Ankit linked it on ENG-89996. ENG-89357 (Conversations MCP epic) went from 10 to 12 story points.
+
+### 2026-11-20 — gmail
+- **Who:** Zoom AI summary (Lalit, Paul Agustin)
+- **Where:** [Meeting assets — Paul / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882383804339849334)
+- **Summary:** Paul has 5 MCP tools (down from 7) and 4 prompts built and is reworking them after review comments from Anuj, JB and Ryan. Lalit owns coordinating with Varnika to merge the create and update goal tools into one "manage goals" tool. Paul will add a "top company goals" label filter to the list-goals tool. Ownership of the recognition tools is still unclear, and coaching memory was flagged as a gap that sets competitors apart.
+
+### 2026-11-20 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #pod-app-platform — 2026-11-19 20:58 IST
+- **Summary:** Nellie assigned ENG-90230 (MCP GA, which merges goals_create_goal and goals_update_goal into goals_manage_goal) to Victor Chen for now and asked App Platform whether they can take it in Sprint 299.
+
+### 2026-11-20 — slack
+- **Who:** Ankit Sharma
+- **Where:** #pod-ai-platform — 2026-11-19 20:16 IST
+- **Summary:** Ankit asked for review of the recognition-api and public-api-mcp PRs (public-api-mcp #214 and others) for ENG-89996 (manage recognition) and ENG-91443 (list hashtags).
+
+### 2026-11-20 — gmail
+- **Who:** Ankit Sharma (Jira)
+- **Where:** [ENG-89996](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881579486470092016) · [ENG-91443](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882206151225053918)
+- **Summary:** ENG-89996 and ENG-91443 both moved from In Progress to Code Review.
+
+### 2026-11-20 — gmail
+- **Who:** Neeraj Mohan (Jira)
+- **Where:** [ENG-88118 MCP | Conversation Prompt | Draft my answers](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881554999192178443)
+- **Summary:** Neeraj @-mentioned Lalit again and asked him to read the comments and close ENG-88118 if it is no longer needed. This follows a 11 Nov ask to mark it as a duplicate.
+
+### 2026-11-20 — slack
+- **Who:** Ryan Mulready / Jason Zhang
+- **Where:** #pod-ai-chat — 2026-11-19 19:28 → 2026-11-20 04:28 IST
+- **Summary:** Ryan and Jason agreed that MCP resource templates should declare the pages that show each record, so BetterAI chat can tell which record is open. Ryan posted POC PRs (haven #7347, public-api-mcp) and is on PTO next week. Jason will open one PR that adds `client_context.page`.

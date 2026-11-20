@@ -288,3 +288,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Zendesk (Grace Cunningham, AMC; Rachel Scoffield)
 - **Where:** [#customerfeedback](https://betterworks.slack.com/archives/C03QDA82H/p1795041132824759?thread_ts=1792072694.027919&cid=C03QDA82H)
 - **Summary:** AMC confirmed that the Performance Summary now includes Conversations data for Super Admins. The ENG-89981 fix is working in production and ticket #43471 is pending closure.
+
+### 2026-11-20 — slack
+- **Who:** Orphan Record Check bot
+- **Where:** #pod-ai-quality — 2026-11-20 09:04 IST
+- **Summary:** The Rainforest dsml orphan check found 2 Performance Summary requests that point to a missing `summary_id`; Feedback Summary and Skill Discovery had none.
