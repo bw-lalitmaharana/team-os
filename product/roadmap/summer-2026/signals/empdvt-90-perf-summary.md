@@ -293,3 +293,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** Orphan Record Check bot
 - **Where:** #pod-ai-quality — 2026-11-20 09:04 IST
 - **Summary:** The Rainforest dsml orphan check found 2 Performance Summary requests that point to a missing `summary_id`; Feedback Summary and Skill Discovery had none.
+
+### 2026-11-23 — slack
+- **Who:** Orphan Record Check bot
+- **Where:** #pod-ai-quality — 2026-11-23 09:07 IST
+- **Summary:** The Rainforest dsml orphan check still shows the same 2 Performance Summary requests pointing to a missing `summary_id` (it also fired on 11-22). This has persisted since 11-20 and nobody has fixed it yet.

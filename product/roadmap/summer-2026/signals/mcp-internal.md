@@ -881,3 +881,23 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ryan Mulready / Jason Zhang
 - **Where:** #pod-ai-chat — 2026-11-19 19:28 → 2026-11-20 04:28 IST
 - **Summary:** Ryan and Jason agreed that MCP resource templates should declare the pages that show each record, so BetterAI chat can tell which record is open. Ryan posted POC PRs (haven #7347, public-api-mcp) and is on PTO next week. Jason will open one PR that adds `client_context.page`.
+
+### 2026-11-23 — slack
+- **Who:** Neeraj Mohan (group DM with Nellie, Lalit)
+- **Where:** Group DM — 2026-11-23 15:19 IST
+- **Summary:** Neeraj asked Lalit and Nellie to move the Conversation and Feedback MCP tickets into their own epics. He has already moved the tickets that sat under MCP Server GA, and wants everything grouped so the team can see what it can take on.
+
+### 2026-11-23 — slack
+- **Who:** JIRA Nudge Bot (Paul Agustin's items)
+- **Where:** #meetings-nudges — 2026-11-23 09:30 IST
+- **Summary:** ENG-89248 (Meetings MCP `meetings_list_meetings`) has been open 8 working days, with 4 PRs still open (meetings-api #461/#462, public-api-mcp #165/#166). ENG-89256 (Meetings MCP Phase 1 tiers and DISABLED_TOOLS) is in progress.
+
+### 2026-11-23 — slack
+- **Who:** Aaryan Dewan
+- **Where:** #pod-feedback — 2026-11-23 11:13 → 13:28 IST
+- **Summary:** A Feedback MCP type mismatch (`string | number` on main) caused Manish's bug. Aaryan asked for the change request to be dismissed so he can merge, and will fix the MCP spec type in his next PR.
+
+### 2026-11-23 — gmail
+- **Who:** Ankit Sharma (Jira)
+- **Where:** [ENG-88948 Implement Feedback summary tool for mcp](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
+- **Summary:** Ankit took Sprint 299 off ENG-88948 (Feedback summary MCP tool). It has now rolled over Sprints 296 → 298 and is not committed to the current sprint.

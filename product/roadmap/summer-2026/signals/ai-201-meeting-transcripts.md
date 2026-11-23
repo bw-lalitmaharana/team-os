@@ -1774,3 +1774,8 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Zoom AI summary (Lalit, Paul Agustin)
 - **Where:** [Meeting assets — Paul / Lalit](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882383804339849334)
 - **Summary:** Lalit said the conversation-intelligence recognition and feedback recommendations are in QA and will reach Rainforest soon. Ankit (AI pod) is slated to pick up recaps, but that work has not started.
+
+### 2026-11-23 — slack
+- **Who:** Hiten Khuman
+- **Where:** #pod-meetings — 2026-11-23 10:41 IST
+- **Summary:** Hiten skipped scrum but said he is still working on the transcript features, with no update on the Meetings side.
