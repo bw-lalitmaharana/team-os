@@ -901,3 +901,23 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma (Jira)
 - **Where:** [ENG-88948 Implement Feedback summary tool for mcp](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1878291673571358501)
 - **Summary:** Ankit took Sprint 299 off ENG-88948 (Feedback summary MCP tool). It has now rolled over Sprints 296 → 298 and is not committed to the current sprint.
+
+### 2026-11-24 — slack
+- **Who:** Victor Chen
+- **Where:** #pod-app-platform — 2026-11-24 02:34 / 06:41 IST
+- **Summary:** Victor opened PRs for Goals MCP GA. ENG-90230 `goals_manage_goal` merges create and update (goals-api #1000, public-api-mcp #225). `goals_manage_comment` merges create and update the same way (goals-api #1001, public-api-mcp #226).
+
+### 2026-11-24 — slack
+- **Who:** Nellie LeMonier
+- **Where:** #pod-app-platform — 2026-11-23 22:35 IST
+- **Summary:** Nellie created ENG-91536 (MCP GA, Goals): `goals_manage_comment` replaces `goals_create_comment`. It covers create and update only this release. Delete is left out because commenters can only delete within 24 hours, and it will be added later if customers ask for it.
+
+### 2026-11-24 — slack
+- **Who:** Zendesk (Rachel Scoffield / Swaroop Kulkarni)
+- **Where:** #customerfeedback — Zendesk #43943 "Betterworks API connection to Claude" — 2026-11-23 20:20 / 22:18 IST
+- **Summary:** A customer wants to pilot connecting Claude to Betterworks. Support sent them the MCP Beta setup guide. This is external demand for MCP before GA.
+
+### 2026-11-24 — slack
+- **Who:** Jason Zhang
+- **Where:** #pod-ai-chat — 2026-11-24 06:04 IST
+- **Summary:** Jason is checking whether internal has the `bw-mcp/mcp` path for the public API MCP server. If it does, he will point agent-runtime (AI Chat) at it.

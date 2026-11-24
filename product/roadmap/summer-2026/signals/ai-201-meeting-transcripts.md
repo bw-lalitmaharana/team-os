@@ -1779,3 +1779,18 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman
 - **Where:** #pod-meetings — 2026-11-23 10:41 IST
 - **Summary:** Hiten skipped scrum but said he is still working on the transcript features, with no update on the Meetings side.
+
+### 2026-11-24 — slack
+- **Who:** Hiten Khuman
+- **Where:** [#meeting-transcript-integration](https://betterworks.slack.com/archives/C0ACYVAG5A8/p1795441989702979) — 2026-11-23 19:23 IST
+- **Summary:** After the call with Pankaj, the team chose short polling for MS Teams transcripts instead of waiting for webhook-gateway changes. The plan polls only recently ended meetings for orgs with Teams enabled, no more often than every 15 minutes. The scheduled job writes to an outbox and emits CDC/EDA events, and workers do the API calls. 1:1s are ingested only if at least one participant consented. Rate-limit capacity for large tenants still needs to be checked. Anirudh starts on the authn-proxy changes first.
+
+### 2026-11-24 — slack
+- **Who:** Anirudh Atole
+- **Where:** [DM with Lalit](https://betterworks.slack.com/archives/D0BSA2Q57TM/p1795500891177069) — 2026-11-24 11:44 IST
+- **Summary:** Anirudh asked Lalit to create two Jira tickets for MS Teams transcripts and was unsure which epic they belong to. Ticket 1 is a new read-only `teams` provider in authn-proxy (admin consent, tenant binding, 404/429 not counted as failures, public route closed). Ticket 2 has meetings-api call it over the internal network as the org system user. Ticket 1 can ship first.
+
+### 2026-11-24 — gmail
+- **Who:** Automation for Jira
+- **Where:** [ENG-83323 AI Signal Extraction Phase 2](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1874127273055688357)
+- **Summary:** ENG-83323 (Phase 2 epic) story points rose from 55 to 57. That makes three increases since 6 Nov (51 → 53 → 55 → 57), so scope is still growing.
