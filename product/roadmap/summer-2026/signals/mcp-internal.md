@@ -921,3 +921,18 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Jason Zhang
 - **Where:** #pod-ai-chat — 2026-11-24 06:04 IST
 - **Summary:** Jason is checking whether internal has the `bw-mcp/mcp` path for the public API MCP server. If it does, he will point agent-runtime (AI Chat) at it.
+
+### 2026-11-25 — slack
+- **Who:** Nellie LeMonier (approval)
+- **Where:** #early-access-requests — 2026-11-25 03:40 IST
+- **Summary:** Nellie approved ENG-91459, an MCP Beta access request for Test_Coveo. MCP Beta demand keeps coming in before GA.
+
+### 2026-11-25 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** #meetings-nudges — 2026-11-25 09:30 IST
+- **Summary:** Meetings MCP Phase 1 is moving: ENG-89256 (tiers / per-environment DISABLED_TOOLS) is In Progress, and ENG-89261 `meetings_list_action_items` is in Code Review (meetings-api #474 and public-api-mcp #208 are drafts, #198 is merged). Paul Agustin owns both. 24 Meetings items need attention.
+
+### 2026-11-25 — slack
+- **Who:** Aim (Profound competitive bot)
+- **Where:** #profound-factcheck — 2026-11-24 23:34 IST
+- **Summary:** Competitive: Leapsome is promoting AI agents plus MCP on one platform (blog dated 23 Nov), and 15Five released "15Five Agents" (18 Nov). Competitors are already marketing MCP while ours is still in Beta.

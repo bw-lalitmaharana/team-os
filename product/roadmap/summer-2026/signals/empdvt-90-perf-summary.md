@@ -308,3 +308,8 @@ Bhavesh clarified the over-word-limit ticket doesn't need retries — instead pr
 - **Who:** n8n-e2e-notifier
 - **Where:** #nextgen-haven-tests — 2026-11-24 18:30 IST
 - **Summary:** Haven E2E tests failed on the commit "fix(e2e): make AI Performance Summary tab locators flag-agnostic (#7410)". The Analytics, Conversation and Feedback pods were tagged to investigate.
+
+### 2026-11-25 — slack
+- **Who:** Orphan Record Check bot
+- **Where:** #pod-ai-quality — 2026-11-25 09:06 IST
+- **Summary:** The Rainforest dsml orphan check still shows 2 Performance Summary requests pointing to a missing `summary_id` (sample `fe5ec83d-…`). This is the sixth day in a row since 11-20, and it is still not fixed.

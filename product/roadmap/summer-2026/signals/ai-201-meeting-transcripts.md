@@ -1794,3 +1794,23 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Automation for Jira
 - **Where:** [ENG-83323 AI Signal Extraction Phase 2](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1874127273055688357)
 - **Summary:** ENG-83323 (Phase 2 epic) story points rose from 55 to 57. That makes three increases since 6 Nov (51 → 53 → 55 → 57), so scope is still growing.
+
+### 2026-11-25 — slack
+- **Who:** Cristina Madrigal, Holly Wenneson, Nellie LeMonier
+- **Where:** [#product](https://betterworks.slack.com/archives/C033TEH2T/p1795537725167789?thread_ts=1794929794.531329&cid=C033TEH2T) — 2026-11-24 20:48–22:44 IST
+- **Summary:** Dairy Farmers of America (DFA) asked to remove the 1:1 Transcripts tab. Nellie said it is controlled by the `ENG-83000_meetings_transcript_manual_upload` flag and asked whether it should be opt-in or opt-out. CS asked to turn it off for both DFA NextGen orgs (1587, 500001523). Holly noted the tab also shows in production for Medical Solutions even with AI Meeting Insights off. The open question is still whether the default should be opt-in or opt-out.
+
+### 2026-11-25 — gmail
+- **Who:** Tanveer Farooq (via Jira)
+- **Where:** [ENG-91600](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882813575216937660) / [ENG-91601](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882813552846277787)
+- **Summary:** The two MS Teams transcript tickets Anirudh asked for now exist and are in Sprint 299: ENG-91600 adds a Teams provider to authn-proxy, and ENG-91601 has meetings-api call it. This clears yesterday's blocker.
+
+### 2026-11-25 — gmail
+- **Who:** Automation for Jira
+- **Where:** [ENG-83323 AI Signal Extraction Phase 2](https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1874127273055688357)
+- **Summary:** ENG-83323 story points rose again from 57 to 59. That is the fourth increase since 6 Nov (51 → 53 → 55 → 57 → 59), so scope is still growing.
+
+### 2026-11-25 — gmail
+- **Who:** Tanveer Farooq
+- **Where:** Calendar update — "Demo | Meeting Transcript"
+- **Summary:** The biweekly Meeting Transcript demo series moved from 19:30 to 20:30–21:00 IST on Wednesdays. The old series ended on 24 Nov.
