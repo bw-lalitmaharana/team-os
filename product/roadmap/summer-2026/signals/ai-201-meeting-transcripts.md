@@ -1814,3 +1814,28 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Tanveer Farooq
 - **Where:** Calendar update — "Demo | Meeting Transcript"
 - **Summary:** The biweekly Meeting Transcript demo series moved from 19:30 to 20:30–21:00 IST on Wednesdays. The old series ended on 24 Nov.
+
+### 2026-11-26 — slack
+- **Who:** Lalit Maharana
+- **Where:** https://betterworks.slack.com/archives/C0B3H64PJ93/p1795664989735509
+- **Summary:** Lalit sent Jason Zhang the Conversational Intelligence app URLs: the meetings list, archived meetings, a series page with prep/transcript/recap, and admin meeting settings. This closes the overdue "send Jay-Z the app URLs" item.
+
+### 2026-11-26 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** https://betterworks.slack.com/archives/C0CB72D60Q2/p1795665625844569
+- **Summary:** ENG-88232, the Google Meet transcript spike (Anirudh), is still in Product Acceptance at 20 working days. ENG-90334, the Give Feedback recommendation cards (Hiten), is Ready for QA at 4 working days. ENG-86356, the auto-triggering inference spike, is still On Hold.
+
+### 2026-11-26 — gmail
+- **Who:** Anirudh Atole (via Jira)
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882813575216937660
+- **Summary:** ENG-91600, the Teams provider in authn-proxy, was estimated at 3 story points on 25 Nov (09:46 PT).
+
+### 2026-11-26 — gmail
+- **Who:** Automation for Jira
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1874127273055688357
+- **Summary:** The Phase 2 epic ENG-83323 got another automation update right after ENG-91600 was pointed, on 25 Nov at 09:46 PT. The new value isn't visible, but the epic's points have likely risen again from 59.
+
+### 2026-11-26 — gmail
+- **Who:** Hiten Khuman (via Jira)
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882831538402776251
+- **Summary:** ENG-91493 (FE: Meetings AI Recommendations, add skill and create Development Goal) was assigned to Hiten, added to Sprint 299 with a feature flag, and moved from Ready for Development to In Progress.

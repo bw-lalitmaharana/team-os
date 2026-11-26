@@ -936,3 +936,23 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Aim (Profound competitive bot)
 - **Where:** #profound-factcheck — 2026-11-24 23:34 IST
 - **Summary:** Competitive: Leapsome is promoting AI agents plus MCP on one platform (blog dated 23 Nov), and 15Five released "15Five Agents" (18 Nov). Competitors are already marketing MCP while ours is still in Beta.
+
+### 2026-11-26 — slack
+- **Who:** Jason Bilyeu
+- **Where:** https://betterworks.slack.com/archives/C0BEMU079J7/p1795625994871169?thread_ts=1795480459.663669&cid=C0BEMU079J7
+- **Summary:** The latest MCP isn't deployed yet and goes to all pre-production environments next week. This answers Jason Zhang's 11-24 question about the bw-mcp/mcp path.
+
+### 2026-11-26 — slack
+- **Who:** Ankit Sharma
+- **Where:** https://betterworks.slack.com/archives/C0AN2EVSU3S/p1795672308684079
+- **Summary:** Ankit shared Anthropic's announcement that Skills over MCP is in public beta in Claude and that MCP Tasks is now GA.
+
+### 2026-11-26 — slack
+- **Who:** Devon Carter (CS)
+- **Where:** https://betterworks.slack.com/archives/C029H8PT6CB/p1795642274341719
+- **Summary:** Klaviyo ($168K ARR, renews 30 Apr 2027) is very likely not renewing because it is building an internal agentic AI layer, with a launch on Dec 7 and a regroup on Dec 9. CS wants to know whether Betterworks' AI/MCP connectivity could support Klaviyo's headless approach.
+
+### 2026-11-26 — gmail
+- **Who:** Ankit Sharma (via Jira)
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881579486470092016 · https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882206151225053918
+- **Summary:** ENG-89996 (`recognition_manage_recognition`) and ENG-91443 (`recognition_list_hashtags`) in Sprint 299 moved back from Code Review to In Progress.

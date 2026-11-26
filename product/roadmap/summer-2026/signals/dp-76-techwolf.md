@@ -102,3 +102,8 @@ Nellie asked Lalit to (1) check with the integrations team (Danish) that the glo
 - **Who:** Aim (Profound competitor bot)
 - **Where:** [#profound-factcheck](https://betterworks.slack.com/archives/C0CJ30KAGBX/p1794938677433959)
 - **Summary:** SAP closed its TechWolf acquisition on 16 Nov. That puts the vendor's independence and roadmap into question for the DP-76 integration and the Synopsys TechWolf ask, so confirm the integration strategy with Nellie and Cheryl.
+
+### 2026-11-26 — slack
+- **Who:** Aim (Profound competitive bot)
+- **Where:** https://betterworks.slack.com/archives/C0CJ30KAGBX/p1795629874090759
+- **Summary:** For the prompt "tools that infer skills from real work", our skills-intelligence page got only 5 citations while techwolf.ai and prismforce.com lead. TechWolf is a direct competitor in skills inference.

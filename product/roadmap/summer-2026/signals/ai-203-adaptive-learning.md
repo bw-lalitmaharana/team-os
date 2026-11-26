@@ -636,3 +636,13 @@ Team aligned on keeping PDP goals editable with changeable ownership, and decide
 - **Who:** Andrea Lagan / Nova Devasia
 - **Where:** #general (2026-11-19 22:28 IST) · #betterworks_india (2026-11-20 09:42 IST)
 - **Summary:** LinkedIn Learning is live internally, and employees can link courses to Development Goal milestones in Champagne. This gives the team a live internal dogfood of the LMS integration.
+
+### 2026-11-26 — slack
+- **Who:** Lalit Maharana
+- **Where:** https://betterworks.slack.com/archives/C0B3H64PJ93/p1795664989735509
+- **Summary:** Lalit gave Jason Zhang the app URLs. IDP/Adaptive Learning has no page of its own and lives on the Profile: the development goals section (`app/#/profile/me`), the Skill Development panel with "Suggested by AI" and "Create development goal for this skill", and the admin page `app/#/useradmin/talent/development`.
+
+### 2026-11-26 — slack
+- **Who:** Harikrishnan S
+- **Where:** https://betterworks.slack.com/archives/C0BF3S95Y04/p1795686992596309?thread_ts=1795602017.608219&cid=C0BF3S95Y04
+- **Summary:** Across 40 demo jobs, curated job skills were 91% accurate and Danish's AI-enriched skills were 69%. The AI version missed a named core skill in 38 of 40 jobs and produced 24 clearly wrong skills and 57 duplicates. The recommendation is to use curated skills for the demo catalog.
