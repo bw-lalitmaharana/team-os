@@ -1839,3 +1839,23 @@ Hiten and Lalit walked Mary, Nellie, Harshini, Tejas, and Sagar through the AI m
 - **Who:** Hiten Khuman (via Jira)
 - **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882831538402776251
 - **Summary:** ENG-91493 (FE: Meetings AI Recommendations, add skill and create Development Goal) was assigned to Hiten, added to Sprint 299 with a feature flag, and moved from Ready for Development to In Progress.
+
+### 2026-11-27 — slack
+- **Who:** Anirudh Atole
+- **Where:** https://betterworks.slack.com/archives/C04011PT0NQ/p1795783705504769
+- **Summary:** Anirudh asked #pod-integrations for reviewers on authn-proxy PR #135, the Microsoft Teams transcript provider (ENG-91600).
+
+### 2026-11-27 — gmail
+- **Who:** Anirudh Atole (via Jira)
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882813575216937660
+- **Summary:** ENG-91600 (Teams transcript provider in authn-proxy) moved from In Progress to Code Review at 05:06 PT on 27 Nov.
+
+### 2026-11-27 — gmail
+- **Who:** Hemant Kumar (via Jira)
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882981233480618986
+- **Summary:** ENG-86326 (extract developmental signals from meeting transcripts) was carried into Sprint 299 and moved from Ready for Development to In Progress.
+
+### 2026-11-27 — gmail
+- **Who:** Automation for Jira
+- **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1874127273055688357
+- **Summary:** The Phase 2 epic ENG-83323 (Conversation Intelligence expansion) grew from 62 to 67 story points. Scope keeps rising (it was 59 on 25 Nov).

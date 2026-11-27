@@ -956,3 +956,8 @@ Nellie is researching MCP tool/framework design best practices (context engineer
 - **Who:** Ankit Sharma (via Jira)
 - **Where:** https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1881579486470092016 · https://mail.google.com/mail/?authuser=lalit.maharana@betterworks.com#all/thread-f:1882206151225053918
 - **Summary:** ENG-89996 (`recognition_manage_recognition`) and ENG-91443 (`recognition_list_hashtags`) in Sprint 299 moved back from Code Review to In Progress.
+
+### 2026-11-27 — slack
+- **Who:** JIRA Nudge Bot
+- **Where:** https://betterworks.slack.com/archives/C0CB72D60Q2/p1795752050408839
+- **Summary:** Meetings MCP is still stuck in review: ENG-89256 (tiers / DISABLED_TOOLS) is In Progress, and 13 items are in Code Review, almost all Paul Agustin's. These include ENG-89257 (AI provenance logging), ENG-91094 `meetings_get_meeting`, ENG-89248 `meetings_list_meetings`, ENG-90011 (OpenAPI 3 spec) and the Phase 1/2 prompts, most of them waiting 12 working days. Meetings items needing attention rose from 24 to 26.
